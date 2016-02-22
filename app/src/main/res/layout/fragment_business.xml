@@ -18,45 +18,47 @@
                 layout="@layout/business_top_view" />
 
             <RelativeLayout
+                android:id="@+id/business_middle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/business_middle"
                 android:layout_below="@+id/home_top_view"
                 android:gravity="center_horizontal"
                 android:padding="10dp">
 
                 <com.zxinsight.MWImageView
                     android:id="@+id/business_img_1"
-                    android:layout_width="165dp"
-                    android:layout_height="230dp"
+                    android:layout_width="160dp"
+                    android:layout_height="225dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/business_middle001"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/business_middle001" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/business_img_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_alignBottom="@id/business_img_1"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@id/business_img_1"
+                    android:layout_toRightOf="@id/business_img_1"
                     android:orientation="vertical">
+
                     <com.zxinsight.MWImageView
                         android:id="@+id/business_img_2"
-                        android:layout_width="190dp"
-                        android:layout_height="110dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@drawable/business_middle002" />
 
                     <com.zxinsight.MWImageView
                         android:id="@+id/business_img_3"
-                        android:layout_width="190dp"
-                        android:layout_height="110dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/business_middle003"
-                        android:scaleType="fitXY" />
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/business_middle003" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -64,10 +66,10 @@
 
             <com.magicwindow.deeplink.ui.ListViewForScrollView
                 android:id="@+id/business_list"
+                style="@style/listView"
                 android:layout_below="@id/business_middle"
                 android:divider="@color/translucent"
-                android:dividerHeight="10dp"
-                style="@style/listView" />
+                android:dividerHeight="10dp" />
         </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>

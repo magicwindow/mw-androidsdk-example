@@ -3,9 +3,7 @@ package com.magicwindow.deeplink.citySelect;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,8 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
@@ -29,14 +25,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
+import com.zxinsight.MarketingHelper;
+import com.zxinsight.TrackAgent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,31 +38,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
+//import com.baidu.location.BDLocation;
+//import com.baidu.location.BDLocationListener;
+//import com.baidu.location.LocationClient;
+//import com.baidu.location.LocationClientOption;
+
 public class CitiesActivity extends BaseAppCompatActivity {
+    /**
+     * a-z排序
+     */
+    @SuppressWarnings("rawtypes")
+    Comparator comparator = new Comparator<City>() {
+        @Override
+        public int compare(City lhs, City rhs) {
+            String a = lhs.getPinyi().substring(0, 1);
+            String b = rhs.getPinyi().substring(0, 1);
+            int flag = a.compareTo(b);
+            if (flag == 0) {
+                return a.compareTo(b);
+            } else {
+                return flag;
+            }
+        }
+    };
     private BaseAdapter adapter;
     private ResultListAdapter resultListAdapter;
     private ListView personList;
     private ListView resultList;
-//    private TextView overlay; // 对话框首字母textview
+    //    private TextView overlay; // 对话框首字母textview
     private MyLetterListView letterListView; // A-Z listview
     private HashMap<String, Integer> alphaIndexer;// 存放存在的汉语拼音首字母和与之对应的列表位置
-//    private Handler handler;
+    //    private Handler handler;
 //    private OverlayThread overlayThread; // 显示首字母对话框
     private ArrayList<City> allCity_lists; // 所有城市列表
     private ArrayList<City> city_hot;
     private ArrayList<City> city_result;
     private ArrayList<String> city_history;
     private TextView tv_noresult;
-
-    private LocationClient mLocationClient;
-
+    //    private LocationClient mLocationClient;
     private String currentCity; // 用于保存定位到的城市
     private int locateProcess = 1; // 记录当前定位的状态 正在定位-定位成功-定位失败
     private boolean isNeedFresh;
-
     private DatabaseHelper helper;
     private String text;
     private Toast t;
+    private boolean mReady;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -152,7 +164,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
                 if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
 
                     if (mReady) {
-                        Log.e("aaron","text = "+text);
+                        Log.e("aaron", "text = " + text);
 
                         showToast(text);
 //                        handler.removeCallbacks(overlayThread);
@@ -207,13 +219,12 @@ public class CitiesActivity extends BaseAppCompatActivity {
         hisCityInit();
         setAdapter(allCity_lists, city_hot, city_history);
 
-        mLocationClient = new LocationClient(this.getApplicationContext());
-        MyLocationListener mMyLocationListener = new MyLocationListener();
-        mLocationClient.registerLocationListener(mMyLocationListener);
-        InitLocation();
-        mLocationClient.start();
+//        mLocationClient = new LocationClient(this.getApplicationContext());
+//        MyLocationListener mMyLocationListener = new MyLocationListener();
+//        mLocationClient.registerLocationListener(mMyLocationListener);
+//        InitLocation();
+//        mLocationClient.start();
     }
-
 
     private void initToolBar() {
 
@@ -243,7 +254,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
         db.close();
     }
 
-    private void InitLocation() {
+    /*private void InitLocation() {
         // 设置定位参数
         LocationClientOption option = new LocationClientOption();
         option.setCoorType("bd09ll"); // 设置坐标类型
@@ -262,7 +273,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
         // 当gps可用，而且获取了定位结果时，不再发起网络请求，直接返回给用户坐标。这个选项适合希望得到准确坐标位置的用户。如果gps不可用，再发起网络请求，进行定位。
         option.setPriority(LocationClientOption.GpsFirst);
         mLocationClient.setLocOption(option);
-    }
+    }*/
 
     private void cityInit() {
         City city = new City("定位", "0"); // 当前定位城市
@@ -363,34 +374,74 @@ public class CitiesActivity extends BaseAppCompatActivity {
         Collections.sort(city_result, comparator);
     }
 
-    /**
-     * a-z排序
-     */
-    @SuppressWarnings("rawtypes")
-    Comparator comparator = new Comparator<City>() {
-        @Override
-        public int compare(City lhs, City rhs) {
-            String a = lhs.getPinyi().substring(0, 1);
-            String b = rhs.getPinyi().substring(0, 1);
-            int flag = a.compareTo(b);
-            if (flag == 0) {
-                return a.compareTo(b);
-            } else {
-                return flag;
-            }
-        }
-    };
-
     private void setAdapter(List<City> list, List<City> hotList,
                             List<String> hisCity) {
         adapter = new ListAdapter(this, list, hotList, hisCity);
         personList.setAdapter(adapter);
     }
 
+    @Override
+    protected void onStop() {
+//        mLocationClient.stop();
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        if (windowManager != null){
+//            windowManager.removeView(overlay);
+//        }
+    }
+
+    private void showToast(String toast) {
+        mReady = true;
+
+        if (t == null) {
+            t = new Toast(this);
+
+        }
+        TextView overlay = (TextView) LayoutInflater.from(this).inflate(R.layout.city_overlay, null);
+//            tv = (VolumnView) layout.findViewById(R.id.volumnView);
+        overlay.setText(toast);
+        t.setView(overlay);
+        t.setGravity(Gravity.BOTTOM, 0, 100);
+
+        t.setDuration(Toast.LENGTH_SHORT);
+//        tv.setProgress(progress);
+        t.show();
+    }
+
+    // 获得汉语拼音首字母
+    private String getAlpha(String str) {
+        if (str == null) {
+            return "#";
+        }
+        if (str.trim().length() == 0) {
+            return "#";
+        }
+        char c = str.trim().substring(0, 1).charAt(0);
+        // 正则表达式，判断首字母是否是英文字母
+        Pattern pattern = Pattern.compile("^[A-Za-z]+$");
+        if (pattern.matcher(c + "").matches()) {
+            return (c + "").toUpperCase();
+        } else if (str.equals("0")) {
+            return "定位";
+        } else if (str.equals("1")) {
+            return "最近";
+        } else if (str.equals("2")) {
+            return "热门";
+        } else if (str.equals("3")) {
+            return "全部";
+        } else {
+            return "#";
+        }
+    }
+
     /**
      * 实现实位回调监听
      */
-    public class MyLocationListener implements BDLocationListener {
+    /*public class MyLocationListener implements BDLocationListener {
 
         @Override
         public void onReceiveLocation(BDLocation arg0) {
@@ -416,7 +467,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
         public void onReceivePoi(BDLocation arg0) {
 
         }
-    }
+    }*/
 
     private class ResultListAdapter extends BaseAdapter {
         private LayoutInflater inflater;
@@ -464,12 +515,13 @@ public class CitiesActivity extends BaseAppCompatActivity {
     }
 
     public class ListAdapter extends BaseAdapter {
+        final int VIEW_TYPE = 5;
+        ViewHolder holder;
         private Context context;
         private LayoutInflater inflater;
         private List<City> list;
         private List<City> hotList;
         private List<String> hisCity;
-        final int VIEW_TYPE = 5;
 
         public ListAdapter(Context context, List<City> list,
                            List<City> hotList, List<String> hisCity) {
@@ -519,8 +571,6 @@ public class CitiesActivity extends BaseAppCompatActivity {
             return position;
         }
 
-        ViewHolder holder;
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             final TextView city;
@@ -542,11 +592,11 @@ public class CitiesActivity extends BaseAppCompatActivity {
                             locateProcess = 1;
                             personList.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
-                            mLocationClient.stop();
+//                            mLocationClient.stop();
                             isNeedFresh = true;
-                            InitLocation();
+//                            InitLocation();
                             currentCity = "";
-                            mLocationClient.start();
+//                            mLocationClient.start();
                         }
                     }
                 });
@@ -560,7 +610,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
                     locateHint.setText("当前定位城市");
                     city.setVisibility(View.VISIBLE);
                     city.setText(currentCity);
-                    mLocationClient.stop();
+//                    mLocationClient.stop();
                     pbLocate.setVisibility(View.GONE);
                 } else if (locateProcess == 3) {
                     locateHint.setText("未定位到城市,请选择");
@@ -583,7 +633,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 city_history.get(position), Toast.LENGTH_SHORT)
                                 .show();
-
+                        onBackPressed();
                     }
                 });
                 TextView recentHint = (TextView) convertView
@@ -605,6 +655,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
 
                         TrackAgent.currentEvent().setCityCode(city_hot.get(position).getPostcode());
                         MarketingHelper.currentMarketing(mContext).updateMarketing();
+                        onBackPressed();
                     }
                 });
                 hotCity.setAdapter(new HotCityAdapter(context, this.hotList));
@@ -647,19 +698,22 @@ public class CitiesActivity extends BaseAppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        mLocationClient.stop();
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-//        if (windowManager != null){
-//            windowManager.removeView(overlay);
-//        }
-    }
+    // 初始化汉语拼音首字母弹出提示框
+   /* private void initOverlay() {
+        mReady = true;
+        LayoutInflater inflater = LayoutInflater.from(this);
+        overlay = (TextView) inflater.inflate(R.layout.city_overlay, null);
+        overlay.setVisibility(View.INVISIBLE);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
+                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                PixelFormat.TRANSLUCENT);
+         windowManager = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        windowManager.addView(overlay, lp);
+    }*/
 
     class HotCityAdapter extends BaseAdapter {
         private Context context;
@@ -731,42 +785,13 @@ public class CitiesActivity extends BaseAppCompatActivity {
         }
     }
 
-    private boolean mReady;
-
-    // 初始化汉语拼音首字母弹出提示框
-   /* private void initOverlay() {
-        mReady = true;
-        LayoutInflater inflater = LayoutInflater.from(this);
-        overlay = (TextView) inflater.inflate(R.layout.city_overlay, null);
-        overlay.setVisibility(View.INVISIBLE);
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_APPLICATION,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                PixelFormat.TRANSLUCENT);
-         windowManager = (WindowManager) this
-                .getSystemService(Context.WINDOW_SERVICE);
-        windowManager.addView(overlay, lp);
-    }*/
-
-    private void showToast(String toast){
-        mReady = true;
-
-        if (t == null) {
-             t = new Toast(this);
-
-        }
-        TextView overlay = (TextView) LayoutInflater.from(this).inflate(R.layout.city_overlay, null);
-//            tv = (VolumnView) layout.findViewById(R.id.volumnView);
-        overlay.setText(toast);
-        t.setView(overlay);
-        t.setGravity(Gravity.BOTTOM, 0, 100);
-
-        t.setDuration(Toast.LENGTH_SHORT);
-//        tv.setProgress(progress);
-        t.show();
-    }
+//    // 设置overlay不可见
+//    private class OverlayThread implements Runnable {
+//        @Override
+//        public void run() {
+//            overlay.setVisibility(View.GONE);
+//        }
+//    }
 
     private class LetterListViewListener implements
             MyLetterListView.OnTouchingLetterChangedListener {
@@ -776,7 +801,7 @@ public class CitiesActivity extends BaseAppCompatActivity {
             if (alphaIndexer.get(s) != null) {
                 int position = alphaIndexer.get(s);
                 personList.setSelection(position);
-                Log.e("aaron","s = "+s);
+                Log.e("aaron", "s = " + s);
                 showToast(s);
 //                overlay.setText(s);
 //                overlay.setVisibility(View.VISIBLE);
@@ -784,40 +809,6 @@ public class CitiesActivity extends BaseAppCompatActivity {
 //                // 延迟一秒后执行，让overlay为不可见
 //                handler.postDelayed(overlayThread, 1000);
             }
-        }
-    }
-
-//    // 设置overlay不可见
-//    private class OverlayThread implements Runnable {
-//        @Override
-//        public void run() {
-//            overlay.setVisibility(View.GONE);
-//        }
-//    }
-
-    // 获得汉语拼音首字母
-    private String getAlpha(String str) {
-        if (str == null) {
-            return "#";
-        }
-        if (str.trim().length() == 0) {
-            return "#";
-        }
-        char c = str.trim().substring(0, 1).charAt(0);
-        // 正则表达式，判断首字母是否是英文字母
-        Pattern pattern = Pattern.compile("^[A-Za-z]+$");
-        if (pattern.matcher(c + "").matches()) {
-            return (c + "").toUpperCase();
-        } else if (str.equals("0")) {
-            return "定位";
-        } else if (str.equals("1")) {
-            return "最近";
-        } else if (str.equals("2")) {
-            return "热门";
-        } else if (str.equals("3")) {
-            return "全部";
-        } else {
-            return "#";
         }
     }
 
