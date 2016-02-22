@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/login_edit_color_pressed" android:state_selected="true" >
+        <shape>
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@color/login_edit_color_normal" android:state_window_focused="false">
+        <shape>
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+</selector>

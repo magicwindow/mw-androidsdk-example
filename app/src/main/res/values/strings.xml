@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">MagicShow</string>
+    <string name="action_settings">Settings</string>
+    <string name="network_error">网络有问题</string>
+    <string name="finish_by_back_again">再按一次退出程序</string>
+
+    <string name="exit">退出</string>
+    <string name="retry">重试</string>
+    <string name="back">返回</string>
+    <string name="send">发送</string>
+    <string name="send_with_blank">发 送</string>
+    <string name="save">保存</string>
+    <string name="save_with_blank">保 存</string>
+    <string name="cancel">取消</string>
+    <string name="cancel_with_blank">取 消</string>
+    <string name="confirm">确认</string>
+    <string name="confirm_with_blank">确 认</string>
+    <string name="delete">删除</string>
+    <string name="delete_with_blank">删 除</string>
+    <string name="publish">发布</string>
+    <string name="publish_with_blank">发 布</string>
+    <string name="title_name">标题</string>
+    <string name="please_input_email_and_tel">请输入邮箱/电话号码</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="forget_the_password">忘记密码？</string>
+    <string name="register">注册</string>
+    <string name="register_with_blank">注 册</string>
+    <string name="login">登陆</string>
+    <string name="login_with_blank">登 陆</string>
+    <string name="logout">注销</string>
+    <string name="logout_with_blank">注 销</string>
+    <string name="settings">设置</string>
+    <string name="settings_with_blank">设 置</string>
+    <string name="auth">验证</string>
+    <string name="telephone_no">11位手机号</string>
+    <string name="telephone_auth_code">手机验证码</string>
+    <string name="six_more_password">6–32位密码</string>
+    <string name="input_password_again">再次确认密码</string>
+    <string name="user_management">用户管理</string>
+    <string name="account_management">帐号</string>
+    <string name="my_storybook">我的故事书</string>
+    <string name="my_scene">我的场景</string>
+    <string name="scene_statistics">场景统计</string>
+    <string name="hot_scene">热门场景</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="menu_text_01">旅游(mLink演示)</string>
+    <string name="menu_text_02">O2O</string>
+    <string name="menu_text_03">图库</string>
+    <string name="menu_text_04">电商(活动演示)</string>
+    <string name="menu_text_05">资讯</string>
+    <string name="menu_text_06">设置</string>
+    <string name="menu_text_07">退出</string>
+
+    <string name="business_top_1">新品</string>
+    <string name="business_top_2">热销</string>
+    <string name="business_top_3">特惠</string>
+    <string name="business_top_4">分类</string>
+    <string name="business_top_5">超市</string>
+    <string name="business_top_6">充值</string>
+    <string name="business_top_7">预告</string>
+    <string name="business_top_8">更多</string>
+
+    <string name="o2o_top_1">脖子</string>
+    <string name="o2o_top_2">腰部</string>
+    <string name="o2o_top_3">全身</string>
+    <string name="o2o_top_4">更多</string>
+
+    <string name="custom_event_page">下面几个按钮分别模拟:进入购买页面，点击购买，以及购买成功。</string>
+    <string name="come_in_buy_page">进入购买页面</string>
+    <string name="click_to_buy">点击购买</string>
+    <string name="buy_done">购买完成</string>
+
+    <string name="user_message">我的消息</string>
+    <string name="user_tip">功能介绍</string>
+    <string name="user_feedback">意见反馈</string>
+    <string name="user_survey">用户满意度调查，赢Apple Watch！</string>
+    <string name="share_to_friend">分享应用给好友</string>
+    <string name="my_achievement">邀请好友赢积分</string>
+    <string name="my_friend">我的小伙伴</string>
+    <string name="my_learn">引导页</string>
+
+    <string name="home_list_title">首页list标题</string>
+    <string name="home_list_description">首页list描述</string>
+    <string name="view_all">VIEW ALL</string>
+
+
+    <string name="user_profile_page">下面几个按钮分别模拟:只以手机号登录，只以邮箱登录，以userId登录（附带所有信息，包括手机号、邮箱、性别等），注销登录</string>
+    <string name="phone">手机号</string>
+    <string name="phone_please">请输入手机号</string>
+    <string name="email">邮箱</string>
+    <string name="email_please">请输入邮箱</string>
+    <string name="login_with_phone">手机号登录</string>
+    <string name="login_with_email">邮箱登录</string>
+    <string name="login_with_all">用户登录</string>
+    <string name="set_city_code_desc">下面的按钮模拟用户设置城市code</string>
+    <string name="please_set_city_code">请输入城市代码</string>
+    <string name="set_city_code">设置地址</string>
+    <string name="phone_format">以手机号%s作为用户名登录</string>
+    <string name="email_format">以邮箱%s作为用户名登录</string>
+    <string name="left_menu">left menu</string>
+    <string name="right_menu">分享</string>
+
+    <string name="pic_list_title">疾速追杀</string>
+    <string name="pic_list_description">动作片</string>
+    <string name="house_title">Appealathon House</string>
+    <string name="house_price">$325,000</string>
+    <string name="house_bedroom">Bedrooms</string>
+    <string name="house_bathroom">Bathrooms</string>
+    <string name="house_size">Size</string>
+    <string name="house_lot">Lot</string>
+
+    <string name="menu_app_version">版本号 %s</string>
+    <string name="user_page">用户信息</string>
+    <string name="custom_page">自定义事件</string>
+    <string name="menu">菜单</string>
+
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="settings_title">魔窗，运营人的工具箱</string>
+
+    <string name="please_enter_username_and_password">请输入用户名和密码</string>
+
+    <string name="default_text">欢迎进入魔窗：http://www.magicwindow.cn</string>
+    <string name="tour_detail_name">三亚特色美食</string>
+</resources>

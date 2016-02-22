@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="service">
+        <item>生产环境</item>
+        <item>Test环境</item>
+        <item>Dev环境</item>
+        <item>Demo环境</item>
+    </string-array>
+</resources>

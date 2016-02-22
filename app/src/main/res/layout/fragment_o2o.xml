@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/o2o_top_view"
+                layout="@layout/o2o_top_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/o2o_middle"
+                android:layout_below="@+id/o2o_top_view"
+                android:gravity="center_horizontal"
+                android:padding="10dp">
+
+                <com.zxinsight.MWImageView
+                    android:id="@+id/o2o_img_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/o2o_middle001"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/o2o_img_1"
+                    android:layout_alignBottom="@id/o2o_img_1"
+                    android:layout_alignTop="@id/o2o_img_1"
+                    android:orientation="vertical">
+                    <com.zxinsight.MWImageView
+                        android:id="@+id/o2o_img_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/o2o_middle002" />
+
+                    <com.zxinsight.MWImageView
+                        android:id="@+id/o2o_img_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/o2o_middle003"
+                        android:scaleType="fitXY" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <!--<ListViewForScrollView-->
+                <!--android:id="@+id/o2o_list"-->
+                <!--android:layout_below="@id/o2o_middle"-->
+                <!--android:divider="@color/translucent"-->
+                <!--android:dividerHeight="10dp"-->
+                <!--style="@style/listView" />-->
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <!--  <fragment
+         android:id="@+id/lv_fragment_container"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="9"
+         android:background="#123456"
+         android:orientation="horizontal" >
+     </fragment> -->
+
+</RelativeLayout>

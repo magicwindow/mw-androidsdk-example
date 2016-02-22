@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    //兼容API 23干掉了httpClient，手动加入httpClient库,或者将org.apache.http.legacy.jar放到lib文件中
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "com.magicwindow.deeplink"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs { // 签名，你可以配置多个签名，然后再在buildTypes 进行指定。
+        release {
+            storeFile file("../zxInsight.jks") // 签名文件存放路径
+            storePassword "zxInsight"
+            keyAlias "magicWindowExample"
+            keyPassword "magicWindowExample"
+        }
+        debug {
+            storeFile file("../zxInsight.jks") // 签名文件存放路径
+            storePassword "zxInsight"
+            keyAlias "magicWindowExample"
+            keyPassword "magicWindowExample"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:cardview-v7:23.1.1'
+    testCompile 'junit:junit:4.12'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile project(':MLogCat')
+    compile project(':PullZoomView')
+    compile files('libs/MagicWindowSDK.jar')
+}

@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_tab_pressed"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar_layout"
+
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_profile_page"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog"
+            android:hint="@string/phone_please"
+            android:inputType="phone"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/edit_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_phone"
+            android:hint="@string/email_please"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/login_with_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edit_email"
+            android:text="@string/login_with_phone"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/login_with_email"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_with_phone"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_with_email"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/login_with_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_with_email"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_with_all"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_with_all"
+            android:layout_marginTop="10dp"
+            android:text="@string/logout"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/city_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logout"
+            android:layout_marginTop="10dp"
+            android:text="@string/set_city_code_desc"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/set_city_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city_desc"
+            android:hint="@string/please_set_city_code"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/set_city_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/set_city_edit"
+            android:layout_marginTop="10dp"
+            android:text="@string/set_city_code"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

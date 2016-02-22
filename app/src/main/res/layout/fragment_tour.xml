@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/home_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.magicwindow.deeplink.ui.ImageIndicatorView
+                android:id="@+id/banner_img"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_indicator_view_height"
+                android:focusableInTouchMode="true"
+                android:focusable="true" />
+
+            <com.magicwindow.deeplink.ui.ListViewForScrollView
+                android:id="@+id/home_list"
+                style="@style/listView"
+                android:divider="@color/listViewBg"
+                android:dividerHeight="20dp">
+
+            </com.magicwindow.deeplink.ui.ListViewForScrollView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

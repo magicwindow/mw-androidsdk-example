@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="img_margin">8dp</dimen>
+    <dimen name="house_margin">20dp</dimen>
+    <dimen name="image_indicator_view_height">140dp</dimen>
+    <dimen name="house_text_margin">5dp</dimen>
+    <dimen name="detail_backdrop_height">200dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+
+</resources>

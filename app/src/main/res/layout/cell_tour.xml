@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawer_list">
+
+    <com.zxinsight.MWImageView
+        android:id="@+id/list_img"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="120dp" />
+
+    <TextView
+        android:id="@+id/list_view_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/list_img"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="@string/view_all"
+        android:visibility="gone"
+        android:textColor="@color/yellow_button_color"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list_img"
+        android:padding="5dp"
+        android:text="@string/home_list_title"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/list_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list_title"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:text="@string/home_list_description"
+        android:textSize="14sp" />
+
+</RelativeLayout>

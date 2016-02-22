@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/house_bg"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/house_bg" />
+
+    <TextView
+        android:id="@+id/house_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/house_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/house_margin"
+        android:drawableLeft="@drawable/house_icon"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="@string/house_title"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id='@+id/house_price'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/house_title"
+        android:layout_below="@id/house_title"
+        android:layout_marginLeft="@dimen/house_margin"
+        android:layout_marginTop="@dimen/house_text_margin"
+        android:text="@string/house_price"
+        android:textColor="@color/green"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:id="@+id/house_text_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/house_price"
+        android:layout_centerInParent="true"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/house_bedroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/house_bedroom"
+            android:textColor="@color/gray_light_bc_bg_color" />
+
+        <TextView
+            android:id="@+id/house_bedroom_real"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/house_bedroom"
+            android:layout_below="@id/house_bedroom"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:text="Four"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/house_bathroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_toRightOf="@id/house_bedroom"
+            android:text="@string/house_bathroom"
+            android:textColor="@color/gray_light_bc_bg_color" />
+
+        <TextView
+            android:id="@+id/house_bathroom_real"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/house_bedroom_real"
+            android:layout_alignLeft="@id/house_bathroom"
+            android:layout_below="@id/house_bathroom"
+            android:textColor="@color/black"
+            android:text="Three"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/house_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/house_bedroom_real"
+            android:layout_marginTop="10dp"
+            android:text="@string/house_size"
+            android:textColor="@color/gray_light_bc_bg_color" />
+
+        <TextView
+            android:id="@+id/house_size_real"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/house_size"
+            android:layout_below="@id/house_size"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:text="325 sqm"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/house_lot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/house_size"
+            android:layout_alignLeft="@id/house_bathroom"
+            android:layout_toRightOf="@id/house_bedroom"
+            android:padding="5dp"
+            android:text="@string/house_lot"
+            android:textColor="@color/gray_light_bc_bg_color" />
+
+        <TextView
+            android:id="@+id/house_lot_real"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/house_size_real"
+            android:layout_alignLeft="@id/house_bathroom"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:text="635 sqm"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/house_text_layout"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_compare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="COMPARE"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="SAVE"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/house_btn"
+            android:text="CONTACT"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

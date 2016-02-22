@@ -1,0 +1,10 @@
+.gradle
+*.iml
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+mw-sdk-android-example.iml
+gradlew
+gradlew.bat

@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_bar_layout"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_tab_pressed"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar_layout"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_event_page"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/come_in_buy_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog"
+            android:layout_marginTop="50dp"
+            android:text="@string/come_in_buy_page"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/click_to_buy"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/come_in_buy_page"
+            android:layout_marginTop="50dp"
+            android:text="@string/click_to_buy"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buy_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/click_to_buy"
+            android:layout_marginTop="50dp"
+            android:text="@string/buy_done"
+            android:textColor="@color/yellow1"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
