@@ -1,6 +1,9 @@
 #Demo App使用说明
 [魔窗](http://www.magicwindow.cn)——App Growth Engine，通过对Deep Link协议的深度改造以及上层应用层建设，为App提供变革式的面向服务的开发方式，真正打破App孤岛格局，提供极致用户体验，大幅度提升App全生命周期中的转化率，让每一个App都可以轻松情景式相连；与此同时，魔窗提供了专属联合活动以及自运营活动，助力App拉新、促活和留存。<br/>
 
+Android版本的demo下载地址：<br/>
+![](android_demo.png)
+
 感谢您体验魔窗Demo App，本Demo主要演示两块内容：mLink以及运营活动。<br/>
 在进入App的首页（旅游页），为mLink演示，演示内容如下：<br/>
 ![](travel.png)
