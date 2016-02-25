@@ -36,7 +36,8 @@
     <string name="telephone_auth_code">手机验证码</string>
     <string name="six_more_password">6–32位密码</string>
     <string name="input_password_again">再次确认密码</string>
-    <string name="user_management">用户管理</string>
+    <string name="user_management">魔窗</string>
+    <string name="slogan">重构交互 连接商业</string>
     <string name="account_management">帐号</string>
     <string name="my_storybook">我的故事书</string>
     <string name="my_scene">我的场景</string>
