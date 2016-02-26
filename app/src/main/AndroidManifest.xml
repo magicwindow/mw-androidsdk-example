@@ -197,7 +197,6 @@
                     android:scheme="mw" />
             </intent-filter>
         </activity>
-
         <!-- 微信分享回调 -->
         <!-- <activity -->
         <!-- android:name=".wxapi.WXEntryActivity" -->

@@ -9,7 +9,6 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.UrlDispatcher;
 import com.magicwindow.deeplink.app.BaseActivity;
 import com.magicwindow.deeplink.config.Config;
-import com.magicwindow.deeplink.domain.User;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MagicWindowSDK;
 
@@ -56,35 +55,29 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void loadingNext() {
-//        mHandler.post(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        });
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
 
-        if (appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
-            appPrefs.setLastVersion(app.version);
-            Intent i = new Intent(mContext,LearnActivity.class);
-            i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
-            startActivity(i);
-        } else {
-            if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
-                if(User.currentUser().isLoggedIn()){
-                    Intent i = new Intent(mContext, MainActivity.class);
+                if (appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
+                    appPrefs.setLastVersion(app.version);
+                    Intent i = new Intent(mContext,LearnActivity.class);
+                    i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
                     startActivity(i);
-                }else {
-                    Intent i = new Intent(mContext, LoginActivity.class);
-                    startActivity(i);
+                } else {
+                    if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
+                        Intent i = new Intent(mContext,MainActivity.class);
+                        startActivity(i);
+                    } else {
+                        appPrefs.setLastVersion(app.version);
+                        Intent i = new Intent(mContext,LearnActivity.class);
+                        i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
+                        startActivity(i);
+                    }
                 }
-            } else {
-                appPrefs.setLastVersion(app.version);
-                Intent i = new Intent(mContext,LearnActivity.class);
-                i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
-                startActivity(i);
+                finish();
             }
-        }
-        finish();
+        });
     }
 
     @Override

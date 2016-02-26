@@ -181,7 +181,6 @@ public class TourFragment extends BaseFragment {
         super.onDestroy();
     }
 
-
     public class MWBroadCastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {

@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseActivity;
-import com.magicwindow.deeplink.domain.User;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
@@ -65,13 +64,13 @@ public class LearnActivity extends BaseActivity {
 
                 switch (type) {
                     case FROM_SPLASH:
-                        loadingNext();
+                        toMainActivity();
                         break;
                     case FROM_SETTING:
                         finish();
                         break;
                     default:
-                        loadingNext();
+                        toMainActivity();
                         break;
                 }
             }
@@ -79,18 +78,9 @@ public class LearnActivity extends BaseActivity {
         });
     }
 
-    /**
-     * 跳转到主页面
-     */
-    private void loadingNext() {
-        if(User.currentUser().isLoggedIn()){
-            Intent i = new Intent(mContext, MainActivity.class);
-            startActivity(i);
-        }else {
-            Intent i = new Intent(mContext, LoginActivity.class);
-            startActivity(i);
-        }
+    private void toMainActivity() {
+        Intent i = new Intent(mContext,MainActivity.class);
+        startActivity(i);
         finish();
-
     }
 }

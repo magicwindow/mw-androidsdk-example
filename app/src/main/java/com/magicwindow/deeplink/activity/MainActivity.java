@@ -2,6 +2,7 @@ package com.magicwindow.deeplink.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -34,19 +35,26 @@ import cn.salesuite.saf.utils.Preconditions;
 
 public class MainActivity extends BaseAppCompatActivity {
 
-    public static String PAGE = "page";
-    @InjectView(id = R.id.menu_profile)
-    RelativeLayout menuProfile;
     @InjectView(id = R.id.drawer_layout)
     private DrawerLayout drawerLayout;
+
     @InjectView
     private Toolbar toolbar;
+
     @InjectView
     private TextView appVersion;
+
     @InjectView(id = R.id.menu_list)
     private ListView menuLeft;
-    //    private Fragment mContent;
+
+    @InjectView(id = R.id.menu_profile)
+    RelativeLayout menuProfile;
+
     private MenuManager menuManager;
+    private Fragment mContent;
+
+    public static String PAGE = "page";
+
     private DoubleClickExitUtils doubleClickExitHelper;
     private int mPosition = 0;
 
@@ -55,7 +63,7 @@ public class MainActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.magicwindow.deeplink.R.layout.activity_main);
 
-        if (getIntent() != null) {
+        if (getIntent()!=null) {
             Intent intent = getIntent();
             String pageStr = intent.getStringExtra(PAGE);
             if (Preconditions.isNotBlank(pageStr)) {
@@ -133,8 +141,10 @@ public class MainActivity extends BaseAppCompatActivity {
 
         doubleClickExitHelper = new DoubleClickExitUtils(this);
 
-        menuManager = new MenuManager(getSupportFragmentManager());
-        menuManager.showByPosition(mPosition);
+        if (mContent == null) {
+            menuManager = MenuManager.getInstance(getSupportFragmentManager());
+            menuManager.showByPosition(mPosition);
+        }
 
         toolbar.setTitle(menuManager.getCurType().getTitleRes());
 
