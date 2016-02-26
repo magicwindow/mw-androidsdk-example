@@ -1,6 +1,7 @@
 package com.magicwindow.deeplink.citySelect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -633,6 +634,11 @@ public class CitiesActivity extends BaseAppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 city_history.get(position), Toast.LENGTH_SHORT)
                                 .show();
+                        Intent intent = new Intent();
+                        //把返回数据存入Intent
+                        intent.putExtra("result", city_hot.get(position).getName());
+                        //设置返回数据
+                        setResult(RESULT_OK, intent);
                         onBackPressed();
                     }
                 });
@@ -655,6 +661,11 @@ public class CitiesActivity extends BaseAppCompatActivity {
 
                         TrackAgent.currentEvent().setCityCode(city_hot.get(position).getPostcode());
                         MarketingHelper.currentMarketing(mContext).updateMarketing();
+                        Intent intent = new Intent();
+                        //把返回数据存入Intent
+                        intent.putExtra("result", city_hot.get(position).getName());
+                        //设置返回数据
+                        setResult(RESULT_OK, intent);
                         onBackPressed();
                     }
                 });

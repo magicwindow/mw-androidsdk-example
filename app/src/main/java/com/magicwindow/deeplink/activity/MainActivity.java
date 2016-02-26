@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -178,7 +179,7 @@ public class MainActivity extends BaseAppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_city) {
-            startActivity(new Intent(this, CitiesActivity.class));
+            startActivityForResult(new Intent(this, CitiesActivity.class),0);
         }
 
         return super.onOptionsItemSelected(item);
@@ -205,5 +206,12 @@ public class MainActivity extends BaseAppCompatActivity {
         Intent i = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String result = data.getExtras().getString("result");//得到新Activity 关闭后返回的数据
+        ActionMenuItemView menu = (ActionMenuItemView) findViewById(R.id.action_city);
+        menu.setTitle(result);
     }
 }
