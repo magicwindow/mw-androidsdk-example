@@ -142,7 +142,7 @@ public class MainActivity extends BaseAppCompatActivity {
         doubleClickExitHelper = new DoubleClickExitUtils(this);
 
         if (mContent == null) {
-            menuManager = MenuManager.getInstance(getSupportFragmentManager());
+            menuManager = new MenuManager(getSupportFragmentManager());
             menuManager.showByPosition(mPosition);
         }
 

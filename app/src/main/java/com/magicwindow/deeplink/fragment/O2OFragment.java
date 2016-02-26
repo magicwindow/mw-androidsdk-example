@@ -2,6 +2,7 @@ package com.magicwindow.deeplink.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.activity.O2OListActivity;
+import com.magicwindow.deeplink.adapter.ImageAdapter;
+import com.magicwindow.deeplink.ui.CircleIndicator;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
@@ -18,6 +21,7 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import cn.salesuite.saf.inject.Injector;
@@ -26,8 +30,11 @@ import cn.salesuite.saf.log.L;
 
 public class O2OFragment extends BaseFragment {
 
-    @InjectView(id = R.id.o2o_imageindicatorview)
-    ImageIndicatorView banner;
+    @InjectView(id = R.id.viewpager)
+    ViewPager viewPager;
+
+    @InjectView(id = R.id.indicator)
+    CircleIndicator indicator;
 
     @InjectView(id = R.id.top_1_layout)
     RelativeLayout top_1_layout;
@@ -94,35 +101,21 @@ public class O2OFragment extends BaseFragment {
 
         initView();
         bindMW();
-
+        initViewPager();
         return view;
     }
 
+    private void initViewPager(){
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(R.drawable.o2o_banner001);
+        list.add(R.drawable.o2o_banner002);
+        list.add(R.drawable.o2o_banner003);
+        list.add(R.drawable.o2o_banner004);
+        viewPager.setAdapter(new ImageAdapter(64,list));
+        indicator.setViewPager(viewPager);
+    }
+
     private void initView() {
-
-
-        Integer[] imgResArray = new Integer[]{R.drawable.o2o_banner001, R.drawable.o2o_banner002, R.drawable.o2o_banner003, R.drawable.o2o_banner004};
-       /* O2OListAdapter adapter = new O2OListAdapter(mContext);
-        o2oList.setAdapter(adapter);
-
-        o2oList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
-            }
-        });*/
-
-        banner.setupLayoutByDrawable(imgResArray);
-        banner.setIndicateStyle(ImageIndicatorView.INDICATE_ARROW_ROUND_STYLE);
-//
-        banner.show();
-
-        banner.setOnItemClickListener(new ImageIndicatorView.OnItemClickListener() {
-            @Override
-            public void OnItemClick(View view, int position) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
-            }
-        });
 
         ic_top_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,15 +167,6 @@ public class O2OFragment extends BaseFragment {
     }
 
     private void bindMW() {
-        banner.getView(0).bindEvent(Config.MWS[64]);
-        banner.getView(0).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(1).bindEvent(Config.MWS[65]);
-        banner.getView(1).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(2).bindEvent(Config.MWS[66]);
-        banner.getView(2).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(3).bindEvent(Config.MWS[67]);
-        banner.getView(3).setScaleType(ImageView.ScaleType.FIT_XY);
-
 
         //采用自定义方法
         if (marketingHelper.isActive(Config.MWS[68])) {

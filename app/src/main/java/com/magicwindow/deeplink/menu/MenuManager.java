@@ -28,20 +28,12 @@ public class MenuManager {
     public MWApplication app;
     private EventBus eventBus;
 
-    private MenuManager(FragmentManager fragmentManager) {
+    public MenuManager(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
         curType = MenuType.DUMB;
         app = MWApplication.getInstance();
         eventBus = EventBusManager.getInstance();
         eventBus.register(this);
-    }
-
-    public static MenuManager getInstance(FragmentManager supportFragmentManager) {
-        if (instance == null) {
-            instance = new MenuManager(supportFragmentManager);
-        }
-
-        return instance;
     }
 
     public enum MenuType {
@@ -209,7 +201,7 @@ public class MenuManager {
      *
      * @return
      */
-    public int getMenuCount() {
+    public static int getMenuCount() {
 
         return MenuType.values() != null ? MenuType.values().length - 1 : 0;
     }

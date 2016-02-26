@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +16,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.activity.WebViewActivity;
+import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.adapter.TourListAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.ui.ImageIndicatorView;
+import com.magicwindow.deeplink.ui.CircleIndicator;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.TrackAgent;
+
+import java.util.ArrayList;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -33,8 +35,11 @@ import cn.salesuite.saf.inject.annotation.InjectView;
  */
 public class TourFragment extends BaseFragment {
 
-    @InjectView(id = com.magicwindow.deeplink.R.id.banner_img)
-    ImageIndicatorView banner;
+    @InjectView(id = R.id.viewpager)
+    ViewPager viewPager;
+
+    @InjectView(id = R.id.indicator)
+    CircleIndicator indicator;
 
     @InjectView(id = com.magicwindow.deeplink.R.id.home_list)
     ListViewForScrollView homeList;
@@ -100,6 +105,7 @@ public class TourFragment extends BaseFragment {
         Injector.injectInto(this, view);
 
         initViews();
+        initViewPager();
         initData();
 
         return view;
@@ -107,9 +113,6 @@ public class TourFragment extends BaseFragment {
 
     private void initViews() {
 
-        Integer[] imgResArray = new Integer[]{com.magicwindow.deeplink.R.drawable.tour_banner001,
-                com.magicwindow.deeplink.R.drawable.tour_banner002, com.magicwindow.deeplink.R
-                .drawable.tour_banner003, com.magicwindow.deeplink.R.drawable.tour_banner004};
         final String[] strings = new String[]{
                 "http://m.mafengwo.cn/i/3301152.html",
                 "http://m.mafengwo.cn/travel-news/186478.html",
@@ -119,20 +122,6 @@ public class TourFragment extends BaseFragment {
 
         adapter = new TourListAdapter(mContext);
         homeList.setAdapter(adapter);
-        banner.setupLayoutByDrawable(imgResArray);
-        banner.setIndicateStyle(ImageIndicatorView.INDICATE_ARROW_ROUND_STYLE);
-
-        bindMW();
-
-        banner.setOnItemClickListener(new ImageIndicatorView.OnItemClickListener() {
-            @Override
-            public void OnItemClick(View view, int position) {
-                Intent intent = new Intent(mContext, WebViewActivity.class);
-                intent.putExtra(WebViewActivity.WEB_URL, strings[position]);
-                mContext.startActivity(intent);
-            }
-        });
-        banner.show();
 
         homeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -152,6 +141,16 @@ public class TourFragment extends BaseFragment {
         });
     }
 
+    private void initViewPager() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(R.drawable.tour_banner001);
+        list.add(R.drawable.tour_banner002);
+        list.add(R.drawable.tour_banner003);
+        list.add(R.drawable.tour_banner004);
+        viewPager.setAdapter(new ImageAdapter(0, list));
+        indicator.setViewPager(viewPager);
+    }
+
     private void initData() {
         receiver = new MWBroadCastReceiver();
         IntentFilter filter = new IntentFilter();
@@ -161,17 +160,17 @@ public class TourFragment extends BaseFragment {
 
 
     //@mw 魔窗位绑定
-    private void bindMW() {
-        banner.getView(0).bindEvent(Config.MWS[0]);
-        banner.getView(0).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(1).bindEvent(Config.MWS[1]);
-        banner.getView(1).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(2).bindEvent(Config.MWS[2]);
-        banner.getView(2).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(3).bindEvent(Config.MWS[3]);
-        banner.getView(3).setScaleType(ImageView.ScaleType.FIT_XY);
-        adapter.notifyDataSetChanged();
-    }
+//    private void bindMW() {
+//        banner.getView(0).bindEvent(Config.MWS[0]);
+//        banner.getView(0).setScaleType(ImageView.ScaleType.FIT_XY);
+//        banner.getView(1).bindEvent(Config.MWS[1]);
+//        banner.getView(1).setScaleType(ImageView.ScaleType.FIT_XY);
+//        banner.getView(2).bindEvent(Config.MWS[2]);
+//        banner.getView(2).setScaleType(ImageView.ScaleType.FIT_XY);
+//        banner.getView(3).bindEvent(Config.MWS[3]);
+//        banner.getView(3).setScaleType(ImageView.ScaleType.FIT_XY);
+//        adapter.notifyDataSetChanged();
+//    }
 
     @Override
     public void onDestroy() {
@@ -188,7 +187,7 @@ public class TourFragment extends BaseFragment {
             Log.e("aaron", "action = " + action);
             if (action.equals("com.magicwindow.marketing.update.MW_MESSAGE")) {
                 //todo: 你的代码 这个是活动webview onResume消息
-                bindMW();
+                adapter.notifyDataSetChanged();
             }
         }
     }

@@ -2,6 +2,7 @@ package com.magicwindow.deeplink.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +15,17 @@ import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.BusinessListAdapter;
+import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.ui.ImageIndicatorView;
+import com.magicwindow.deeplink.ui.CircleIndicator;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
+
+import java.util.ArrayList;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -29,8 +33,11 @@ import cn.salesuite.saf.log.L;
 
 public class EBusinessFragment extends BaseFragment {
 
-    @InjectView(id = R.id.business_imageindicatorview)
-    ImageIndicatorView banner;
+    @InjectView(id = R.id.viewpager)
+    ViewPager viewPager;
+
+    @InjectView(id = R.id.indicator)
+    CircleIndicator indicator;
 
     @InjectView(id = R.id.top_1_layout)
     RelativeLayout top_1_layout;
@@ -126,7 +133,7 @@ public class EBusinessFragment extends BaseFragment {
         }
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View guideView = inflater.inflate(R.layout.guide_ebusiness,null);
+        final View guideView = inflater.inflate(R.layout.guide_ebusiness, null);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
@@ -186,30 +193,25 @@ public class EBusinessFragment extends BaseFragment {
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
 
-
-        Integer[] imgResArray = new Integer[]{R.drawable.business_banner001, R.drawable.business_banner002, R.drawable.business_banner003, R.drawable.business_banner004};
         BusinessListAdapter adapter = new BusinessListAdapter(mContext);
         businessList.setAdapter(adapter);
-
-        banner.setupLayoutByDrawable(imgResArray);
-        banner.setIndicateStyle(ImageIndicatorView.INDICATE_ARROW_ROUND_STYLE);
-//
-        banner.show();
+        initViewPager();
         bindMW();
 
         return view;
     }
 
-    private void bindMW() {
-        banner.getView(0).bindEvent(Config.MWS[23]);
-        banner.getView(0).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(1).bindEvent(Config.MWS[24]);
-        banner.getView(1).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(2).bindEvent(Config.MWS[25]);
-        banner.getView(2).setScaleType(ImageView.ScaleType.FIT_XY);
-        banner.getView(3).bindEvent(Config.MWS[26]);
-        banner.getView(3).setScaleType(ImageView.ScaleType.FIT_XY);
+    private void initViewPager() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(R.drawable.business_banner001);
+        list.add(R.drawable.business_banner002);
+        list.add(R.drawable.business_banner003);
+        list.add(R.drawable.business_banner004);
+        viewPager.setAdapter(new ImageAdapter(23, list));
+        indicator.setViewPager(viewPager);
+    }
 
+    private void bindMW() {
 
         //采用自定义方法
         if (marketingHelper.isActive(Config.MWS[27])) {
@@ -272,8 +274,8 @@ public class EBusinessFragment extends BaseFragment {
             });
         }
 
-        Log.e("aaron", "parent id  = "+ic_top_5.getParent());
-        Log.e("aaron", "root id  = "+ic_top_5.getRootView());
+        Log.e("aaron", "parent id  = " + ic_top_5.getParent());
+        Log.e("aaron", "root id  = " + ic_top_5.getRootView());
 
         //采用自定义方法
         if (marketingHelper.isActive(Config.MWS[32])) {
