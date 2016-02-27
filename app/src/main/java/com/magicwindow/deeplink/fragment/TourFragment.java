@@ -20,7 +20,6 @@ import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.adapter.TourListAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.ui.CircleIndicator;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.TrackAgent;
 
@@ -28,6 +27,7 @@ import java.util.ArrayList;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
+import me.relex.circleindicator.CircleIndicator;
 
 /**
  * @author Tony Shen

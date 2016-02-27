@@ -6,20 +6,17 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.activity.O2OListActivity;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
-import com.magicwindow.deeplink.ui.CircleIndicator;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
-import com.magicwindow.deeplink.ui.ImageIndicatorView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +24,7 @@ import java.util.HashMap;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
+import me.relex.circleindicator.CircleIndicator;
 
 public class O2OFragment extends BaseFragment {
 

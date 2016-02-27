@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.magicwindow.deeplink.ui.CircleIndicator
+        <me.relex.circleindicator.CircleIndicator
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="48dp"

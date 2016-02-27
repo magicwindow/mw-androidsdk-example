@@ -58,5 +58,6 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
     compile project(':MLogCat')
     compile project(':PullZoomView')
+    compile project(':circleindicator')
     compile files('libs/MagicWindowSDK.jar')
 }

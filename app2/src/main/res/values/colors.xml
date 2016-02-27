@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="translucent">#00000000</color>
+    <color name="main_color">#eeaa16</color>
+    <color name="main_color_light">#f0b415</color>
+    <color name="main_color_dark">#ffd09106</color>
+    <color name="listviewBg">#ffdddddd</color>
+    <color name="yellow_light_listview_color">#fffbde94</color>
+    <color name="title_bg_color">#ffffbf08</color>
+    <color name="home_bottom_bar_color">#ffffbf08</color>
+
+    <color name="yellow_light_bg_color">#ffFDF5E1</color>
+    <color name="login_bg_color">#fffdf6e2</color>
+    <color name="yellow_button_color">#ffeaa614</color>
+    <color name="blue_text_color">#ff256dd4</color>
+    <color name="white_text_color">#ffffffff</color>
+    <color name="black_text_color">#ff000000</color>
+    <color name="black_title_text">#ff292929</color>
+
+    <color name="gray_bc_bg_color">#ffb2b2b2</color>
+    <color name="listViewDiv">@color/gray_bc_bg_color</color>
+    <color name="gray_light_bc_bg_color">#ffcccccc</color>
+    <color name="gray_dark_text_color">#ff717171</color>
+
+    <color name="white_bg_color">#fffdf7e7</color>
+    <color name="green">#ff31b719</color>
+    <color name="translucent_color">#99000000</color>
+    <color name="dim_foreground_light">#ff353535</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="red_light_color">#ffd28a7c</color>
+    <color name="red_dark_color">#ffe93213</color>
+    <color name="white">#ffffff</color>
+    <color name="brown_color">#ff9a4600</color>
+
+    <color name="good_list_item_bg">#ffedc5</color>
+    <color name="good_list_item_divider">#a7a7a7</color>
+    <color name="good_list_bg">#ffe3a5</color>
+    <color name="bottom_bar">#FFF7F7F7</color>
+    <color name="top_bar_text_gray_light">#ff868686</color>
+    <color name="top_bar_text_yellow">#ffFE9209</color>
+    <color name="bottom_bar_text_normal">@color/top_bar_text_gray_light</color>
+    <color name="bottom_bar_text_select">@color/top_bar_text_yellow</color>
+    <color name="detail_button">#E15111</color>
+    <color name="listViewBg">@color/white</color>
+
+    <color name="gray_transparent_color">#55000000</color>
+    <color name="dark_gray">#666666</color>
+
+    <color name="background_tab_pressed">#ff256dd4</color>
+    <color name="login_edit_color_normal">#5086c4</color>
+    <color name="login_edit_color_pressed">#2b527f</color>
+    <color name="login_edit_hint">#cccccc</color>
+    <color name="black">#000000</color>
+    <color name="o2o_title">#ff333333</color>
+    <color name="o2o_descrition">#ff999999</color>
+
+    <color name="house_btn">#FF672AFF</color>
+    <color name="gray">#808080</color>
+    <color name="yellow">#FFBA00</color>
+
+</resources>

@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <com.zxinsight.MWImageView
+        android:id="@+id/detail_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/detail_1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="@string/discard_by_friend"
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/detail_icon"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/detail_icon" />
+
+    <TextView
+        android:id="@+id/discard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
+        android:text="@string/discard"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_alignLeft="@+id/title" />
+    <TextView
+        android:id="@+id/soled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="@string/soled"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

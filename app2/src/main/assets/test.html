@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script src="http://mgnt.test.magicwindow.cn/static/assets/js/jquery-1.11.1.min.js"></script>-->
+</head>
+<body>
+
+<canvas id="myCanvas"
+        style="border:1px solid red; padding: 10px; width: 200px; height: 200px;"></canvas>
+
+<img src="" alt="" id="myImg"/>
+
+<div id="log"></div>
+<button onclick="window.JSInterface.openFileSelector('upload_xxx')">Select File</button>
+<button onclick="window.JSInterface.share('http://www.baidu.com')">share</button>
+<a href="mw://magicwindow.cn?key=26M137XQ">Visit our HTML tutorial</a>
+<script>
+
+
+  function upload_xxx(data) {
+    var imageStr = window.JSInterface.updateImage();
+
+    document.getElementById("log").innerHTML="type = "+data.type+ ", length = "+ data.length;
+    document.getElementById("myImg").src='data:image/png;base64,'+ imageStr;
+  }
+
+
+
+</script>
+
+</body>
+</html>

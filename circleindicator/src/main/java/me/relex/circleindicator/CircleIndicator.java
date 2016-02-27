@@ -1,4 +1,4 @@
-package com.magicwindow.deeplink.ui;
+package me.relex.circleindicator;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -13,8 +13,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
-
-import com.magicwindow.deeplink.R;
 
 import static android.support.v4.view.ViewPager.OnPageChangeListener;
 

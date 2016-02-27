@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextView" parent="@android:style/Widget.Holo.TextView" />
+
+
+    <style name="LoginEdit">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/login_edit_bg</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <!-- menu 版本号文字 -->
+    <style name="TextView.MenuAppVersion">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textSize">7.5sp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="listView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:footerDividersEnabled">false</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:clickable">false</item>
+        <item name="android:listSelector">@color/translucent</item>
+        <item name="android:background">@color/listViewBg</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:divider">@color/listViewDiv</item>
+    </style>
+
+    <style name="tv_top_essential_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <!-- 透明的加载对话框 -->
+    <style name="TranslucentDialog" parent="android:Theme.Holo.Light.Panel"/>
+</resources>
