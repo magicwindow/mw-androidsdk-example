@@ -3,6 +3,7 @@ package com.zxinsight.magicwindow.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -12,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zxinsight.MagicWindowSDK;
 import com.zxinsight.magicwindow.R;
+import com.zxinsight.magicwindow.UrlDispatcher;
 import com.zxinsight.magicwindow.domain.User;
 
 
@@ -79,9 +82,10 @@ public class LoginActivity extends BaseAppCompatActivity {
                         @Override
                         public void run() {
                             User.currentUser().login(usernameStr, passwordStr);
-                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(i);
-                            finish();
+//                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+//                            startActivity(i);
+//                            finish();
+                            registerAndRouter();
                         }
                     }, 500);
                 } else {
@@ -96,12 +100,24 @@ public class LoginActivity extends BaseAppCompatActivity {
         if (User.currentUser().isLoggedIn()) {
             username.setText(User.currentUser().username);
             password.setText(User.currentUser().password);
-
-            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-            startActivity(i);
-            finish();
+//
+//            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+//            startActivity(i);
+//            finish();
+            registerAndRouter();
         }
     }
+
+
+    private void registerAndRouter() {
+        if (MagicWindowSDK.getMLink() != null) {
+            UrlDispatcher.registerWithMLinkCallback(LoginActivity.this);
+        }
+        Uri mLink = getIntent().getData();
+        MagicWindowSDK.getMLink().router(mLink);
+        finish();
+    }
+
 
     public Dialog showLoading() {
         coverLayout.setVisibility(View.VISIBLE);

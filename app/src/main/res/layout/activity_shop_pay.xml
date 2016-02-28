@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_tab_pressed"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout"
+        android:background="@color/shop_order_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/goods_price"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/price"
+                android:textColor="@color/red_dark_color"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/pay_method"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/weixin_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <com.zxinsight.MWImageView
+                    android:id="@+id/id_list_weixin_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pay_weixin"
+                    android:padding="@dimen/img_margin" />
+
+                <TextView
+                    android:id="@+id/id_list_weixin_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/id_list_weixin_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/img_margin"
+                    android:layout_toRightOf="@id/id_list_weixin_icon"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/pay_weixin_title"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/id_list_weixin_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/id_list_weixin_title"
+                    android:layout_below="@id/id_list_weixin_title"
+                    android:layout_marginRight="@dimen/img_margin"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:paddingTop="5dp"
+                    android:text="@string/pay_weixin_desc"
+                    android:textColor="@color/gray_dark_text_color"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/weixin_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/id_list_weixin_icon"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/pay_select" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/zhifubao_layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <com.zxinsight.MWImageView
+                    android:id="@+id/id_list_zhifubao_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pay_zhifubao"
+                    android:padding="@dimen/img_margin" />
+
+                <TextView
+                    android:id="@+id/id_list_zhifubao_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/id_list_zhifubao_icon"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/img_margin"
+                    android:layout_toRightOf="@id/id_list_zhifubao_icon"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/pay_zhifubao_title"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/id_list_zhifubao_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/id_list_zhifubao_title"
+                    android:layout_below="@id/id_list_zhifubao_title"
+                    android:layout_marginRight="@dimen/img_margin"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:paddingTop="5dp"
+                    android:text="@string/pay_zhifubao_desc"
+                    android:textColor="@color/gray_dark_text_color"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/zhifubao_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/id_list_zhifubao_icon"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/pay_select" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/click_to_buy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_red_pressed"
+            android:text="@string/go_pay"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+</RelativeLayout>

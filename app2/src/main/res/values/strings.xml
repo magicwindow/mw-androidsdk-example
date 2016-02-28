@@ -26,4 +26,13 @@
     <string name="login">登录</string>
     <string name="logout">注销</string>
 
+    <string name="home_top_1">新品</string>
+    <string name="home_top_2">热销</string>
+    <string name="home_top_3">特惠</string>
+    <string name="home_top_4">分类</string>
+    <string name="home_top_5">超市</string>
+    <string name="home_top_6">充值</string>
+    <string name="home_top_7">预告</string>
+    <string name="home_top_8">更多</string>
+
 </resources>

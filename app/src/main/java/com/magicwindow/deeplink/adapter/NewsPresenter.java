@@ -22,7 +22,7 @@ public class NewsPresenter extends Presenter<NewsItem> {
     @InjectView(id= R.id.id_news_list_img)
     MWImageView listBg;
 
-    @InjectView(id=R.id.id_news_list_title)
+    @InjectView(id=R.id.id_list_title)
     TextView title;
 
     @InjectView(id=R.id.id_news_list_desc)

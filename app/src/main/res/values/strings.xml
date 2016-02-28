@@ -74,8 +74,11 @@
 
     <string name="custom_event_page">下面几个按钮分别模拟:进入购买页面，点击购买，以及购买成功。</string>
     <string name="come_in_buy_page">进入购买页面</string>
-    <string name="click_to_buy">点击购买</string>
+    <string name="click_to_buy">立即购买</string>
     <string name="buy_done">购买完成</string>
+    <string name="price">￥14.49</string>
+    <string name="price_all">合计:￥14.49</string>
+
 
     <string name="user_message">我的消息</string>
     <string name="user_tip">功能介绍</string>
@@ -129,4 +132,23 @@
 
     <string name="default_text">欢迎进入魔窗：http://www.magicwindow.cn</string>
     <string name="tour_detail_name">三亚特色美食</string>
+    <string name="nipple_title">婴儿奶嘴 母乳实感宽口径奶嘴-自控流量</string>
+    <string name="nipple_title_with_amount">婴儿奶嘴 母乳实感宽口径奶嘴 x1</string>
+    <string name="nipple_desc">萌宝用品 放生设计 实用级硅胶 模拟母乳真实感</string>
+    <string name="color_white">颜色：白色</string>
+    <string name="order_username">赵言</string>
+    <string name="order_phone">139***2340</string>
+    <string name="address">上海新静安（闸北区）市北高新</string>
+    <string name="goods_price">商品金额</string>
+    <string name="pay">去付款</string>
+    <string name="pay_method">支付方式</string>
+    <string name="pay_weixin_title">微信支付</string>
+    <string name="pay_weixin_desc">微信安全支付</string>
+    <string name="pay_zhifubao_title">快捷支付</string>
+    <string name="pay_zhifubao_desc">快捷支付服务</string>
+    <string name="go_pay">付款</string>
+    <string name="pay_done">订单支付成功</string>
+    <string name="go_home">回到首页</string>
+    <string name="shop_detail">商品详情</string>
+    <string name="select_pay">请选择支付方式</string>
 </resources>

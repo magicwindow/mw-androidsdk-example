@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_tab_pressed"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/home_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/home_top_view"
+                layout="@layout/home_top_view" />
+
+            <RelativeLayout
+                android:id="@+id/home_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_top_view"
+                android:gravity="center_horizontal"
+                android:padding="10dp">
+
+                <com.zxinsight.MWImageView
+                    android:id="@+id/home_img_1"
+                    android:layout_width="160dp"
+                    android:layout_height="225dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/home_middle001" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@id/home_img_1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/home_img_1"
+                    android:layout_toRightOf="@id/home_img_1"
+                    android:orientation="vertical">
+
+                    <com.zxinsight.MWImageView
+                        android:id="@+id/home_img_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_middle002" />
+
+                    <com.zxinsight.MWImageView
+                        android:id="@+id/home_img_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_middle003" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <com.zxinsight.magicwindow.view.ListViewForScrollView
+                android:id="@+id/home_list"
+                style="@style/listView"
+                android:layout_below="@id/home_middle"
+                android:divider="@color/translucent"
+                android:dividerHeight="10dp" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

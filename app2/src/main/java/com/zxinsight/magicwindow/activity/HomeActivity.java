@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +13,7 @@ import android.widget.AdapterView;
 import com.zxinsight.MagicWindowSDK;
 import com.zxinsight.magicwindow.R;
 import com.zxinsight.magicwindow.UrlDispatcher;
-import com.zxinsight.magicwindow.adapter.BusinessListAdapter;
+import com.zxinsight.magicwindow.adapter.HomeListAdapter;
 import com.zxinsight.magicwindow.adapter.ImageAdapter;
 import com.zxinsight.magicwindow.domain.User;
 import com.zxinsight.magicwindow.view.ListViewForScrollView;
@@ -29,19 +28,19 @@ public class HomeActivity extends BaseAppCompatActivity {
 
     CircleIndicator indicator;
 
-    ListViewForScrollView businessList;
+    ListViewForScrollView homeList;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO Auto-generated method stub
-        setContentView(R.layout.activity_main);
-        BusinessListAdapter adapter = new BusinessListAdapter(mContext);
+        setContentView(R.layout.activity_home);
+        HomeListAdapter adapter = new HomeListAdapter(mContext);
 
-        businessList = (ListViewForScrollView) findViewById(R.id.home_list);
-        businessList.setAdapter(adapter);
-        businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        homeList = (ListViewForScrollView) findViewById(R.id.home_list);
+        homeList.setAdapter(adapter);
+        homeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(HomeActivity.this, DetailActivity.class));
@@ -50,32 +49,22 @@ public class HomeActivity extends BaseAppCompatActivity {
 
         initViewPager();
         initToolBar();
-        registerAndRouter();
     }
 
 
 
     private void initViewPager() {
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(R.drawable.business_banner001);
-        list.add(R.drawable.business_banner002);
-        list.add(R.drawable.business_banner003);
-        list.add(R.drawable.business_banner004);
+        list.add(R.drawable.home_banner001);
+        list.add(R.drawable.home_banner002);
+        list.add(R.drawable.home_banner003);
+        list.add(R.drawable.home_banner004);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         indicator = (CircleIndicator) findViewById(R.id.indicator);
         viewPager.setAdapter(new ImageAdapter(0, list));
         indicator.setViewPager(viewPager);
     }
 
-
-    private void registerAndRouter() {
-        if (MagicWindowSDK.getMLink() != null) {
-            UrlDispatcher.registerWithMLinkCallback(HomeActivity.this);
-        }
-        Uri mLink = getIntent().getData();
-        MagicWindowSDK.getMLink().router(mLink);
-//        finish();
-    }
 
     private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

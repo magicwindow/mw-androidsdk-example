@@ -57,8 +57,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:scheme="mwshow" />
+                <data android:scheme="mwshow" />
             </intent-filter>
         </activity>
         <activity
@@ -95,6 +94,11 @@
         <activity
             android:name=".activity.WebViewActivity"
             android:label="@string/menu_text_05" />
+        <activity android:name=".activity.ShopDetailActivity"/>
+        <activity android:name=".activity.ShopCartActivity"/>
+        <activity android:name=".activity.ShopOrderActivity"/>
+        <activity android:name=".activity.ShopPayActivity"/>
+        <activity android:name=".activity.ShopDoneActivity"/>
         <activity
             android:name=".activity.O2OListActivity"
             android:label="@string/menu_text_02">
@@ -114,19 +118,14 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity
-            android:name=".activity.DetailActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
+
         <activity
             android:name=".citySelect.CitiesActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -213,6 +212,9 @@
         <meta-data
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
+
+        <activity android:name=".activity.ShopDetailActivity" />
+        <activity android:name=".activity.ShopCartActivity"></activity>
     </application>
 
 </manifest>

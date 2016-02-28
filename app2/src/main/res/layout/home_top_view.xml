@@ -1,0 +1,273 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_m_top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_indicator_view_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="8dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:baselineAligned="true">
+
+        <RelativeLayout
+            android:id="@+id/top_1_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon01"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_icon01" />
+
+            <TextView
+                android:id="@+id/top_1"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon01"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_1"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_2_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon02"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon02" />
+
+            <TextView
+                android:id="@+id/top_2"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon02"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_2"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_3_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon03"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon03" />
+
+            <TextView
+                android:id="@+id/top_3"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon03"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_3"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_4_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon04"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon04" />
+
+            <TextView
+                android:id="@+id/top_4"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon04"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_4"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:baselineAligned="true">
+
+        <RelativeLayout
+            android:id="@+id/top_5_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon05"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_icon05" />
+
+            <TextView
+                android:id="@+id/top_5"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon05"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_5"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_6_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon06"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon06" />
+
+            <TextView
+                android:id="@+id/top_6"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon06"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_6"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_7_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon07"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon07" />
+
+            <TextView
+                android:id="@+id/top_7"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon07"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_7"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/top_8_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/home_icon08"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_icon08" />
+
+            <TextView
+                android:id="@+id/top_8"
+                style="@style/tv_top_essential_style"
+                android:layout_below="@id/home_icon08"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:drawablePadding="5dp"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:text="@string/home_top_8"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

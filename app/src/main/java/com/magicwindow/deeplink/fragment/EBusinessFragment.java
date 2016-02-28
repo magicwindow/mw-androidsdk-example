@@ -1,6 +1,7 @@
 package com.magicwindow.deeplink.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -8,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.activity.ShopDetailActivity;
 import com.magicwindow.deeplink.adapter.BusinessListAdapter;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
@@ -195,6 +198,17 @@ public class EBusinessFragment extends BaseFragment {
 
         BusinessListAdapter adapter = new BusinessListAdapter(mContext);
         businessList.setAdapter(adapter);
+
+        businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int mwOffset = 38 + position;
+
+                if (!marketingHelper.isActive(Config.MWS[mwOffset])){
+                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+                }
+            }
+        });
         initViewPager();
         bindMW();
 
@@ -220,7 +234,11 @@ public class EBusinessFragment extends BaseFragment {
             top_1_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[27]);
+                    if (marketingHelper.isActive(Config.MWS[27])) {
+                        marketingHelper.click(mContext, Config.MWS[27]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -232,7 +250,11 @@ public class EBusinessFragment extends BaseFragment {
             top_2_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[28]);
+                    if (marketingHelper.isActive(Config.MWS[28])) {
+                        marketingHelper.click(mContext, Config.MWS[28]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -244,7 +266,11 @@ public class EBusinessFragment extends BaseFragment {
             top_3_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[29]);
+                    if (marketingHelper.isActive(Config.MWS[29])) {
+                        marketingHelper.click(mContext, Config.MWS[29]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -256,7 +282,11 @@ public class EBusinessFragment extends BaseFragment {
             top_4_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[30]);
+                    if (marketingHelper.isActive(Config.MWS[30])) {
+                        marketingHelper.click(mContext, Config.MWS[30]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -269,7 +299,11 @@ public class EBusinessFragment extends BaseFragment {
             top_5_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[31]);
+                    if (marketingHelper.isActive(Config.MWS[31])) {
+                        marketingHelper.click(mContext, Config.MWS[31]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -284,7 +318,11 @@ public class EBusinessFragment extends BaseFragment {
             top_6_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[32]);
+                    if (marketingHelper.isActive(Config.MWS[32])) {
+                        marketingHelper.click(mContext, Config.MWS[32]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -296,7 +334,11 @@ public class EBusinessFragment extends BaseFragment {
             top_7_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[33]);
+                    if (marketingHelper.isActive(Config.MWS[33])) {
+                        marketingHelper.click(mContext, Config.MWS[33]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
@@ -308,18 +350,36 @@ public class EBusinessFragment extends BaseFragment {
             top_8_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    marketingHelper.click(mContext, Config.MWS[34]);
+                    if (marketingHelper.isActive(Config.MWS[34])) {
+                        marketingHelper.click(mContext, Config.MWS[34]);
+                    } else {
+                        startActivity(new Intent(mContext, ShopDetailActivity.class));
+                    }
                 }
             });
         }
 
 
-        //middle第1个魔窗位
-        img_1.bindEvent(Config.MWS[35]);
-        //middle第2个魔窗位
-        img_2.bindEvent(Config.MWS[36]);
-        //middle第3个魔窗位
-        img_3.bindEvent(Config.MWS[37]);
+        if (marketingHelper.isActive(Config.MWS[27])) {
+            //middle第1个魔窗位
+            img_1.bindEvent(Config.MWS[35]);
+        } else {
+            startActivity(new Intent(mContext, ShopDetailActivity.class));
+        }
+        if (marketingHelper.isActive(Config.MWS[27])) {
+            //middle第2个魔窗位
+            img_2.bindEvent(Config.MWS[36]);
+        } else {
+            startActivity(new Intent(mContext, ShopDetailActivity.class));
+        }
+
+        if (marketingHelper.isActive(Config.MWS[27])) {
+            //middle第3个魔窗位
+            img_3.bindEvent(Config.MWS[37]);
+        } else {
+            startActivity(new Intent(mContext, ShopDetailActivity.class));
+        }
+
 
     }
 

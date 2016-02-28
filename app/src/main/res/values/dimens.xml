@@ -9,6 +9,7 @@
     <dimen name="image_indicator_view_height">155dp</dimen>
     <dimen name="house_text_margin">5dp</dimen>
     <dimen name="detail_backdrop_height">200dp</dimen>
+    <dimen name="pay_done_height">200dp</dimen>
     <dimen name="card_margin">8dp</dimen>
 
 </resources>

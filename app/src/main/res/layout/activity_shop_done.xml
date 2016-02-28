@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background_tab_pressed"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout"
+        android:background="@color/shop_order_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pay_done_height"
+            android:background="@color/pay_done_bg">
+
+            <ImageView
+                android:id="@+id/pay_done_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pay_done" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pay_done_text"
+                android:layout_below="@id/pay_done_img"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:text="@string/pay_done"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green_pressed"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/go_home"
+                android:layout_below="@id/pay_done_text"
+                android:text="@string/go_home"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white">
+
+            <com.zxinsight.MWImageView
+                android:id="@+id/id_list_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/order_address_img"
+                android:padding="@dimen/img_margin" />
+
+            <TextView
+                android:id="@+id/id_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/id_list_img"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/img_margin"
+                android:layout_toRightOf="@id/id_list_img"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/nipple_title_with_amount"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/id_list_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/id_list_title"
+                android:layout_below="@id/id_list_title"
+                android:layout_marginRight="@dimen/img_margin"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:paddingTop="5dp"
+                android:text="@string/price"
+                android:textColor="@color/red_dark_color"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/order_address_bg"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/order_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/order_address_user"
+                android:drawablePadding="10dp"
+                android:text="@string/order_username" />
+
+            <TextView
+                android:id="@+id/order_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/order_username"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/order_username"
+                android:drawableLeft="@drawable/order_address_phone"
+                android:drawablePadding="10dp"
+                android:text="@string/order_phone" />
+
+            <TextView
+                android:id="@+id/order_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/order_username"
+                android:layout_below="@id/order_username"
+                android:layout_marginTop="10dp"
+                android:text="@string/address" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

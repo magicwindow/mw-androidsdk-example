@@ -80,7 +80,7 @@ public class UrlDispatcher {
             public void execute(Map<String, String> paramMap, Uri uri, Context context) {
 
                 //
-//                MLinkIntentBuilder.buildIntent(paramMap, context, HomeActivity.class);
+                MLinkIntentBuilder.buildIntent(paramMap, context, HomeActivity.class);
 
             }
         });
