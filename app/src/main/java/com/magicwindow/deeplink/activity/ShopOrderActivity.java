@@ -10,8 +10,6 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.TrackAgent;
 
-import java.util.HashMap;
-
 import cn.salesuite.saf.inject.annotation.OnClick;
 
 public class ShopOrderActivity extends BaseAppCompatActivity {
@@ -39,8 +37,8 @@ public class ShopOrderActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
+
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
         TrackAgent.currentEvent().customEvent(Config.CUSTOM_CONFIRM_ORDER);

@@ -19,12 +19,14 @@ import cn.salesuite.saf.utils.ToastUtils;
 
 public class ShopPayActivity extends BaseAppCompatActivity {
 
-    private final int STATUS_WEIXIN = 0;
-    private final int STATUS_ZHIFUBAO = 1;
     @InjectView(id = R.id.weixin_selected)
     ImageView weixinSelected;
+
     @InjectView(id = R.id.zhifubao_selected)
     ImageView zhifubaoSelected;
+
+    private final int STATUS_WEIXIN = 0;
+    private final int STATUS_ZHIFUBAO = 1;
     private int STATUS = STATUS_WEIXIN;
 
     @Override

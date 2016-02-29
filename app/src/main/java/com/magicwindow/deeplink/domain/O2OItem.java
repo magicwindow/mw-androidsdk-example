@@ -9,9 +9,4 @@ public class O2OItem {
     public String title;
     public String desc;
     public String date;
-
-//    public int imgRes02;
-//    public String title02;
-//    public String desc02;
-//    public String date02;
 }

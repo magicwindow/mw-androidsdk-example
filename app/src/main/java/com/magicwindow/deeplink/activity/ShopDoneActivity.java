@@ -12,7 +12,6 @@ import cn.salesuite.saf.inject.annotation.OnClick;
 
 public class ShopDoneActivity extends BaseAppCompatActivity {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +33,8 @@ public class ShopDoneActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);665061967
     }
+
     @OnClick(id = R.id.go_home)
     public void goHome() {
         Intent intent = new Intent(mContext, MainActivity.class);

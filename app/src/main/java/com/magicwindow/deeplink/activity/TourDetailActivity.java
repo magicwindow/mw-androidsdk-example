@@ -30,6 +30,21 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         initUber();
     }
 
+    private void initToolBar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.tour_detail_name);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
     private void initUber() {
         if (MarketingHelper.currentMarketing(this).isActive(Config.MWS[99])) {
             uber.bindEvent(Config.MWS[99]);
@@ -44,20 +59,4 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[91]);
     }
 
-
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.tour_detail_name);
-        setSupportActionBar(toolbar);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
-    }
 }

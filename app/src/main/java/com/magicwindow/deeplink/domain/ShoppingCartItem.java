@@ -9,9 +9,4 @@ public class ShoppingCartItem {
     public String title;
     public String desc;
     public String price;
-
-//    public int imgRes02;
-//    public String title02;
-//    public String desc02;
-//    public String date02;
 }

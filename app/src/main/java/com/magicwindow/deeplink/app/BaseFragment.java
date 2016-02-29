@@ -12,7 +12,6 @@ import com.magicwindow.deeplink.utils.EventBusManager;
 import cn.salesuite.saf.app.SAFFragment;
 import cn.salesuite.saf.eventbus.EventBus;
 import cn.salesuite.saf.log.L;
-import cn.salesuite.saf.route.Router;
 
 /**
  * @author Tony Shen
@@ -22,7 +21,6 @@ public class BaseFragment extends SAFFragment {
 
 	protected EventBus eventBus;
 	protected MWApplication app;
-	protected Router router;
 
 	protected Handler mHandler = new Handler();
 	protected boolean firstResume = true;
@@ -38,7 +36,6 @@ public class BaseFragment extends SAFFragment {
 		app = MWApplication.getInstance();
 		eventBus = EventBusManager.getInstance();
 		eventBus.register(this);
-		router = Router.getInstance();
 		fmgr = getFragmentManager();
 
 		L.init(this);
