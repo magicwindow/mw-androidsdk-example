@@ -62,9 +62,9 @@ public class DetailActivity extends BaseAppCompatActivity {
     private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setNavigationIcon(R.drawable.ic_navigation);
+        toolbar.setTitle(R.string.detail);
 
         setSupportActionBar(toolbar);
-        setTitle(R.string.detail);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,6 @@ public class DetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     private void initView() {

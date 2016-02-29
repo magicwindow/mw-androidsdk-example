@@ -53,7 +53,7 @@
             android:layout_marginTop="30.5dp"
             android:background="@drawable/selector_login_edit"
             android:gravity="center"
-            android:text="@string/login_with_blank"
+            android:text="@string/login"
             android:textColor="@color/white" />
 
         <ImageView

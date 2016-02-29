@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.magicwindow.deeplink">
 
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="22" />
-
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <!-- 连接互联网Internet权限 -->
@@ -56,8 +52,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="mwshow" />
+                <data android:scheme="mwopen" />
             </intent-filter>
         </activity>
         <activity

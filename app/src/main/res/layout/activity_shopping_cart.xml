@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/button_blue"
-            android:text="@string/price"
+            android:text="@string/price_all"
             android:textColor="@color/white"
             android:textSize="24sp" />
 

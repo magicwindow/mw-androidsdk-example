@@ -25,8 +25,8 @@
     <string name="forget_the_password">忘记密码？</string>
     <string name="register">注册</string>
     <string name="register_with_blank">注 册</string>
-    <string name="login">登陆</string>
-    <string name="login_with_blank">登 陆</string>
+    <string name="login">登录</string>
+    <string name="login_with_blank">登 录</string>
     <string name="logout">退出</string>
     <string name="logout_with_blank">退 出</string>
     <string name="settings">设置</string>
@@ -76,8 +76,8 @@
     <string name="come_in_buy_page">进入购买页面</string>
     <string name="click_to_buy">立即购买</string>
     <string name="buy_done">购买完成</string>
-    <string name="price">￥14.49</string>
-    <string name="price_all">合计:￥14.49</string>
+    <string name="price">￥14.90</string>
+    <string name="price_all">合计:￥14.90</string>
 
 
     <string name="user_message">我的消息</string>
@@ -139,7 +139,7 @@
     <string name="order_username">赵言</string>
     <string name="order_phone">139***2340</string>
     <string name="address">上海新静安（闸北区）市北高新</string>
-    <string name="goods_price">商品金额</string>
+    <string name="order_price">订单金额</string>
     <string name="pay">去付款</string>
     <string name="pay_method">支付方式</string>
     <string name="pay_weixin_title">微信支付</string>

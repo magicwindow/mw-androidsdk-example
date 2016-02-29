@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
-import com.magicwindow.deeplink.domain.event.UserLogoutEvent;
 import com.magicwindow.deeplink.fragment.EBusinessFragment;
 import com.magicwindow.deeplink.fragment.NewsFragment;
 import com.magicwindow.deeplink.fragment.O2OFragment;
@@ -23,9 +22,9 @@ import cn.salesuite.saf.eventbus.EventBus;
 public class MenuManager {
 
     private static MenuManager instance = null;
+    public MWApplication app;
     private FragmentManager fragmentManager;
     private MenuType curType;
-    public MWApplication app;
     private EventBus eventBus;
 
     public MenuManager(FragmentManager fragmentManager) {
@@ -36,68 +35,14 @@ public class MenuManager {
         eventBus.register(this);
     }
 
-    public enum MenuType {
+    /**
+     * 返回菜单的总数
+     *
+     * @return
+     */
+    public static int getMenuCount() {
 
-        HOME(0, R.string.menu_text_01, R.drawable.menu_icon_01, false),
-        O2O(1, R.string.menu_text_02, R.drawable.menu_icon_02, true),
-        GALLERIES(2, R.string.menu_text_03, R.drawable.menu_icon_03, true),
-        EBUSINESS(3, R.string.menu_text_04, R.drawable.menu_icon_04, true),
-        NEWS(4, R.string.menu_text_05, R.drawable.menu_icon_05, true),
-        SETTINGS(5, R.string.menu_text_06, R.drawable.menu_icon_06, true),
-//        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
-        DUMB(-1, R.string.menu_text_01, R.drawable.menu_icon_01, true);
-
-        public final int position;
-        private final int title;
-        private final int icon;
-        private final boolean removed; // 表示fragment是否需要remove
-
-        MenuType(int position, final int title, int icon, boolean removed) {
-            this.position = position;
-            this.title = title;
-            this.icon = icon;
-            this.removed = removed;
-        }
-
-        public static MenuType getMenuTypeByIndex(int index) {
-            switch (index) {
-                default:
-                case 0:
-                    return HOME;
-                case 1:
-                    return O2O;
-                case 2:
-                    return GALLERIES;
-                case 3:
-                    return EBUSINESS;
-                case 4:
-                    return NEWS;
-                case 5:
-                    return SETTINGS;
-//                case 6:
-//                    return SIGNOUT;
-            }
-        }
-
-        public static int getIconByIndex(int index) {
-            return getMenuTypeByIndex(index).icon;
-        }
-
-        public static int getTitleByIndex(int index) {
-            return getMenuTypeByIndex(index).title;
-        }
-
-        public String getTag() {
-            return String.valueOf(title);
-        }
-
-        public int getTitleRes() {
-            return title;
-        }
-
-        public boolean hasRemoved() {
-            return removed;
-        }
+        return MenuType.values() != null ? MenuType.values().length - 1 : 0;
     }
 
     public MenuType getCurType() {
@@ -125,13 +70,7 @@ public class MenuManager {
     }
 
     public boolean showByPosition(int index) {
-        if (index == 6) {
-            eventBus.post(new UserLogoutEvent());
-            return true;
-        } else {
-            return show(MenuType.getMenuTypeByIndex(index));
-        }
-
+        return show(MenuType.getMenuTypeByIndex(index));
     }
 
     private Fragment add(MenuType type) {
@@ -196,13 +135,67 @@ public class MenuManager {
 
     }
 
-    /**
-     * 返回菜单的总数
-     *
-     * @return
-     */
-    public static int getMenuCount() {
+    public enum MenuType {
 
-        return MenuType.values() != null ? MenuType.values().length - 1 : 0;
+        HOME(0, R.string.menu_text_01, R.drawable.menu_icon_01, false),
+        EBUSINESS(1, R.string.menu_text_04, R.drawable.menu_icon_04, true),
+        O2O(2, R.string.menu_text_02, R.drawable.menu_icon_02, true),
+        GALLERIES(3, R.string.menu_text_03, R.drawable.menu_icon_03, true),
+        NEWS(4, R.string.menu_text_05, R.drawable.menu_icon_05, true),
+        SETTINGS(5, R.string.menu_text_06, R.drawable.menu_icon_06, true),
+        //        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
+        DUMB(-1, R.string.menu_text_01, R.drawable.menu_icon_01, true);
+
+        public final int position;
+        private final int title;
+        private final int icon;
+        private final boolean removed; // 表示fragment是否需要remove
+
+        MenuType(int position, final int title, int icon, boolean removed) {
+            this.position = position;
+            this.title = title;
+            this.icon = icon;
+            this.removed = removed;
+        }
+
+        public static MenuType getMenuTypeByIndex(int index) {
+            switch (index) {
+                default:
+                case 0:
+                    return HOME;
+                case 1:
+                    return EBUSINESS;
+                case 2:
+                    return O2O;
+                case 3:
+                    return GALLERIES;
+                case 4:
+                    return NEWS;
+                case 5:
+                    return SETTINGS;
+//                case 6:
+//                    return SIGNOUT;
+            }
+        }
+
+        public static int getIconByIndex(int index) {
+            return getMenuTypeByIndex(index).icon;
+        }
+
+        public static int getTitleByIndex(int index) {
+            return getMenuTypeByIndex(index).title;
+        }
+
+        public String getTag() {
+            return String.valueOf(title);
+        }
+
+        public int getTitleRes() {
+            return title;
+        }
+
+        public boolean hasRemoved() {
+            return removed;
+        }
     }
 }

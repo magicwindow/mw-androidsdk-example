@@ -22,13 +22,10 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.MenuLeftAdapter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.citySelect.CitiesActivity;
-import com.magicwindow.deeplink.domain.User;
-import com.magicwindow.deeplink.domain.event.UserLogoutEvent;
 import com.magicwindow.deeplink.menu.MenuManager;
 import com.magicwindow.deeplink.utils.DoubleClickExitUtils;
 
 import cn.salesuite.mlogcat.activity.LogcatActivity;
-import cn.salesuite.saf.eventbus.Subscribe;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
 import cn.salesuite.saf.log.L;
@@ -36,26 +33,19 @@ import cn.salesuite.saf.utils.Preconditions;
 
 public class MainActivity extends BaseAppCompatActivity {
 
-    @InjectView(id = R.id.drawer_layout)
-    private DrawerLayout drawerLayout;
-
-    @InjectView
-    private Toolbar toolbar;
-
-    @InjectView
-    private TextView appVersion;
-
-    @InjectView(id = R.id.menu_list)
-    private ListView menuLeft;
-
+    public static String PAGE = "page";
     @InjectView(id = R.id.menu_profile)
     RelativeLayout menuProfile;
-
+    @InjectView(id = R.id.drawer_layout)
+    private DrawerLayout drawerLayout;
+    @InjectView
+    private Toolbar toolbar;
+    @InjectView
+    private TextView appVersion;
+    @InjectView(id = R.id.menu_list)
+    private ListView menuLeft;
     private MenuManager menuManager;
     private Fragment mContent;
-
-    public static String PAGE = "page";
-
     private DoubleClickExitUtils doubleClickExitHelper;
     private int mPosition = 0;
 
@@ -64,7 +54,7 @@ public class MainActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.magicwindow.deeplink.R.layout.activity_main);
 
-        if (getIntent()!=null) {
+        if (getIntent() != null) {
             Intent intent = getIntent();
             String pageStr = intent.getStringExtra(PAGE);
             if (Preconditions.isNotBlank(pageStr)) {
@@ -179,7 +169,7 @@ public class MainActivity extends BaseAppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_city) {
-            startActivityForResult(new Intent(this, CitiesActivity.class),0);
+            startActivityForResult(new Intent(this, CitiesActivity.class), 0);
         }
 
         return super.onOptionsItemSelected(item);
@@ -195,22 +185,10 @@ public class MainActivity extends BaseAppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    /**
-     * 用户退出的事件
-     *
-     * @param event
-     */
-    @Subscribe
-    public void onUserLogoutEvent(UserLogoutEvent event) {
-        User.currentUser().logout();
-//        Intent i = new Intent(MainActivity.this, LoginActivity.class);
-//        startActivity(i);
-//        finish();
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(data !=null){
+        if (data != null) {
             String result = data.getExtras().getString("result");//得到新Activity 关闭后返回的数据
             ActionMenuItemView menu = (ActionMenuItemView) findViewById(R.id.action_city);
             menu.setTitle(result);

@@ -58,9 +58,9 @@ public class SettingsFragment extends BaseFragment {
         scrollView.setScrollContentView(contentView);
         final TextView login = (TextView) scrollView.getPullRootView().findViewById(R.id.login);
         if (User.currentUser().isLoggedIn()) {
-            login.setText(R.string.logout_with_blank);
+            login.setText(R.string.login);
         } else {
-            login.setText(R.string.login_with_blank);
+            login.setText(R.string.login);
         }
         login.setOnClickListener(new View.OnClickListener() {
             @Override

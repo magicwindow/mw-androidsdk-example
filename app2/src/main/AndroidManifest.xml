@@ -33,7 +33,7 @@
     <application
         android:name=".activity.MWApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.LoginActivity">
@@ -83,7 +83,7 @@
         <!-- 后台APPID（也就是APPKey） -->
         <meta-data
             android:name="MW_APPID"
-            android:value="XEJ7F76J61LHEWRI3Q9A6UN9BM4CRT3X" />
+            android:value="D1AP7GK63MD74YOKEVGZH769VXPDS6KF" />
 
         <!-- 渠道-->
         <meta-data

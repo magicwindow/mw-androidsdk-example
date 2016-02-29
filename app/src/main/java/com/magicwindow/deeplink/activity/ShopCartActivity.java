@@ -47,8 +47,8 @@ public class ShopCartActivity extends BaseAppCompatActivity {
         ShoppingCartItem item1 = new ShoppingCartItem();
         item1.imgRes = R.drawable.order_address_img;
         item1.title = getString(R.string.nipple_title);
-        item1.desc = getString(R.string.nipple_desc);
-        item1.price = getString(R.string.color_white);
+        item1.desc = getString(R.string.color_white);
+        item1.price = getString(R.string.price);
         list.add(item1);
 
         adapter.getList().addAll(list);
