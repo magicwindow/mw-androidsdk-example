@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.magicwindow.deeplink.app.MWApplication;
+import com.zxinsight.TrackAgent;
+import com.zxinsight.analytics.domain.UserProfile;
 
 import java.io.Serializable;
 
@@ -50,6 +52,10 @@ public class User implements Serializable {
         editor.commit();
 
         this.setUser(username,password);
+        UserProfile userProfile = new UserProfile(username);
+        userProfile.setTelephone("13585896555");
+        userProfile.setEmail("bravoon@126.com");
+        TrackAgent.currentEvent().setUserProfile(userProfile);
 
         Log.i(TAG, "Login Success");
     }
@@ -63,6 +69,7 @@ public class User implements Serializable {
      * 用户退出
      */
     public void logout() {
+        TrackAgent.currentEvent().cancelUserProfile();
         SharedPreferences sp = getSharedPreferences();
 
         SharedPreferences.Editor editor = sp.edit();

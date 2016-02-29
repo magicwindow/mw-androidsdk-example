@@ -28,6 +28,9 @@ import cn.salesuite.saf.utils.Preconditions;
 public class TourListAdapter extends SAFAdapter<HomeItem> {
 
     private final String[] listStrings;
+    int TYPE_DEFAULT = 0;
+    int TYPE0 = 1;
+    int TYPE_COUNT = TYPE0 + 1;
     private Context mContext;
 
     public TourListAdapter(Context context) {
@@ -38,6 +41,7 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
         item1.imgRes = R.drawable.tour_list_01;
         item1.title = "东方的夏威夷";
         item1.desc = "美丽三亚，浪漫天涯";
+        item1.type = TYPE0;
         mList.add(item1);
 
         HomeItem item2 = new HomeItem();
@@ -96,6 +100,18 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        // TODO Auto-generated method stub
+        return mList.get(position).type;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        // TODO Auto-generated method stub
+        return TYPE_COUNT;
+    }
+
+    @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView != null) {
@@ -106,7 +122,7 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
-
+        int type = getItemViewType(position);
         HomeItem item = mList.get(position);
         if (item != null) {
             holder.indicateView.setImageResource(item.imgRes);
@@ -122,8 +138,8 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
             //@mw mwOffset 是Config.MWS[]的偏移量，偏移4个后，为"4V2SVA7L",//5旅游-list01git
             final int mwOffset = 4 + position;
 
-            if (position == 0) {
-                holder.indicateView.setOnClickListener(new View.OnClickListener() {
+            if (type == TYPE0) {
+                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, TourDetailActivity.class);
@@ -137,14 +153,14 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
                     holder.indicateView.setScaleType(ImageView.ScaleType.FIT_XY);
                     holder.indicateView.bindEvent(Config.MWS[mwOffset]);
 
-                    holder.indicateView.setOnClickListener(new View.OnClickListener() {
+                    holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[mwOffset]);
                         }
                     });
                 } else {
-                    holder.indicateView.setOnClickListener(new View.OnClickListener() {
+                    holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, WebViewActivity.class);

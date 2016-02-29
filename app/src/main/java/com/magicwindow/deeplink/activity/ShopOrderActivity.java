@@ -7,6 +7,10 @@ import android.view.View;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
+import com.magicwindow.deeplink.config.Config;
+import com.zxinsight.TrackAgent;
+
+import java.util.HashMap;
 
 import cn.salesuite.saf.inject.annotation.OnClick;
 
@@ -39,6 +43,7 @@ public class ShopOrderActivity extends BaseAppCompatActivity {
     }
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
+        TrackAgent.currentEvent().customEvent(Config.CUSTOM_CONFIRM_ORDER);
         startActivity(new Intent(mContext, ShopPayActivity.class));
     }
 }

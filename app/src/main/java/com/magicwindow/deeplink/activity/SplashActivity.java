@@ -86,13 +86,8 @@ public class SplashActivity extends BaseActivity {
             startActivity(i);
         } else {
             if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
-                if(User.currentUser().isLoggedIn()){
-                    Intent i = new Intent(mContext, MainActivity.class);
-                    startActivity(i);
-                }else {
-                    Intent i = new Intent(mContext, LoginActivity.class);
-                    startActivity(i);
-                }
+                Intent i = new Intent(mContext, MainActivity.class);
+                startActivity(i);
             } else {
                 appPrefs.setLastVersion(app.version);
                 Intent i = new Intent(mContext,LearnActivity.class);

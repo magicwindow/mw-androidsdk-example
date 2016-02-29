@@ -8,4 +8,5 @@ public class HomeItem {
     public Integer imgRes;
     public String title;
     public String desc;
+    public int type = 0;
 }

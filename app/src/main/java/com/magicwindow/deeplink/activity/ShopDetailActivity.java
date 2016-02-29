@@ -7,6 +7,10 @@ import android.view.View;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
+import com.magicwindow.deeplink.config.Config;
+import com.zxinsight.TrackAgent;
+
+import java.util.HashMap;
 
 import cn.salesuite.saf.inject.annotation.OnClick;
 
@@ -39,6 +43,10 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
     }
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
+        HashMap map = new HashMap();
+        map.put("goods","婴儿奶嘴");
+        map.put("price","14.49");
+        TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART,map);
         startActivity(new Intent(mContext, ShopCartActivity.class));
     }
 }

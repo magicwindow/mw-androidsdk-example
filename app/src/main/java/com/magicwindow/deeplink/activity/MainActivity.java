@@ -203,9 +203,9 @@ public class MainActivity extends BaseAppCompatActivity {
     @Subscribe
     public void onUserLogoutEvent(UserLogoutEvent event) {
         User.currentUser().logout();
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(i);
-        finish();
+//        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+//        startActivity(i);
+//        finish();
     }
 
     @Override

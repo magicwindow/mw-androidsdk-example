@@ -83,13 +83,8 @@ public class LearnActivity extends BaseActivity {
      * 跳转到主页面
      */
     private void loadingNext() {
-        if(User.currentUser().isLoggedIn()){
-            Intent i = new Intent(mContext, MainActivity.class);
-            startActivity(i);
-        }else {
-            Intent i = new Intent(mContext, LoginActivity.class);
-            startActivity(i);
-        }
+        Intent i = new Intent(mContext, MainActivity.class);
+        startActivity(i);
         finish();
     }
 }

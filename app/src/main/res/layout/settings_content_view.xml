@@ -11,6 +11,29 @@
         android:layout_marginLeft="5dp"
 
         android:background="@color/white"
+        android:id="@+id/login_layout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/settings_icon_login"
+            android:drawablePadding="5dp"
+            android:text="@string/login_with_blank"
+            android:id="@+id/login"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:textColor="@color/gray_dark_text_color"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/login_layout"
+        android:background="@color/white"
         android:id="@+id/user_layout">
         <TextView
             android:layout_width="match_parent"

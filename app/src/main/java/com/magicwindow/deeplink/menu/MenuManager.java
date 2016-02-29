@@ -44,7 +44,7 @@ public class MenuManager {
         EBUSINESS(3, R.string.menu_text_04, R.drawable.menu_icon_04, true),
         NEWS(4, R.string.menu_text_05, R.drawable.menu_icon_05, true),
         SETTINGS(5, R.string.menu_text_06, R.drawable.menu_icon_06, true),
-        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
+//        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
         DUMB(-1, R.string.menu_text_01, R.drawable.menu_icon_01, true);
 
         public final int position;
@@ -74,8 +74,8 @@ public class MenuManager {
                     return NEWS;
                 case 5:
                     return SETTINGS;
-                case 6:
-                    return SIGNOUT;
+//                case 6:
+//                    return SIGNOUT;
             }
         }
 
@@ -161,8 +161,8 @@ public class MenuManager {
             case NEWS:
                 fragment = new NewsFragment();
                 break;
-            case SIGNOUT:
-                break;
+//            case SIGNOUT:
+//                break;
             case SETTINGS:
                 fragment = new SettingsFragment();
                 break;

@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.LearnActivity;
+import com.magicwindow.deeplink.activity.LoginActivity;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.User;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
@@ -53,6 +56,26 @@ public class SettingsFragment extends BaseFragment {
         scrollView.setHeaderView(headView);
         scrollView.setZoomView(zoomView);
         scrollView.setScrollContentView(contentView);
+        final TextView login = (TextView) scrollView.getPullRootView().findViewById(R.id.login);
+        if (User.currentUser().isLoggedIn()) {
+            login.setText(R.string.logout_with_blank);
+        } else {
+            login.setText(R.string.login_with_blank);
+        }
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (User.currentUser().isLoggedIn()) {
+                    login.setText(R.string.login_with_blank);
+                    User.currentUser().logout();
+                } else {
+//                    login.setText(R.string.logout_with_blank);
+                    Intent i = new Intent(mContext, LoginActivity.class);
+                    startActivity(i);
+                    mContext.finish();
+                }
+            }
+        });
 
         scrollView.getPullRootView().findViewById(R.id.custom_event).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +122,8 @@ public class SettingsFragment extends BaseFragment {
         scrollView.getPullRootView().findViewById(R.id.learning).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(mContext,LearnActivity.class);
-                i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SETTING);
+                Intent i = new Intent(mContext, LearnActivity.class);
+                i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SETTING);
                 startActivity(i);
             }
         });

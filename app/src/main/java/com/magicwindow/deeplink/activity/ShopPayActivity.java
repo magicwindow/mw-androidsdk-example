@@ -8,6 +8,10 @@ import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
+import com.magicwindow.deeplink.config.Config;
+import com.zxinsight.TrackAgent;
+
+import java.util.HashMap;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
@@ -75,8 +79,14 @@ public class ShopPayActivity extends BaseAppCompatActivity {
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
         if (STATUS == 0) {
+            HashMap map = new HashMap();
+            map.put("pay_channel","WeiXin");
+            TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART,map);
             startActivity(new Intent(mContext, ShopDoneActivity.class));
         } else if (STATUS == 1) {
+            HashMap map = new HashMap();
+            map.put("pay_channel","ZhiFuBao");
+            TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART,map);
             startActivity(new Intent(mContext, ShopDoneActivity.class));
         } else {
             ToastUtils.showShort(mContext, R.string.select_pay);

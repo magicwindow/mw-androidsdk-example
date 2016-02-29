@@ -27,8 +27,8 @@
     <string name="register_with_blank">注 册</string>
     <string name="login">登陆</string>
     <string name="login_with_blank">登 陆</string>
-    <string name="logout">注销</string>
-    <string name="logout_with_blank">注 销</string>
+    <string name="logout">退出</string>
+    <string name="logout_with_blank">退 出</string>
     <string name="settings">设置</string>
     <string name="settings_with_blank">设 置</string>
     <string name="auth">验证</string>
@@ -144,8 +144,8 @@
     <string name="pay_method">支付方式</string>
     <string name="pay_weixin_title">微信支付</string>
     <string name="pay_weixin_desc">微信安全支付</string>
-    <string name="pay_zhifubao_title">快捷支付</string>
-    <string name="pay_zhifubao_desc">快捷支付服务</string>
+    <string name="pay_zhifubao_title">支付宝支付</string>
+    <string name="pay_zhifubao_desc">支付宝快捷支付</string>
     <string name="go_pay">付款</string>
     <string name="pay_done">订单支付成功</string>
     <string name="go_home">回到首页</string>

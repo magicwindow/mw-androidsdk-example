@@ -12,10 +12,13 @@ import android.view.ViewGroup;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.ShoppingCartPresenter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
+import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.ShoppingCartItem;
 import com.magicwindow.deeplink.ui.DividerItemDecoration;
+import com.zxinsight.TrackAgent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import cn.salesuite.saf.adapter.Presenter;
@@ -83,6 +86,10 @@ public class ShopCartActivity extends BaseAppCompatActivity {
     }
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
+        HashMap map = new HashMap();
+        map.put("goods","婴儿奶嘴");
+        map.put("price","14.49");
+        TrackAgent.currentEvent().customEvent(Config.CUSTOM_CONFIRM_GOODS,map);
         startActivity(new Intent(mContext, ShopOrderActivity.class));
     }
 }
