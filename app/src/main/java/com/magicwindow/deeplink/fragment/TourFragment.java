@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -41,8 +40,9 @@ public class TourFragment extends BaseFragment {
     @InjectView(id = R.id.indicator)
     CircleIndicator indicator;
 
-    @InjectView(id = com.magicwindow.deeplink.R.id.home_list)
+    @InjectView(id = R.id.home_list)
     ListViewForScrollView homeList;
+
     private MWBroadCastReceiver receiver;
     private TourListAdapter adapter;
     private int guideResourceId = R.drawable.guide_tour;// 新手引导页图片资源id
@@ -100,7 +100,7 @@ public class TourFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(com.magicwindow.deeplink.R.layout.fragment_tour, container,
+        View view = inflater.inflate(R.layout.fragment_tour, container,
                 false);
         Injector.injectInto(this, view);
 
@@ -113,16 +113,8 @@ public class TourFragment extends BaseFragment {
 
     private void initViews() {
 
-        final String[] strings = new String[]{
-                "http://m.mafengwo.cn/i/3301152.html",
-                "http://m.mafengwo.cn/travel-news/186478.html",
-                "http://m.mafengwo.cn/i/5347671.html",
-                "http://m.mafengwo.cn/i/3394717.html"
-        };
-
         adapter = new TourListAdapter(mContext);
         homeList.setAdapter(adapter);
-
     }
 
     private void initViewPager() {

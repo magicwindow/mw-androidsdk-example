@@ -121,40 +121,39 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
 
             //@mw mwOffset 是Config.MWS[]的偏移量，偏移4个后，为"4V2SVA7L",//5旅游-list01git
             final int mwOffset = 4 + position;
+
             if (position == 0) {
-                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
+                holder.indicateView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, TourDetailActivity.class);
                         mContext.startActivity(intent);
                     }
                 });
-                return convertView;
-            }
-            if (mwOffset <= Config.MWS.length && MarketingHelper.currentMarketing(convertView.getContext()).isActive(Config.MWS[mwOffset])) {
-                holder.title.setText(MarketingHelper.currentMarketing(convertView.getContext()).getTitle(Config.MWS[mwOffset]));
-                holder.desc.setText(MarketingHelper.currentMarketing(convertView.getContext()).getDescription(Config.MWS[mwOffset]));
-                MWImageView imageView = holder.indicateView;
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                imageView.bindEvent(Config.MWS[mwOffset]);
-
-                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[mwOffset]);
-                    }
-                });
             } else {
-                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(mContext, WebViewActivity.class);
-                        intent.putExtra(WebViewActivity.WEB_URL, listStrings[position]);
-                        mContext.startActivity(intent);
-                    }
-                });
-            }
+                if (mwOffset <= Config.MWS.length && MarketingHelper.currentMarketing(convertView.getContext()).isActive(Config.MWS[mwOffset])) {
+                    holder.title.setText(MarketingHelper.currentMarketing(convertView.getContext()).getTitle(Config.MWS[mwOffset]));
+                    holder.desc.setText(MarketingHelper.currentMarketing(convertView.getContext()).getDescription(Config.MWS[mwOffset]));
+                    holder.indicateView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    holder.indicateView.bindEvent(Config.MWS[mwOffset]);
 
+                    holder.indicateView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[mwOffset]);
+                        }
+                    });
+                } else {
+                    holder.indicateView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, WebViewActivity.class);
+                            intent.putExtra(WebViewActivity.WEB_URL, listStrings[position]);
+                            mContext.startActivity(intent);
+                        }
+                    });
+                }
+            }
         }
 
         return convertView;
