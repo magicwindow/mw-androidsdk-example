@@ -210,8 +210,10 @@ public class MainActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String result = data.getExtras().getString("result");//得到新Activity 关闭后返回的数据
-        ActionMenuItemView menu = (ActionMenuItemView) findViewById(R.id.action_city);
-        menu.setTitle(result);
+        if(data !=null){
+            String result = data.getExtras().getString("result");//得到新Activity 关闭后返回的数据
+            ActionMenuItemView menu = (ActionMenuItemView) findViewById(R.id.action_city);
+            menu.setTitle(result);
+        }
     }
 }

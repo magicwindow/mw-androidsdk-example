@@ -22,6 +22,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shop_cart_list"
         style="@style/listView"
+        android:layout_below="@id/app_bar_layout"
         android:layout_above="@id/bottom" />
 
     <LinearLayout
@@ -47,7 +48,7 @@
             android:layout_weight="2"
             android:id="@+id/click_to_buy"
             android:background="@drawable/btn_red_pressed"
-            android:text="@string/click_to_buy"
+            android:text="@string/confirm"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/root"
-             xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/login_bg"
-                    android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_bg"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/login_icon"
@@ -17,7 +17,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="73dp"
-            android:background="@drawable/login_icon"/>
+            android:background="@drawable/login_icon" />
 
         <EditText
             android:id="@+id/username"
@@ -27,9 +27,9 @@
             android:drawableLeft="@drawable/login_username_icon"
             android:drawablePadding="10dp"
             android:hint="@string/login_username_hint"
-            android:textColor="@color/white"
             android:lines="1"
-            android:textColorHint="@color/login_edit_hint"/>
+            android:textColor="@color/white"
+            android:textColorHint="@color/login_edit_hint" />
 
         <EditText
             android:id="@+id/password"
@@ -38,11 +38,11 @@
             android:layout_marginTop="17dp"
             android:drawableLeft="@drawable/login_password_normal"
             android:drawablePadding="10dp"
-            android:textColor="@color/white"
             android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
             android:lines="1"
-            android:textColorHint="@color/login_edit_hint"
-            android:inputType="textPassword" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/login_edit_hint" />
 
         <TextView
             android:id="@+id/loginBtn"
@@ -53,7 +53,8 @@
             android:layout_marginTop="30.5dp"
             android:background="@drawable/selector_login_edit"
             android:gravity="center"
-            android:text="Login"/>
+            android:text="@string/login_with_blank"
+            android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/login_logo"
@@ -62,7 +63,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="35dp"
-            android:background="@drawable/login_logo"/>
+            android:background="@drawable/login_logo" />
 
     </RelativeLayout>
 
@@ -70,7 +71,6 @@
         android:id="@+id/coverLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@color/black"
-        />
+        android:visibility="gone" />
 </FrameLayout>

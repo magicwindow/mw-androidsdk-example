@@ -124,8 +124,8 @@
     <string name="custom_page">自定义事件</string>
     <string name="menu">菜单</string>
 
-    <string name="login_username_hint">Username</string>
-    <string name="login_password_hint">Password</string>
+    <string name="login_username_hint">用户名（可任意填写）</string>
+    <string name="login_password_hint">密码（可任意填写）</string>
     <string name="settings_title">魔窗，运营人的工具箱</string>
 
     <string name="please_enter_username_and_password">请输入用户名和密码</string>
@@ -150,5 +150,9 @@
     <string name="pay_done">订单支付成功</string>
     <string name="go_home">回到首页</string>
     <string name="shop_detail">商品详情</string>
+    <string name="shop_cart">购物车</string>
+    <string name="shop_order">订单</string>
+    <string name="shop_pay">收银台</string>
+    <string name="shop_pay_done">订单支付成功</string>
     <string name="select_pay">请选择支付方式</string>
 </resources>

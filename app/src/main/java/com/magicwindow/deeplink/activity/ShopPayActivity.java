@@ -15,29 +15,36 @@ import cn.salesuite.saf.utils.ToastUtils;
 
 public class ShopPayActivity extends BaseAppCompatActivity {
 
+    private final int STATUS_WEIXIN = 0;
+    private final int STATUS_ZHIFUBAO = 1;
     @InjectView(id = R.id.weixin_selected)
     ImageView weixinSelected;
     @InjectView(id = R.id.zhifubao_selected)
     ImageView zhifubaoSelected;
-
-    private int STATUS = -1;
-    private final int STATUS_WEIXIN = 0;
-    private final int STATUS_ZHIFUBAO = 1;
+    private int STATUS = STATUS_WEIXIN;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_pay);
         initToolBar();
+        initStatus();
     }
 
+    private void initStatus() {
+        if (STATUS == STATUS_WEIXIN) {
+            weixinSelected.setImageResource(R.drawable.pay_select_pressed);
+            zhifubaoSelected.setImageResource(R.drawable.pay_select);
+        } else if (STATUS == STATUS_ZHIFUBAO) {
+            zhifubaoSelected.setImageResource(R.drawable.pay_select_pressed);
+            weixinSelected.setImageResource(R.drawable.pay_select);
+        }
+    }
 
     private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
-
+        toolbar.setTitle(R.string.shop_pay);
         setSupportActionBar(toolbar);
-        setTitle(R.string.shop_detail);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +54,7 @@ public class ShopPayActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @OnClick(id = R.id.weixin_layout)
@@ -71,8 +78,8 @@ public class ShopPayActivity extends BaseAppCompatActivity {
             startActivity(new Intent(mContext, ShopDoneActivity.class));
         } else if (STATUS == 1) {
             startActivity(new Intent(mContext, ShopDoneActivity.class));
-        }else {
-            ToastUtils.showShort(mContext,R.string.select_pay);
+        } else {
+            ToastUtils.showShort(mContext, R.string.select_pay);
         }
     }
 }

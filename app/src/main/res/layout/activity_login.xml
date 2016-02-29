@@ -51,9 +51,10 @@
             android:layout_below="@+id/password"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30.5dp"
+            android:textColor="@color/white"
             android:background="@drawable/selector_login_edit"
             android:gravity="center"
-            android:text="Login"/>
+            android:text="@string/login_with_blank"/>
 
         <ImageView
             android:id="@+id/login_logo"

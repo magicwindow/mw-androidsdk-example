@@ -24,9 +24,9 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
     private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setNavigationIcon(R.drawable.ic_navigation);
+        toolbar.setTitle(R.string.shop_detail);
 
         setSupportActionBar(toolbar);
-        setTitle(R.string.shop_detail);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +36,6 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {

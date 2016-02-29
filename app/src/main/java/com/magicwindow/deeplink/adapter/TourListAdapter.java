@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.magicwindow.deeplink.activity.TourDetailActivity;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
 import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.activity.TourDetailActivity;
 import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.HomeItem;
+import com.zxinsight.MWImageView;
+import com.zxinsight.MarketingHelper;
 
 import java.util.ArrayList;
 
@@ -27,9 +27,8 @@ import cn.salesuite.saf.utils.Preconditions;
  */
 public class TourListAdapter extends SAFAdapter<HomeItem> {
 
-    private Context mContext;
-
     private final String[] listStrings;
+    private Context mContext;
 
     public TourListAdapter(Context context) {
         mContext = context;
@@ -122,47 +121,38 @@ public class TourListAdapter extends SAFAdapter<HomeItem> {
 
             //@mw mwOffset 是Config.MWS[]的偏移量，偏移4个后，为"4V2SVA7L",//5旅游-list01git
             final int mwOffset = 4 + position;
-            if (mwOffset <= Config.MWS.length) {
-
-                if (MarketingHelper.currentMarketing(convertView.getContext()).isActive(Config.MWS[mwOffset])) {
-                    holder.title.setText(MarketingHelper.currentMarketing(convertView.getContext()).getTitle(Config.MWS[mwOffset]));
-                    holder.desc.setText(MarketingHelper.currentMarketing(convertView.getContext()).getDescription(Config.MWS[mwOffset]));
-                    MWImageView imageView = holder.indicateView;
-                    if (imageView != null) {
-                        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        imageView.bindEvent(Config.MWS[mwOffset]);
+            if (position == 0) {
+                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, TourDetailActivity.class);
+                        mContext.startActivity(intent);
                     }
+                });
+                return convertView;
+            }
+            if (mwOffset <= Config.MWS.length && MarketingHelper.currentMarketing(convertView.getContext()).isActive(Config.MWS[mwOffset])) {
+                holder.title.setText(MarketingHelper.currentMarketing(convertView.getContext()).getTitle(Config.MWS[mwOffset]));
+                holder.desc.setText(MarketingHelper.currentMarketing(convertView.getContext()).getDescription(Config.MWS[mwOffset]));
+                MWImageView imageView = holder.indicateView;
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                imageView.bindEvent(Config.MWS[mwOffset]);
 
-                    holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[mwOffset]);
-                        }
-                    });
-                } else {
-                    if(position == 0||position == listStrings.length-1){
-                        holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(mContext, TourDetailActivity.class);
-                                mContext.startActivity(intent);
-                            }
-                        });
-
-                    }else {
-                        holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(mContext, WebViewActivity.class);
-                                intent.putExtra(WebViewActivity.WEB_URL, listStrings[position]);
-                                mContext.startActivity(intent);
-                            }
-                        });
-
+                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[mwOffset]);
                     }
-
-
-                }
+                });
+            } else {
+                holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, WebViewActivity.class);
+                        intent.putExtra(WebViewActivity.WEB_URL, listStrings[position]);
+                        mContext.startActivity(intent);
+                    }
+                });
             }
 
         }

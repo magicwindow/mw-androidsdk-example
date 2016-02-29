@@ -123,22 +123,6 @@ public class TourFragment extends BaseFragment {
         adapter = new TourListAdapter(mContext);
         homeList.setAdapter(adapter);
 
-        homeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationZ", 20, 0);
-//                animator.addListener(new AnimatorListenerAdapter() {
-//                    @Override
-//                    public void onAnimationEnd(Animator animation) {
-//                        mContext.startActivity(new Intent(mContext, DetailActivity.class));
-//                    }
-//                });
-//                animator.start();
-//                Intent intent = new Intent(mContext, WebTestActivity.class);
-//                intent.putExtra(WebTestActivity.WEB_URL, listStrings[position]);
-//                mContext.startActivity(intent);
-            }
-        });
     }
 
     private void initViewPager() {

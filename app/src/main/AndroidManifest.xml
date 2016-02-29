@@ -213,8 +213,6 @@
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
 
-        <activity android:name=".activity.ShopDetailActivity" />
-        <activity android:name=".activity.ShopCartActivity"></activity>
     </application>
 
 </manifest>

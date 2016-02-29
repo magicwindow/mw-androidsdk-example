@@ -20,10 +20,11 @@
     <string name="find_other_group_buy">查看其他团购</string>
     <string name="attend_immediately">立刻参加</string>
 
-    <string name="login_username_hint">Username</string>
-    <string name="login_password_hint">Password</string>
+    <string name="login_username_hint">用户名（可任意填写）</string>
+    <string name="login_password_hint">密码（可任意填写）</string>
     <string name="please_enter_username_and_password">请输入用户名和密码</string>
     <string name="login">登录</string>
+    <string name="login_with_blank">登 录</string>
     <string name="logout">注销</string>
 
     <string name="home_top_1">新品</string>
