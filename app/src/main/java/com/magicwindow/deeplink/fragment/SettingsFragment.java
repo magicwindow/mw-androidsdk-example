@@ -58,7 +58,7 @@ public class SettingsFragment extends BaseFragment {
         scrollView.setScrollContentView(contentView);
         final TextView login = (TextView) scrollView.getPullRootView().findViewById(R.id.login);
         if (User.currentUser().isLoggedIn()) {
-            login.setText(R.string.login);
+            login.setText(R.string.logout);
         } else {
             login.setText(R.string.login);
         }
@@ -66,10 +66,10 @@ public class SettingsFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (User.currentUser().isLoggedIn()) {
-                    login.setText(R.string.login_with_blank);
                     User.currentUser().logout();
+                    login.setText(R.string.login);
                 } else {
-//                    login.setText(R.string.logout_with_blank);
+//                    login.setText(R.string.logout);
                     Intent i = new Intent(mContext, LoginActivity.class);
                     startActivity(i);
                     mContext.finish();

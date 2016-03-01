@@ -155,4 +155,9 @@
     <string name="shop_pay">收银台</string>
     <string name="shop_pay_done">订单支付成功</string>
     <string name="select_pay">请选择支付方式</string>
+    <string name="order_code">订单编号：</string>
+    <string name="order_code_content">48598149115</string>
+    <string name="order_time">下单时间：</string>
+    <string name="order_channel">交易方式：</string>
+    <string name="pay_time_content">2015.09.13 14:25</string>
 </resources>
