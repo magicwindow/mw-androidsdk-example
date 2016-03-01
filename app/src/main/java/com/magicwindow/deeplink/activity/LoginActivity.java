@@ -37,7 +37,6 @@ public class LoginActivity extends BaseActivity {
         setContentView(com.magicwindow.deeplink.R.layout.activity_login);
 
         initViews();
-        initData();
     }
 
     private void initViews() {
@@ -68,18 +67,6 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-    private void initData() {
-
-        if (User.currentUser().isLoggedIn()) {
-            username.setText(User.currentUser().username);
-            password.setText(User.currentUser().password);
-
-            Intent i = new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(i);
-            finish();
-        }
-    }
-
     @OnClick(id= R.id.loginBtn)
     void clickLoginButton() {
 
@@ -93,7 +80,7 @@ public class LoginActivity extends BaseActivity {
                 public void run() {
 
                     User.currentUser().login(usernameStr,passwordStr);
-                    Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                    Intent i = new Intent(mContext,MainActivity.class);
                     startActivity(i);
                     finish();
                 }

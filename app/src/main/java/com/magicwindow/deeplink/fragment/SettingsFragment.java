@@ -69,10 +69,8 @@ public class SettingsFragment extends BaseFragment {
                     User.currentUser().logout();
                     login.setText(R.string.login);
                 } else {
-//                    login.setText(R.string.logout);
                     Intent i = new Intent(mContext, LoginActivity.class);
                     startActivity(i);
-                    mContext.finish();
                 }
             }
         });
