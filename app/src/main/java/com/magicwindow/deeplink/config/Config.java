@@ -147,7 +147,9 @@ public final class Config {
             "S67K92GN",//96设置-item05
             "IH0R6VJG",//97设置-item06
             "SPZSFGKH",//98设置-item07
-            "IOP2UFH4"//99旅游-detail-Uber
+            "IOP2UFH4",//99旅游-detail-Uber
+            "7O3F5ZVZ",//100旅游-detail02
+            "14CQZAVQ"//101旅游-detail03
     };
 
 

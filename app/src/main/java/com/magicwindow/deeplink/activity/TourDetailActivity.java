@@ -22,12 +22,21 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.tour_detail_uber)
     MWImageView uber;
 
+    @InjectView(id = R.id.tour_detail_button)
+    MWImageView button;
+
+    @InjectView(id = R.id.tour_detail_button1)
+    MWImageView button1;
+
+    @InjectView(id = R.id.tour_detail_button2)
+    MWImageView button2;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_detail);
         initToolBar();
-        initUber();
+        initMW();
     }
 
     private void initToolBar() {
@@ -45,18 +54,49 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    private void initUber() {
+    private void initMW() {
         if (MarketingHelper.currentMarketing(this).isActive(Config.MWS[99])) {
             uber.bindEvent(Config.MWS[99]);
             uber.setVisibility(View.VISIBLE);
         } else {
             uber.setVisibility(View.GONE);
         }
+
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MWS[91])) {
+            button.bindEvent(Config.MWS[91]);
+            button.setVisibility(View.VISIBLE);
+        } else {
+            button.setVisibility(View.GONE);
+        }
+
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MWS[100])) {
+            button1.bindEvent(Config.MWS[100]);
+            button1.setVisibility(View.VISIBLE);
+        } else {
+            button1.setVisibility(View.GONE);
+        }
+
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MWS[101])) {
+            button2.bindEvent(Config.MWS[101]);
+            button2.setVisibility(View.VISIBLE);
+        } else {
+            button2.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(id = R.id.tour_detail_button)
     void clickButton() {
         MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[91]);
+    }
+
+    @OnClick(id = R.id.tour_detail_button1)
+    void clickButton1() {
+        MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[100]);
+    }
+
+    @OnClick(id = R.id.tour_detail_button2)
+    void clickButton2() {
+        MarketingHelper.currentMarketing(mContext).click(mContext, Config.MWS[101]);
     }
 
 }
