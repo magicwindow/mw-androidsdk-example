@@ -50,13 +50,13 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (StringUtils.isNotBlank(s)) {
-                    Drawable drawable= getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_pressed);
+                    Drawable drawable = getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_pressed);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    password.setCompoundDrawables(drawable,null,null,null);
+                    password.setCompoundDrawables(drawable, null, null, null);
                 } else {
-                    Drawable drawable= getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_normal);
+                    Drawable drawable = getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_normal);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    password.setCompoundDrawables(drawable,null,null,null);
+                    password.setCompoundDrawables(drawable, null, null, null);
                 }
             }
 
@@ -67,10 +67,10 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-    @OnClick(id= R.id.loginBtn)
+    @OnClick(id = R.id.loginBtn)
     void clickLoginButton() {
 
-        if (StringUtils.isNotBlank(username.getText().toString(),password.getText().toString())) {
+        if (StringUtils.isNotBlank(username.getText().toString(), password.getText().toString())) {
             final String usernameStr = username.getText().toString();
             final String passwordStr = password.getText().toString();
 
@@ -79,12 +79,12 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void run() {
 
-                    User.currentUser().login(usernameStr,passwordStr);
-                    Intent i = new Intent(mContext,MainActivity.class);
+                    User.currentUser().login(usernameStr, passwordStr);
+                    Intent i = new Intent(mContext, MainActivity.class);
                     startActivity(i);
                     finish();
                 }
-            },500);
+            }, 500);
         } else {
             toast(com.magicwindow.deeplink.R.string.please_enter_username_and_password);
         }

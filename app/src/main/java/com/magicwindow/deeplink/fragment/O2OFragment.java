@@ -9,18 +9,21 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.O2OListActivity;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
+import com.magicwindow.deeplink.app.BaseFragment;
+import com.magicwindow.deeplink.app.MWApplication;
+import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.O2OList;
+import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
-import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.config.Config;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
+import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
@@ -99,21 +102,18 @@ public class O2OFragment extends BaseFragment {
 
         initView();
         bindMW();
-        initViewPager();
         return view;
     }
 
-    private void initViewPager(){
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(R.drawable.o2o_banner001);
-        list.add(R.drawable.o2o_banner002);
-        list.add(R.drawable.o2o_banner003);
-        list.add(R.drawable.o2o_banner004);
-        viewPager.setAdapter(new ImageAdapter(64,list));
-        indicator.setViewPager(viewPager);
-    }
-
     private void initView() {
+        ImageLoader imageLoader = MWApplication.getInstance().imageLoader;
+        O2OList list = AppPrefs.get(mContext).getO2OList();
+
+        viewPager.setAdapter(new ImageAdapter(64, list.headList));
+        indicator.setViewPager(viewPager);
+        imageLoader.displayImage(list.contentList.get(0), img_1);
+        imageLoader.displayImage(list.contentList.get(1), img_2);
+        imageLoader.displayImage(list.contentList.get(2), img_3);
 
         ic_top_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,17 +218,17 @@ public class O2OFragment extends BaseFragment {
         img_1.bindEvent(Config.MWS[72]);
         //middle第2个魔窗位
         HashMap<String, String> dt = new HashMap<String, String>();
-        dt.put("name1","青岛啤酒");
-        dt.put("name2","雪花啤酒");
-        dt.put("name3","五粮液");
-        img_2.bindEventWithMLink(Config.MWS[73],dt);
+        dt.put("name1", "青岛啤酒");
+        dt.put("name2", "雪花啤酒");
+        dt.put("name3", "五粮液");
+        img_2.bindEventWithMLink(Config.MWS[73], dt);
         //middle第3个魔窗位
         //middle第2个魔窗位
         HashMap<String, String> dt1 = new HashMap<String, String>();
-        dt1.put("name1","剑南春");
-        dt1.put("name2","茅台酒");
-        dt1.put("name3","梦之蓝");
-        img_3.bindEventWithMLink(Config.MWS[74],dt1);
+        dt1.put("name1", "剑南春");
+        dt1.put("name2", "茅台酒");
+        dt1.put("name3", "梦之蓝");
+        img_3.bindEventWithMLink(Config.MWS[74], dt1);
 
     }
 

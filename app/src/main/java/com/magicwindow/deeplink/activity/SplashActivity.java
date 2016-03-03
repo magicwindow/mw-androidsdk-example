@@ -9,28 +9,45 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.UrlDispatcher;
 import com.magicwindow.deeplink.app.BaseActivity;
 import com.magicwindow.deeplink.config.Config;
-import com.magicwindow.deeplink.domain.User;
 import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.magicwindow.deeplink.utils.NetTask;
 import com.zxinsight.MagicWindowSDK;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.salesuite.saf.log.L;
+import cn.salesuite.saf.utils.AsyncTaskExecutor;
 
 /**
  * Created by Tony Shen on 15/11/23.
  */
 public class SplashActivity extends BaseActivity {
 
+
     AppPrefs appPrefs;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        appPrefs = AppPrefs.get(mContext);
         initData();
+        initJson();
+    }
+
+    private void initJson() {
+        List<String> list = new ArrayList<String>();
+        list.add(Config.businessList);
+        list.add(Config.o2oList);
+        list.add(Config.newsList);
+        list.add(Config.picList);
+        list.add(Config.travelList);
+        AsyncTaskExecutor.executeAsyncTask(new NetTask(this, list));
     }
 
     private void initData() {
-        appPrefs = AppPrefs.get(mContext);
 
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -46,7 +63,7 @@ public class SplashActivity extends BaseActivity {
         UrlDispatcher.register(this);
         //@mw mLink跳转 start
         Uri mLink = getIntent().getData();
-        if (mLink!=null) {
+        if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
         } else {
             loadingNext();
@@ -56,33 +73,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void loadingNext() {
-        /*mHandler.post(new Runnable() {
-            @Override
-            public void run() {
 
-                if (appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
-                    appPrefs.setLastVersion(app.version);
-                    Intent i = new Intent(mContext,LearnActivity.class);
-                    i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
-                    startActivity(i);
-                } else {
-                    if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
-                        Intent i = new Intent(mContext,MainActivity.class);
-                        startActivity(i);
-                    } else {
-                        appPrefs.setLastVersion(app.version);
-                        Intent i = new Intent(mContext,LearnActivity.class);
-                        i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
-                        startActivity(i);
-                    }
-                }
-                finish();
-            }
-        });*/
         if (appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
             appPrefs.setLastVersion(app.version);
-            Intent i = new Intent(mContext,LearnActivity.class);
-            i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
+            Intent i = new Intent(mContext, LearnActivity.class);
+            i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
             startActivity(i);
         } else {
             if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
@@ -90,8 +85,8 @@ public class SplashActivity extends BaseActivity {
                 startActivity(i);
             } else {
                 appPrefs.setLastVersion(app.version);
-                Intent i = new Intent(mContext,LearnActivity.class);
-                i.putExtra(LearnActivity.TYPE,LearnActivity.FROM_SPLASH);
+                Intent i = new Intent(mContext, LearnActivity.class);
+                i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
                 startActivity(i);
             }
         }
@@ -102,4 +97,6 @@ public class SplashActivity extends BaseActivity {
     public void onNewIntent(Intent intent) {
         this.setIntent(intent);
     }
+
+
 }

@@ -7,17 +7,20 @@ import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.WebViewActivity;
-import com.magicwindow.deeplink.domain.NewsItem;
+import com.magicwindow.deeplink.app.MWApplication;
+import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.NewsList;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.adapter.Presenter;
+import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 
 /**
  * Created by Tony Shen on 16/2/2.
  */
-public class NewsPresenter extends Presenter<NewsItem> {
+public class NewsPresenter extends Presenter<NewsList.NewsContent> {
 
     @InjectView(id= R.id.id_news_list_img)
     MWImageView listBg;
@@ -28,21 +31,24 @@ public class NewsPresenter extends Presenter<NewsItem> {
     @InjectView(id=R.id.id_news_list_desc)
     TextView desc;
 
+    private ImageLoader imageLoader;
+
     public NewsPresenter(View view, Context context) {
         super(view);
         this.mContext = context;
+        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
-    public void onBind(int position, final NewsItem item) {
+    public void onBind(int position, final NewsList.NewsContent item) {
         if (item != null) {
-            listBg.setImageResource(item.imgRes);
+            imageLoader.displayImage(item.resource,listBg);
             title.setText(item.title);
             desc.setText(item.desc);
-            if (MarketingHelper.currentMarketing(mContext).isActive(item.mwKey)){
-                listBg.bindEvent(item.mwKey);
-                title.setText(MarketingHelper.currentMarketing(mContext).getTitle(item.mwKey));
-                desc.setText(MarketingHelper.currentMarketing(mContext).getDescription(item.mwKey));
+            if (MarketingHelper.currentMarketing(mContext).isActive(Config.MWS[item.mwKey])){
+                listBg.bindEvent(Config.MWS[item.mwKey]);
+                title.setText(MarketingHelper.currentMarketing(mContext).getTitle(Config.MWS[item.mwKey]));
+                desc.setText(MarketingHelper.currentMarketing(mContext).getDescription(Config.MWS[item.mwKey]));
             }
 
             listBg.getRootView().setOnClickListener(new View.OnClickListener() {

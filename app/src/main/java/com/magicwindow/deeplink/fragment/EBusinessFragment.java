@@ -20,7 +20,9 @@ import com.magicwindow.deeplink.activity.ShopDetailActivity;
 import com.magicwindow.deeplink.adapter.BusinessListAdapter;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
+import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.MWImageView;
@@ -29,6 +31,7 @@ import com.zxinsight.TrackAgent;
 
 import java.util.ArrayList;
 
+import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
@@ -114,11 +117,11 @@ public class EBusinessFragment extends BaseFragment {
     private int guideCount = 0;
     private FrameLayout guideFrameLayout;
     private AppPrefs appPrefs;
+    private ImageLoader imageLoader;
 
     @Override
     public void onStart() {
         super.onStart();
-        appPrefs = AppPrefs.get(mContext);
         if (!appPrefs.getGuideEbusiness()) {
             addGuideImage();// 添加新手引导图片
         }
@@ -195,8 +198,26 @@ public class EBusinessFragment extends BaseFragment {
         Injector.injectInto(this, view);
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
+        imageLoader = MWApplication.getInstance().imageLoader;
+        appPrefs = AppPrefs.get(mContext);
 
-        BusinessListAdapter adapter = new BusinessListAdapter(mContext);
+        initView();
+        bindMW();
+
+        return view;
+    }
+
+    private void initView() {
+//        ArrayList<Integer> list = new ArrayList<>();
+//        list.add(R.drawable.business_banner001);
+//        list.add(R.drawable.business_banner002);
+//        list.add(R.drawable.business_banner003);
+//        list.add(R.drawable.business_banner004);
+        BusinessList list = appPrefs.getBusiness();
+        viewPager.setAdapter(new ImageAdapter(23, list.headList));
+        indicator.setViewPager(viewPager);
+
+        BusinessListAdapter adapter = new BusinessListAdapter(mContext,list.contentList);
         businessList.setAdapter(adapter);
 
         businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -209,20 +230,10 @@ public class EBusinessFragment extends BaseFragment {
                 }
             }
         });
-        initViewPager();
-        bindMW();
 
-        return view;
-    }
-
-    private void initViewPager() {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(R.drawable.business_banner001);
-        list.add(R.drawable.business_banner002);
-        list.add(R.drawable.business_banner003);
-        list.add(R.drawable.business_banner004);
-        viewPager.setAdapter(new ImageAdapter(23, list));
-        indicator.setViewPager(viewPager);
+        imageLoader.displayImage(list.middleList.get(0),img_1);
+        imageLoader.displayImage(list.middleList.get(1),img_2);
+        imageLoader.displayImage(list.middleList.get(2),img_3);
     }
 
     private void bindMW() {

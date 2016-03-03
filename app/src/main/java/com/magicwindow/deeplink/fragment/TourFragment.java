@@ -18,11 +18,10 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.adapter.TourListAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
+import com.magicwindow.deeplink.domain.TravelList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.TrackAgent;
-
-import java.util.ArrayList;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -105,26 +104,19 @@ public class TourFragment extends BaseFragment {
         Injector.injectInto(this, view);
 
         initViews();
-        initViewPager();
         initData();
 
         return view;
     }
 
     private void initViews() {
+        TravelList travelList = AppPrefs.get(mContext).getTravelList();
 
-        adapter = new TourListAdapter(mContext);
-        homeList.setAdapter(adapter);
-    }
-
-    private void initViewPager() {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(R.drawable.tour_banner001);
-        list.add(R.drawable.tour_banner002);
-        list.add(R.drawable.tour_banner003);
-        list.add(R.drawable.tour_banner004);
-        viewPager.setAdapter(new ImageAdapter(0, list));
+        viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
         indicator.setViewPager(viewPager);
+
+        adapter = new TourListAdapter(mContext, travelList.contentList);
+        homeList.setAdapter(adapter);
     }
 
     private void initData() {

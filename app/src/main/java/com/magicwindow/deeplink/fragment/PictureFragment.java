@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.PicturePresenter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.domain.PictureItem;
+import com.magicwindow.deeplink.domain.Pic;
+import com.magicwindow.deeplink.prefs.AppPrefs;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.salesuite.saf.adapter.Presenter;
@@ -31,7 +31,7 @@ public class PictureFragment extends BaseFragment {
     RecyclerView recyclerView;
 
     SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
-    List<PictureItem> mList = null;
+    List<Pic> mList = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,46 +45,8 @@ public class PictureFragment extends BaseFragment {
 
     private void initViews() {
 
-        mList = new ArrayList<PictureItem>();
 
-        PictureItem item1 = new PictureItem();
-        item1.imgRes = com.magicwindow.deeplink.R.drawable.pic_01;
-        item1.title = mContext.getString(com.magicwindow.deeplink.R.string.pic_list_title);
-        item1.desc = mContext.getString(com.magicwindow.deeplink.R.string.pic_list_description);
-        mList.add(item1);
-
-        PictureItem item2 = new PictureItem();
-        item2.imgRes = com.magicwindow.deeplink.R.drawable.pic_02;
-        item2.title = "星际穿越";
-        item2.desc = "科幻片";
-        mList.add(item2);
-
-        PictureItem item3 = new PictureItem();
-        item3.imgRes = com.magicwindow.deeplink.R.drawable.pic_03;
-        item3.title = "魔法黑森林";
-        item3.desc = "奇幻片";
-        mList.add(item3);
-
-
-        PictureItem item4 = new PictureItem();
-        item4.imgRes = com.magicwindow.deeplink.R.drawable.pic_04;
-        item4.title = "消失的爱人";
-        item4.desc = "悬疑片";
-        mList.add(item4);
-
-
-        PictureItem item5 = new PictureItem();
-        item5.imgRes = com.magicwindow.deeplink.R.drawable.pic_05;
-        item5.title = "布达佩斯大饭店";
-        item5.desc = "喜剧片";
-        mList.add(item5);
-
-
-        PictureItem item6 = new PictureItem();
-        item6.imgRes = com.magicwindow.deeplink.R.drawable.pic_06;
-        item6.title = "模仿游戏";
-        item6.desc = "惊悚片";
-        mList.add(item6);
+        mList = AppPrefs.get(mContext).getPicList();
         adapter.getList().addAll(mList);
 
         adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>(){

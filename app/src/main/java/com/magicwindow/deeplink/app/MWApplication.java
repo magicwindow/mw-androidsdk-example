@@ -7,6 +7,10 @@ import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
 
+import org.apache.http.util.EncodingUtils;
+
+import java.io.InputStream;
+
 import cn.salesuite.saf.app.SAFApp;
 
 /**

@@ -7,8 +7,10 @@ import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseActivity;
-import com.magicwindow.deeplink.domain.User;
+import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
+
+import java.io.InputStream;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -18,24 +20,23 @@ import cn.salesuite.saf.inject.annotation.InjectView;
  */
 public class LearnActivity extends BaseActivity {
 
-    @InjectView
-    ImageIndicatorView indicateView;
-
-    @InjectView
-    ImageView experienceView;
-
-    @InjectExtra
-    int type;
-
-    public static String TYPE = "type";
     public final static int FROM_SPLASH = 1;
     public final static int FROM_SETTING = 2;
+    public static String TYPE = "type";
+
+    @InjectView
+    ImageIndicatorView indicateView;
+    @InjectView
+    ImageView experienceView;
+    @InjectExtra
+    int type;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
         initViews();
+
     }
 
     private void initViews() {
@@ -87,4 +88,5 @@ public class LearnActivity extends BaseActivity {
         startActivity(i);
         finish();
     }
+
 }

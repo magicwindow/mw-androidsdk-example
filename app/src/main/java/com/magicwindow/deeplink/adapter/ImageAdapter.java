@@ -1,12 +1,10 @@
 package com.magicwindow.deeplink.adapter;
 
-import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MWImageView;
@@ -23,30 +21,32 @@ import cn.salesuite.saf.imagecache.ImageLoader;
  * @date 16/2/26
  */
 public class ImageAdapter extends PagerAdapter {
-    List<Integer> list = new ArrayList<>();
+    List<String> list = new ArrayList<>();
     ImageLoader imageLoader;
-//    Integer[] images;
+    //    Integer[] images;
     int mWPosition;
 
-    public ImageAdapter(int mWPosition, List<Integer> res) {
+    public ImageAdapter(int mWPosition,List res) {
         list = res;
-//        imageLoader = MWApplication.getInstance().imageLoader;
+        imageLoader = MWApplication.getInstance().imageLoader;
         this.mWPosition = mWPosition;
     }
 
-    /*public void addView(List<String> list){
+    public void addView(List<String> list) {
         this.list = list;
         notifyDataSetChanged();
-    }*/
+    }
 
     @Override
     public int getCount() {
-        return list.size();
+        return list.isEmpty()?0:list.size();
     }
+
     @Override
     public void destroyItem(ViewGroup view, int position, Object object) {
-        view.removeView((ImageView)object);
+        view.removeView((ImageView) object);
     }
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
@@ -56,9 +56,12 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup view, int position) {
         MWImageView imageView = new MWImageView(view.getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setImageResource(list.get(position));
-        imageView.bindEventWithMLink(Config.MWS[mWPosition+position],new JSONObject());
-        view.addView(imageView,ViewGroup.LayoutParams.MATCH_PARENT,
+//        imageView.setImageResource(list.get(position));
+        if(!list.isEmpty()){
+            imageLoader.displayImage(list.get(position), imageView);
+        }
+        imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject());
+        view.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         return imageView;
     }

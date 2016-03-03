@@ -1,0 +1,32 @@
+[
+    {
+        "desc": "动作片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_01.jpg", 
+        "title": "疾速追杀"
+    }, 
+    {
+        "desc": "科幻片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_02.jpg", 
+        "title": "星际穿越"
+    }, 
+    {
+        "desc": "奇幻片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_03.jpg", 
+        "title": "魔法黑森林"
+    }, 
+    {
+        "desc": "悬疑片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_04.jpg", 
+        "title": "消失的爱人"
+    }, 
+    {
+        "desc": "喜剧片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_05.jpg", 
+        "title": "布达佩斯大饭店"
+    }, 
+    {
+        "desc": "惊悚片", 
+        "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/pic_06.jpg", 
+        "title": "模仿游戏"
+    }
+]

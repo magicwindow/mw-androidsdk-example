@@ -10,10 +10,6 @@ package com.magicwindow.deeplink.config;
  */
 public final class Config {
 
-    public static float density; // 屏幕密度
-    public static int height; // 屏幕高度
-    public static int width; // 屏幕宽度
-
     /**
      * 魔窗demo app 存储目录/文件
      **/
@@ -21,7 +17,11 @@ public final class Config {
     public static final String CACHE_DIR = DIR + "/images";
     public static final String LOG_DIR = DIR + "/logs";
     public static final String AVATAR_DIR = DIR + "/avatar/";
-
+    public final static String businessList = "businessList.json";
+    public final static String o2oList = "o2oList.json";
+    public final static String newsList = "newsList.json";
+    public final static String picList = "picList.json";
+    public final static String travelList = "travelList.json";
     /**
      * app默认地理位置信息
      **/
@@ -29,23 +29,18 @@ public final class Config {
     public static final String CITY_PINGYIN_DEFAULT = "shanghai"; // 默认城市
     public static final double LATITUDE_DEFAULT = 31.231706;
     public static final double LONGITUDE_DEFAULT = 121.472644;
-
-    /** 存储app缓存的key **/
-
     /**
      * http请求响应
      **/
     public static final int RESULT_SUCCESS = 0;
     public static final int RESULT_FAILURE = -1;
     public static final int RESULT_IOERROR = -2;
+
+    /** 存储app缓存的key **/
     public static final int NETWORK_ERROR = -3;
-
-
     public final static String MW_APPID = "MW_APPID";
-
     /**
      * 后配配置的所有魔窗位Key，我全部放在下面的String数组中。
-     *
      */
     public static final String[] MWS = {
             "IY89LX3S",//0旅游-banner01
@@ -151,13 +146,13 @@ public final class Config {
             "7O3F5ZVZ",//100旅游-detail02
             "14CQZAVQ"//101旅游-detail03
     };
-
-
     public static final String CUSTOM_ADD_TO_SHOP_CART = "X1W178NY";    //点击购买
     public static final String CUSTOM_CONFIRM_GOODS = "CZMX4GHW";    //确认商品
     public static final String CUSTOM_CONFIRM_ORDER = "1YWEWJEB";    //去付款
     public static final String CUSTOM_PAY = "Z379KKJZ";    //购买完成
-
     public static final String MW_DIALOG = "45ELEGYU";    //dialog弹窗
     public static final String MW_DETAIL = "PZ2KP4EK";    //detail页面魔窗位
+    public static float density; // 屏幕密度
+    public static int height; // 屏幕高度
+    public static int width; // 屏幕宽度
 }

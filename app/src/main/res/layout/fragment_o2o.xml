@@ -27,14 +27,14 @@
 
                 <com.zxinsight.MWImageView
                     android:id="@+id/o2o_img_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="225dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/o2o_middle001"
+                    android:src="@color/white"
                     android:scaleType="fitXY" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/o2o_img_1"
                     android:layout_alignBottom="@id/o2o_img_1"
@@ -47,7 +47,7 @@
                         android:layout_weight="1"
                         android:layout_marginBottom="5dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/o2o_middle002" />
+                        android:src="@color/white" />
 
                     <com.zxinsight.MWImageView
                         android:id="@+id/o2o_img_3"
@@ -55,7 +55,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/o2o_middle003"
+                        android:src="@color/white"
                         android:scaleType="fitXY" />
                 </LinearLayout>
 

@@ -31,7 +31,7 @@
                     android:layout_height="225dp"
                     android:layout_marginRight="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/business_middle001" />
+                    android:src="@color/white" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
-                        android:src="@drawable/business_middle002" />
+                        android:src="@color/white" />
 
                     <com.zxinsight.MWImageView
                         android:id="@+id/business_img_3"
@@ -58,7 +58,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
-                        android:src="@drawable/business_middle003" />
+                        android:src="@color/white" />
                 </LinearLayout>
 
             </RelativeLayout>

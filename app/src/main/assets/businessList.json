@@ -1,0 +1,47 @@
+{
+    "middleList": [
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_middle001.png", 
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_middle002.png", 
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_middle003.png"
+    ], 
+    "contentList": [
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list001.png", 
+            "title": "美国嘉宝米粉零食专场"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list002.png", 
+            "title": "母婴用品最强备货季"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list003.png", 
+            "title": "海量童装春款上新"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list004.png", 
+            "title": "儿童营养品终极狂欢"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list005.png", 
+            "title": "六一儿童狂欢购"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list006.png", 
+            "title": "母婴商品量贩囤货周"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list007.png", 
+            "title": "儿童玩具动漫馆"
+        }, 
+        {
+            "resource": "http://7xql2z.com2.z0.glb.qiniucdn.com/business_list008.png", 
+            "title": "7大品牌奶粉新年惠"
+        }
+    ], 
+    "headList": [
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_banner001.png", 
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_banner002.png", 
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_banner003.png", 
+        "http://7xql2z.com2.z0.glb.qiniucdn.com/business_banner004.png"
+    ]
+}

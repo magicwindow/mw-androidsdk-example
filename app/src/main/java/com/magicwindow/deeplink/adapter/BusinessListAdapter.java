@@ -7,67 +7,31 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.app.MWApplication;
+import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.BusinessList;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
-import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.config.Config;
-import com.magicwindow.deeplink.domain.HomeItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import cn.salesuite.saf.adapter.SAFAdapter;
+import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 
 /**
  * Created by aaron on 15/11/25.
  */
-public class BusinessListAdapter extends SAFAdapter<HomeItem> {
+public class BusinessListAdapter extends SAFAdapter<BusinessList.BusinessContent> {
 
     private Context mContext;
+    private ImageLoader imageLoader;
 
-    public BusinessListAdapter(Context context) {
+    public BusinessListAdapter(Context context, List<BusinessList.BusinessContent> list) {
         mContext = context;
-        mList = new ArrayList<HomeItem>();
-
-        HomeItem item1 = new HomeItem();
-        item1.imgRes = R.drawable.business_list001;
-        item1.title = "美国嘉宝米粉零食专场";
-        mList.add(item1);
-
-        HomeItem item2 = new HomeItem();
-        item2.imgRes = R.drawable.business_list002;
-        item2.title = "母婴用品最强备货季";
-        mList.add(item2);
-
-        HomeItem item3 = new HomeItem();
-        item3.imgRes = R.drawable.business_list003;
-        item3.title = "海量童装春款上新";
-        mList.add(item3);
-
-        HomeItem item4 = new HomeItem();
-        item4.imgRes = R.drawable.business_list004;
-        item4.title = "儿童营养品终极狂欢";
-        mList.add(item4);
-
-        HomeItem item5 = new HomeItem();
-        item5.imgRes = R.drawable.business_list005;
-        item5.title = "六一儿童狂欢购";
-        mList.add(item5);
-
-        HomeItem item6 = new HomeItem();
-        item6.imgRes = R.drawable.business_list006;
-        item6.title = "母婴商品量贩囤货周";
-        mList.add(item6);
-
-        HomeItem item7 = new HomeItem();
-        item7.imgRes = R.drawable.business_list007;
-        item7.title = "儿童玩具动漫馆";
-        mList.add(item7);
-
-        HomeItem item8 = new HomeItem();
-        item8.imgRes = R.drawable.business_list008;
-        item8.title = "7大品牌奶粉新年惠";
-        mList.add(item8);
+        mList = list;
+        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
@@ -81,9 +45,10 @@ public class BusinessListAdapter extends SAFAdapter<HomeItem> {
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
-        HomeItem item = mList.get(position);
+        BusinessList.BusinessContent item = mList.get(position);
         if (item != null) {
-            holder.imageView.setImageResource(item.imgRes);
+//            holder.imageView.setImageResource(item.imgRes);
+            imageLoader.displayImage(item.resource,holder.imageView);
             holder.title.setText(item.title);
         }
 
