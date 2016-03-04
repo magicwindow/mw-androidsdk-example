@@ -45,7 +45,6 @@ public class PictureFragment extends BaseFragment {
 
     private void initViews() {
 
-
         mList = AppPrefs.get(mContext).getPicList();
         adapter.getList().addAll(mList);
 

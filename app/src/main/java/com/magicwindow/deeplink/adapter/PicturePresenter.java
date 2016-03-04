@@ -41,7 +41,6 @@ public class PicturePresenter extends Presenter<Pic> {
     @Override
     public void onBind(int position, final Pic item) {
         if (item != null) {
-//            listBg.setImageResource(item.imgRes);
             imageLoader.displayImage(item.resource, listBg);
             title.setText(item.title);
             desc.setText(item.desc);

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +27,6 @@ import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
-
-import java.util.ArrayList;
 
 import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.Injector;
@@ -208,11 +205,6 @@ public class EBusinessFragment extends BaseFragment {
     }
 
     private void initView() {
-//        ArrayList<Integer> list = new ArrayList<>();
-//        list.add(R.drawable.business_banner001);
-//        list.add(R.drawable.business_banner002);
-//        list.add(R.drawable.business_banner003);
-//        list.add(R.drawable.business_banner004);
         BusinessList list = appPrefs.getBusiness();
         viewPager.setAdapter(new ImageAdapter(23, list.headList));
         indicator.setViewPager(viewPager);
@@ -319,9 +311,6 @@ public class EBusinessFragment extends BaseFragment {
             });
         }
 
-        Log.e("aaron", "parent id  = " + ic_top_5.getParent());
-        Log.e("aaron", "root id  = " + ic_top_5.getRootView());
-
         //采用自定义方法
         if (marketingHelper.isActive(Config.MWS[32])) {
             top_6.setText(marketingHelper.getTitle(Config.MWS[32]));
@@ -391,21 +380,5 @@ public class EBusinessFragment extends BaseFragment {
             startActivity(new Intent(mContext, ShopDetailActivity.class));
         }
 
-
     }
-
-    @Override
-    public void onPause() {
-//        TrackAgent.currentEvent().onPageEnd("主页");
-
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-//        TrackAgent.currentEvent().onPageStart("主页");
-
-        super.onResume();
-    }
-
 }
