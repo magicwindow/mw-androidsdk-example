@@ -19,7 +19,6 @@ import com.magicwindow.deeplink.activity.ShopDetailActivity;
 import com.magicwindow.deeplink.adapter.BusinessListAdapter;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
@@ -28,7 +27,6 @@ import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
@@ -114,7 +112,6 @@ public class EBusinessFragment extends BaseFragment {
     private int guideCount = 0;
     private FrameLayout guideFrameLayout;
     private AppPrefs appPrefs;
-    private ImageLoader imageLoader;
 
     @Override
     public void onStart() {
@@ -195,7 +192,6 @@ public class EBusinessFragment extends BaseFragment {
         Injector.injectInto(this, view);
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
-        imageLoader = MWApplication.getInstance().imageLoader;
         appPrefs = AppPrefs.get(mContext);
 
         initView();
@@ -223,9 +219,9 @@ public class EBusinessFragment extends BaseFragment {
             }
         });
 
-        imageLoader.displayImage(list.middleList.get(0),img_1);
-        imageLoader.displayImage(list.middleList.get(1),img_2);
-        imageLoader.displayImage(list.middleList.get(2),img_3);
+        app.imageLoader.displayImage(list.middleList.get(0),img_1);
+        app.imageLoader.displayImage(list.middleList.get(1),img_2);
+        app.imageLoader.displayImage(list.middleList.get(2),img_3);
     }
 
     private void bindMW() {

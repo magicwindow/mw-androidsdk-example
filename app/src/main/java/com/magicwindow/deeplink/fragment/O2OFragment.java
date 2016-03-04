@@ -39,29 +39,37 @@ public class O2OFragment extends BaseFragment {
 
     @InjectView(id = R.id.top_1_layout)
     RelativeLayout top_1_layout;
+
     @InjectView(id = R.id.top_1)
     TextView top_1;
+
     @InjectView(id = R.id.o2o_icon01)
     MWImageView ic_top_1;
 
     @InjectView(id = R.id.top_2_layout)
     RelativeLayout top_2_layout;
+
     @InjectView(id = R.id.top_2)
     TextView top_2;
+
     @InjectView(id = R.id.o2o_icon02)
     MWImageView ic_top_2;
 
     @InjectView(id = R.id.top_3_layout)
     RelativeLayout top_3_layout;
+
     @InjectView(id = R.id.top_3)
     TextView top_3;
+
     @InjectView(id = R.id.o2o_icon03)
     MWImageView ic_top_3;
 
     @InjectView(id = R.id.top_4_layout)
     RelativeLayout top_4_layout;
+
     @InjectView(id = R.id.top_4)
     TextView top_4;
+
     @InjectView(id = R.id.o2o_icon04)
     MWImageView ic_top_4;
 
@@ -73,9 +81,6 @@ public class O2OFragment extends BaseFragment {
 
     @InjectView(id = R.id.o2o_img_3)
     MWImageView img_3;
-
-//    @InjectView(id = R.id.o2o_list)
-//    ListViewForScrollView o2oList;
 
     private MarketingHelper marketingHelper;
 
@@ -231,19 +236,4 @@ public class O2OFragment extends BaseFragment {
         img_3.bindEventWithMLink(Config.MWS[74], dt1);
 
     }
-
-    @Override
-    public void onPause() {
-//        TrackAgent.currentEvent().onPageEnd("主页");
-
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-//        TrackAgent.currentEvent().onPageStart("主页");
-
-        super.onResume();
-    }
-
 }

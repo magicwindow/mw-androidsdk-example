@@ -23,7 +23,6 @@ import cn.salesuite.saf.log.L;
 
 public class SettingsFragment extends BaseFragment {
 
-
     @InjectView
     private PullToZoomScrollViewEx scrollView;
 

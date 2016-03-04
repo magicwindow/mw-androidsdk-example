@@ -29,13 +29,15 @@ import rx.functions.Func2;
  */
 public class NewsDetailFragment extends BaseFragment {
 
-    private static String STYLE = "style";
-    @InjectView(id = com.magicwindow.deeplink.R.id.film_detail_container)
+    @InjectView(id = R.id.film_detail_container)
     RefreshLayout swipeContainer;
-    @InjectView(id = com.magicwindow.deeplink.R.id.news_detail_list)
+
+    @InjectView(id = R.id.news_detail_list)
     RecyclerView recyclerView;
+
     SAFRecycleAdapter adapter;
     int STYLE_VALUE = 0;
+    private static String STYLE = "style";
 
     public static NewsDetailFragment newInstance(int style) {
         NewsDetailFragment fragment = new NewsDetailFragment();
@@ -71,12 +73,6 @@ public class NewsDetailFragment extends BaseFragment {
     }
 
     private void initViews() {
-//        NewsItem item1 = new NewsItem();
-//        NewsItem item2 = new NewsItem();
-//        NewsItem item3 = new NewsItem();
-//        NewsItem item4 = new NewsItem();
-//        NewsItem item5 = new NewsItem();
-//        NewsItem item6 = new NewsItem();
         NewsList list = AppPrefs.get(mContext).getNewsList();
         //新闻页面第一个魔窗位死Config.MWS[46]
         list.internetList.get(0).mwKey = 46;
