@@ -50,11 +50,11 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (StringUtils.isNotBlank(s)) {
-                    Drawable drawable = getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_pressed);
+                    Drawable drawable = getResources().getDrawable(R.drawable.login_password_pressed);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     password.setCompoundDrawables(drawable, null, null, null);
                 } else {
-                    Drawable drawable = getResources().getDrawable(com.magicwindow.deeplink.R.drawable.login_password_normal);
+                    Drawable drawable = getResources().getDrawable(R.drawable.login_password_normal);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     password.setCompoundDrawables(drawable, null, null, null);
                 }

@@ -33,21 +33,28 @@ import cn.salesuite.saf.utils.Preconditions;
 
 public class MainActivity extends BaseAppCompatActivity {
 
-    public static String PAGE = "page";
+
     @InjectView(id = R.id.menu_profile)
     RelativeLayout menuProfile;
+
     @InjectView(id = R.id.drawer_layout)
-    private DrawerLayout drawerLayout;
+
+    DrawerLayout drawerLayout;
+
     @InjectView
-    private Toolbar toolbar;
+    Toolbar toolbar;
+
     @InjectView
-    private TextView appVersion;
+    TextView appVersion;
+
     @InjectView(id = R.id.menu_list)
-    private ListView menuLeft;
+    ListView menuLeft;
+
     private MenuManager menuManager;
     private Fragment mContent;
     private DoubleClickExitUtils doubleClickExitHelper;
     private int mPosition = 0;
+    public static String PAGE = "page";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -160,7 +167,7 @@ public class MainActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.magicwindow.deeplink.R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
