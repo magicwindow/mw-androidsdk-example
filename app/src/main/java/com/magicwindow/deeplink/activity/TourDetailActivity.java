@@ -16,6 +16,8 @@ import cn.salesuite.saf.inject.annotation.OnClick;
 /**
  * 旅游的详情页面,绑定了uber的mLink服务.</br>
  * Config.MWS[91]:大众点评的魔窗位,跳转到大众点评三亚的美食服务 </br>
+ * Config.MWS[100]:携程的魔窗位,跳转到携程的酒店团购服务 </br>
+ * Config.MWS[101]:携程的魔窗位,跳转到携程的特价机票服务 </br>
  * @author aaron
  * @date 16/01/14
  */

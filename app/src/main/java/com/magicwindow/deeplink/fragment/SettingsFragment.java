@@ -21,6 +21,11 @@ import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
 
+/**
+ * 设置页面
+ * 可点击登陆跳转到登陆界面登陆，已登陆状态可退出
+ * 可点击查看引导页
+ */
 public class SettingsFragment extends BaseFragment {
 
     @InjectView
@@ -70,6 +75,8 @@ public class SettingsFragment extends BaseFragment {
                 } else {
                     Intent i = new Intent(mContext, LoginActivity.class);
                     startActivity(i);
+                    login.setText(R.string.logout);
+
                 }
             }
         });

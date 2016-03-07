@@ -28,6 +28,7 @@ import cn.salesuite.saf.inject.annotation.InjectView;
 import me.relex.circleindicator.CircleIndicator;
 
 /**
+ * 旅游主页，部分banner和item绑定了魔窗位并配置了mLink服务
  * @author Tony Shen
  * @date 15/11/25
  */
