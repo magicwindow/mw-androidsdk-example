@@ -8,9 +8,9 @@
     >
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/app_bar_layout"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -22,88 +22,20 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/white_bg_color"
-        android:layout_above="@+id/attend_immediately"
+    <!--<com.zxinsight.MWImageView-->
+    <!--android:id="@+id/detail_top_image"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:layout_below="@id/app_bar_layout"-->
+    <!--android:background="@drawable/detail_banner"-->
+    <!--android:scaleType="fitXY" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        style="@style/recyclerView"
         android:layout_below="@id/app_bar_layout">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.zxinsight.MWImageView
-                android:id="@+id/detail_top_image"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/detail_top"
-                android:scaleType="fitXY" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/group_buy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/gray"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray" />
-
-                <com.zxinsight.magicwindow.view.ListViewForScrollView
-                    android:id="@+id/listView"
-                    style="@style/listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/find_other_group_buy"
-                    android:textColor="@color/yellow"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-    <Button
-        android:id="@+id/attend_immediately"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/detail_button"
-        android:text="@string/attend_immediately"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

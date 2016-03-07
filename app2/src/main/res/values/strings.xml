@@ -36,4 +36,13 @@
     <string name="home_top_7">预告</string>
     <string name="home_top_8">更多</string>
 
+    <string name="detail_title1">52度洋河蓝色经典海之蓝500ml</string>
+    <string name="detail_title2">52度洋河蓝色经典天之蓝500ml</string>
+    <string name="detail_title3">53度贵州茅台新飞天500ml</string>
+    <string name="detail_title4">52度五粮液500ml</string>
+    <string name="detail_price1">￥125.00</string>
+    <string name="detail_price2">￥289.00</string>
+    <string name="detail_price3">￥868.00</string>
+    <string name="detail_price4">￥659.00</string>
+
 </resources>

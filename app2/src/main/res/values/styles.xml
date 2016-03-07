@@ -44,6 +44,14 @@
         <item name="android:dividerHeight">1px</item>
         <item name="android:divider">@color/listViewDiv</item>
     </style>
+    <style name="recyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:footerDividersEnabled">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:listSelector">@color/translucent</item>
+        <item name="android:background">@color/listViewBg</item>
+    </style>
 
     <style name="tv_top_essential_style">
         <item name="android:layout_width">wrap_content</item>

@@ -62,4 +62,6 @@
     <color name="gray">#808080</color>
     <color name="yellow">#FFBA00</color>
 
+    <color name="detail_text">#FFF47F1F</color>
+
 </resources>

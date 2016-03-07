@@ -1,1 +1,1 @@
-include ':app', ':MLogCat', ":PullZoomView", ':app2', ':circleindicator'
+include ':app', ':MLogCat', ":PullZoomView", ':app2'

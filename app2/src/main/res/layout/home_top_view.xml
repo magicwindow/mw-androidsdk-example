@@ -30,15 +30,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:baselineAligned="true"
         android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:baselineAligned="true">
+        android:paddingTop="10dp">
 
         <RelativeLayout
             android:id="@+id/top_1_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon01"
@@ -66,15 +67,16 @@
             android:id="@+id/top_2_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon02"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon02" />
 
             <TextView
@@ -94,15 +96,16 @@
             android:id="@+id/top_3_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon03"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon03" />
 
             <TextView
@@ -122,15 +125,16 @@
             android:id="@+id/top_4_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon04"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon04" />
 
             <TextView
@@ -152,15 +156,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:baselineAligned="true"
         android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:baselineAligned="true">
+        android:paddingTop="5dp">
 
         <RelativeLayout
             android:id="@+id/top_5_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon05"
@@ -188,15 +193,16 @@
             android:id="@+id/top_6_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon06"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon06" />
 
             <TextView
@@ -216,15 +222,16 @@
             android:id="@+id/top_7_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon07"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon07" />
 
             <TextView
@@ -244,15 +251,16 @@
             android:id="@+id/top_8_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="onClick">
 
             <com.zxinsight.MWImageView
                 android:id="@+id/home_icon08"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:scaleType="fitXY"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_icon08" />
 
             <TextView

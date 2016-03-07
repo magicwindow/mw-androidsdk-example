@@ -54,11 +54,11 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'me.relex:circleindicator:1.1.8@aar'
     testCompile 'junit:junit:4.12'
     compile 'commons-codec:commons-codec:1.10'
     compile 'io.reactivex:rxandroid:1.0.1'
     compile project(':MLogCat')
     compile project(':PullZoomView')
-    compile project(':circleindicator')
     compile files('libs/MagicWindowSDK.jar')
 }

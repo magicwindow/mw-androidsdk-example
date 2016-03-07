@@ -1,7 +1,6 @@
 package com.zxinsight.magicwindow.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -10,9 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.zxinsight.MagicWindowSDK;
 import com.zxinsight.magicwindow.R;
-import com.zxinsight.magicwindow.UrlDispatcher;
 import com.zxinsight.magicwindow.adapter.HomeListAdapter;
 import com.zxinsight.magicwindow.adapter.ImageAdapter;
 import com.zxinsight.magicwindow.domain.User;
@@ -46,11 +43,9 @@ public class HomeActivity extends BaseAppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, DetailActivity.class));
             }
         });
-
         initViewPager();
         initToolBar();
     }
-
 
 
     private void initViewPager() {
@@ -111,6 +106,7 @@ public class HomeActivity extends BaseAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    public void onClick(View view) {
+        startActivity(new Intent(HomeActivity.this, DetailActivity.class));
+    }
 }

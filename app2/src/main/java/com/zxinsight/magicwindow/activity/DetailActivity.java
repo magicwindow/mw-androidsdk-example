@@ -2,19 +2,19 @@ package com.zxinsight.magicwindow.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.zxinsight.MWImageView;
 import com.zxinsight.TrackAgent;
-import com.zxinsight.magicwindow.config.Config;
-import com.zxinsight.magicwindow.adapter.DetailListAdapter;
-import com.zxinsight.magicwindow.view.ListViewForScrollView;
 import com.zxinsight.magicwindow.R;
+import com.zxinsight.magicwindow.adapter.DetailListAdapter;
+import com.zxinsight.magicwindow.view.DividerGridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,10 +22,11 @@ import java.util.Map;
 
 public class DetailActivity extends BaseAppCompatActivity {
 
-    ListViewForScrollView mListView;
-    String name1 = "Chateau Cheval Blanc";
-    String name2 = "Mouton Rothschild";
-    String name3 = "Chateau Rayas";
+    RecyclerView recyclerView;
+    String name1;
+    String name2;
+    String name3;
+    String name4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,14 @@ public class DetailActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_detail);
         initToolBar();
 
-        Button attend_immediately = (Button) findViewById(R.id.attend_immediately);
+        name1 = getString(R.string.detail_title1);
+        name2 = getString(R.string.detail_title2);
+        name3 = getString(R.string.detail_title3);
+        name4 = getString(R.string.detail_title4);
+
         Intent intent = getIntent();
+
         if (intent != null) {
-            String join = intent.getStringExtra("key");
             String toast = intent.getStringExtra("user");
             if (!TextUtils.isEmpty(intent.getStringExtra("name1"))) {
                 name1 = intent.getStringExtra("name1");
@@ -47,12 +52,13 @@ public class DetailActivity extends BaseAppCompatActivity {
             if (!TextUtils.isEmpty(intent.getStringExtra("name3"))) {
                 name3 = intent.getStringExtra("name3");
             }
+            if (!TextUtils.isEmpty(intent.getStringExtra("name4"))) {
+                name4 = intent.getStringExtra("name4");
+            }
             if (!TextUtils.isEmpty(toast)) {
                 Toast.makeText(this, toast, Toast.LENGTH_LONG).show();
             }
-            if (!TextUtils.isEmpty(join)) {
-                attend_immediately.setText(join);
-            }
+
         }
 
         initView();
@@ -61,7 +67,6 @@ public class DetailActivity extends BaseAppCompatActivity {
 
     private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
         toolbar.setTitle(R.string.detail);
 
         setSupportActionBar(toolbar);
@@ -77,38 +82,52 @@ public class DetailActivity extends BaseAppCompatActivity {
     }
 
     private void initView() {
-        TextView groupBuyTitle = (TextView) findViewById(R.id.group_buy);
-        groupBuyTitle.setText(String.format(getString(R.string.group_buy), "3"));
-        MWImageView detailTop = (MWImageView) findViewById(R.id.detail_top_image);
-        detailTop.bindEvent(Config.MW_DETAIL);
-        mListView = (ListViewForScrollView) findViewById(R.id.listView);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        MWImageView header = new MWImageView(this);
+        header.setImageResource(R.drawable.detail_banner);
+        final DetailListAdapter adapter = new DetailListAdapter(getList(), header);
 
-        mListView.setAdapter(new DetailListAdapter(this, getList()));
+        recyclerView.setAdapter(adapter);
+        int spacing = 50;
+        recyclerView.addItemDecoration(new DividerGridItemDecoration(spacing));
+        final GridLayoutManager manager = new GridLayoutManager(this, 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return adapter.isHeader(position) ? manager.getSpanCount() : 1;
+            }
+        });
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(manager);
+
     }
 
     private ArrayList<Map<String, Object>> getList() {
         ArrayList<Map<String, Object>> mList = new ArrayList<Map<String, Object>>();
 
         Map<String, Object> map1 = new HashMap<String, Object>();
-        map1.put("category_icon", R.drawable.detail_1);
-        map1.put("discard", "5");
-        map1.put("soled", "1265");
+        map1.put("category_icon", R.drawable.detail01);
+        map1.put("desc", getString(R.string.detail_price1));
         map1.put("title", name1);
         mList.add(map1);
 
         Map<String, Object> map2 = new HashMap<String, Object>();
-        map2.put("category_icon", R.drawable.detail_2);
-        map2.put("discard", "7");
-        map2.put("soled", "1565");
+        map2.put("category_icon", R.drawable.detail02);
+        map2.put("desc", getString(R.string.detail_price2));
         map2.put("title", name2);
         mList.add(map2);
-        Map<String, Object> map3 = new HashMap<String, Object>();
 
-        map3.put("category_icon", R.drawable.detail_3);
-        map3.put("discard", "6");
-        map3.put("soled", "1324");
+        Map<String, Object> map3 = new HashMap<String, Object>();
+        map3.put("category_icon", R.drawable.detail03);
+        map3.put("desc", getString(R.string.detail_price3));
         map3.put("title", name3);
         mList.add(map3);
+
+        Map<String, Object> map4 = new HashMap<String, Object>();
+        map4.put("category_icon", R.drawable.detail04);
+        map4.put("desc", getString(R.string.detail_price4));
+        map4.put("title", name4);
+        mList.add(map4);
         return mList;
 
     }

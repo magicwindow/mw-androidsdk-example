@@ -47,6 +47,7 @@
                     android:layout_width="160dp"
                     android:layout_height="225dp"
                     android:layout_marginRight="10dp"
+                    android:onClick="onClick"
                     android:scaleType="fitXY"
                     android:src="@drawable/home_middle001" />
 
@@ -65,6 +66,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
+                        android:onClick="onClick"
                         android:scaleType="fitXY"
                         android:src="@drawable/home_middle002" />
 
@@ -74,6 +76,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        android:onClick="onClick"
                         android:scaleType="fitXY"
                         android:src="@drawable/home_middle003" />
                 </LinearLayout>
