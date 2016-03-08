@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,9 @@ import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
 import me.relex.circleindicator.CircleIndicator;
 
-public class EBusinessFragment extends BaseFragment {
+public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+    @InjectView(id = R.id.main_content)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @InjectView(id = R.id.viewpager)
     ViewPager viewPager;
@@ -193,19 +196,16 @@ public class EBusinessFragment extends BaseFragment {
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
         appPrefs = AppPrefs.get(mContext);
-
-        initView();
-        bindMW();
-
         return view;
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         BusinessList list = appPrefs.getBusiness();
         viewPager.setAdapter(new ImageAdapter(23, list.headList));
         indicator.setViewPager(viewPager);
 
-        BusinessListAdapter adapter = new BusinessListAdapter(mContext,list.contentList);
+        BusinessListAdapter adapter = new BusinessListAdapter(mContext, list.contentList);
         businessList.setAdapter(adapter);
 
         businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -213,15 +213,16 @@ public class EBusinessFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int mwOffset = 38 + position;
 
-                if (!marketingHelper.isActive(Config.MWS[mwOffset])){
+                if (!marketingHelper.isActive(Config.MWS[mwOffset])) {
                     startActivity(new Intent(mContext, ShopDetailActivity.class));
                 }
             }
         });
 
-        app.imageLoader.displayImage(list.middleList.get(0),img_1);
-        app.imageLoader.displayImage(list.middleList.get(1),img_2);
-        app.imageLoader.displayImage(list.middleList.get(2),img_3);
+        app.imageLoader.displayImage(list.middleList.get(0), img_1);
+        app.imageLoader.displayImage(list.middleList.get(1), img_2);
+        app.imageLoader.displayImage(list.middleList.get(2), img_3);
+        bindMW();
     }
 
     private void bindMW() {
@@ -376,5 +377,11 @@ public class EBusinessFragment extends BaseFragment {
             startActivity(new Intent(mContext, ShopDetailActivity.class));
         }
 
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(false);
+        onResume();
     }
 }

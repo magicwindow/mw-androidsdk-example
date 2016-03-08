@@ -49,11 +49,11 @@ public class SettingsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         Injector.injectInto(this, view);
 
-        initViews();
         return view;
     }
 
-    private void initViews() {
+    @Override
+    public void initView() {
         View headView = LayoutInflater.from(mContext).inflate(R.layout.settings_head_view, null, false);
         View zoomView = LayoutInflater.from(mContext).inflate(R.layout.settings_zoom_view, null, false);
         View contentView = LayoutInflater.from(mContext).inflate(R.layout.settings_content_view, null, false);

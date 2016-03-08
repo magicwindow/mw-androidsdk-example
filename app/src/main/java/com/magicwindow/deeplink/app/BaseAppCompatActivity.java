@@ -179,6 +179,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onResume() {
         TrackAgent.currentEvent().onResume(this);
         super.onResume();
+        Log.e("aaron","onresume");
     }
 }
 

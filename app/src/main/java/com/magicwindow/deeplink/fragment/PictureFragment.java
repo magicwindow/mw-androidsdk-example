@@ -1,6 +1,7 @@
 package com.magicwindow.deeplink.fragment;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,9 +26,11 @@ import rx.functions.Func2;
 /**
  * Created by Tony Shen on 15/11/25.
  */
-public class PictureFragment extends BaseFragment {
+public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    @InjectView(id = com.magicwindow.deeplink.R.id.id_grid_picture)
+    @InjectView(id = R.id.main_content)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @InjectView(id = R.id.id_grid_picture)
     RecyclerView recyclerView;
 
     SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
@@ -38,13 +41,6 @@ public class PictureFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picture, container, false);
         Injector.injectInto(this, view);
-
-        initViews();
-        return view;
-    }
-
-    private void initViews() {
-
         mList = AppPrefs.get(mContext).getPicList();
         adapter.getList().addAll(mList);
 
@@ -56,11 +52,23 @@ public class PictureFragment extends BaseFragment {
                 return new PicturePresenter(LayoutInflater.from(mContext).inflate(R.layout.cell_picture, parent, false),mContext);
             }
         });
+        swipeRefreshLayout.setOnRefreshListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void initView() {
+
         recyclerView.setAdapter(adapter);
         GridLayoutManager mgr = new GridLayoutManager(mContext, 2);
         mgr.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mgr);
     }
-
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(false);
+        onResume();
+    }
 
 }

@@ -8,6 +8,7 @@
         android:id="@+id/list_img"
         android:layout_width="match_parent"
         android:scaleType="fitXY"
+        android:background="@drawable/tour_list_01"
         android:layout_height="120dp" />
 
     <TextView

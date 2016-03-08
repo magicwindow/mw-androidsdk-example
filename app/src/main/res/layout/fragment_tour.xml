@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/root"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/home_container"
@@ -24,14 +23,14 @@
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewpager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
 
                 <me.relex.circleindicator.CircleIndicator
                     android:id="@+id/indicator"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="bottom"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp" />
             </FrameLayout>
 
             <com.magicwindow.deeplink.ui.ListViewForScrollView
@@ -43,7 +42,8 @@
             </com.magicwindow.deeplink.ui.ListViewForScrollView>
 
         </LinearLayout>
-
     </android.support.v4.widget.NestedScrollView>
 
-</LinearLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
+

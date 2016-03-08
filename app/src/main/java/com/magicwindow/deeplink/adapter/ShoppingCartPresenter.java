@@ -20,7 +20,7 @@ public class ShoppingCartPresenter extends Presenter<ShoppingCartItem> {
     @InjectView(id = R.id.id_list_img)
     MWImageView listBg;
 
-    @InjectView(id = R.id.id_list_title)
+    @InjectView(id = R.id.id_news_list_title)
     TextView title;
 
     @InjectView(id = R.id.id_list_desc)

@@ -1,7 +1,6 @@
 package com.magicwindow.deeplink.fragment;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,35 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.adapter.NewsPresenter;
+import com.magicwindow.deeplink.adapter.NewsRecycleAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.domain.NewsList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.DividerItemDecoration;
-import com.magicwindow.deeplink.ui.RefreshLayout;
 
-import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.adapter.SAFRecycleAdapter;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
-import cn.salesuite.saf.utils.SAFUtils;
-import rx.functions.Func2;
 
 /**
  * Created by Tony Shen on 15/11/25.
  */
 public class NewsDetailFragment extends BaseFragment {
 
-    @InjectView(id = R.id.film_detail_container)
-    RefreshLayout swipeContainer;
-
+    private static String STYLE = "style";
     @InjectView(id = R.id.news_detail_list)
     RecyclerView recyclerView;
-
-    SAFRecycleAdapter adapter;
+    NewsRecycleAdapter adapter;
     int STYLE_VALUE = 0;
-    private static String STYLE = "style";
 
     public static NewsDetailFragment newInstance(int style) {
         NewsDetailFragment fragment = new NewsDetailFragment();
@@ -67,14 +57,13 @@ public class NewsDetailFragment extends BaseFragment {
 
         STYLE_VALUE = getArguments().getInt(STYLE, 0);
 
-        initViews();
-
         return view;
     }
 
-    private void initViews() {
+    @Override
+    public void initView() {
         NewsList list = AppPrefs.get(mContext).getNewsList();
-        //新闻页面第一个魔窗位死Config.MWS[46]
+        //新闻页面第一个魔窗位Config.MWS[46]
         list.internetList.get(0).mwKey = 46;
         list.sportList.get(0).mwKey = 46 + list.internetList.size();
         list.entertainmentList.get(0).mwKey = 46 + list.internetList.size() + list.sportList.size();
@@ -82,28 +71,19 @@ public class NewsDetailFragment extends BaseFragment {
         switch (STYLE_VALUE) {
             default:
             case 0:
-                adapter = new SAFRecycleAdapter(list.internetList);
+                adapter = new NewsRecycleAdapter(list.internetList);
                 break;
 
             case 1:
 
-                adapter = new SAFRecycleAdapter(list.sportList);
+                adapter = new NewsRecycleAdapter(list.sportList);
                 break;
 
             case 2:
-                adapter = new SAFRecycleAdapter(list.entertainmentList);
+                adapter = new NewsRecycleAdapter(list.entertainmentList);
                 break;
 
         }
-        adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
-
-            @Override
-            public Presenter call(ViewGroup parent, Integer integer) {
-
-                return new NewsPresenter(LayoutInflater.from(mContext).inflate(R.layout.cell_news, parent, false), mContext);
-            }
-        });
-
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager mgr = new LinearLayoutManager(mContext);
@@ -112,34 +92,7 @@ public class NewsDetailFragment extends BaseFragment {
 
         recyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL_LIST));
 
-        swipeContainer.setMoreData(false);
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
-            @Override
-            public void onRefresh() {
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        if (!SAFUtils.checkNetworkStatus(app)) {
-                            toast(com.magicwindow.deeplink.R.string.network_error);
-                            return;
-                        }
-
-                        swipeContainer.hideFooterView();
-                        swipeContainer.setLoading(false);
-
-                        loadData();
-                    }
-                }, 2000);
-            }
-
-        });
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
-                android.R.color.holo_purple, android.R.color.holo_orange_light);
     }
 
-    private void loadData() {
-        swipeContainer.setRefreshing(false);
-    }
 }

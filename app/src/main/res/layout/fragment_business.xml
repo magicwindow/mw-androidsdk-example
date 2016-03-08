@@ -1,11 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
-
+    android:layout_height="match_parent">
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/home_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -71,17 +71,7 @@
                 android:divider="@color/translucent"
                 android:dividerHeight="10dp" />
         </RelativeLayout>
-
     </android.support.v4.widget.NestedScrollView>
 
 
-    <!--  <fragment
-         android:id="@+id/lv_fragment_container"
-         android:layout_width="match_parent"
-         android:layout_height="0dp"
-         android:layout_weight="9"
-         android:background="#123456"
-         android:orientation="horizontal" >
-     </fragment> -->
-
-</RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

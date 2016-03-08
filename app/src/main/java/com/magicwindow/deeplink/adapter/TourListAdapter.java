@@ -40,56 +40,6 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
         mList = list;
         imageLoader = MWApplication.getInstance().imageLoader;
 
-//        TravelList.TravelContent item1 = new TravelList.TravelContent();
-//        item1.imgRes = R.drawable.tour_list_01;
-//        item1.title = "东方的夏威夷";
-//        item1.desc = "美丽三亚，浪漫天涯";
-//        item1.type = TYPE0;
-//        mList.add(item1);
-//
-//        TravelList.TravelContent item2 = new TravelList.TravelContent();
-//        item2.imgRes = R.drawable.tour_list_09;
-//        item2.title = "京都动物园一日游";
-//        item2.desc = "在繁华的京都中感受另一个日本";
-//        mList.add(item2);
-//
-//        TravelList.TravelContent item3 = new TravelList.TravelContent();
-//        item3.imgRes = R.drawable.tour_list_03;
-//        item3.title = "绿竹林里的静谧";
-//        item3.desc = "走在路上，感受心灵的净化";
-//        mList.add(item3);
-//
-//        TravelList.TravelContent item4 = new TravelList.TravelContent();
-//        item4.imgRes = R.drawable.tour_list_04;
-//        item4.title = "灌篮高手的回忆";
-//        item4.desc = "年少时的那个篮球梦你还记得么？";
-//        mList.add(item4);
-//
-//        TravelList.TravelContent item5 = new TravelList.TravelContent();
-//        item5.imgRes = R.drawable.tour_list_05;
-//        item5.title = "夜色·星空";
-//        item5.desc = "星空下的大草原";
-//        mList.add(item5);
-//
-//        TravelList.TravelContent item6 = new TravelList.TravelContent();
-//        item6.imgRes = R.drawable.tour_list_06;
-//        item6.title = "雪山下的油菜花";
-//        item6.desc = "一场静谧的旅行，一片黄色的花海";
-//        mList.add(item6);
-//
-//        TravelList.TravelContent item7 = new TravelList.TravelContent();
-//        item7.imgRes = R.drawable.tour_list_07;
-//        item7.title = "娜鲁萱岛度假村";
-//        item7.desc = "梦中的伊甸园之菲律宾之旅";
-//        mList.add(item7);
-//
-//        TravelList.TravelContent item8 = new TravelList.TravelContent();
-//        item8.imgRes = R.drawable.tour_list_08;
-//        item8.title = "一场说走就走的旅行";
-//        item8.desc = "记录菲律宾海滨8日游";
-//        mList.add(item8);
-
-
     }
 
     @Override

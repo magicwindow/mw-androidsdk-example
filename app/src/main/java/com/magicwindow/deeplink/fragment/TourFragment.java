@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +30,13 @@ import me.relex.circleindicator.CircleIndicator;
 
 /**
  * 旅游主页，部分banner和item绑定了魔窗位并配置了mLink服务
+ *
  * @author Tony Shen
  * @date 15/11/25
  */
-public class TourFragment extends BaseFragment {
+public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+    @InjectView(id = R.id.main_content)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @InjectView(id = R.id.viewpager)
     ViewPager viewPager;
@@ -104,13 +108,13 @@ public class TourFragment extends BaseFragment {
                 false);
         Injector.injectInto(this, view);
 
-        initViews();
         initData();
-
+        swipeRefreshLayout.setOnRefreshListener(this);
         return view;
     }
 
-    private void initViews() {
+    @Override
+    public void initView() {
         TravelList travelList = AppPrefs.get(mContext).getTravelList();
 
         viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
@@ -147,6 +151,12 @@ public class TourFragment extends BaseFragment {
             mContext.unregisterReceiver(receiver);
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(false);
+        onResume();
     }
 
     public class MWBroadCastReceiver extends BroadcastReceiver {

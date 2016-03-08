@@ -2,6 +2,7 @@ package com.magicwindow.deeplink.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class NewsPresenter extends Presenter<NewsList.NewsContent> {
     @InjectView(id= R.id.id_news_list_img)
     MWImageView listBg;
 
-    @InjectView(id=R.id.id_list_title)
+    @InjectView(id=R.id.id_news_list_title)
     TextView title;
 
     @InjectView(id=R.id.id_news_list_desc)
@@ -46,7 +47,8 @@ public class NewsPresenter extends Presenter<NewsList.NewsContent> {
             title.setText(item.title);
             desc.setText(item.desc);
             if (MarketingHelper.currentMarketing(mContext).isActive(Config.MWS[item.mwKey])){
-                listBg.bindEvent(Config.MWS[item.mwKey]);
+                Log.e("aaron","item.mwKey+position = "+item.mwKey+position);
+                listBg.bindEvent(Config.MWS[item.mwKey+position]);
                 title.setText(MarketingHelper.currentMarketing(mContext).getTitle(Config.MWS[item.mwKey]));
                 desc.setText(MarketingHelper.currentMarketing(mContext).getDescription(Config.MWS[item.mwKey]));
             }

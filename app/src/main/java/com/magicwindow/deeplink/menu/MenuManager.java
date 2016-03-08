@@ -134,6 +134,10 @@ public class MenuManager {
         return fragment != null;
 
     }
+    public Fragment getCurrentFragment() {
+        return fragmentManager.findFragmentByTag(curType.getTag());
+
+    }
 
     public enum MenuType {
 

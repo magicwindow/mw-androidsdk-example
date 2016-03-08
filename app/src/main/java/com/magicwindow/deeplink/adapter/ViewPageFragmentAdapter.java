@@ -22,17 +22,16 @@ public class ViewPageFragmentAdapter extends FragmentStatePagerAdapter {
     private final int COUNT = 3;
 
     private final Context mContext;
-    protected PagerSlidingTabStrip mPagerStrip;
-    private final ViewPager mViewPager;
+//    protected PagerSlidingTabStrip mPagerStrip;
+//    private final ViewPager mViewPager;
     private String[] titles = {"互联网", "体育", "娱乐"};
-    public ViewPageFragmentAdapter(FragmentManager fm,
-                                   PagerSlidingTabStrip pageStrip, ViewPager pager) {
+    public ViewPageFragmentAdapter(FragmentManager fm,ViewPager pager) {
         super(fm);
         mContext = pager.getContext();
-        mPagerStrip = pageStrip;
-        mViewPager = pager;
-        mViewPager.setAdapter(this);
-        mPagerStrip.setViewPager(mViewPager);
+//        mPagerStrip = pageStrip;
+//        mViewPager = pager;
+//        mViewPager.setAdapter(this);
+//        mPagerStrip.setViewPager(mViewPager);
     }
 
 

@@ -3,6 +3,8 @@ package com.magicwindow.deeplink.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +31,9 @@ import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
 import me.relex.circleindicator.CircleIndicator;
 
-public class O2OFragment extends BaseFragment {
+public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener  {
+    @InjectView(id = R.id.main_content)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @InjectView(id = R.id.viewpager)
     ViewPager viewPager;
@@ -104,13 +108,11 @@ public class O2OFragment extends BaseFragment {
         Injector.injectInto(this, view);
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
-
-        initView();
-        bindMW();
+        swipeRefreshLayout.setOnRefreshListener(this);
         return view;
     }
-
-    private void initView() {
+    @Override
+    public void initView() {
         ImageLoader imageLoader = MWApplication.getInstance().imageLoader;
         O2OList list = AppPrefs.get(mContext).getO2OList();
 
@@ -167,6 +169,7 @@ public class O2OFragment extends BaseFragment {
                 mContext.startActivity(new Intent(mContext, O2OListActivity.class));
             }
         });
+        bindMW();
     }
 
     private void bindMW() {
@@ -235,5 +238,11 @@ public class O2OFragment extends BaseFragment {
         dt1.put("name3", "梦之蓝");
         img_3.bindEventWithMLink(Config.MWS[74], dt1);
 
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(false);
+        onResume();
     }
 }
