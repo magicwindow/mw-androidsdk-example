@@ -35,7 +35,6 @@ public class LoginActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.magicwindow.deeplink.R.layout.activity_login);
-
         initViews();
     }
 

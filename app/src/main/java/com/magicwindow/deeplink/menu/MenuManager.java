@@ -100,8 +100,6 @@ public class MenuManager {
             case NEWS:
                 fragment = new NewsFragment();
                 break;
-//            case SIGNOUT:
-//                break;
             case SETTINGS:
                 fragment = new SettingsFragment();
                 break;
@@ -177,8 +175,6 @@ public class MenuManager {
                     return NEWS;
                 case 5:
                     return SETTINGS;
-//                case 6:
-//                    return SIGNOUT;
             }
         }
 

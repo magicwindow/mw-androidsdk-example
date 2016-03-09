@@ -15,7 +15,6 @@ import java.util.HashMap;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
-import cn.salesuite.saf.utils.ToastUtils;
 
 public class ShopPayActivity extends BaseAppCompatActivity {
 
@@ -25,6 +24,9 @@ public class ShopPayActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.zhifubao_selected)
     ImageView zhifubaoSelected;
 
+    @InjectView
+    Toolbar toolbar;
+
     private final int STATUS_WEIXIN = 0;
     private final int STATUS_ZHIFUBAO = 1;
     private int STATUS = STATUS_WEIXIN;
@@ -33,11 +35,11 @@ public class ShopPayActivity extends BaseAppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_pay);
-        initToolBar();
-        initStatus();
+        initViews();
+        initData();
     }
 
-    private void initStatus() {
+    private void initData() {
         if (STATUS == STATUS_WEIXIN) {
             weixinSelected.setImageResource(R.drawable.pay_select_pressed);
             zhifubaoSelected.setImageResource(R.drawable.pay_select);
@@ -47,8 +49,7 @@ public class ShopPayActivity extends BaseAppCompatActivity {
         }
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    private void initViews() {
         toolbar.setTitle(R.string.shop_pay);
         setSupportActionBar(toolbar);
 
@@ -60,7 +61,6 @@ public class ShopPayActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @OnClick(id = R.id.weixin_layout)
@@ -91,7 +91,7 @@ public class ShopPayActivity extends BaseAppCompatActivity {
             TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART,map);
             startActivity(new Intent(mContext, ShopDoneActivity.class));
         } else {
-            ToastUtils.showShort(mContext, R.string.select_pay);
+            toast(R.string.select_pay);
         }
     }
 }

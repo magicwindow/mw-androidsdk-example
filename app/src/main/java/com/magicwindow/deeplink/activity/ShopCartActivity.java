@@ -32,18 +32,20 @@ public class ShopCartActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.shop_cart_list)
     RecyclerView recyclerView;
 
+    @InjectView
+    Toolbar toolbar;
+
     SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
-        initToolBar();
-        initAdapter();
+        initViews();
+        initData();
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    private void initViews() {
         toolbar.setTitle(R.string.shop_cart);
 
         setSupportActionBar(toolbar);
@@ -58,7 +60,7 @@ public class ShopCartActivity extends BaseAppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    private void initAdapter() {
+    private void initData() {
         List<ShoppingCartItem>  list = new ArrayList<ShoppingCartItem>();
 
         ShoppingCartItem item1 = new ShoppingCartItem();

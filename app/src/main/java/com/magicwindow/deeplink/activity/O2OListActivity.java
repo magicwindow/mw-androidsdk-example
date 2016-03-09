@@ -33,6 +33,9 @@ public class O2OListActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.o2o_list)
     RecyclerView recyclerView;
 
+    @InjectView
+    Toolbar toolbar;
+
     SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
     List<O2OItem> mList = null;
 
@@ -40,13 +43,11 @@ public class O2OListActivity extends BaseAppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o2o_list);
-        initToolBar();
         initViews();
     }
 
-    private void initToolBar() {
+    private void initViews() {
 
-        Toolbar toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -56,9 +57,6 @@ public class O2OListActivity extends BaseAppCompatActivity {
                 onBackPressed();
             }
         });
-    }
-
-    private void initViews() {
 
         mList = new ArrayList<O2OItem>();
 

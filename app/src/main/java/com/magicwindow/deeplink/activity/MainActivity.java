@@ -2,10 +2,8 @@ package com.magicwindow.deeplink.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
@@ -98,8 +96,8 @@ public class MainActivity extends BaseAppCompatActivity {
                 L.i("mPosition = " + mPosition);
             }
         }
-        initData();
         initViews();
+        initData();
     }
 
     @OnClick(id = R.id.appVersion)
@@ -189,7 +187,6 @@ public class MainActivity extends BaseAppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
@@ -198,5 +195,4 @@ public class MainActivity extends BaseAppCompatActivity {
             menu.setTitle(result);
         }
     }
-
 }

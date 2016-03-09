@@ -12,26 +12,25 @@ import com.zxinsight.TrackAgent;
 
 import java.util.HashMap;
 
+import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
 
 public class ShopDetailActivity extends BaseAppCompatActivity {
 
+    @InjectView
+    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_detail);
-        initToolBar();
+        initViews();
     }
 
+    private void initViews() {
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
         toolbar.setTitle(R.string.shop_detail);
-
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +40,7 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
+
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
         HashMap map = new HashMap();

@@ -8,20 +8,22 @@ import android.view.View;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 
+import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
 
 public class ShopDoneActivity extends BaseAppCompatActivity {
+
+    @InjectView
+    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_done);
-        initToolBar();
+        initViews();
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
+    private void initViews() {
         toolbar.setTitle(R.string.shop_pay_done);
         setSupportActionBar(toolbar);
 

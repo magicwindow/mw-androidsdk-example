@@ -54,12 +54,12 @@ public class BaseFragment extends SAFFragment implements RefreshView {
 		return super.onCreateView(inflater,container,savedInstanceState);
 	}
 
-
 	@Override
 	public void onDestroy() {
 		eventBus.unregister(this);
 		super.onDestroy();
 	}
+
 	@Override
 	public void onResume() {
 		super.onResume();

@@ -7,10 +7,7 @@ import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseActivity;
-import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
-
-import java.io.InputStream;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -36,7 +33,6 @@ public class LearnActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
         initViews();
-
     }
 
     private void initViews() {
@@ -88,5 +84,4 @@ public class LearnActivity extends BaseActivity {
         startActivity(i);
         finish();
     }
-
 }

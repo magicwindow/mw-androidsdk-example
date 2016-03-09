@@ -10,23 +10,16 @@ import com.magicwindow.deeplink.UrlDispatcher;
 import com.magicwindow.deeplink.app.BaseActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.utils.NetTask;
 import com.zxinsight.MagicWindowSDK;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.salesuite.saf.log.L;
-import cn.salesuite.saf.utils.AsyncTaskExecutor;
 
 /**
  * Created by Tony Shen on 15/11/23.
  */
 public class SplashActivity extends BaseActivity {
 
-
     AppPrefs appPrefs;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,17 +27,6 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
         appPrefs = AppPrefs.get(mContext);
         initData();
-        initJson();
-    }
-
-    private void initJson() {
-        List<String> list = new ArrayList<String>();
-        list.add(Config.businessList);
-        list.add(Config.o2oList);
-        list.add(Config.newsList);
-        list.add(Config.picList);
-        list.add(Config.travelList);
-        AsyncTaskExecutor.executeAsyncTask(new NetTask(this, list));
     }
 
     private void initData() {
@@ -65,10 +47,10 @@ public class SplashActivity extends BaseActivity {
         Uri mLink = getIntent().getData();
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
+            finish();
         } else {
             loadingNext();
         }
-        finish();
         //mLink跳转 end
     }
 
