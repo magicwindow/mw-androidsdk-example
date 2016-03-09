@@ -35,19 +35,20 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.tour_detail_button2)
     MWImageView button2;
 
+    @InjectView
+    Toolbar toolbar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_detail);
-        initToolBar();
-        initMW();
+        initViews();
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    private void initViews() {
+
         toolbar.setTitle(R.string.tour_detail_name);
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +57,8 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        initMW();
     }
 
     private void initMW() {

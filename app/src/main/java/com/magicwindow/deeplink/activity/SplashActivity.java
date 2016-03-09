@@ -25,12 +25,12 @@ public class SplashActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        appPrefs = AppPrefs.get(mContext);
+
         initData();
     }
 
     private void initData() {
-
+        appPrefs = AppPrefs.get(mContext);
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = metric.widthPixels; // 屏幕宽度（像素）

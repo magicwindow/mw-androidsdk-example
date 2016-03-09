@@ -15,15 +15,21 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.zxinsight.TrackAgent;
 
+import cn.salesuite.saf.inject.annotation.InjectView;
+
 /**
  * @author Aaron.Liu
  */
 public class WebViewActivity extends BaseAppCompatActivity {
+
+    @InjectView(id=R.id.webview)
+    WebView webView;
+
+    @InjectView
+    Toolbar toolbar;
+
     public final static String WEB_URL = "web_url";
     private static final String TAG = "WebViewActivity ";
-    private WebView webView;
-    private Toolbar toolbar;
-
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -31,7 +37,12 @@ public class WebViewActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_web);
-        webView = (WebView) findViewById(com.magicwindow.deeplink.R.id.webview);
+        initViews();
+        initData();
+    }
+
+    private void initViews() {
+
         webView.setWebViewClient(new WebViewClient() {
                                      @Override
                                      public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -44,7 +55,7 @@ public class WebViewActivity extends BaseAppCompatActivity {
                                  }
         );
 
-        toolbar = (Toolbar) findViewById(com.magicwindow.deeplink.R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -54,17 +65,13 @@ public class WebViewActivity extends BaseAppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-//        webView.getSettings().setJavaScriptEnabled(true);
-        load();
     }
 
-    private void load() {
+    private void initData() {
         Intent intent = getIntent();
         String url = intent.getStringExtra(WEB_URL);
         webView.loadUrl(url);
         toolbar.setTitle(webView.getTitle());
-
     }
 
     @Override
