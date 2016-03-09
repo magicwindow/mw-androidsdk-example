@@ -10,8 +10,8 @@ android {
         applicationId "com.magicwindow.deeplink"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
     }
     signingConfigs { // 签名，你可以配置多个签名，然后再在buildTypes 进行指定。
         release {

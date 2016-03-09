@@ -1,4 +1,4 @@
-package com.magicwindow.deeplink.utils;
+package com.magicwindow.deeplink.task;
 
 import android.content.Context;
 
@@ -14,6 +14,7 @@ import cn.salesuite.saf.http.rest.HttpResponseHandler;
 import cn.salesuite.saf.http.rest.RestClient;
 import cn.salesuite.saf.http.rest.RestException;
 import cn.salesuite.saf.http.rest.UrlBuilder;
+import cn.salesuite.saf.utils.Preconditions;
 
 /**
  * @author aaron
@@ -34,7 +35,7 @@ public class NetTask extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        if (mList != null && mList.size() > 0) {
+        if (Preconditions.isNotBlank(mList)) {
             for (String path : mList) {
                 initAssetsJson(path);
                 initJsonFromNet(path);
@@ -52,7 +53,6 @@ public class NetTask extends AsyncTask {
             urlString = builder.buildUrl();
 
             RestClient.get(urlString, new HttpResponseHandler() {
-
 
                 @Override
                 public void onSuccess(String s, Map<String, List<String>> map) {

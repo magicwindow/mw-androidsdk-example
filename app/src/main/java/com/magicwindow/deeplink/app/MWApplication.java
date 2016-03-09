@@ -4,7 +4,7 @@
 package com.magicwindow.deeplink.app;
 
 import com.magicwindow.deeplink.config.Config;
-import com.magicwindow.deeplink.utils.NetTask;
+import com.magicwindow.deeplink.task.NetTask;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
 
