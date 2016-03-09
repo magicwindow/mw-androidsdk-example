@@ -28,6 +28,7 @@ import cn.salesuite.saf.inject.annotation.OnClick;
 import rx.functions.Func2;
 
 public class ShopCartActivity extends BaseAppCompatActivity {
+
     @InjectView(id = R.id.shop_cart_list)
     RecyclerView recyclerView;
 
@@ -39,6 +40,22 @@ public class ShopCartActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_shopping_cart);
         initToolBar();
         initAdapter();
+    }
+
+    private void initToolBar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.shop_cart);
+
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     private void initAdapter() {
@@ -67,23 +84,6 @@ public class ShopCartActivity extends BaseAppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
     }
 
-
-    private void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_navigation);
-        toolbar.setTitle(R.string.shop_cart);
-
-        setSupportActionBar(toolbar);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-    }
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
         HashMap map = new HashMap();

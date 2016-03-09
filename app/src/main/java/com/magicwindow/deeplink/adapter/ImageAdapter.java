@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.salesuite.saf.imagecache.ImageLoader;
+import cn.salesuite.saf.utils.Preconditions;
 
 /**
  * @author aaron
@@ -56,8 +57,8 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup view, int position) {
         MWImageView imageView = new MWImageView(view.getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-//        imageView.setImageResource(list.get(position));
-        if(!list.isEmpty()){
+
+        if(Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))){
             imageLoader.displayImage(list.get(position), imageView);
         }
         imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject());
