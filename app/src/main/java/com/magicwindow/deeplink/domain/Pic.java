@@ -1,7 +1,5 @@
 package com.magicwindow.deeplink.domain;
 
-import java.util.List;
-
 /**
  * @author aaron
  * @date 16/3/3
