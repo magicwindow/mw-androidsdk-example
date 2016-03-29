@@ -23,6 +23,7 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.magicwindow.deeplink.task.NetTask;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
@@ -31,6 +32,7 @@ import com.zxinsight.TrackAgent;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
+import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
 public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -115,10 +117,12 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     private int guideCount = 0;
     private FrameLayout guideFrameLayout;
     private AppPrefs appPrefs;
+    private BusinessList list;
 
     @Override
     public void onStart() {
         super.onStart();
+        appPrefs = AppPrefs.get(mContext);
         if (!appPrefs.getGuideEbusiness()) {
             addGuideImage();// 添加新手引导图片
         }
@@ -195,33 +199,35 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
         Injector.injectInto(this, view);
 
         marketingHelper = MarketingHelper.currentMarketing(mContext);
-        appPrefs = AppPrefs.get(mContext);
+
         return view;
     }
 
     @Override
     public void initView() {
-        BusinessList list = appPrefs.getBusiness();
-        viewPager.setAdapter(new ImageAdapter(23, list.headList));
-        indicator.setViewPager(viewPager);
 
-        BusinessListAdapter adapter = new BusinessListAdapter(mContext, list.contentList);
-        businessList.setAdapter(adapter);
-
-        businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int mwOffset = 38 + position;
-
-                if (!marketingHelper.isActive(Config.MWS[mwOffset])) {
-                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+        if (app.session.get(Config.businessList)!=null) {
+            list = (BusinessList) app.session.get(Config.businessList);
+            setViewPager();
+        } else {
+            NetTask task = new NetTask(Config.businessList);
+            task.execute(new RxAsyncTask.HttpResponseHandler() {
+                @Override
+                public void onSuccess(String s) {
+                    appPrefs.saveJson(Config.businessList, s);
+                    list = appPrefs.getBusiness();
+                    app.session.put(Config.businessList, list);
+                    setViewPager();
                 }
-            }
-        });
 
-        app.imageLoader.displayImage(list.middleList.get(0), img_1);
-        app.imageLoader.displayImage(list.middleList.get(1), img_2);
-        app.imageLoader.displayImage(list.middleList.get(2), img_3);
+                @Override
+                public void onFail(Throwable throwable) {
+                    list = appPrefs.getBusiness();
+                    setViewPager();
+                }
+            });
+        }
+
         bindMW();
     }
 
@@ -377,6 +383,29 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             startActivity(new Intent(mContext, ShopDetailActivity.class));
         }
 
+    }
+
+    private void setViewPager() {
+        viewPager.setAdapter(new ImageAdapter(23, list.headList));
+        indicator.setViewPager(viewPager);
+
+        BusinessListAdapter adapter = new BusinessListAdapter(mContext, list.contentList);
+        businessList.setAdapter(adapter);
+
+        businessList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int mwOffset = 38 + position;
+
+                if (!marketingHelper.isActive(Config.MWS[mwOffset])) {
+                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+                }
+            }
+        });
+
+        app.imageLoader.displayImage(list.middleList.get(0), img_1);
+        app.imageLoader.displayImage(list.middleList.get(1), img_2);
+        app.imageLoader.displayImage(list.middleList.get(2), img_3);
     }
 
     @Override
