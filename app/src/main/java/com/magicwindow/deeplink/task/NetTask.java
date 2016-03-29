@@ -1,102 +1,26 @@
 package com.magicwindow.deeplink.task;
 
-import android.content.Context;
-
-import com.magicwindow.deeplink.app.MWApplication;
-import com.magicwindow.deeplink.prefs.AppPrefs;
-
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
-
-import cn.salesuite.saf.async.AsyncTask;
-import cn.salesuite.saf.http.rest.HttpResponseHandler;
 import cn.salesuite.saf.http.rest.RestClient;
-import cn.salesuite.saf.http.rest.RestException;
 import cn.salesuite.saf.http.rest.UrlBuilder;
-import cn.salesuite.saf.utils.Preconditions;
+import cn.salesuite.saf.rxjava.RxAsyncTask;
 
 /**
- * @author aaron
- * @date 16/3/3
+ * Created by Tony Shen on 16/3/29.
  */
-public class NetTask extends AsyncTask {
+public class NetTask extends RxAsyncTask {
+
     private static final String HOST = "http://121.40.195.177/list/";
-    private final List<String> mList;
-    private final Context mContext;
-    private final AppPrefs appPrefs;
+    private String path;
 
-    public NetTask(Context context, List<String> list) {
-        mContext = context;
-        mList = list;
-        appPrefs = AppPrefs.get(mContext);
+    public NetTask(String path) {
+        this.path = path;
     }
 
-    @Override
-    protected Object doInBackground(Object[] objects) {
+    public String onExecute() {
 
-        if (Preconditions.isNotBlank(mList)) {
-            for (String path : mList) {
-                initAssetsJson(path);
-                initJsonFromNet(path);
-            }
-        }
-        return null;
-    }
+        UrlBuilder builder = new UrlBuilder(HOST + path);
+        String urlString = builder.buildUrl();
 
-    private void initJsonFromNet(final String path) {
-        String urlString;
-
-        try {
-            UrlBuilder builder = new UrlBuilder(HOST + path);
-
-            urlString = builder.buildUrl();
-
-            RestClient.get(urlString, new HttpResponseHandler() {
-
-                @Override
-                public void onSuccess(String s, Map<String, List<String>> map) {
-                    appPrefs.saveJson(path, s);
-                }
-
-                @Override
-                public void onFail(RestException arg0) {
-
-                }
-
-            });
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private void initAssetsJson(String path) {
-
-        if (appPrefs.getLastVersion() != null && appPrefs.getLastVersion().equals(MWApplication.getInstance().version)) { // 肯定是第一次安装，进入学习页
-            appPrefs.saveJson(path, getFromAssets(path));
-        }
-
-    }
-
-    //从assets 文件夹中获取文件并读取数据
-    private String getFromAssets(String fileName) {
-        String result = "";
-        try {
-            InputStream in = mContext.getResources().getAssets().open(fileName);
-            //获取文件的字节数
-            int lenght = in.available();
-            //创建byte数组
-            byte[] buffer = new byte[lenght];
-            //将文件中的数据读到byte数组中
-            in.read(buffer);
-            result = new String(buffer, "UTF-8");
-            in.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
+        return RestClient.get(urlString).body();
     }
 }
