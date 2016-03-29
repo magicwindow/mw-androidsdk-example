@@ -14,23 +14,23 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.O2OListActivity;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2OList;
-import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.magicwindow.deeplink.task.NetTask;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
 import java.util.HashMap;
 
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
+import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
 public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener  {
+
     @InjectView(id = R.id.main_content)
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -86,6 +86,7 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
     MWImageView img_3;
 
     private MarketingHelper marketingHelper;
+    private O2OList list;
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -113,14 +114,6 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
 
     @Override
     public void initView() {
-        ImageLoader imageLoader = MWApplication.getInstance().imageLoader;
-        O2OList list = AppPrefs.get(mContext).getO2OList();
-
-        viewPager.setAdapter(new ImageAdapter(64, list.headList));
-        indicator.setViewPager(viewPager);
-        imageLoader.displayImage(list.contentList.get(0), img_1);
-        imageLoader.displayImage(list.contentList.get(1), img_2);
-        imageLoader.displayImage(list.contentList.get(2), img_3);
 
         ic_top_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +163,40 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
             }
         });
         bindMW();
+
+        if (app.session.get(Config.o2oList) != null) {
+            list = appPrefs.getO2OList();
+            viewPager.setAdapter(new ImageAdapter(64, list.headList));
+            indicator.setViewPager(viewPager);
+            app.imageLoader.displayImage(list.contentList.get(0), img_1);
+            app.imageLoader.displayImage(list.contentList.get(1), img_2);
+            app.imageLoader.displayImage(list.contentList.get(2), img_3);
+        } else {
+            NetTask task = new NetTask(Config.o2oList);
+            task.execute(new RxAsyncTask.HttpResponseHandler() {
+                @Override
+                public void onSuccess(String s) {
+                    appPrefs.saveJson(Config.o2oList, s);
+                    list = appPrefs.getO2OList();
+                    app.session.put(Config.o2oList, list);
+                    viewPager.setAdapter(new ImageAdapter(64, list.headList));
+                    indicator.setViewPager(viewPager);
+                    app.imageLoader.displayImage(list.contentList.get(0), img_1);
+                    app.imageLoader.displayImage(list.contentList.get(1), img_2);
+                    app.imageLoader.displayImage(list.contentList.get(2), img_3);
+                }
+
+                @Override
+                public void onFail(Throwable throwable) {
+                    list = appPrefs.getO2OList();
+                    viewPager.setAdapter(new ImageAdapter(64, list.headList));
+                    indicator.setViewPager(viewPager);
+                    app.imageLoader.displayImage(list.contentList.get(0), img_1);
+                    app.imageLoader.displayImage(list.contentList.get(1), img_2);
+                    app.imageLoader.displayImage(list.contentList.get(2), img_3);
+                }
+            });
+        }
     }
 
     private void bindMW() {

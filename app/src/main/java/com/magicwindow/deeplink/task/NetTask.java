@@ -5,6 +5,7 @@ import cn.salesuite.saf.http.rest.UrlBuilder;
 import cn.salesuite.saf.rxjava.RxAsyncTask;
 
 /**
+ * 请求网络的Task
  * Created by Tony Shen on 16/3/29.
  */
 public class NetTask extends RxAsyncTask {
@@ -16,6 +17,10 @@ public class NetTask extends RxAsyncTask {
         this.path = path;
     }
 
+    /**
+     * 返回网络请求的response
+     * @return
+     */
     public String onExecute() {
 
         UrlBuilder builder = new UrlBuilder(HOST + path);
