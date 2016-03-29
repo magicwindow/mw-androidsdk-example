@@ -12,8 +12,9 @@ import android.view.ViewGroup;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.PicturePresenter;
 import com.magicwindow.deeplink.app.BaseFragment;
+import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.Pic;
-import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.magicwindow.deeplink.task.NetTask;
 
 import java.util.List;
 
@@ -21,6 +22,8 @@ import cn.salesuite.saf.adapter.Presenter;
 import cn.salesuite.saf.adapter.SAFRecycleAdapter;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
+import cn.salesuite.saf.log.L;
+import cn.salesuite.saf.rxjava.RxAsyncTask;
 import rx.functions.Func2;
 
 /**
@@ -30,6 +33,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
 
     @InjectView(id = R.id.main_content)
     SwipeRefreshLayout swipeRefreshLayout;
+
     @InjectView(id = R.id.id_grid_picture)
     RecyclerView recyclerView;
 
@@ -41,17 +45,58 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picture, container, false);
         Injector.injectInto(this, view);
-        mList = AppPrefs.get(mContext).getPicList();
-        adapter.getList().addAll(mList);
 
-        adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>(){
+        if (app.session.get(Config.picList) != null) {
+            mList = (List<Pic>) app.session.get(Config.picList);
+            adapter.getList().addAll(mList);
 
-            @Override
-            public Presenter call(ViewGroup parent, Integer integer) {
+            adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
 
-                return new PicturePresenter(LayoutInflater.from(mContext).inflate(R.layout.cell_picture, parent, false),mContext);
-            }
-        });
+                @Override
+                public Presenter call(ViewGroup parent, Integer integer) {
+
+                    return new PicturePresenter(LayoutInflater.from(mContext).inflate(R.layout
+                            .cell_picture, parent, false), mContext);
+                }
+            });
+        } else {
+            NetTask task = new NetTask(Config.picList);
+            task.execute(new RxAsyncTask.HttpResponseHandler() {
+                @Override
+                public void onSuccess(String s) {
+                    appPrefs.saveJson(Config.picList, s);
+                    mList = appPrefs.getPicList();
+                    app.session.put(Config.picList, mList);
+                    adapter.getList().addAll(mList);
+                    adapter.notifyDataSetChanged();
+                    adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
+
+                        @Override
+                        public Presenter call(ViewGroup parent, Integer integer) {
+                            return new PicturePresenter(LayoutInflater.from(mContext).inflate(R
+                                    .layout.cell_picture, parent, false), mContext);
+                        }
+                    });
+                }
+
+                @Override
+                public void onFail(Throwable throwable) {
+                    mList = appPrefs.getPicList();
+                    adapter.getList().addAll(mList);
+
+                    adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
+
+                        @Override
+                        public Presenter call(ViewGroup parent, Integer integer) {
+
+                            return new PicturePresenter(LayoutInflater.from(mContext).inflate(R
+                                    .layout.cell_picture, parent, false), mContext);
+                        }
+                    });
+                }
+            });
+        }
+
         swipeRefreshLayout.setOnRefreshListener(this);
 
         return view;
@@ -65,6 +110,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
         mgr.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mgr);
     }
+
     @Override
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing(false);

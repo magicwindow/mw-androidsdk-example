@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.utils.EventBusManager;
 
 import cn.salesuite.saf.app.SAFFragment;
@@ -27,6 +28,7 @@ public class BaseFragment extends SAFFragment implements RefreshView {
 
 	protected Handler mHandler = new Handler();
 	protected FragmentManager fmgr;
+	protected AppPrefs appPrefs;
 
 	public BaseFragment() {
 	}
@@ -44,6 +46,7 @@ public class BaseFragment extends SAFFragment implements RefreshView {
 		eventBus = EventBusManager.getInstance();
 		eventBus.register(this);
 		fmgr = getFragmentManager();
+		appPrefs = AppPrefs.get(mContext);
 		L.init(this);
 	}
 

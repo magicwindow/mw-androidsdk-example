@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import cn.salesuite.saf.http.rest.RestUtil;
 import cn.salesuite.saf.prefs.BasePrefs;
+import cn.salesuite.saf.utils.Preconditions;
 
 /**
  * Created by Tony Shen on 15/12/14.
@@ -92,7 +93,7 @@ public class AppPrefs extends BasePrefs {
     public O2OList getO2OList() {
         O2OList list = new O2OList();
         String business = getString(Config.o2oList, "");
-        if (!TextUtils.isEmpty(business)) {
+        if (Preconditions.isNotBlank(business)) {
             try {
                 list = RestUtil.parseAs(O2OList.class, business);
             } catch (IOException e) {
@@ -105,7 +106,7 @@ public class AppPrefs extends BasePrefs {
     public ArrayList<Pic> getPicList() {
         ArrayList<Pic> list = new ArrayList<Pic>();
         String business = getString(Config.picList, "");
-        if (!TextUtils.isEmpty(business)) {
+        if (Preconditions.isNotBlank(business)) {
             try {
                 list = RestUtil.parseArray(Pic.class, business);
             } catch (IOException e) {
@@ -118,7 +119,7 @@ public class AppPrefs extends BasePrefs {
     public TravelList getTravelList() {
         TravelList list = new TravelList();
         String business = getString(Config.travelList, "");
-        if (!TextUtils.isEmpty(business)) {
+        if (Preconditions.isNotBlank(business)) {
             try {
                 list = RestUtil.parseAs(TravelList.class, business);
             } catch (IOException e) {

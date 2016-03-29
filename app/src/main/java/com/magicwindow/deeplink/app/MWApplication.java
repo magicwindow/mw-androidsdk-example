@@ -5,7 +5,6 @@ package com.magicwindow.deeplink.app;
 
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.task.NetTask;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
 
@@ -14,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.salesuite.saf.app.SAFApp;
-import cn.salesuite.saf.log.L;
-import cn.salesuite.saf.rxjava.RxAsyncTask;
 
 /**
  * @author Tony Shen
@@ -60,30 +57,13 @@ public class MWApplication extends SAFApp {
         list.add(Config.picList);
         list.add(Config.travelList);
 
-        NetTask task = null;
         for(final String path:list) {
             initAssetsJson(path);
-            task = new NetTask(path);
-            task.execute(new RxAsyncTask.HttpResponseHandler() {
-                @Override
-                public void onSuccess(String s) {
-                    appPrefs.saveJson(path, s);
-                }
-
-                @Override
-                public void onFail(Throwable throwable) {
-
-                }
-            });
         }
     }
 
     private void initAssetsJson(String path) {
-
-        if (appPrefs.getLastVersion() != null && appPrefs.getLastVersion().equals(MWApplication.getInstance().version)) { // 肯定是第一次安装，进入学习页
-            appPrefs.saveJson(path, getFromAssets(path));
-        }
-
+        appPrefs.saveJson(path, getFromAssets(path));
     }
 
     //从assets 文件夹中获取文件并读取数据
