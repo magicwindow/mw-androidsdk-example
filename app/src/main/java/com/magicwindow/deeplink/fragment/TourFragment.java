@@ -19,13 +19,16 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.adapter.TourListAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
+import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.magicwindow.deeplink.task.NetTask;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.TrackAgent;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
+import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
 /**
@@ -35,6 +38,7 @@ import me.relex.circleindicator.CircleIndicator;
  * @date 15/11/25
  */
 public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+
     @InjectView(id = R.id.main_content)
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -52,6 +56,7 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     private int guideResourceId = R.drawable.guide_tour;// 新手引导页图片资源id
     private FrameLayout guideFrameLayout;
     private AppPrefs appPrefs;
+    private TravelList travelList;
 
     @Override
     public void onStart() {
@@ -63,7 +68,7 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     }
 
     private void addGuideImage() {
-        View view = mContext.getWindow().getDecorView().findViewById(R.id.root);//
+        View view = mContext.getWindow().getDecorView().findViewById(R.id.root);
         // 查找通过setContentView上的根布局
         if (view == null)
             return;
@@ -115,13 +120,39 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void initView() {
-        TravelList travelList = AppPrefs.get(mContext).getTravelList();
+        if (app.session.get(Config.travelList)!=null) {
+            travelList = (TravelList) app.session.get(Config.travelList);
+            viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
+            indicator.setViewPager(viewPager);
 
-        viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
-        indicator.setViewPager(viewPager);
+            adapter = new TourListAdapter(mContext, travelList.contentList);
+            homeList.setAdapter(adapter);
+        } else {
+            NetTask task = new NetTask(Config.travelList);
+            task.execute(new RxAsyncTask.HttpResponseHandler() {
+                @Override
+                public void onSuccess(String s) {
+                    appPrefs.saveJson(Config.travelList, s);
+                    travelList = appPrefs.getTravelList();
+                    app.session.put(Config.travelList, travelList);
+                    viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
+                    indicator.setViewPager(viewPager);
 
-        adapter = new TourListAdapter(mContext, travelList.contentList);
-        homeList.setAdapter(adapter);
+                    adapter = new TourListAdapter(mContext, travelList.contentList);
+                    homeList.setAdapter(adapter);
+                }
+
+                @Override
+                public void onFail(Throwable throwable) {
+                    travelList = appPrefs.getTravelList();
+                    viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
+                    indicator.setViewPager(viewPager);
+
+                    adapter = new TourListAdapter(mContext, travelList.contentList);
+                    homeList.setAdapter(adapter);
+                }
+            });
+        }
     }
 
     private void initData() {
@@ -130,20 +161,6 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         filter.addAction("com.magicwindow.marketing.update.MW_MESSAGE");
         mContext.registerReceiver(receiver, filter);
     }
-
-
-    //@mw 魔窗位绑定
-//    private void bindMW() {
-//        banner.getView(0).bindEvent(Config.MWS[0]);
-//        banner.getView(0).setScaleType(ImageView.ScaleType.FIT_XY);
-//        banner.getView(1).bindEvent(Config.MWS[1]);
-//        banner.getView(1).setScaleType(ImageView.ScaleType.FIT_XY);
-//        banner.getView(2).bindEvent(Config.MWS[2]);
-//        banner.getView(2).setScaleType(ImageView.ScaleType.FIT_XY);
-//        banner.getView(3).bindEvent(Config.MWS[3]);
-//        banner.getView(3).setScaleType(ImageView.ScaleType.FIT_XY);
-//        adapter.notifyDataSetChanged();
-//    }
 
     @Override
     public void onDestroy() {

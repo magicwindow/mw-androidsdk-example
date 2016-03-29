@@ -125,7 +125,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     }
 
     private void addGuideImage() {
-        View view = mContext.getWindow().getDecorView().findViewById(R.id.root);//
+        View view = mContext.getWindow().getDecorView().findViewById(R.id.root);
         // 查找通过setContentView上的根布局
         if (view == null)
             return;
