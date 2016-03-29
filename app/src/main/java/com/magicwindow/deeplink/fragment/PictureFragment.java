@@ -22,7 +22,6 @@ import cn.salesuite.saf.adapter.Presenter;
 import cn.salesuite.saf.adapter.SAFRecycleAdapter;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.log.L;
 import cn.salesuite.saf.rxjava.RxAsyncTask;
 import rx.functions.Func2;
 
@@ -59,8 +58,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
                             .cell_picture, parent, false), mContext);
                 }
             });
-        } else {
-            NetTask task = new NetTask(Config.picList);
+        } else { NetTask task = new NetTask(Config.picList);
             task.execute(new RxAsyncTask.HttpResponseHandler() {
                 @Override
                 public void onSuccess(String s) {
@@ -95,6 +93,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
                     });
                 }
             });
+
         }
 
         swipeRefreshLayout.setOnRefreshListener(this);

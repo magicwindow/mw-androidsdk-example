@@ -165,7 +165,7 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         bindMW();
 
         if (app.session.get(Config.o2oList) != null) {
-            list = appPrefs.getO2OList();
+            list = (O2OList) app.session.get(Config.o2oList);
             viewPager.setAdapter(new ImageAdapter(64, list.headList));
             indicator.setViewPager(viewPager);
             app.imageLoader.displayImage(list.contentList.get(0), img_1);
