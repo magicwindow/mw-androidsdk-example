@@ -33,12 +33,13 @@ public class MWApplication extends SAFApp {
         mInstance = this;
         appPrefs = AppPrefs.get(mInstance);
 //        mInstance.imageLoader.setEnableDiskCache(false);
+        imageLoader.setEnableDiskCache(true);
         initMW();
         initJson();
     }
 
     //@mw 初始化魔窗
-    private void initMW(){
+    private void initMW() {
         MWConfiguration config = new MWConfiguration(this);
         config.setChannel("WanDouJia")
                 .setDebugModel(true)
@@ -60,13 +61,14 @@ public class MWApplication extends SAFApp {
         list.add(Config.picList);
         list.add(Config.travelList);
 
-        for(final String path:list) {
+        for (final String path : list) {
             initAssetsJson(path);
         }
     }
 
     private void initAssetsJson(String path) {
-        appPrefs.saveJson(path, getFromAssets(path));
+        if (appPrefs != null)
+            appPrefs.saveJson(path, getFromAssets(path));
     }
 
     //从assets 文件夹中获取文件并读取数据

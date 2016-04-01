@@ -47,7 +47,7 @@ public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final NewsList.NewsContent item = mList.get(position);
         if (item != null) {
-            imageLoader.displayImage(item.resource, holder.listBg);
+            imageLoader.displayImage(item.resource, holder.listBg,R.drawable.news01);
             holder.title.setText(item.title);
             holder.desc.setText(item.desc);
             int a = mList.get(0).mwKey+position;

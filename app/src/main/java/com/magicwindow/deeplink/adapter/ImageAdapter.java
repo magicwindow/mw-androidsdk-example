@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MWImageView;
@@ -59,7 +60,7 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         if(Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))){
-            imageLoader.displayImage(list.get(position), imageView);
+            imageLoader.displayImage(list.get(position), imageView,R.drawable.banner);
         }
         imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject());
         view.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT,

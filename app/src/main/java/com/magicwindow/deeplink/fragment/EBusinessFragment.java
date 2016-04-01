@@ -206,8 +206,8 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void initView() {
 
-        if (app.session.get(Config.businessList)!=null) {
-            list = (BusinessList) app.session.get(Config.businessList);
+        /*if (app.session.get(Config.businessList)!=null) {
+            list = appPrefs.getBusiness();
             setViewPager();
         } else {
             NetTask task = new NetTask(Config.businessList);
@@ -226,7 +226,10 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
                     setViewPager();
                 }
             });
-        }
+        }*/
+
+        list = appPrefs.getBusiness();
+        setViewPager();
 
         bindMW();
     }

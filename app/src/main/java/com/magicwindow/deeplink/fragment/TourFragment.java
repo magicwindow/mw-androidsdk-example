@@ -62,7 +62,8 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     public void onStart() {
         super.onStart();
         appPrefs = AppPrefs.get(mContext);
-        if (!appPrefs.getGuideTour()) {
+        Log.e("aaron", "guide = " + appPrefs.getGuideTour());
+        if (appPrefs != null && !appPrefs.getGuideTour()) {
             addGuideImage();// 添加新手引导图片
         }
     }
@@ -120,7 +121,7 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void initView() {
-        if (app.session.get(Config.travelList)!=null) {
+        if (app.session.get(Config.travelList) != null) {
             travelList = (TravelList) app.session.get(Config.travelList);
             viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
             indicator.setViewPager(viewPager);
@@ -183,7 +184,9 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             Log.e("aaron", "action = " + action);
             if (action.equals("com.magicwindow.marketing.update.MW_MESSAGE")) {
                 //todo: 你的代码 这个是活动webview onResume消息
-                adapter.notifyDataSetChanged();
+                if (adapter != null) {
+                    adapter.notifyDataSetChanged();
+                }
             }
         }
     }

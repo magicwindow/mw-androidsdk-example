@@ -41,7 +41,7 @@
                     android:id="@+id/tour_detail_banner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/tour_detail_banner"/>
+                    android:background="@drawable/banner"/>
 
                 <com.zxinsight.MWImageView
                     android:id="@+id/tour_detail_uber"
