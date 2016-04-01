@@ -30,7 +30,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void initData() {
-        appPrefs = AppPrefs.get(mContext);
+        appPrefs = AppPrefs.get(this);
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = metric.widthPixels; // 屏幕宽度（像素）
@@ -56,17 +56,19 @@ public class SplashActivity extends BaseActivity {
 
     private void loadingNext() {
 
-        if (appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
+        if (appPrefs != null && appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
             appPrefs.setLastVersion(app.version);
             Intent i = new Intent(mContext, LearnActivity.class);
             i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
             startActivity(i);
         } else {
-            if (appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
+            if (appPrefs != null && appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
                 Intent i = new Intent(mContext, MainActivity.class);
                 startActivity(i);
             } else {
-                appPrefs.setLastVersion(app.version);
+                if (appPrefs != null) {
+                    appPrefs.setLastVersion(app.version);
+                }
                 Intent i = new Intent(mContext, LearnActivity.class);
                 i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
                 startActivity(i);
