@@ -70,7 +70,8 @@ public class BaseFragmentActivity extends SAFFragmentActivity {
 		unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
         super.onDestroy();
-    }
+		MWApplication.getInstance().getRefWatcher().watch(this);
+	}
 
 
 	@Override

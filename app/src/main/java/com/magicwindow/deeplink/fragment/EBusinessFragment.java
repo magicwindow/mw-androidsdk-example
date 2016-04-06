@@ -23,7 +23,6 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.task.NetTask;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
@@ -32,7 +31,6 @@ import com.zxinsight.TrackAgent;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.log.L;
-import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
 public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -123,7 +121,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     public void onStart() {
         super.onStart();
         appPrefs = AppPrefs.get(mContext);
-        if (!appPrefs.getGuideEbusiness()) {
+        if (appPrefs != null && !appPrefs.getGuideEbusiness()) {
             addGuideImage();// 添加新手引导图片
         }
     }

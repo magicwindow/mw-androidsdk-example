@@ -61,6 +61,7 @@ public class BaseFragment extends SAFFragment implements RefreshView {
 	public void onDestroy() {
 		eventBus.unregister(this);
 		super.onDestroy();
+		MWApplication.getInstance().getRefWatcher().watch(this);
 	}
 
 	@Override

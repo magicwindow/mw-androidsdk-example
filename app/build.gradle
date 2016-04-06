@@ -71,4 +71,7 @@ dependencies {
     compile project(':PullZoomView')
     compile files('libs/MagicWindowSDK.jar')
     compile(name:'MagicWindowSDK', ext:'aar')
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }

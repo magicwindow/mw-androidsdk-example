@@ -134,6 +134,8 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         delActivityFromManager(this);
         unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
+        MWApplication.getInstance().getRefWatcher().watch(this);
+
     }
 
     /**

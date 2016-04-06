@@ -74,6 +74,8 @@ public class BaseActivity extends SAFActivity {
         eventBus.unregister(this);
         dismissDialog();
         super.onDestroy();
+        MWApplication.getInstance().getRefWatcher().watch(this);
+
     }
 
     /**

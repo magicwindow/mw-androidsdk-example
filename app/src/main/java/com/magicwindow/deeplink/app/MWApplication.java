@@ -5,6 +5,8 @@ package com.magicwindow.deeplink.app;
 
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
 
@@ -21,6 +23,7 @@ public class MWApplication extends SAFApp {
 
     private static MWApplication mInstance = null;
     private AppPrefs appPrefs;
+    private RefWatcher refWatcher;
 
     public static MWApplication getInstance() {
         return mInstance;
@@ -36,6 +39,11 @@ public class MWApplication extends SAFApp {
         imageLoader.setEnableDiskCache(true);
         initMW();
         initJson();
+        refWatcher = LeakCanary.install(this);
+    }
+
+    public RefWatcher getRefWatcher() {
+        return refWatcher;
     }
 
     //@mw 初始化魔窗
