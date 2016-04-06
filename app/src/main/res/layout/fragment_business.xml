@@ -1,77 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_content"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout android:id="@+id/root"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/home_container"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/home_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include
-                android:id="@+id/home_top_view"
-                layout="@layout/business_top_view" />
-
             <RelativeLayout
-                android:id="@+id/business_middle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/home_top_view"
-                android:gravity="center_horizontal"
-                android:padding="10dp">
+                android:layout_height="match_parent">
 
-                <com.zxinsight.MWImageView
-                    android:id="@+id/business_img_1"
-                    android:layout_width="160dp"
-                    android:layout_height="225dp"
-                    android:layout_marginRight="10dp"
-                    android:scaleType="fitXY"
-                    android:src="@color/white" />
+                <include
+                    android:id="@+id/home_top_view"
+                    layout="@layout/business_top_view"/>
 
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/business_middle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignBottom="@id/business_img_1"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/business_img_1"
-                    android:layout_toRightOf="@id/business_img_1"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/home_top_view"
+                    android:gravity="center_horizontal"
+                    android:padding="10dp">
 
                     <com.zxinsight.MWImageView
-                        android:id="@+id/business_img_2"
+                        android:id="@+id/business_img_1"
+                        android:layout_width="160dp"
+                        android:layout_height="225dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@color/white"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:src="@color/white" />
+                        android:layout_alignBottom="@id/business_img_1"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/business_img_1"
+                        android:layout_toRightOf="@id/business_img_1"
+                        android:orientation="vertical">
 
-                    <com.zxinsight.MWImageView
-                        android:id="@+id/business_img_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:src="@color/white" />
-                </LinearLayout>
+                        <com.zxinsight.MWImageView
+                            android:id="@+id/business_img_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:src="@color/white"/>
 
+                        <com.zxinsight.MWImageView
+                            android:id="@+id/business_img_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:src="@color/white"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <com.magicwindow.deeplink.ui.ListViewForScrollView
+                    android:id="@+id/business_list"
+                    style="@style/listView"
+                    android:layout_below="@id/business_middle"
+                    android:divider="@color/translucent"
+                    android:dividerHeight="10dp"/>
             </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
 
 
-            <com.magicwindow.deeplink.ui.ListViewForScrollView
-                android:id="@+id/business_list"
-                style="@style/listView"
-                android:layout_below="@id/business_middle"
-                android:divider="@color/translucent"
-                android:dividerHeight="10dp" />
-        </RelativeLayout>
-    </android.support.v4.widget.NestedScrollView>
-
-
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
