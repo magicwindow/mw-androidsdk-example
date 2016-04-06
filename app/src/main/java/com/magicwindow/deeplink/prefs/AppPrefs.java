@@ -33,7 +33,11 @@ public class AppPrefs extends BasePrefs {
     }
 
     public static AppPrefs get(Context context) {
-        return new AppPrefs(context);
+        if (context == null){
+            return null;
+        } else {
+            return new AppPrefs(context);
+        }
     }
 
     public String getLastVersion() {

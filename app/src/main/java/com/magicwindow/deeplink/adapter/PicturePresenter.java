@@ -41,7 +41,7 @@ public class PicturePresenter extends Presenter<Pic> {
     @Override
     public void onBind(int position, final Pic item) {
         if (item != null) {
-            imageLoader.displayImage(item.resource, listBg);
+            imageLoader.displayImage(item.resource, listBg,R.drawable.pic_01);
             title.setText(item.title);
             desc.setText(item.desc);
         }

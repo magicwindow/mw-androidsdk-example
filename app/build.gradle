@@ -1,5 +1,14 @@
 apply plugin: 'com.android.application'
 
+
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -61,4 +70,5 @@ dependencies {
     compile project(':MLogCat')
     compile project(':PullZoomView')
     compile files('libs/MagicWindowSDK.jar')
+    compile(name:'MagicWindowSDK', ext:'aar')
 }

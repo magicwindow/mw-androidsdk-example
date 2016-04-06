@@ -40,6 +40,7 @@ public class BaseActivity extends SAFActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
 
         mNetworkStateReceiver = new BroadcastReceiver() {
             @Override
@@ -54,7 +55,6 @@ public class BaseActivity extends SAFActivity {
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(mNetworkStateReceiver, filter);
 
-        mContext = this;
         app = MWApplication.getInstance();
 
         eventBus = EventBusManager.getInstance();
