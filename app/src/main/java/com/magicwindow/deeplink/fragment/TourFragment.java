@@ -72,12 +72,10 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         // 查找通过setContentView上的根布局
         if (view == null)
             return;
-
         ViewParent viewParent = view.getParent();
         if (viewParent instanceof FrameLayout) {
             guideFrameLayout = (FrameLayout) viewParent;
         }
-
         final ImageView guideImage = new ImageView(mContext);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
