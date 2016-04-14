@@ -11,11 +11,11 @@ import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.NewsList;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 
 /**
@@ -32,18 +32,15 @@ public class NewsPresenter extends Presenter<NewsList.NewsContent> {
     @InjectView(id=R.id.id_news_list_desc)
     TextView desc;
 
-    private ImageLoader imageLoader;
-
     public NewsPresenter(View view, Context context) {
         super(view);
         this.mContext = context;
-        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
     public void onBind(int position, final NewsList.NewsContent item) {
         if (item != null) {
-            imageLoader.displayImage(item.resource,listBg);
+            ImageLoader.getInstance().displayImage(item.resource,listBg);
             title.setText(item.title);
             desc.setText(item.desc);
             if (MarketingHelper.currentMarketing(mContext).isActive(Config.MWS[item.mwKey])){

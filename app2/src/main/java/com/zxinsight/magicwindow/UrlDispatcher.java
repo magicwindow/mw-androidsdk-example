@@ -1,7 +1,6 @@
 package com.zxinsight.magicwindow;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -26,7 +25,7 @@ public class UrlDispatcher {
         MLink mLink = MLink.getInstance(context);
 //
         mLink.register("user", DetailActivity.class, new MLinkListener() {
-            public Map<String, String> execute(Map<String, String> paramMap) {
+            public Map<String, String> getExtraParams(Map<String, String> paramMap) {
                 paramMap.put("key1", "value");
                 return paramMap;
             }
@@ -55,10 +54,12 @@ public class UrlDispatcher {
         });
         mLink.register("detail", new MLinkCallback() {
             public void execute(Map<String, String> paramMap, Uri uri, Context context) {
-
-
-//                MLinkIntentBuilder.buildIntent(paramMap, context, DetailActivity.class);
-
+                MLinkIntentBuilder.buildIntent(paramMap, context, DetailActivity.class);
+            }
+        });
+        mLink.register("goodsDetailKey", new MLinkCallback() {
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, DetailActivity.class);
             }
         });
 

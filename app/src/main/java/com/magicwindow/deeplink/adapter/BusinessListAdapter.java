@@ -11,13 +11,13 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import java.util.List;
 
 import cn.salesuite.saf.adapter.SAFAdapter;
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 
 /**
@@ -26,12 +26,10 @@ import cn.salesuite.saf.inject.annotation.InjectView;
 public class BusinessListAdapter extends SAFAdapter<BusinessList.BusinessContent> {
 
     private Context mContext;
-    private ImageLoader imageLoader;
 
     public BusinessListAdapter(Context context, List<BusinessList.BusinessContent> list) {
         mContext = context;
         mList = list;
-        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
@@ -48,7 +46,7 @@ public class BusinessListAdapter extends SAFAdapter<BusinessList.BusinessContent
         BusinessList.BusinessContent item = mList.get(position);
         if (item != null) {
 //            holder.imageView.setImageResource(item.imgRes);
-            imageLoader.displayImage(item.resource,holder.imageView);
+            ImageLoader.getInstance().displayImage(item.resource,holder.imageView);
             holder.title.setText(item.title);
         }
 

@@ -8,6 +8,7 @@ import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.domain.NewsList;
 import com.magicwindow.deeplink.domain.O2OList;
 import com.magicwindow.deeplink.domain.Pic;
+import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.domain.TravelList;
 
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class AppPrefs extends BasePrefs {
         if (context == null){
             return null;
         } else {
-            return new AppPrefs(context);
+            return new AppPrefs(context.getApplicationContext());
         }
     }
 
@@ -132,4 +133,19 @@ public class AppPrefs extends BasePrefs {
         }
         return list;
     }
+
+
+    public ShopDetail getShopDetail() {
+        ShopDetail detail = new ShopDetail();
+        String shopDetail = getString(Config.shopDetail, "");
+        if (!TextUtils.isEmpty(shopDetail)) {
+            try {
+                detail = RestUtil.parseAs(ShopDetail.class, shopDetail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return detail;
+    }
+
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/food"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:gravity="center_horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="城市地图"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line02" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/food01"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/food_title"
+        android:layout_margin="10dp"
+        android:background="@drawable/tour_detail_food01" />
+
+    <ImageView
+        android:id="@+id/food02"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBaseline="@id/food01"
+        android:layout_below="@id/food_title"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/food01"
+        android:background="@drawable/tour_detail_food01" />
+
+    <ImageView
+        android:id="@+id/food03"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBaseline="@id/food01"
+        android:layout_below="@id/food_title"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/food02"
+        android:background="@drawable/tour_detail_food01" />
+
+    <TextView
+        android:id="@+id/tour_detail_food_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/food01"
+        android:layout_alignRight="@+id/food01"
+        android:layout_below="@id/food01"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:text="和乐蟹" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/food02"
+        android:layout_alignRight="@+id/food02"
+        android:layout_below="@+id/food02"
+        android:layout_marginRight="24dp"
+        android:text="陵水酸粉" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/food03"
+        android:layout_alignRight="@+id/food03"
+        android:layout_below="@+id/food03"
+        android:layout_marginRight="26dp"
+        android:text="文昌鸡" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tour_detail_food_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/tour_detail_more_food" />
+
+</RelativeLayout>

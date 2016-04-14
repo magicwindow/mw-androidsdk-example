@@ -3,8 +3,17 @@
  */
 package com.magicwindow.deeplink.app;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.zxinsight.MWConfiguration;
@@ -36,9 +45,9 @@ public class MWApplication extends SAFApp {
         mInstance = this;
         appPrefs = AppPrefs.get(mInstance);
 //        mInstance.imageLoader.setEnableDiskCache(false);
-        imageLoader.setEnableDiskCache(true);
         initMW();
         initJson();
+        initImageLoader(getApplicationContext());
         refWatcher = LeakCanary.install(this);
     }
 
@@ -49,10 +58,9 @@ public class MWApplication extends SAFApp {
     //@mw 初始化魔窗
     private void initMW() {
         MWConfiguration config = new MWConfiguration(this);
-        config.setChannel("WanDouJia")
+        config.setChannel("我的渠道")
                 .setDebugModel(true)
                 .setPageTrackWithFragment(true)
-                .setWebViewBroadcastOpen(true)
                 .setMLinkOpen()
                 .setSharePlatform(MWConfiguration.ORIGINAL);
         MagicWindowSDK.initSDK(config);
@@ -68,10 +76,33 @@ public class MWApplication extends SAFApp {
         list.add(Config.newsList);
         list.add(Config.picList);
         list.add(Config.travelList);
+        list.add(Config.shopDetail);
 
         for (final String path : list) {
             initAssetsJson(path);
         }
+    }
+
+
+    public static void initImageLoader(Context context) {
+        DisplayImageOptions option = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .build();
+
+        ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
+        config.threadPriority(Thread.NORM_PRIORITY - 2);
+        config.denyCacheImageMultipleSizesInMemory();
+        config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
+        config.diskCacheSize(50 * 1024 * 1024); // 50 MiB
+        config.tasksProcessingOrder(QueueProcessingType.LIFO);
+        config.defaultDisplayImageOptions(option);
+//        config.writeDebugLogs(); // Remove for release app
+
+        // Initialize ImageLoader with configuration.
+        ImageLoader.getInstance().init(config.build());
     }
 
     private void initAssetsJson(String path) {

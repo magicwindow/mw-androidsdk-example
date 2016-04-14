@@ -6,14 +6,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.Pic;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 
 /**
@@ -30,18 +29,17 @@ public class PicturePresenter extends Presenter<Pic> {
     @InjectView(id = R.id.id_picture_list_desc)
     TextView desc;
 
-    private ImageLoader imageLoader;
 
     public PicturePresenter(View view, Context context) {
         super(view);
         this.mContext = context;
-        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
     public void onBind(int position, final Pic item) {
         if (item != null) {
-            imageLoader.displayImage(item.resource, listBg,R.drawable.pic_01);
+            listBg.setImageResource(R.drawable.pic_01);
+            ImageLoader.getInstance().displayImage(item.resource, listBg);
             title.setText(item.title);
             desc.setText(item.desc);
         }

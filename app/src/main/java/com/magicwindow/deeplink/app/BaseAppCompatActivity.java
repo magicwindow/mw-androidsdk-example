@@ -7,7 +7,7 @@ import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
+//import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.magicwindow.deeplink.utils.EventBusManager;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.TrackAgent;
 
 import java.lang.ref.WeakReference;
@@ -37,7 +38,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     public int networkType;
     public String networkName;
     protected Handler mHandler = new SafeHandler(this);
-    private BroadcastReceiver mNetworkStateReceiver;
+//    private BroadcastReceiver mNetworkStateReceiver;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,20 +47,20 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         app = (MWApplication) this.getApplication();
         TAG = SAFUtils.makeLogTag(this.getClass());
         addActivityToManager(this);
-
-        mNetworkStateReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (!SAFUtils.checkNetworkStatus(context)) {       // 网络断了的情况
-                    toast(com.magicwindow.deeplink.R.string.network_error);
-                    return;
-                }
-            }
-
-        };
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(mNetworkStateReceiver, filter);
+//
+//        mNetworkStateReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                if (!SAFUtils.checkNetworkStatus(context)) {       // 网络断了的情况
+//                    toast(com.magicwindow.deeplink.R.string.network_error);
+//                    return;
+//                }
+//            }
+//
+//        };
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+//        registerReceiver(mNetworkStateReceiver, filter);
 
         mContext = this;
         app = (MWApplication) MWApplication.getInstance();
@@ -113,7 +114,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        app.imageLoader.clearMemCache();
+        ImageLoader.getInstance().clearMemoryCache();
     }
 
     @Override
@@ -123,7 +124,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
             super.onTrimMemory(level);
 
             if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) {
-                app.imageLoader.clearCache();
+                ImageLoader.getInstance().clearMemoryCache();
             }
         }
     }
@@ -132,7 +133,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         delActivityFromManager(this);
-        unregisterReceiver(mNetworkStateReceiver);
+//        unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
         MWApplication.getInstance().getRefWatcher().watch(this);
 

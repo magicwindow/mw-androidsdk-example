@@ -131,7 +131,7 @@
     <string name="please_enter_username_and_password">请输入用户名和密码</string>
 
     <string name="default_text">欢迎进入魔窗：http://www.magicwindow.cn</string>
-    <string name="tour_detail_name">三亚特色美食</string>
+    <string name="tour_detail_name">三亚（Sanya）位于海南岛的最南端，是中国最南部的热带滨海旅游城市，是中国空气质量最好的城市、全国最长寿地区（平均寿命80岁）。三亚市别称鹿城，又被称为“东方夏威夷”，位居中国四大一线旅游城市三威杭厦”之首，拥有全岛最美丽的海滨风光。</string>
     <string name="nipple_title">婴儿奶嘴 母乳实感宽口径奶嘴-自控流量</string>
     <string name="nipple_title_with_amount">婴儿奶嘴 母乳实感宽口径奶嘴 x1</string>
     <string name="nipple_desc">萌宝用品 放生设计 实用级硅胶 模拟母乳真实感</string>
@@ -160,4 +160,9 @@
     <string name="order_time">下单时间：</string>
     <string name="order_channel">交易方式：</string>
     <string name="pay_time_content">2015.09.13 14:25</string>
+    <string name="share">分享</string>
+    <string name="share_closed">此活动的分享已关闭</string>
+    <string name="shop_detail_context">美国品牌 好奇指定授权商发货</string>
+    <string name="shop_detail_title">【官方授权】HUGGIES 好奇 银装 纸尿裤 L128片+XL104片</string>
+
 </resources>

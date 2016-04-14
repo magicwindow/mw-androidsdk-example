@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hotel_title"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line01" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="城市地图"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line02" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/travel_img01"
+        android:layout_below="@id/hotel_title"
+        android:scaleType="fitCenter"
+        android:background="@drawable/tour_travel01" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上海直飞三亚"
+        android:layout_alignTop="@id/travel_img01"
+        android:layout_toRightOf="@id/travel_img01"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tour_detail_travel_price"
+        android:text="￥1499"
+        android:textSize="20sp"
+        android:textColor="@color/tour_detail_orange"
+        android:layout_toRightOf="@id/travel_img01"
+        android:layout_alignBottom="@id/travel_img01"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="起/人"
+        android:textSize="16sp"
+        android:id="@+id/tour_detail_price_unit"
+        android:textColor="@color/tour_detail_orange"
+        android:layout_alignBaseline="@id/tour_detail_travel_price"
+        android:layout_toRightOf="@id/tour_detail_travel_price"
+        android:layout_alignBottom="@id/travel_img01"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tour_detail_price_unit"
+        android:layout_alignBottom="@id/tour_detail_price_unit"
+        android:background="@drawable/tour_detail_travel_extra"
+        />
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/travel_img02"
+        android:layout_below="@id/travel_img01"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/tour_travel01" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上海直飞三亚"
+        android:layout_alignTop="@id/travel_img02"
+        android:layout_toRightOf="@id/travel_img02"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tour_detail_travel_price02"
+        android:text="￥4999"
+        android:textSize="20sp"
+        android:textColor="@color/tour_detail_orange"
+        android:layout_toRightOf="@id/travel_img02"
+        android:layout_alignBottom="@id/travel_img02"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="起/人"
+        android:textSize="16sp"
+        android:id="@+id/tour_detail_price_unit2"
+        android:textColor="@color/tour_detail_orange"
+        android:layout_alignBaseline="@id/tour_detail_travel_price02"
+        android:layout_toRightOf="@id/tour_detail_travel_price02"
+        android:layout_alignBottom="@id/travel_img02"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tour_detail_price_unit2"
+        android:layout_alignBottom="@id/tour_detail_price_unit2"
+        android:background="@drawable/tour_detail_travel_extra"
+        />
+
+</RelativeLayout>

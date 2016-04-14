@@ -95,7 +95,7 @@ public class LearnActivity extends BaseActivity {
      * 跳转到主页面
      */
     private void loadingNext() {
-        Intent i = new Intent(mContext, MainActivity.class);
+        Intent i = new Intent(LearnActivity.this, MainActivity.class);
         startActivity(i);
         finish();
     }

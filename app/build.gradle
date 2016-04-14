@@ -69,9 +69,8 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
     compile project(':MLogCat')
     compile project(':PullZoomView')
-    compile files('libs/MagicWindowSDK.jar')
     compile(name:'MagicWindowSDK', ext:'aar')
-
+//    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }

@@ -1,9 +1,7 @@
 package com.magicwindow.deeplink.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +12,11 @@ import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.NewsList;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import cn.salesuite.saf.imagecache.ImageLoader;
 
 /**
  * @author aaron
@@ -28,12 +24,10 @@ import cn.salesuite.saf.imagecache.ImageLoader;
  */
 public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.ViewHolder> {
 
-    private final ImageLoader imageLoader;
     protected List<NewsList.NewsContent> mList = null;
 
     public NewsRecycleAdapter(List<NewsList.NewsContent> items) {
         mList = items;
-        imageLoader = MWApplication.getInstance().imageLoader;
     }
 
     @Override
@@ -47,10 +41,11 @@ public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final NewsList.NewsContent item = mList.get(position);
         if (item != null) {
-            imageLoader.displayImage(item.resource, holder.listBg,R.drawable.news01);
+            holder.listBg.setImageResource(R.drawable.news01);
+            ImageLoader.getInstance().displayImage(item.resource, holder.listBg);
             holder.title.setText(item.title);
             holder.desc.setText(item.desc);
-            int a = mList.get(0).mwKey+position;
+            int a = mList.get(0).mwKey + position;
             if (MarketingHelper.currentMarketing(holder.listBg.getContext()).isActive(Config.MWS[mList.get(0).mwKey + position])) {
                 holder.listBg.bindEvent(Config.MWS[mList.get(0).mwKey + position]);
                 holder.title.setText(MarketingHelper.currentMarketing(holder.title.getContext()).getTitle(Config.MWS[mList.get(0).mwKey + position]));

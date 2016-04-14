@@ -17,6 +17,7 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2OList;
 import com.magicwindow.deeplink.task.NetTask;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
@@ -29,7 +30,7 @@ import cn.salesuite.saf.log.L;
 import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
-public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener  {
+public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     @InjectView(id = R.id.main_content)
     SwipeRefreshLayout swipeRefreshLayout;
@@ -168,9 +169,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
             list = (O2OList) app.session.get(Config.o2oList);
             viewPager.setAdapter(new ImageAdapter(64, list.headList));
             indicator.setViewPager(viewPager);
-            app.imageLoader.displayImage(list.contentList.get(0), img_1);
-            app.imageLoader.displayImage(list.contentList.get(1), img_2);
-            app.imageLoader.displayImage(list.contentList.get(2), img_3);
+            ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
+            ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
+            ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
         } else {
             NetTask task = new NetTask(Config.o2oList);
             task.execute(new RxAsyncTask.HttpResponseHandler() {
@@ -181,9 +182,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                     app.session.put(Config.o2oList, list);
                     viewPager.setAdapter(new ImageAdapter(64, list.headList));
                     indicator.setViewPager(viewPager);
-                    app.imageLoader.displayImage(list.contentList.get(0), img_1);
-                    app.imageLoader.displayImage(list.contentList.get(1), img_2);
-                    app.imageLoader.displayImage(list.contentList.get(2), img_3);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
                 }
 
                 @Override
@@ -191,9 +192,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                     list = appPrefs.getO2OList();
                     viewPager.setAdapter(new ImageAdapter(64, list.headList));
                     indicator.setViewPager(viewPager);
-                    app.imageLoader.displayImage(list.contentList.get(0), img_1);
-                    app.imageLoader.displayImage(list.contentList.get(1), img_2);
-                    app.imageLoader.displayImage(list.contentList.get(2), img_3);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
+                    ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
                 }
             });
         }
@@ -256,14 +257,14 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         dt.put("name1", "青岛啤酒");
         dt.put("name2", "雪花啤酒");
         dt.put("name3", "五粮液");
-        img_2.bindEventWithMLink(Config.MWS[73], dt);
+        img_2.bindEventWithMLink(Config.MWS[73], dt, dt);
         //middle第3个魔窗位
         //middle第2个魔窗位
         HashMap<String, String> dt1 = new HashMap<String, String>();
         dt1.put("name1", "剑南春");
         dt1.put("name2", "茅台酒");
         dt1.put("name3", "梦之蓝");
-        img_3.bindEventWithMLink(Config.MWS[74], dt1);
+        img_3.bindEventWithMLink(Config.MWS[74], dt1, dt1);
 
     }
 

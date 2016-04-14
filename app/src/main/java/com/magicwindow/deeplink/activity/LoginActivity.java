@@ -79,7 +79,7 @@ public class LoginActivity extends BaseActivity {
                 public void run() {
 
                     User.currentUser().login(usernameStr, passwordStr);
-                    Intent i = new Intent(mContext, MainActivity.class);
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                     finish();
                 }
@@ -92,6 +92,6 @@ public class LoginActivity extends BaseActivity {
     public Dialog showLoading() {
         coverLayout.setVisibility(View.VISIBLE);
         coverLayout.getBackground().setAlpha(55);
-        return super.showLoading();
+        return super.showLoading(this);
     }
 }

@@ -22,6 +22,7 @@ public final class Config {
     public final static String newsList = "newsList.json";
     public final static String picList = "picList.json";
     public final static String travelList = "travelList.json";
+    public final static String shopDetail = "shopDetail.json";
     /**
      * app默认地理位置信息
      **/
@@ -146,6 +147,8 @@ public final class Config {
             "7O3F5ZVZ",//100旅游-detail02
             "14CQZAVQ"//101旅游-detail03
     };
+    public static final String MW_SHOP_SHARE = "6MUPTZG0";    //点击购买
+
     public static final String CUSTOM_ADD_TO_SHOP_CART = "X1W178NY";    //点击购买
     public static final String CUSTOM_CONFIRM_GOODS = "CZMX4GHW";    //确认商品
     public static final String CUSTOM_CONFIRM_ORDER = "1YWEWJEB";    //去付款

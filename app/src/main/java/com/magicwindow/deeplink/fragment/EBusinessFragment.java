@@ -24,6 +24,7 @@ import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
@@ -404,9 +405,9 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             }
         });
 
-        app.imageLoader.displayImage(list.middleList.get(0), img_1);
-        app.imageLoader.displayImage(list.middleList.get(1), img_2);
-        app.imageLoader.displayImage(list.middleList.get(2), img_3);
+        ImageLoader.getInstance().displayImage(list.middleList.get(0), img_1);
+        ImageLoader.getInstance().displayImage(list.middleList.get(1), img_2);
+        ImageLoader.getInstance().displayImage(list.middleList.get(2), img_3);
     }
 
     @Override

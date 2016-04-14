@@ -14,13 +14,13 @@ import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelList;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import java.util.List;
 
 import cn.salesuite.saf.adapter.SAFAdapter;
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.utils.Preconditions;
 
@@ -32,13 +32,11 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
     int TYPE_DEFAULT = 0;
     int TYPE0 = 1;
     int TYPE_COUNT = TYPE0 + 1;
-    ImageLoader imageLoader;
     private Context mContext;
 
     public TourListAdapter(Context context, List list) {
         mContext = context;
         mList = list;
-        imageLoader = MWApplication.getInstance().imageLoader;
 
     }
 
@@ -69,7 +67,7 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
         final TravelList.TravelContent item = mList.get(position);
         if (item != null) {
 //            holder.indicateView.setImageResource(item.imgRes);
-            imageLoader.displayImage(item.resource, holder.indicateView);
+            ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
             if (Preconditions.isNotBlank(item.title)) {
                 holder.title.setText(item.title);
             }

@@ -58,18 +58,18 @@ public class SplashActivity extends BaseActivity {
 
         if (appPrefs != null && appPrefs.getLastVersion() == null) { // 肯定是第一次安装，进入学习页
             appPrefs.setLastVersion(app.version);
-            Intent i = new Intent(mContext, LearnActivity.class);
+            Intent i = new Intent(SplashActivity.this, LearnActivity.class);
             i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
             startActivity(i);
         } else {
             if (appPrefs != null && appPrefs.getLastVersion().equals(app.version)) { // 进入MainActivity
-                Intent i = new Intent(mContext, MainActivity.class);
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
             } else {
                 if (appPrefs != null) {
                     appPrefs.setLastVersion(app.version);
                 }
-                Intent i = new Intent(mContext, LearnActivity.class);
+                Intent i = new Intent(SplashActivity.this, LearnActivity.class);
                 i.putExtra(LearnActivity.TYPE, LearnActivity.FROM_SPLASH);
                 startActivity(i);
             }

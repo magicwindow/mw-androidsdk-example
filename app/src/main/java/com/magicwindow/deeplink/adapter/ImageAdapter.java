@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 
 import org.json.JSONObject;
@@ -15,7 +17,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.salesuite.saf.imagecache.ImageLoader;
 import cn.salesuite.saf.utils.Preconditions;
 
 /**
@@ -28,10 +29,17 @@ public class ImageAdapter extends PagerAdapter {
     //    Integer[] images;
     int mWPosition;
 
+    int defaultRes = R.drawable.banner;
+
     public ImageAdapter(int mWPosition,List res) {
         list = res;
-        imageLoader = MWApplication.getInstance().imageLoader;
         this.mWPosition = mWPosition;
+    }
+
+    public ImageAdapter(int mWPosition,List res,int defaultRes) {
+        list = res;
+        this.mWPosition = mWPosition;
+        this.defaultRes = defaultRes;
     }
 
     public void addView(List<String> list) {
@@ -58,11 +66,15 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup view, int position) {
         MWImageView imageView = new MWImageView(view.getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setImageResource(defaultRes);
 
         if(Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))){
-            imageLoader.displayImage(list.get(position), imageView,R.drawable.banner);
+            DisplayImageOptions options = DisplayImageOptions.createSimple();
+            ImageLoader.getInstance().displayImage(list.get(position), imageView);
         }
-        imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject());
+        if(mWPosition!=-1){
+            imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(),null);
+        }
         view.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         return imageView;

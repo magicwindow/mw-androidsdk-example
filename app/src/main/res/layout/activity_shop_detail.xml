@@ -4,85 +4,186 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/shop_detail_bg">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/background_tab_pressed"
-            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+            android:layout_height="match_parent">
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/app_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
 
-    <ImageView
-        android:id="@+id/shop_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/app_bar_layout"
-        android:background="@drawable/shop_detail" />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/background_tab_pressed"
+                    app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/shop_detail"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/dark_gray" />
+            </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/nipple_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/nipple_title" />
+            <FrameLayout
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/shop_detail_view_height"
+                android:layout_below="@id/app_bar_layout"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
-    <TextView
-        android:id="@+id/nipple_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nipple_title"
-        android:textColor="@color/red_dark_color"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        android:text="@string/nipple_desc" />
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/banner"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/shop_detail_icon"
+                    android:drawablePadding="10dp"
+                    android:text="@string/shop_detail_context" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/description"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/shop_detail_title"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title"
+                    android:layout_marginTop="10dp"
+                    android:text="￥328" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/price"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/price"
+                    android:background="@color/background_tab_pressed"
+                    android:padding="3dp"
+                    android:text="税改屯货节"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/prime_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/price"
+                    android:layout_marginTop="10dp"
+                    android:text="原价￥368.00" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/prime_cost"
+                    android:layout_below="@id/price"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/prime_cost"
+                    android:text="参考价￥538.00" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/delivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/delivery_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:text="配送费：至 上海 免运费\n                本商品由入驻商家发货" />
+
+                <TextView
+                    android:id="@+id/duty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/delivery_price"
+                    android:layout_marginTop="10dp"
+                    android:text="关税：国内行货，免征关税" />
+
+                <TextView
+                    android:id="@+id/tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/duty"
+                    android:layout_marginTop="10dp"
+                    android:text="提示：本商品不支持使用优惠券" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/shop_detail_img"
+                android:layout_width="match_parent"
+                android:layout_height="16200px"
+                android:layout_below="@id/delivery"
+                android:background="@color/white" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
         android:orientation="horizontal">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/button_blue"
-            android:layout_weight="1"
-            android:text="@string/price"
-            android:textSize="24sp"
-            android:textColor="@color/white"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/click_to_buy"
-            android:background="@drawable/btn_red_pressed"
-            android:layout_weight="2"
-            android:layout_marginLeft="1dp"
-            android:text="@string/click_to_buy"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            />
-    </LinearLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shop_buy" />
+
+        <Button
+            android:id="@+id/click_to_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shop_cart" />
+    </LinearLayout>
 
 </RelativeLayout>

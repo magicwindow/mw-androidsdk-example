@@ -19,9 +19,17 @@ android {
         }
     }
 }
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile(name:'MagicWindowSDK', ext:'aar')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'me.relex:circleindicator:1.1.8@aar'

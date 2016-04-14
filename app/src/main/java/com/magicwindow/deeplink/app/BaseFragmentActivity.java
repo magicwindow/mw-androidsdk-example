@@ -7,7 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
+//import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -33,25 +33,11 @@ public class BaseFragmentActivity extends SAFFragmentActivity {
 
     protected Handler mHandler = new SafeHandler(this);
     protected boolean firstResume = true;
-	private BroadcastReceiver mNetworkStateReceiver;
-    
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		mNetworkStateReceiver = new BroadcastReceiver() {
-			@Override
-			public void onReceive(Context context, Intent intent) {
-				if (!SAFUtils.checkNetworkStatus(context)) {       // 网络断了的情况
-					toast(R.string.network_error);
-					return;
-				}
-			}
-			
-		};
-		IntentFilter filter = new IntentFilter();   
-		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);  
-		registerReceiver(mNetworkStateReceiver, filter);
-		
+
 		mContext = this;
 		app = (MWApplication) MWApplication.getInstance();
 		
@@ -67,7 +53,6 @@ public class BaseFragmentActivity extends SAFFragmentActivity {
 
     @Override
     protected void onDestroy() {
-		unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
         super.onDestroy();
 		MWApplication.getInstance().getRefWatcher().watch(this);

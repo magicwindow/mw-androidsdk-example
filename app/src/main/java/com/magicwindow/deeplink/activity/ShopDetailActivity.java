@@ -1,24 +1,52 @@
 package com.magicwindow.deeplink.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.ShopDetail;
+import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
 import java.util.HashMap;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
+import cn.salesuite.saf.utils.ToastUtils;
+import me.relex.circleindicator.CircleIndicator;
 
 public class ShopDetailActivity extends BaseAppCompatActivity {
 
     @InjectView
     Toolbar toolbar;
+
+    @InjectView(id = R.id.viewpager)
+    ViewPager viewPager;
+
+    @InjectView(id = R.id.indicator)
+    CircleIndicator indicator;
+
+    @InjectView(id = R.id.shop_detail_img)
+    ImageView shopDetailImg;
+
+    private ShopDetail shopDetail;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,14 +67,52 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        //Here you can get the size!
+        setViewPager();
+    }
+    private void setViewPager() {
+        shopDetail = AppPrefs.get(this).getShopDetail();
+        ImageLoader.getInstance().displayImage(shopDetail.content, shopDetailImg);
+
+        viewPager.setAdapter(new ImageAdapter(-1, shopDetail.headList, R.drawable.shop_banner));
+        indicator.setViewPager(viewPager);
     }
 
     @OnClick(id = R.id.click_to_buy)
     public void clickBuy() {
         HashMap map = new HashMap();
-        map.put("goods","婴儿奶嘴");
-        map.put("price","14.49");
-        TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART,map);
+        map.put("goods", "婴儿奶嘴");
+        map.put("price", "14.49");
+        TrackAgent.currentEvent().customEvent(Config.CUSTOM_ADD_TO_SHOP_CART, map);
         startActivity(new Intent(mContext, ShopCartActivity.class));
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_share) {
+            if (MarketingHelper.currentMarketing(this).isActive(Config.MW_SHOP_SHARE)) {
+                MarketingHelper.currentMarketing(this).click(this, Config.MW_SHOP_SHARE);
+            } else {
+                ToastUtils.showShort(this, R.string.share_closed);
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+
     }
 }
