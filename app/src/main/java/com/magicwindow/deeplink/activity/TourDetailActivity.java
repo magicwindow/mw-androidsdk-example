@@ -33,7 +33,7 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
     private void initViews() {
 
-        toolbar.setTitle(R.string.tour_detail_name);
+        toolbar.setTitle(R.string.tour_detail_title);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

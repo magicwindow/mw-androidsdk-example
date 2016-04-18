@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.magicwindow.deeplink.app;
 
@@ -19,54 +19,52 @@ import cn.salesuite.saf.log.L;
 
 /**
  * @author Tony Shen
- *
  */
 public class BaseFragment extends SAFFragment implements RefreshView {
 
-	protected EventBus eventBus;
-	protected MWApplication app;
+    protected EventBus eventBus;
+    protected MWApplication app;
 
-	protected Handler mHandler = new Handler();
-	protected FragmentManager fmgr;
-	protected AppPrefs appPrefs;
+    protected Handler mHandler = new Handler();
+    protected FragmentManager fmgr;
+    protected AppPrefs appPrefs;
 
-	public BaseFragment() {
-	}
+    public BaseFragment() {
+    }
 
-	@Override
-	public void initView() {
+    @Override
+    public void initView() {
 
-	}
+    }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		app = MWApplication.getInstance();
-		eventBus = EventBusManager.getInstance();
-		eventBus.register(this);
-		fmgr = getFragmentManager();
-		appPrefs = AppPrefs.get(mContext);
-		L.init(this);
-	}
+        app = MWApplication.getInstance();
+        eventBus = EventBusManager.getInstance();
+        eventBus.register(this);
+        fmgr = getFragmentManager();
+        appPrefs = AppPrefs.get(mContext);
+        L.init(this);
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-							 Bundle savedInstanceState) {
-		initView();
-		return super.onCreateView(inflater,container,savedInstanceState);
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        initView();
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 
-	@Override
-	public void onDestroy() {
-		eventBus.unregister(this);
-		super.onDestroy();
-		MWApplication.getInstance().getRefWatcher().watch(this);
-	}
+    @Override
+    public void onDestroy() {
+        eventBus.unregister(this);
+        super.onDestroy();
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		initView();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        initView();
+    }
 }

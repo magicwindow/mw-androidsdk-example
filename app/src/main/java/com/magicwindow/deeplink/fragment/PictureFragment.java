@@ -58,23 +58,27 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
                             .cell_picture, parent, false), mContext);
                 }
             });
-        } else { NetTask task = new NetTask(Config.picList);
+        } else {
+            NetTask task = new NetTask(Config.picList);
             task.execute(new RxAsyncTask.HttpResponseHandler() {
                 @Override
                 public void onSuccess(String s) {
-                    appPrefs.saveJson(Config.picList, s);
-                    mList = appPrefs.getPicList();
-                    app.session.put(Config.picList, mList);
-                    adapter.getList().addAll(mList);
-                    adapter.notifyDataSetChanged();
-                    adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
+                    if (s != null && s.startsWith("{")) {
+                        appPrefs.saveJson(Config.picList, s);
+                        mList = appPrefs.getPicList();
+                        app.session.put(Config.picList, mList);
+                        adapter.getList().addAll(mList);
+                        adapter.notifyDataSetChanged();
+                        adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>() {
 
-                        @Override
-                        public Presenter call(ViewGroup parent, Integer integer) {
-                            return new PicturePresenter(LayoutInflater.from(mContext).inflate(R
-                                    .layout.cell_picture, parent, false), mContext);
-                        }
-                    });
+                            @Override
+                            public Presenter call(ViewGroup parent, Integer integer) {
+                                return new PicturePresenter(LayoutInflater.from(mContext).inflate(R
+                                        .layout.cell_picture, parent, false), mContext);
+                            }
+                        });
+                    }
+
                 }
 
                 @Override

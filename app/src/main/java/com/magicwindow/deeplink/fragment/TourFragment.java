@@ -131,14 +131,17 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             task.execute(new RxAsyncTask.HttpResponseHandler() {
                 @Override
                 public void onSuccess(String s) {
-                    appPrefs.saveJson(Config.travelList, s);
-                    travelList = appPrefs.getTravelList();
-                    app.session.put(Config.travelList, travelList);
-                    viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
-                    indicator.setViewPager(viewPager);
+                    if (s != null && s.startsWith("{")) {
+                        appPrefs.saveJson(Config.travelList, s);
+                        travelList = appPrefs.getTravelList();
+                        app.session.put(Config.travelList, travelList);
+                        viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
+                        indicator.setViewPager(viewPager);
 
-                    adapter = new TourListAdapter(mContext, travelList.contentList);
-                    homeList.setAdapter(adapter);
+                        adapter = new TourListAdapter(mContext, travelList.contentList);
+                        homeList.setAdapter(adapter);
+                    }
+
                 }
 
                 @Override

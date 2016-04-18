@@ -76,10 +76,12 @@ public class NewsDetailFragment extends BaseFragment {
             task.execute(new RxAsyncTask.HttpResponseHandler() {
                 @Override
                 public void onSuccess(String s) {
-                    appPrefs.saveJson(Config.newsList, s);
-                    list = appPrefs.getNewsList();
-                    app.session.put(Config.newsList, list);
-                    setRecyclerView();
+                    if (s != null && s.startsWith("{")) {
+                        appPrefs.saveJson(Config.newsList, s);
+                        list = appPrefs.getNewsList();
+                        app.session.put(Config.newsList, list);
+                        setRecyclerView();
+                    }
                 }
 
                 @Override

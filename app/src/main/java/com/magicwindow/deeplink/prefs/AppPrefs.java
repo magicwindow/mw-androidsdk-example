@@ -11,6 +11,8 @@ import com.magicwindow.deeplink.domain.Pic;
 import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.domain.TravelList;
 
+import org.apache.http.HttpResponse;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -98,7 +100,7 @@ public class AppPrefs extends BasePrefs {
     public O2OList getO2OList() {
         O2OList list = new O2OList();
         String business = getString(Config.o2oList, "");
-        if (Preconditions.isNotBlank(business)) {
+        if (isOK(business)) {
             try {
                 list = RestUtil.parseAs(O2OList.class, business);
             } catch (IOException e) {
@@ -111,7 +113,7 @@ public class AppPrefs extends BasePrefs {
     public ArrayList<Pic> getPicList() {
         ArrayList<Pic> list = new ArrayList<Pic>();
         String business = getString(Config.picList, "");
-        if (Preconditions.isNotBlank(business)) {
+        if (isOK(business)) {
             try {
                 list = RestUtil.parseArray(Pic.class, business);
             } catch (IOException e) {
@@ -124,7 +126,7 @@ public class AppPrefs extends BasePrefs {
     public TravelList getTravelList() {
         TravelList list = new TravelList();
         String business = getString(Config.travelList, "");
-        if (Preconditions.isNotBlank(business)) {
+        if (isOK(business)) {
             try {
                 list = RestUtil.parseAs(TravelList.class, business);
             } catch (IOException e) {
@@ -138,7 +140,7 @@ public class AppPrefs extends BasePrefs {
     public ShopDetail getShopDetail() {
         ShopDetail detail = new ShopDetail();
         String shopDetail = getString(Config.shopDetail, "");
-        if (!TextUtils.isEmpty(shopDetail)) {
+        if (isOK(shopDetail)) {
             try {
                 detail = RestUtil.parseAs(ShopDetail.class, shopDetail);
             } catch (IOException e) {
@@ -146,6 +148,11 @@ public class AppPrefs extends BasePrefs {
             }
         }
         return detail;
+    }
+
+    private boolean isOK(String httpResponse) {
+
+        return httpResponse != null && httpResponse.startsWith("{");
     }
 
 }

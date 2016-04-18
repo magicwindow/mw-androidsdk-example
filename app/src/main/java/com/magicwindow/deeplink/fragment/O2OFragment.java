@@ -177,14 +177,18 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
             task.execute(new RxAsyncTask.HttpResponseHandler() {
                 @Override
                 public void onSuccess(String s) {
-                    appPrefs.saveJson(Config.o2oList, s);
-                    list = appPrefs.getO2OList();
-                    app.session.put(Config.o2oList, list);
-                    viewPager.setAdapter(new ImageAdapter(64, list.headList));
-                    indicator.setViewPager(viewPager);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
+                    if (s != null && s.startsWith("{")) {
+                        appPrefs.saveJson(Config.o2oList, s);
+                        list = appPrefs.getO2OList();
+                        app.session.put(Config.o2oList, list);
+                        viewPager.setAdapter(new ImageAdapter(64, list.headList));
+                        indicator.setViewPager(viewPager);
+                        ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
+                        ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
+                        ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
+                    }
+
+
                 }
 
                 @Override

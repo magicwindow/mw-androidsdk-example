@@ -210,7 +210,8 @@
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
 
-        <activity android:name=".activity.CommunityActivity"></activity>
+        <activity android:name=".activity.CommunityActivity" />
+        <activity android:name=".activity.VideoActivity"></activity>
     </application>
 
 </manifest>

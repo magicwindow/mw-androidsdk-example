@@ -2,12 +2,8 @@ package com.magicwindow.deeplink.app;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-//import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +21,8 @@ import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.log.L;
 import cn.salesuite.saf.utils.SAFUtils;
 import cn.salesuite.saf.utils.ToastUtils;
+
+//import android.net.ConnectivityManager;
 
 /**
  * Created by Tony Shen on 15/11/26.
@@ -75,10 +73,10 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         Injector.injectInto(this);
     }
 
-    protected  void addActivityToManager(Activity act) {
+    protected void addActivityToManager(Activity act) {
         Log.i(TAG, "addActivityToManager");
         if (!app.activityManager.contains(act)) {
-            Log.i(TAG , "addActivityToManager, packagename = " + act.getClass().getName()) ;
+            Log.i(TAG, "addActivityToManager, packagename = " + act.getClass().getName());
             app.activityManager.add(act);
         }
     }
@@ -92,8 +90,8 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
-    protected  void delActivityFromManager(Activity act) {
-        Log.i(TAG,"delActivityFromManager") ;
+    protected void delActivityFromManager(Activity act) {
+        Log.i(TAG, "delActivityFromManager");
         if (app.activityManager.contains(act)) {
             app.activityManager.remove(act);
         }
@@ -101,12 +99,13 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
     /**
      * 返回当前运行activity的名称
+     *
      * @return
      */
     protected String getCurrentActivityName() {
         int size = app.activityManager.size();
         if (size > 0) {
-            return app.activityManager.get(size-1).getClass().getName();
+            return app.activityManager.get(size - 1).getClass().getName();
         }
         return null;
     }
@@ -135,7 +134,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         delActivityFromManager(this);
 //        unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
-        MWApplication.getInstance().getRefWatcher().watch(this);
 
     }
 
@@ -155,17 +153,19 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
     /**
      * 防止内部Handler类引起内存泄露
-     * @author Tony Shen
      *
+     * @author Tony Shen
      */
-    public static class SafeHandler extends Handler{
+    public static class SafeHandler extends Handler {
         private final WeakReference<Activity> mActivity;
+
         public SafeHandler(Activity activity) {
             mActivity = new WeakReference<Activity>(activity);
         }
+
         @Override
         public void handleMessage(Message msg) {
-            if(mActivity.get() == null) {
+            if (mActivity.get() == null) {
                 return;
             }
         }
@@ -182,7 +182,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onResume() {
         TrackAgent.currentEvent().onResume(this);
         super.onResume();
-        Log.e("aaron","onresume");
+        Log.e("aaron", "onresume");
     }
 }
 

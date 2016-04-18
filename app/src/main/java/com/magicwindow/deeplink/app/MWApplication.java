@@ -14,8 +14,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
 
@@ -32,7 +30,6 @@ public class MWApplication extends SAFApp {
 
     private static MWApplication mInstance = null;
     private AppPrefs appPrefs;
-    private RefWatcher refWatcher;
 
     public static MWApplication getInstance() {
         return mInstance;
@@ -48,11 +45,6 @@ public class MWApplication extends SAFApp {
         initMW();
         initJson();
         initImageLoader(getApplicationContext());
-        refWatcher = LeakCanary.install(this);
-    }
-
-    public RefWatcher getRefWatcher() {
-        return refWatcher;
     }
 
     //@mw 初始化魔窗

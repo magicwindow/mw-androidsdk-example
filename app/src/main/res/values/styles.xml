@@ -9,6 +9,10 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar" >
+        <item name="android:background">@color/translucent</item>
+
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

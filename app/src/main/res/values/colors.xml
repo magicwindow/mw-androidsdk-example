@@ -70,4 +70,6 @@
     <color name="tour_detail_blue">#FF29CBBB</color>
     <color name="tour_detail_orange">#FFEEAA16</color>
     <color name="btn_blue">#FF4E6Ef0</color>
+    <color name="pink">#FFF2879B</color>
+
 </resources>

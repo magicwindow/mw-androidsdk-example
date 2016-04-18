@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -31,12 +30,12 @@ public class ImageAdapter extends PagerAdapter {
 
     int defaultRes = R.drawable.banner;
 
-    public ImageAdapter(int mWPosition,List res) {
+    public ImageAdapter(int mWPosition, List res) {
         list = res;
         this.mWPosition = mWPosition;
     }
 
-    public ImageAdapter(int mWPosition,List res,int defaultRes) {
+    public ImageAdapter(int mWPosition, List res, int defaultRes) {
         list = res;
         this.mWPosition = mWPosition;
         this.defaultRes = defaultRes;
@@ -49,7 +48,7 @@ public class ImageAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return list.isEmpty()?0:list.size();
+        return list == null || list.isEmpty() ? 0 : list.size();
     }
 
     @Override
@@ -68,12 +67,12 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setImageResource(defaultRes);
 
-        if(Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))){
+        if (Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))) {
             DisplayImageOptions options = DisplayImageOptions.createSimple();
             ImageLoader.getInstance().displayImage(list.get(position), imageView);
         }
-        if(mWPosition!=-1){
-            imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(),null);
+        if (mWPosition != -1) {
+            imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(), null);
         }
         view.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
