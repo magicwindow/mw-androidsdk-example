@@ -66,6 +66,8 @@
     <color name="button_red_light">#FFFF6633</color>
     <color name="shop_detail_bg">#FFF6F6F6</color>
 
+    <color name="detail_bg">#FFE2E7EB</color>
     <color name="tour_detail_blue">#FF29CBBB</color>
     <color name="tour_detail_orange">#FFEEAA16</color>
+    <color name="btn_blue">#FF4E6Ef0</color>
 </resources>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/contact_bg"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/qrcode" />
+
+    <LinearLayout
+        android:id="@+id/contact_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qrcode"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_shape_blue" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rect_shape_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="联系我们"
+            android:textColor="@color/btn_blue"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_title"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:text="网址：www.magicwindow.cn"
+        android:textColorLink="@color/black"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/web"
+        android:layout_below="@id/web"
+        android:layout_marginTop="5dp"
+        android:autoLink="phone"
+        android:textColorLink="@color/black"
+        android:text="电话：021-56318531"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/web"
+        android:layout_below="@id/tel"
+        android:layout_marginTop="5dp"
+        android:textColorLink="@color/black"
+        android:autoLink="email"
+        android:text="技术支持：tech-support@magicwindow.cn"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/web"
+        android:textColorLink="@color/black"
+        android:layout_below="@id/tec"
+        android:layout_marginTop="5dp"
+        android:autoLink="email"
+        android:text="商务合作：BD@magicwindow.cn"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/map_title_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/line01" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/logo"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/line02" />
+    </LinearLayout>
+
+</RelativeLayout>

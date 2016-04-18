@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
+import com.magicwindow.deeplink.fragment.ContactUsFragment;
 import com.magicwindow.deeplink.fragment.EBusinessFragment;
 import com.magicwindow.deeplink.fragment.NewsFragment;
 import com.magicwindow.deeplink.fragment.O2OFragment;
@@ -103,6 +104,9 @@ public class MenuManager {
             case SETTINGS:
                 fragment = new SettingsFragment();
                 break;
+            case CONTACT:
+                fragment = new ContactUsFragment();
+                break;
         }
         return fragment;
     }
@@ -132,6 +136,7 @@ public class MenuManager {
         return fragment != null;
 
     }
+
     public Fragment getCurrentFragment() {
         return fragmentManager.findFragmentByTag(curType.getTag());
 
@@ -145,6 +150,7 @@ public class MenuManager {
         GALLERIES(3, R.string.menu_text_03, R.drawable.menu_icon_03, true),
         NEWS(4, R.string.menu_text_05, R.drawable.menu_icon_05, true),
         SETTINGS(5, R.string.menu_text_06, R.drawable.menu_icon_06, true),
+        CONTACT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
         //        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
         DUMB(-1, R.string.menu_text_01, R.drawable.menu_icon_01, true);
 
@@ -175,6 +181,8 @@ public class MenuManager {
                     return NEWS;
                 case 5:
                     return SETTINGS;
+                case 6:
+                    return CONTACT;
             }
         }
 

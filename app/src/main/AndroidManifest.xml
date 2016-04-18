@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.magicwindow.deeplink"
-    android:versionCode="3" android:versionName="1.2">
+    android:versionCode="3"
+    android:versionName="1.2">
 
     <uses-permission android:name="android.permission.READ_LOGS" />
 
@@ -21,7 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />-->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <!-- 支持iBeancon 需要蓝牙权限 -->
@@ -53,6 +54,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="mwopen" />
             </intent-filter>
         </activity>
@@ -90,11 +92,11 @@
         <activity
             android:name=".activity.WebViewActivity"
             android:label="@string/menu_text_05" />
-        <activity android:name=".activity.ShopDetailActivity"/>
-        <activity android:name=".activity.ShopCartActivity"/>
-        <activity android:name=".activity.ShopOrderActivity"/>
-        <activity android:name=".activity.ShopPayActivity"/>
-        <activity android:name=".activity.ShopDoneActivity"/>
+        <activity android:name=".activity.ShopDetailActivity" />
+        <activity android:name=".activity.ShopCartActivity" />
+        <activity android:name=".activity.ShopOrderActivity" />
+        <activity android:name=".activity.ShopPayActivity" />
+        <activity android:name=".activity.ShopDoneActivity" />
         <activity
             android:name=".activity.O2OListActivity"
             android:label="@string/menu_text_02">
@@ -115,7 +117,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".citySelect.CitiesActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -209,6 +210,7 @@
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
 
+        <activity android:name=".activity.CommunityActivity"></activity>
     </application>
 
 </manifest>

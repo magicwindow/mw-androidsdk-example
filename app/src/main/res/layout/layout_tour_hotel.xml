@@ -5,6 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_below="@id/food"
     android:layout_centerVertical="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/white"
     android:gravity="center_horizontal">
 
 
@@ -38,7 +41,7 @@
     <ImageView
         android:id="@+id/hotel_img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="290dp"
         android:layout_below="@id/hotel_title"
         android:background="@drawable/tour_detail_map02"
         android:scaleType="fitCenter" />
@@ -48,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hotel_img"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/tour_detail_hotel_icon" />
 
@@ -65,6 +69,7 @@
         android:id="@+id/hotel_text_25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/hotel_icon"
         android:layout_alignLeft="@id/hotel_text_title"
         android:layout_below="@id/hotel_text_title"
         android:paddingTop="5dp"
@@ -83,9 +88,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView"
+        android:layout_alignBottom="@id/hotel_icon"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+
         android:src="@drawable/tour_detail_order" />
 </RelativeLayout>

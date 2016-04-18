@@ -18,7 +18,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/background_tab_pressed"
             app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
@@ -28,88 +27,36 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/detail_bg"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/tour_detail_banner_layout"
+            <include layout="@layout/layout_tour_header" />
+
+            <include
+                layout="@layout/layout_tour_map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
 
-                >
-
-                <com.zxinsight.MWImageView
-                    android:id="@+id/tour_detail_banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/banner" />
-
-                <com.zxinsight.MWImageView
-                    android:id="@+id/tour_detail_uber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/tour_detail_uber_icon"
-                    android:visibility="gone" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tour_detail_name"
+            <include
+                layout="@layout/layout_tour_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tour_detail_banner_layout"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <include
+                layout="@layout/layout_tour_hotel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <include
+                layout="@layout/layout_tour_travel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:text="@string/tour_detail_name" />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <com.zxinsight.MWImageView
-                    android:id="@+id/tour_detail_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tour_detail_btn1"
-                    android:visibility="gone" />
-
-                <com.zxinsight.MWImageView
-                    android:id="@+id/tour_detail_button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tour_detail_btn2"
-                    android:visibility="gone" />
-
-                <com.zxinsight.MWImageView
-                    android:id="@+id/tour_detail_button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/tour_detail_btn3"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <include layout="@layout/layout_tour_map" />
-
-            <include layout="@layout/layout_tour_food" />
-
-            <include layout="@layout/layout_tour_hotel" />
-
-            <include layout="@layout/layout_tour_travel" />
+                />
 
         </LinearLayout>
     </ScrollView>
