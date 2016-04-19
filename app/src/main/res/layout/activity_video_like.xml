@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/hotel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="猜你喜欢"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/like1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hotel_title">
+
+        <ImageView
+            android:id="@+id/travel_img01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/tour_travel01"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/travel_img01"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/travel_img01"
+            android:text="换了喜剧人第一季 吴秀波"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/tour_detail_travel_price1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/title1"
+            android:layout_below="@id/title1"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/travel_img01"
+            android:text="吴秀波逗比主持风格"
+            android:textColor="@color/gray_transparent_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tour_detail_travel_price1"
+            android:layout_below="@id/tour_detail_travel_price1"
+            android:layout_marginTop="10dp"
+            android:text="83万次播放"
+            android:textColor="@color/gray_transparent_color"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/like1"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/travel_img02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/tour_travel01"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/travel_img02"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/travel_img02"
+            android:text="第十三期 跑男三亚同乐会"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/tour_detail_travel_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/title"
+            android:layout_below="@id/title"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/travel_img02"
+            android:text="邓超献厨艺首秀"
+            android:textColor="@color/gray_transparent_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tour_detail_travel_price"
+            android:layout_below="@id/tour_detail_travel_price"
+            android:layout_marginTop="10dp"
+            android:text="688万次播放"
+            android:textColor="@color/gray_transparent_color"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

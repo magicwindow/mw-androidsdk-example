@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/hotel_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/pic_01" />
+
+    <TextView
+        android:id="@+id/hotel_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/hotel_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/hotel_icon"
+        android:textColor="@color/dark_gray"
+        android:text="东方卫视欢乐喜剧人" />
+
+    <TextView
+        android:id="@+id/hotel_text_25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/hotel_icon"
+        android:layout_alignLeft="@id/hotel_text_title"
+        android:layout_below="@id/hotel_text_title"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/gray_transparent_color"
+        android:text="关注：100万"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/hotel_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="+ 订阅"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/fillet_shape__dark_pink"
+        android:layout_marginRight="10dp"/>
+</RelativeLayout>

@@ -152,7 +152,7 @@ public class AppPrefs extends BasePrefs {
 
     private boolean isOK(String httpResponse) {
 
-        return httpResponse != null && httpResponse.startsWith("{");
+        return httpResponse != null && (httpResponse.startsWith("{")||httpResponse.startsWith("["));
     }
 
 }

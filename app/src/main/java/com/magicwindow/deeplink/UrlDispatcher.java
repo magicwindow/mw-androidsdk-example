@@ -2,11 +2,9 @@ package com.magicwindow.deeplink;
 
 import android.content.Context;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.magicwindow.deeplink.activity.MainActivity;
-import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MLink;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.mlink.MLinkCallback;
@@ -27,6 +25,7 @@ public class UrlDispatcher {
         mLink.registerDefault(new MLinkCallback() {
             @Override
             public void execute(Map<String, String> map, Uri uri, Context context) {
+                Log.e("aaron", "default uri = " + uri);
                 MLinkIntentBuilder.buildIntent(map, context, MainActivity.class);
             }
         });
@@ -36,10 +35,12 @@ public class UrlDispatcher {
 
             @Override
             public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+
+                Log.e("aaron", "uri = " + uri);
                 //如果活动关闭则跳转到首页
-                if(!MarketingHelper.currentMarketing(context).isActive(paramMap.get("key"))){
-                    MLinkIntentBuilder.buildIntent(paramMap,context,MainActivity.class);
-                }else {
+                if (!MarketingHelper.currentMarketing(context).isActive(paramMap.get("key"))) {
+                    MLinkIntentBuilder.buildIntent(paramMap, context, MainActivity.class);
+                } else {
                     MarketingHelper.currentMarketing(context).click(context, paramMap.get("key"));
                 }
             }
