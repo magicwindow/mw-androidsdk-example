@@ -12,7 +12,6 @@ import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.utils.ToastUtils;
 
 public class NewsDetailActivity extends BaseAppCompatActivity {
     @InjectView
@@ -55,7 +54,7 @@ public class NewsDetailActivity extends BaseAppCompatActivity {
             if (MarketingHelper.currentMarketing(this).isActive(Config.MW_NEWS_SHARE)) {
                 MarketingHelper.currentMarketing(this).click(this, Config.MW_NEWS_SHARE);
             } else {
-                ToastUtils.showShort(this, R.string.share_closed);
+                toast(R.string.share_closed);
             }
         }
 

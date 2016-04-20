@@ -29,6 +29,7 @@
     <string name="login_with_blank">登 录</string>
     <string name="logout">退出</string>
     <string name="logout_with_blank">退 出</string>
+    <string name="user_have_quit">用户已退出</string>
     <string name="settings">设置</string>
     <string name="settings_with_blank">设 置</string>
     <string name="auth">验证</string>
