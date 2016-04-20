@@ -36,12 +36,12 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         Injector.injectInto(this, view);
-        swipeRefreshLayout.setOnRefreshListener(this);
         initViews();
         return view;
     }
 
     public void initViews() {
+        swipeRefreshLayout.setOnRefreshListener(this);
         mTabsAdapter = new ViewPageFragmentAdapter(getFragmentManager(), mViewPager);
 
         mViewPager.setAdapter(mTabsAdapter);

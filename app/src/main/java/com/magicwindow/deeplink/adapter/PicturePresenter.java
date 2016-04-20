@@ -29,7 +29,6 @@ public class PicturePresenter extends Presenter<Pic> {
     @InjectView(id = R.id.id_picture_list_desc)
     TextView desc;
 
-
     public PicturePresenter(View view, Context context) {
         super(view);
         this.mContext = context;

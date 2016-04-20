@@ -16,7 +16,6 @@ import com.magicwindow.deeplink.activity.VideoDetailActivity;
 import com.magicwindow.deeplink.adapter.PicturePresenter;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.domain.Pic;
-import com.magicwindow.deeplink.prefs.AppPrefs;
 
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picture, container, false);
         Injector.injectInto(this, view);
-        mList = AppPrefs.get(mContext).getPicList();
+        mList = appPrefs.getPicList();
         adapter.getList().addAll(mList);
 
         adapter.createPresenter(new Func2<ViewGroup, Integer, Presenter>(){
