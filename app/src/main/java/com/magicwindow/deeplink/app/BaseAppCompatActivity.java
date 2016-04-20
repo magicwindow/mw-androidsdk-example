@@ -33,10 +33,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected EventBus eventBus;
     protected Context mContext;
     public String TAG;
-    public int networkType;
-    public String networkName;
     protected Handler mHandler = new SafeHandler(this);
-//    private BroadcastReceiver mNetworkStateReceiver;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +42,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         app = (MWApplication) this.getApplication();
         TAG = SAFUtils.makeLogTag(this.getClass());
         addActivityToManager(this);
-//
-//        mNetworkStateReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                if (!SAFUtils.checkNetworkStatus(context)) {       // 网络断了的情况
-//                    toast(com.magicwindow.deeplink.R.string.network_error);
-//                    return;
-//                }
-//            }
-//
-//        };
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-//        registerReceiver(mNetworkStateReceiver, filter);
-
         mContext = this;
         app = (MWApplication) MWApplication.getInstance();
 
@@ -132,7 +114,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         delActivityFromManager(this);
-//        unregisterReceiver(mNetworkStateReceiver);
         eventBus.unregister(this);
 
     }
@@ -182,7 +163,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onResume() {
         TrackAgent.currentEvent().onResume(this);
         super.onResume();
-        Log.e("aaron", "onresume");
     }
 }
 

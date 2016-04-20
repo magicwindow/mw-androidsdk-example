@@ -12,7 +12,6 @@ import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.utils.ToastUtils;
 
 /**
  * 旅游的详情页面,绑定了uber的mLink服务.</br>
@@ -25,7 +24,6 @@ import cn.salesuite.saf.utils.ToastUtils;
  */
 public class TourDetailActivity extends BaseAppCompatActivity {
 
-
     @InjectView
     Toolbar toolbar;
 
@@ -33,11 +31,10 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_detail);
-        initToolBar();
+        initViews();
     }
 
-
-    private void initToolBar() {
+    private void initViews() {
 
         toolbar.setTitle(R.string.tour_detail_title);
         setSupportActionBar(toolbar);
@@ -49,7 +46,6 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
     }
 
 
@@ -67,7 +63,7 @@ public class TourDetailActivity extends BaseAppCompatActivity {
             if (MarketingHelper.currentMarketing(this).isActive(Config.MW_NEWS_SHARE)) {
                 MarketingHelper.currentMarketing(this).click(this, Config.MW_NEWS_SHARE);
             } else {
-                ToastUtils.showShort(this, R.string.share_closed);
+                toast(R.string.share_closed);
             }
         }
 
