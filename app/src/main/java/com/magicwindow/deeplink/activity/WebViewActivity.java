@@ -29,7 +29,6 @@ public class WebViewActivity extends BaseAppCompatActivity {
     Toolbar toolbar;
 
     public final static String WEB_URL = "web_url";
-    private static final String TAG = "WebViewActivity ";
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -83,7 +82,6 @@ public class WebViewActivity extends BaseAppCompatActivity {
     @Override
     public void onResume() {
         TrackAgent.currentEvent().onPageStart("WebViewActivity");
-
         super.onResume();
     }
 }
