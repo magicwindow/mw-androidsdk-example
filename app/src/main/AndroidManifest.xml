@@ -121,6 +121,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activity.NewsDetailActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activity.VideoDetailActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -207,9 +217,6 @@
         <meta-data
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
-
-        <activity android:name=".activity.NewsDetailActivity" />
-        <activity android:name=".activity.VideoDetailActivity"></activity>
     </application>
 
 </manifest>

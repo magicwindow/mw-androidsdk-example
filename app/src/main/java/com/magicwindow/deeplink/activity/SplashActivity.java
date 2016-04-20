@@ -47,10 +47,10 @@ public class SplashActivity extends BaseActivity {
         Uri mLink = getIntent().getData();
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
-            finish();
         } else {
             loadingNext();
         }
+        finish();
         //mLink跳转 end
     }
 
@@ -74,7 +74,6 @@ public class SplashActivity extends BaseActivity {
                 startActivity(i);
             }
         }
-        finish();
     }
 
     @Override

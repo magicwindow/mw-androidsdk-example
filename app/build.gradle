@@ -70,7 +70,5 @@ dependencies {
     compile project(':MLogCat')
     compile project(':PullZoomView')
     compile(name:'MagicWindowSDK', ext:'aar')
-//    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }
-apply plugin: 'com.android.application'
-//apply plugin: 'com.jakewharton.hugo'
