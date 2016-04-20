@@ -4,38 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.magicwindow.deeplink.activity.CommunityActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activity.NewsDetailActivity">
+
+    <TextView
+        android:id="@+id/comment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="最新评论" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/comment_title"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="最新评论"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/comment_title"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/comment_title"
-        android:layout_alignBaseline="@id/comment_title"
-        android:textColor="@color/btn_blue"
         android:text="210"
-        />
+        android:textColor="@color/btn_blue" />
 
     <View
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:layout_below="@id/comment_title"
-        android:id="@+id/line"
-        android:background="@color/dark_gray"
-        />
+        android:background="@color/dark_gray" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_below="@id/line"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line">
 
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

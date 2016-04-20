@@ -147,7 +147,10 @@ public final class Config {
             "7O3F5ZVZ",//100旅游-detail02
             "14CQZAVQ"//101旅游-detail03
     };
-    public static final String MW_SHOP_SHARE = "6MUPTZG0";    //点击购买
+    public static final String MW_SHOP_SHARE = "6MUPTZG0";
+    public static final String MW_O2O_SHARE = "EI5Y72TJ";
+    public static final String MW_VIDEO_SHARE = "GEC5F2O6";
+    public static final String MW_NEWS_SHARE = "2S8A5XB1";
 
     public static final String CUSTOM_ADD_TO_SHOP_CART = "X1W178NY";    //点击购买
     public static final String CUSTOM_CONFIRM_GOODS = "CZMX4GHW";    //确认商品

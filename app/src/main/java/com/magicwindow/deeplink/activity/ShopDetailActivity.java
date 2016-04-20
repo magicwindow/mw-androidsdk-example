@@ -1,12 +1,9 @@
 package com.magicwindow.deeplink.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +16,6 @@ import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
@@ -52,10 +47,10 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_detail);
-        initViews();
+        initToolBar();
     }
 
-    private void initViews() {
+    private void initToolBar() {
 
         toolbar.setTitle(R.string.shop_detail);
         setSupportActionBar(toolbar);

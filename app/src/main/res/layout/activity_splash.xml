@@ -4,6 +4,6 @@
               android:layout_height="match_parent"
               android:layout_gravity="center"
               android:gravity="center"
-              android:background="@drawable/home_bg"
+              android:background="@drawable/splash"
               android:orientation="vertical" >
 </LinearLayout>

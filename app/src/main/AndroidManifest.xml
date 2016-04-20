@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.magicwindow.deeplink"
-    android:versionCode="3"
-    android:versionName="1.2">
+    package="com.magicwindow.deeplink">
 
     <uses-permission android:name="android.permission.READ_LOGS" />
 
@@ -98,7 +96,7 @@
         <activity android:name=".activity.ShopPayActivity" />
         <activity android:name=".activity.ShopDoneActivity" />
         <activity
-            android:name=".activity.O2OListActivity"
+            android:name=".activity.O2ODetailActivity"
             android:label="@string/menu_text_02">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -210,8 +208,8 @@
             android:name="MW_CHANNEL"
             android:value="Wandoujia" />
 
-        <activity android:name=".activity.CommunityActivity" />
-        <activity android:name=".activity.VideoActivity"></activity>
+        <activity android:name=".activity.NewsDetailActivity" />
+        <activity android:name=".activity.VideoDetailActivity"></activity>
     </application>
 
 </manifest>

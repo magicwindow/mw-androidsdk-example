@@ -4,11 +4,16 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import com.magicwindow.deeplink.activity.NewsDetailActivity;
 import com.magicwindow.deeplink.activity.MainActivity;
+import com.magicwindow.deeplink.activity.O2ODetailActivity;
+import com.magicwindow.deeplink.activity.ShopDetailActivity;
+import com.magicwindow.deeplink.activity.VideoDetailActivity;
 import com.zxinsight.MLink;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.mlink.MLinkCallback;
 import com.zxinsight.mlink.MLinkIntentBuilder;
+import com.zxinsight.mlink.MLinkListener;
 
 import java.util.Map;
 
@@ -57,6 +62,34 @@ public class UrlDispatcher {
 
             }
         });
+
+        mLink.register("VideoDetail", VideoDetailActivity.class, new MLinkListener() {
+            @Override
+            public Map<String, String> getExtraParams(Map<String, String> map) {
+                return map;
+            }
+        });
+
+        mLink.register("NewsDetail", NewsDetailActivity.class, new MLinkListener() {
+            @Override
+            public Map<String, String> getExtraParams(Map<String, String> map) {
+                return map;
+            }
+        });
+
+        mLink.register("O2Odetail", O2ODetailActivity.class, new MLinkListener() {
+            @Override
+            public Map<String, String> getExtraParams(Map<String, String> map) {
+                return map;
+            }
+        });
+        mLink.register("dianshangDetail", ShopDetailActivity.class, new MLinkListener() {
+            @Override
+            public Map<String, String> getExtraParams(Map<String, String> map) {
+                return map;
+            }
+        });
+
 
     }
 

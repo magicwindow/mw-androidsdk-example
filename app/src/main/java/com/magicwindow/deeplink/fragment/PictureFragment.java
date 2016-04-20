@@ -12,13 +12,11 @@ import android.view.ViewGroup;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.RecyclerViewItemClickListener;
-import com.magicwindow.deeplink.activity.VideoActivity;
+import com.magicwindow.deeplink.activity.VideoDetailActivity;
 import com.magicwindow.deeplink.adapter.PicturePresenter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.Pic;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.task.NetTask;
 
 import java.util.List;
 
@@ -26,7 +24,6 @@ import cn.salesuite.saf.adapter.Presenter;
 import cn.salesuite.saf.adapter.SAFRecycleAdapter;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.rxjava.RxAsyncTask;
 import rx.functions.Func2;
 
 /**
@@ -75,7 +72,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
         recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(mContext, new RecyclerViewItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(mContext, VideoActivity.class));
+                startActivity(new Intent(mContext, VideoDetailActivity.class));
             }
         }));
     }

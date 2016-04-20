@@ -28,6 +28,7 @@
 
     <color name="white_bg_color">#fffdf7e7</color>
     <color name="green">#ff31b719</color>
+    <color name="green_light">#ff3fd2ae</color>
     <color name="translucent_color">#99000000</color>
     <color name="dim_foreground_light">#ff353535</color>
     <color name="transparent_color">#00000000</color>

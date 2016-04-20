@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="10dp">
+
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/dark_gray" />
+
+    <TextView
+        android:id="@+id/tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/line1"
+        android:layout_marginLeft="41dp"
+        android:drawableLeft="@drawable/o2o_tel_icon"
+        android:drawablePadding="5dp"
+        android:text="联系TA"
+        android:textColor="@color/green_light"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tel"
+        android:layout_marginRight="50dp"
+        android:drawableLeft="@drawable/o2o_collect_icon"
+        android:drawablePadding="5dp"
+        android:text="收藏"
+        android:textColor="@color/green_light"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tel"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/dark_gray" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/line3"
+        android:layout_below="@id/line1"
+        android:layout_centerHorizontal="true"
+        android:background="@color/dark_gray" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fillet_shape_light_green"
+        android:text="立即体验"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+</RelativeLayout>

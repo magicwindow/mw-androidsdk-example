@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.activity.O2OListActivity;
+import com.magicwindow.deeplink.activity.O2ODetailActivity;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
@@ -119,14 +119,14 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         ic_top_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
 
             }
         });
         ic_top_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
 
             }
         });
@@ -134,33 +134,33 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         ic_top_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
 
             }
         });
         ic_top_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
 
             }
         });
         img_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
             }
         });
         img_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
             }
         });
         img_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, O2OListActivity.class));
+                mContext.startActivity(new Intent(mContext, O2ODetailActivity.class));
             }
         });
         bindMW();

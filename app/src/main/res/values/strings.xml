@@ -49,10 +49,10 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
-    <string name="menu_text_01">旅游(mLink演示)</string>
+    <string name="menu_text_01">旅游</string>
     <string name="menu_text_02">O2O</string>
-    <string name="menu_text_03">图库</string>
-    <string name="menu_text_04">电商(活动演示)</string>
+    <string name="menu_text_03">电影</string>
+    <string name="menu_text_04">电商</string>
     <string name="menu_text_05">资讯</string>
     <string name="menu_text_06">设置</string>
     <string name="menu_text_07">联系我们</string>
@@ -152,6 +152,9 @@
     <string name="pay_done">订单支付成功</string>
     <string name="go_home">回到首页</string>
     <string name="shop_detail">商品详情</string>
+    <string name="o2o_detail">O2O详情</string>
+    <string name="news_detail">资讯详情</string>
+    <string name="video_detail">电影详情</string>
     <string name="shop_cart">购物车</string>
     <string name="shop_order">订单</string>
     <string name="shop_pay">收银台</string>
@@ -167,5 +170,6 @@
     <string name="shop_detail_context">美国品牌 好奇指定授权商发货</string>
     <string name="shop_detail_title">【官方授权】HUGGIES 好奇 银装 纸尿裤 L128片+XL104片</string>
     <string name="community_header_content">几天前，Apple 过了它的第 40 个生日。想想 Apple 给我带来了多少好玩有趣的产品和服务，无趣地想象了一番没有 Apple 的世界，或许会有不同，我们会失去 iPod、MacBook、iTunes 甚至是上个月发布的「史上最平价的 iPhone」- iPhone SE。而到今天，我把玩 iPhone SE 已经有几天时间了，也该是时候跟大家分享这几天我的使用感受了。</string>
+    <string name="o2o_detail_price"><u>￥138.00</u></string>
 
 </resources>

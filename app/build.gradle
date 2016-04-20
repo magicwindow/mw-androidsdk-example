@@ -20,7 +20,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 3
-        versionName "1.2"
+        versionName "1.3"
     }
     signingConfigs { // 签名，你可以配置多个签名，然后再在buildTypes 进行指定。
         release {
@@ -72,3 +72,5 @@ dependencies {
     compile(name:'MagicWindowSDK', ext:'aar')
 //    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }
+apply plugin: 'com.android.application'
+//apply plugin: 'com.jakewharton.hugo'

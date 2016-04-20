@@ -14,16 +14,7 @@ import com.zxinsight.MarketingHelper;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.utils.ToastUtils;
 
-/**
- * 旅游的详情页面,绑定了uber的mLink服务.</br>
- * Config.MWS[91]:大众点评的魔窗位,跳转到大众点评三亚的美食服务 </br>
- * Config.MWS[100]:携程的魔窗位,跳转到携程的酒店团购服务 </br>
- * Config.MWS[101]:携程的魔窗位,跳转到携程的特价机票服务 </br>
- *
- * @author aaron
- * @date 16/01/14
- */
-public class TourDetailActivity extends BaseAppCompatActivity {
+public class VideoDetailActivity extends BaseAppCompatActivity {
 
 
     @InjectView
@@ -32,14 +23,14 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tour_detail);
+        setContentView(R.layout.activity_video);
         initToolBar();
     }
 
 
     private void initToolBar() {
 
-        toolbar.setTitle(R.string.tour_detail_title);
+        toolbar.setTitle(R.string.video_detail);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +43,6 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
@@ -64,8 +54,8 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_share) {
-            if (MarketingHelper.currentMarketing(this).isActive(Config.MW_NEWS_SHARE)) {
-                MarketingHelper.currentMarketing(this).click(this, Config.MW_NEWS_SHARE);
+            if (MarketingHelper.currentMarketing(this).isActive(Config.MW_VIDEO_SHARE)) {
+                MarketingHelper.currentMarketing(this).click(this, Config.MW_VIDEO_SHARE);
             } else {
                 ToastUtils.showShort(this, R.string.share_closed);
             }
@@ -74,5 +64,4 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
 }

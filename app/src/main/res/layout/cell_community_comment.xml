@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="90dp"
     android:background="@color/white"
-    tools:context="com.magicwindow.deeplink.activity.CommunityActivity">
+    tools:context=".activity.NewsDetailActivity">
 
     <ImageView
         android:id="@+id/img"
