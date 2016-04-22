@@ -42,8 +42,12 @@ public class O2ODetailActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
-        return true;
+        if(MarketingHelper.currentMarketing(this).isActive(Config.MW_O2O_SHARE)){
+            getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

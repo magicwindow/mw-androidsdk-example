@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.NewsDetailActivity;
-import com.magicwindow.deeplink.activity.TourDetailActivity;
 import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.NewsList;
@@ -57,19 +56,16 @@ public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.
         int type = getItemViewType(position);
 
         if (type == TYPE0) {
+            if (MarketingHelper.currentMarketing(holder.listBg.getContext()).isActive(Config.MW_NEWS_SHARE)) {
+                holder.listBg.bindEvent(Config.MW_NEWS_SHARE);
+            }
+            holder.title.setText("小而美的综合体");
+            holder.desc.setText("iPhone SE深度体验");
             holder.listBg.getRootView().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(holder.listBg.getContext(), NewsDetailActivity.class);
                     holder.listBg.getContext().startActivity(intent);
-                    if (MarketingHelper.currentMarketing(holder.listBg.getContext()).isActive(Config.MW_NEWS_SHARE)) {
-                        holder.title.setText(MarketingHelper.currentMarketing(holder.title.getContext()).getTitle(Config.MW_NEWS_SHARE));
-                        holder.desc.setText(MarketingHelper.currentMarketing(holder.desc.getContext()).getDescription(Config.MW_NEWS_SHARE));
-                    } else {
-                        holder.title.setText("小而美的综合体");
-                        holder.desc.setText("iPhone SE深度体验");
-                    }
-
                 }
             });
         } else {

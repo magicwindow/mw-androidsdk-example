@@ -91,8 +91,12 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
-        return true;
+        if(MarketingHelper.currentMarketing(this).isActive(Config.MW_SHOP_SHARE)){
+            getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
