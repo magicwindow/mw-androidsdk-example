@@ -66,6 +66,7 @@ public class UrlDispatcher {
         mLink.register("VideoDetail", VideoDetailActivity.class, new MLinkListener() {
             @Override
             public Map<String, String> getExtraParams(Map<String, String> map) {
+                Log.e("aaron", "VideoDetailActivity map = " + map);
                 return map;
             }
         });
@@ -73,6 +74,7 @@ public class UrlDispatcher {
         mLink.register("NewsDetail", NewsDetailActivity.class, new MLinkListener() {
             @Override
             public Map<String, String> getExtraParams(Map<String, String> map) {
+                Log.e("aaron", "NewsDetailActivity map = " + map);
                 return map;
             }
         });
@@ -80,12 +82,14 @@ public class UrlDispatcher {
         mLink.register("O2Odetail", O2ODetailActivity.class, new MLinkListener() {
             @Override
             public Map<String, String> getExtraParams(Map<String, String> map) {
+                Log.e("aaron", "O2ODetailActivity map = " + map);
                 return map;
             }
         });
         mLink.register("dianshangDetail", ShopDetailActivity.class, new MLinkListener() {
             @Override
             public Map<String, String> getExtraParams(Map<String, String> map) {
+                Log.e("aaron", "ShopDetailActivity map = " + map);
                 return map;
             }
         });

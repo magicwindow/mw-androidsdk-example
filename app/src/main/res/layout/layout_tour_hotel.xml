@@ -3,7 +3,6 @@
     android:id="@+id/hotel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@id/food"
     android:layout_centerVertical="true"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
@@ -29,7 +28,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="城市地图"
+            android:text="住宿推荐"
             android:textSize="18sp" />
 
         <ImageView
@@ -51,8 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hotel_img"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:src="@drawable/tour_detail_hotel_icon" />
 
     <TextView
@@ -62,7 +61,7 @@
         android:layout_alignTop="@id/hotel_icon"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/hotel_icon"
-        android:paddingTop="5dp"
+        android:paddingTop="12dp"
         android:text="三亚湾红树林度假世界" />
 
     <TextView
@@ -82,16 +81,17 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/hotel_text_25"
         android:layout_toRightOf="@id/hotel_text_25"
-        android:paddingTop="5dp"
+        android:layout_marginTop="5dp"
         android:text="的游客选择住这里" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/hotel_icon"
+        android:layout_alignTop="@id/hotel_icon"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:paddingTop="10dp"
 
         android:src="@drawable/tour_detail_order" />
 </RelativeLayout>

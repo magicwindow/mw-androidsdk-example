@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="城市地图"
+            android:text="特色美式"
             android:textSize="18sp" />
 
         <ImageView

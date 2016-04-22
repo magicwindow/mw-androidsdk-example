@@ -58,17 +58,6 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
 
     private void initViews() {
 
-//        webView.setWebViewClient(new WebViewClient() {
-//                                     @Override
-//                                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                                         if (url.startsWith("unsafe:")) {
-//                                             url = url.substring(7);
-//                                         }
-//                                         view.loadUrl(url);
-//                                         return super.shouldOverrideUrlLoading(view, url);
-//                                     }
-//                                 }
-//        );
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setDomStorageEnabled(true);
