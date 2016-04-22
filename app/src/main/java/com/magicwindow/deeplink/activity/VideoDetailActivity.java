@@ -42,7 +42,7 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
     }
 
     private void initToolBar() {
-        
+
         toolbar.setTitle(R.string.video_detail);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
