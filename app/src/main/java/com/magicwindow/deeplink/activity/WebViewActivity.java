@@ -22,7 +22,7 @@ import cn.salesuite.saf.inject.annotation.InjectView;
  */
 public class WebViewActivity extends BaseAppCompatActivity {
 
-    @InjectView(id=R.id.webview)
+    @InjectView(id = R.id.webview)
     WebView webView;
 
     @InjectView
@@ -54,7 +54,11 @@ public class WebViewActivity extends BaseAppCompatActivity {
                                      }
                                  }
         );
-
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setBuiltInZoomControls(false);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -85,5 +89,14 @@ public class WebViewActivity extends BaseAppCompatActivity {
         TrackAgent.currentEvent().onPageStart("WebViewActivity");
 
         super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (webView != null) {
+            webView.destroy();
+        }
+
     }
 }

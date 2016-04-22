@@ -2,9 +2,11 @@ package com.magicwindow.deeplink.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
@@ -17,6 +19,9 @@ import cn.salesuite.saf.utils.ToastUtils;
 public class VideoDetailActivity extends BaseAppCompatActivity {
 
 
+    @InjectView(id = R.id.webview)
+    WebView webView;
+
     @InjectView
     Toolbar toolbar;
 
@@ -25,8 +30,17 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         initToolBar();
+        initViews();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (webView != null) {
+            webView.destroy();
+        }
+
+    }
 
     private void initToolBar() {
 
@@ -42,6 +56,33 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
     }
+
+
+    private void initViews() {
+
+//        webView.setWebViewClient(new WebViewClient() {
+//                                     @Override
+//                                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                                         if (url.startsWith("unsafe:")) {
+//                                             url = url.substring(7);
+//                                         }
+//                                         view.loadUrl(url);
+//                                         return super.shouldOverrideUrlLoading(view, url);
+//                                     }
+//                                 }
+//        );
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setBuiltInZoomControls(false);
+        String url = MarketingHelper.currentMarketing(this).getWebviewURL(Config.MW_VIDEO_SHARE);
+        if (TextUtils.isEmpty(url)) {
+            url = "http://documentation.magicwindow.cn/demo/video/dist/";
+        }
+        webView.loadUrl(url);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
