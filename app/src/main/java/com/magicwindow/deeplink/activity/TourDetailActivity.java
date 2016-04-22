@@ -60,8 +60,8 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_share) {
-            if (MarketingHelper.currentMarketing(this).isActive(Config.MW_NEWS_SHARE)) {
-                MarketingHelper.currentMarketing(this).click(this, Config.MW_NEWS_SHARE);
+            if (MarketingHelper.currentMarketing(this).isActive(Config.MW_TOUR_SHARE)) {
+                MarketingHelper.currentMarketing(this).click(this, Config.MW_TOUR_SHARE);
             } else {
                 toast(R.string.share_closed);
             }

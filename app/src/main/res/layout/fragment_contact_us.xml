@@ -50,7 +50,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp"
         android:autoLink="web"
-        android:text="网址：www.magicwindow.cn"
+        android:text="魔窗官网: www.magicwindow.cn"
         android:textColorLink="@color/black"
         android:textColor="@color/black" />
 
@@ -63,7 +63,7 @@
         android:layout_marginTop="5dp"
         android:autoLink="phone"
         android:textColorLink="@color/black"
-        android:text="电话：021-56318531"
+        android:text="电话: 021-56318531"
         android:textColor="@color/black" />
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_marginTop="5dp"
         android:textColorLink="@color/black"
         android:autoLink="email"
-        android:text="技术支持：tech-support@magicwindow.cn"
+        android:text="技术支持: tech-support@magicwindow.cn"
         android:textColor="@color/black" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_below="@id/tec"
         android:layout_marginTop="5dp"
         android:autoLink="email"
-        android:text="商务合作：BD@magicwindow.cn"
+        android:text="商务合作: BD@magicwindow.cn"
         android:textColor="@color/black" />
 
     <LinearLayout
