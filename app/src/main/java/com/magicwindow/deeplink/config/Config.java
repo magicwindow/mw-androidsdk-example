@@ -23,23 +23,7 @@ public final class Config {
     public final static String picList = "picList.json";
     public final static String travelList = "travelList.json";
     public final static String shopDetail = "shopDetail.json";
-    /**
-     * app默认地理位置信息
-     **/
-    public static final String CITY_NAME_DEFAULT = "上海";
-    public static final String CITY_PINGYIN_DEFAULT = "shanghai"; // 默认城市
-    public static final double LATITUDE_DEFAULT = 31.231706;
-    public static final double LONGITUDE_DEFAULT = 121.472644;
-    /**
-     * http请求响应
-     **/
-    public static final int RESULT_SUCCESS = 0;
-    public static final int RESULT_FAILURE = -1;
-    public static final int RESULT_IOERROR = -2;
 
-    /** 存储app缓存的key **/
-    public static final int NETWORK_ERROR = -3;
-    public final static String MW_APPID = "MW_APPID";
     /**
      * 后配配置的所有魔窗位Key，我全部放在下面的String数组中。
      */

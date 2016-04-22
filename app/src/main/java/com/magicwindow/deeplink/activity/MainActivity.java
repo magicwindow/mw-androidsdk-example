@@ -56,7 +56,7 @@ public class MainActivity extends BaseAppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.magicwindow.deeplink.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         if (getIntent() != null) {
             Intent intent = getIntent();
@@ -110,7 +110,7 @@ public class MainActivity extends BaseAppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        drawerLayout.setDrawerShadow(com.magicwindow.deeplink.R.drawable.drawer_shadow, GravityCompat.START);
+        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         appVersion.setText(String.format(getString(com.magicwindow.deeplink.R.string.menu_app_version), app.version));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

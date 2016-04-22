@@ -14,7 +14,6 @@ import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.utils.ToastUtils;
 
 public class VideoDetailActivity extends BaseAppCompatActivity {
 
@@ -43,7 +42,7 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
     }
 
     private void initToolBar() {
-
+        
         toolbar.setTitle(R.string.video_detail);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,6 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
     }
 
 
@@ -98,7 +96,7 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
             if (MarketingHelper.currentMarketing(this).isActive(Config.MW_VIDEO_SHARE)) {
                 MarketingHelper.currentMarketing(this).click(this, Config.MW_VIDEO_SHARE);
             } else {
-                ToastUtils.showShort(this, R.string.share_closed);
+                toast(R.string.share_closed);
             }
         }
 
