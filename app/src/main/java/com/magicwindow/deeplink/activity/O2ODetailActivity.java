@@ -5,10 +5,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.O2ODetail;
+import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -18,11 +22,15 @@ public class O2ODetailActivity extends BaseAppCompatActivity {
     @InjectView
     Toolbar toolbar;
 
+    @InjectView(id = R.id.header)
+    ImageView o2oHeader;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o2o_detail);
         initToolBar();
+        displayImage();
     }
 
     private void initToolBar() {
@@ -40,9 +48,15 @@ public class O2ODetailActivity extends BaseAppCompatActivity {
 
     }
 
+    private void displayImage() {
+        O2ODetail detail = AppPrefs.get(this).getO2ODetail();
+        ImageLoader.getInstance().displayImage(detail.detail, o2oHeader);
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if(MarketingHelper.currentMarketing(this).isActive(Config.MW_O2O_SHARE)){
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MW_O2O_SHARE)) {
             getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
             return true;
         } else {

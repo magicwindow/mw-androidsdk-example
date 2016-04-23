@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.config.Config;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 
@@ -24,7 +23,6 @@ import cn.salesuite.saf.utils.Preconditions;
  */
 public class ImageAdapter extends PagerAdapter {
     List<String> list = new ArrayList<>();
-    ImageLoader imageLoader;
     //    Integer[] images;
     int mWPosition;
 
@@ -68,7 +66,6 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setImageResource(defaultRes);
 
         if (Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))) {
-            DisplayImageOptions options = DisplayImageOptions.createSimple();
             ImageLoader.getInstance().displayImage(list.get(position), imageView);
         }
         if (mWPosition != -1) {

@@ -6,19 +6,18 @@ import android.text.TextUtils;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.domain.NewsList;
+import com.magicwindow.deeplink.domain.O2ODetail;
 import com.magicwindow.deeplink.domain.O2OList;
 import com.magicwindow.deeplink.domain.Pic;
 import com.magicwindow.deeplink.domain.ShopDetail;
+import com.magicwindow.deeplink.domain.TravelDetail;
 import com.magicwindow.deeplink.domain.TravelList;
-
-import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import cn.salesuite.saf.http.rest.RestUtil;
 import cn.salesuite.saf.prefs.BasePrefs;
-import cn.salesuite.saf.utils.Preconditions;
 
 /**
  * Created by Tony Shen on 15/12/14.
@@ -36,7 +35,7 @@ public class AppPrefs extends BasePrefs {
     }
 
     public static AppPrefs get(Context context) {
-        if (context == null){
+        if (context == null) {
             return null;
         } else {
             return new AppPrefs(context.getApplicationContext());
@@ -150,9 +149,35 @@ public class AppPrefs extends BasePrefs {
         return detail;
     }
 
+    public O2ODetail getO2ODetail() {
+        O2ODetail detail = new O2ODetail();
+        String o2oDetail = getString(Config.o2oDetail, "");
+        if (isOK(o2oDetail)) {
+            try {
+                detail = RestUtil.parseAs(O2ODetail.class, o2oDetail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return detail;
+    }
+
+    public TravelDetail getTravelDetail() {
+        TravelDetail detail = new TravelDetail();
+        String travelDetail = getString(Config.travelDetail, "");
+        if (isOK(travelDetail)) {
+            try {
+                detail = RestUtil.parseAs(TravelDetail.class, travelDetail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return detail;
+    }
+
     private boolean isOK(String httpResponse) {
 
-        return httpResponse != null && (httpResponse.startsWith("{")||httpResponse.startsWith("["));
+        return httpResponse != null && (httpResponse.startsWith("{") || httpResponse.startsWith("["));
     }
 
 }

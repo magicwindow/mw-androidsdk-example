@@ -5,10 +5,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
+import com.magicwindow.deeplink.domain.TravelDetail;
+import com.magicwindow.deeplink.prefs.AppPrefs;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -27,11 +32,40 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @InjectView
     Toolbar toolbar;
 
+
+    @InjectView(id = R.id.tour_detail_banner)
+    MWImageView tour_detail_banner;
+
+
+    @InjectView(id = R.id.map_img)
+    ImageView map_img;
+
+
+    @InjectView(id = R.id.food01)
+    ImageView food01;
+
+    @InjectView(id = R.id.food02)
+    ImageView food02;
+
+    @InjectView(id = R.id.food03)
+    ImageView food03;
+
+    @InjectView(id = R.id.hotel_img)
+    ImageView hotel_img;
+
+    @InjectView(id = R.id.travel_img01)
+    ImageView travel_img01;
+
+    @InjectView(id = R.id.travel_img02)
+    ImageView travel_img02;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_detail);
         initViews();
+        displayImage();
     }
 
     private void initViews() {
@@ -48,10 +82,21 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
+    private void displayImage() {
+        TravelDetail detail = AppPrefs.get(this).getTravelDetail();
+        ImageLoader.getInstance().displayImage(detail.banner, tour_detail_banner);
+        ImageLoader.getInstance().displayImage(detail.map, map_img);
+        ImageLoader.getInstance().displayImage(detail.stay, hotel_img);
+        ImageLoader.getInstance().displayImage(detail.travel.get(0), travel_img01);
+        ImageLoader.getInstance().displayImage(detail.travel.get(1), travel_img02);
+        ImageLoader.getInstance().displayImage(detail.food.get(0), food01);
+        ImageLoader.getInstance().displayImage(detail.food.get(1), food02);
+        ImageLoader.getInstance().displayImage(detail.food.get(2), food03);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if(MarketingHelper.currentMarketing(this).isActive(Config.MW_TOUR_SHARE)){
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MW_TOUR_SHARE)) {
             getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
             return true;
         } else {

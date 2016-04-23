@@ -69,6 +69,8 @@ public class MWApplication extends SAFApp {
         list.add(Config.picList);
         list.add(Config.travelList);
         list.add(Config.shopDetail);
+        list.add(Config.o2oDetail);
+        list.add(Config.travelDetail);
 
         for (final String path : list) {
             initAssetsJson(path);

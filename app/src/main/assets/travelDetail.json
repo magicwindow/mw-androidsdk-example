@@ -1,0 +1,14 @@
+{
+  "banner": "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_banner.png",
+  "map": "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_map.png",
+  "food": [
+    "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_food01.png",
+    "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_food02.png",
+    "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_food03.png"
+  ],
+  "stay": "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_stay.png",
+  "travel": [
+    "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_travel01.png",
+    "http://7xql2z.com2.z0.glb.qiniucdn.com/tour_detail_travel02.png"
+  ]
+}

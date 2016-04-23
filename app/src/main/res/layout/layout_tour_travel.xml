@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/travel_img01"
         android:layout_marginTop="10dp"
-        android:background="@drawable/tour_travel01"
+        android:background="@drawable/tour_travel02"
         android:scaleType="fitCenter" />
 
     <TextView

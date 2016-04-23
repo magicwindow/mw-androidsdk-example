@@ -23,6 +23,8 @@ public final class Config {
     public final static String picList = "picList.json";
     public final static String travelList = "travelList.json";
     public final static String shopDetail = "shopDetail.json";
+    public final static String o2oDetail = "o2oDetail.json";
+    public final static String travelDetail = "travelDetail.json";
 
     /**
      * 后配配置的所有魔窗位Key，我全部放在下面的String数组中。
