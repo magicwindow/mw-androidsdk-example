@@ -98,9 +98,10 @@
         android:layout_marginRight="26dp"
         android:text="文昌鸡" />
 
-    <ImageView
+    <com.zxinsight.MWImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/more_food"
         android:layout_below="@id/tour_detail_food_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"

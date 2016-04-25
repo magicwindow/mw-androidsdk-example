@@ -35,100 +35,116 @@
             android:background="@drawable/line02" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/travel_img01"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/hotel_layout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hotel_title"
-        android:background="@drawable/tour_travel01"
-        android:scaleType="fitCenter" />
+        android:layout_below="@id/hotel_title">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/travel_img01"
-        android:layout_marginLeft="10dp"
+        <ImageView
+            android:id="@+id/travel_img01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tour_travel01"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/travel_img01"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/travel_img01"
+            android:text="上海直飞三亚双飞5日4晚自由行（3-5星酒店随意选＋晚饭机票含税＋附赠早餐＋10KG行李额）" />
+
+        <TextView
+            android:id="@+id/tour_detail_travel_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/travel_img01"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/travel_img01"
+            android:text="￥1499"
+            android:textColor="@color/tour_detail_orange"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tour_detail_price_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tour_detail_travel_price"
+            android:layout_alignBottom="@id/travel_img01"
+            android:layout_toRightOf="@id/tour_detail_travel_price"
+            android:text="起/人"
+            android:textColor="@color/tour_detail_orange"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tour_detail_price_unit"
+            android:layout_toRightOf="@id/tour_detail_price_unit"
+            android:background="@drawable/tour_detail_travel_extra" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hotel_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hotel_layout1"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/travel_img01"
-        android:text="上海直飞三亚双飞5日4晚自由行（3-5星酒店随意选＋晚饭机票含税＋附赠早餐＋10KG行李额）" />
 
-    <TextView
-        android:id="@+id/tour_detail_travel_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/travel_img01"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/travel_img01"
-        android:text="￥1499"
-        android:textColor="@color/tour_detail_orange"
-        android:textSize="20sp" />
+        >
 
-    <TextView
-        android:id="@+id/tour_detail_price_unit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/tour_detail_travel_price"
-        android:layout_alignBottom="@id/travel_img01"
-        android:layout_toRightOf="@id/tour_detail_travel_price"
-        android:text="起/人"
-        android:textColor="@color/tour_detail_orange"
-        android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/travel_img02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tour_travel02"
+            android:scaleType="fitCenter" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tour_detail_price_unit"
-        android:layout_toRightOf="@id/tour_detail_price_unit"
-        android:background="@drawable/tour_detail_travel_extra" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/travel_img02"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/travel_img02"
+            android:text="上海直飞三亚双飞7日6晚自由行（5星酒店随意选＋晚饭机票含税＋附赠早餐＋10KG行李额）" />
 
+        <TextView
+            android:id="@+id/tour_detail_travel_price02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/travel_img02"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/travel_img02"
+            android:text="￥4999"
+            android:textColor="@color/tour_detail_orange"
+            android:textSize="20sp" />
 
-    <ImageView
-        android:id="@+id/travel_img02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/travel_img01"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/tour_travel02"
-        android:scaleType="fitCenter" />
+        <TextView
+            android:id="@+id/tour_detail_price_unit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tour_detail_travel_price02"
+            android:layout_alignBottom="@id/travel_img02"
+            android:layout_toRightOf="@id/tour_detail_travel_price02"
+            android:text="起/人"
+            android:textColor="@color/tour_detail_orange"
+            android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/travel_img02"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/travel_img02"
-        android:text="上海直飞三亚双飞7日6晚自由行（5星酒店随意选＋晚饭机票含税＋附赠早餐＋10KG行李额）" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tour_detail_price_unit2"
+            android:layout_toRightOf="@id/tour_detail_price_unit2"
+            android:background="@drawable/tour_detail_travel_extra" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tour_detail_travel_price02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/travel_img02"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/travel_img02"
-        android:text="￥4999"
-        android:textColor="@color/tour_detail_orange"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/tour_detail_price_unit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/tour_detail_travel_price02"
-        android:layout_alignBottom="@id/travel_img02"
-        android:layout_toRightOf="@id/tour_detail_travel_price02"
-        android:text="起/人"
-        android:textColor="@color/tour_detail_orange"
-        android:textSize="16sp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tour_detail_price_unit2"
-        android:layout_toRightOf="@id/tour_detail_price_unit2"
-        android:background="@drawable/tour_detail_travel_extra" />
 
 </RelativeLayout>

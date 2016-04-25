@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
@@ -32,14 +34,14 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @InjectView
     Toolbar toolbar;
 
-
     @InjectView(id = R.id.tour_detail_banner)
     MWImageView tour_detail_banner;
-
 
     @InjectView(id = R.id.map_img)
     ImageView map_img;
 
+    @InjectView(id = R.id.tour_detail_car)
+    TextView tour_detail_car;
 
     @InjectView(id = R.id.food01)
     ImageView food01;
@@ -50,8 +52,20 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     @InjectView(id = R.id.food03)
     ImageView food03;
 
+    @InjectView(id = R.id.more_food)
+    MWImageView more_food;
+
     @InjectView(id = R.id.hotel_img)
     ImageView hotel_img;
+
+    @InjectView(id = R.id.order)
+    MWImageView order;
+
+    @InjectView(id = R.id.hotel_layout1)
+    RelativeLayout hotel_layout1;
+
+    @InjectView(id = R.id.hotel_layout2)
+    RelativeLayout hotel_layout2;
 
     @InjectView(id = R.id.travel_img01)
     ImageView travel_img01;
@@ -66,6 +80,7 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_tour_detail);
         initViews();
         displayImage();
+        bindMW();
     }
 
     private void initViews() {
@@ -92,6 +107,46 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         ImageLoader.getInstance().displayImage(detail.food.get(0), food01);
         ImageLoader.getInstance().displayImage(detail.food.get(1), food02);
         ImageLoader.getInstance().displayImage(detail.food.get(2), food03);
+
+
+    }
+
+    private void bindMW(){
+
+        tour_detail_car.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[99]);
+            }
+        });
+//        more_food.bindEvent(this, Config.MWS[91]);
+        more_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[91]);
+
+            }
+        });
+//        order.bindEvent(this, Config.MWS[100]);
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[100]);
+
+            }
+        });
+        hotel_layout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[101]);
+            }
+        });
+        hotel_layout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[101]);
+            }
+        });
     }
 
     @Override

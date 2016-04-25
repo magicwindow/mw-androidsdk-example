@@ -84,9 +84,10 @@
         android:layout_marginTop="5dp"
         android:text="的游客选择住这里" />
 
-    <ImageView
+    <com.zxinsight.MWImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/order"
         android:layout_alignTop="@id/hotel_icon"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"

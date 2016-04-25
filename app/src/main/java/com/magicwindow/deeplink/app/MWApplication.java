@@ -50,11 +50,7 @@ public class MWApplication extends SAFApp {
     //@mw 初始化魔窗
     private void initMW() {
         MWConfiguration config = new MWConfiguration(this);
-        config.setChannel("我的渠道")
-                .setDebugModel(true)
-                .setPageTrackWithFragment(true)
-                .setMLinkOpen()
-                .setSharePlatform(MWConfiguration.ORIGINAL);
+        config.setSharePlatform(MWConfiguration.SHARE_SDK);
         MagicWindowSDK.initSDK(config);
     }
 
