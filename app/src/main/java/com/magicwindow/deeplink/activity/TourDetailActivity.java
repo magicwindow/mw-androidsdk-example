@@ -117,38 +117,26 @@ public class TourDetailActivity extends BaseAppCompatActivity {
         tour_detail_car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[99]);
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MW_TOUR_DETAIL_UBER);
             }
         });
 
         //绑定旅游-detail01
-        more_food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[91]);
-
-            }
-        });
+        more_food.bindEvent(this, Config.MW_TOUR_DETAIL_DIANPING);
         //绑定旅游-detail02
-        order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[100]);
-
-            }
-        });
+        order.bindEvent(this, Config.MW_TOUR_DETAIL_CTRIP_HOTEL);
         //绑定旅游-detail03
         hotel_layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[101]);
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MW_TOUR_DETAIL_CTRIP_AIRCRAFT);
             }
         });
         //绑定旅游-detail03
         hotel_layout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[101]);
+                MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MW_TOUR_DETAIL_CTRIP_AIRCRAFT);
             }
         });
     }

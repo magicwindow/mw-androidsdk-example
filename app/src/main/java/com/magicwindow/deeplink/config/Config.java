@@ -139,6 +139,11 @@ public final class Config {
     public static final String MW_NEWS_SHARE = "2S8A5XB1";
     public static final String MW_TOUR_SHARE = "QGHNA8HR";
 
+    public static final String MW_TOUR_DETAIL_DIANPING = "I8H2U1ET";
+    public static final String MW_TOUR_DETAIL_UBER = "LODCE33N";
+    public static final String MW_TOUR_DETAIL_CTRIP_HOTEL = "9EXA5IU7";
+    public static final String MW_TOUR_DETAIL_CTRIP_AIRCRAFT = "JOSMM2E3";
+
     public static final String CUSTOM_ADD_TO_SHOP_CART = "X1W178NY";    //点击购买
     public static final String CUSTOM_CONFIRM_GOODS = "CZMX4GHW";    //确认商品
     public static final String CUSTOM_CONFIRM_ORDER = "1YWEWJEB";    //去付款
