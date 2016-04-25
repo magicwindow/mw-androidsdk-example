@@ -56,9 +56,6 @@ public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.
         int type = getItemViewType(position);
 
         if (type == TYPE0) {
-            if (MarketingHelper.currentMarketing(holder.listBg.getContext()).isActive(Config.MW_NEWS_SHARE)) {
-                holder.listBg.bindEvent(Config.MW_NEWS_SHARE);
-            }
             holder.title.setText("小而美的综合体");
             holder.desc.setText("iPhone SE深度体验");
             holder.listBg.getRootView().setOnClickListener(new View.OnClickListener() {

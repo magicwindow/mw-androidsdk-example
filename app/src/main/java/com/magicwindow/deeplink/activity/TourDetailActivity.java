@@ -113,13 +113,15 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
     private void bindMW(){
 
+        //绑定旅游-detail-Uber
         tour_detail_car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[99]);
             }
         });
-//        more_food.bindEvent(this, Config.MWS[91]);
+
+        //绑定旅游-detail01
         more_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +129,7 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
             }
         });
-//        order.bindEvent(this, Config.MWS[100]);
+        //绑定旅游-detail02
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,12 +137,14 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
             }
         });
+        //绑定旅游-detail03
         hotel_layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MarketingHelper.currentMarketing(TourDetailActivity.this).click(TourDetailActivity.this, Config.MWS[101]);
             }
         });
+        //绑定旅游-detail03
         hotel_layout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

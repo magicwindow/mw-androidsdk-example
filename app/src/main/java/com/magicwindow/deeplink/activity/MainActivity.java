@@ -21,7 +21,9 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.MenuLeftAdapter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.citySelect.CitiesActivity;
+import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.menu.MenuManager;
+import com.magicwindow.deeplink.ui.dialog.MWDialog;
 import com.magicwindow.deeplink.utils.DoubleClickExitUtils;
 
 import cn.salesuite.mlogcat.activity.LogcatActivity;
