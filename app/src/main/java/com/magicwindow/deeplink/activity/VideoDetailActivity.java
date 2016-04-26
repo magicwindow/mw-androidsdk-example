@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
@@ -57,7 +58,17 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
 
 
     private void initViews() {
-
+        webView.setWebViewClient(new WebViewClient() {
+                                     @Override
+                                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                                         if (url.startsWith("unsafe:")) {
+                                             url = url.substring(7);
+                                         }
+                                         view.loadUrl(url);
+                                         return super.shouldOverrideUrlLoading(view, url);
+                                     }
+                                 }
+        );
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -65,7 +76,13 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(false);
         String url = MarketingHelper.currentMarketing(this).getWebviewURL(Config.MW_VIDEO_SHARE);
         if (TextUtils.isEmpty(url)) {
-            url = "http://documentation.magicwindow.cn/demo/video/dist/";
+            url = "http://documentation.magicwindow.cn/demo/video/dist?app=1";
+        } else {
+            if (url.contains("?")) {
+                url = url + "&app=1";
+            } else {
+                url = url + "?app=1";
+            }
         }
         webView.loadUrl(url);
     }
@@ -73,7 +90,7 @@ public class VideoDetailActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if(MarketingHelper.currentMarketing(this).isActive(Config.MW_VIDEO_SHARE)){
+        if (MarketingHelper.currentMarketing(this).isActive(Config.MW_VIDEO_SHARE)) {
             getMenuInflater().inflate(R.menu.menu_shop_detail, menu);
             return true;
         } else {

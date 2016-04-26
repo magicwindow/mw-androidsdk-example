@@ -64,7 +64,7 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         appPrefs = AppPrefs.get(mContext);
         Log.e("aaron", "guide = " + appPrefs.getGuideTour());
         if (appPrefs != null && !appPrefs.getGuideTour()) {
-            addGuideImage();// 添加新手引导图片
+//            addGuideImage();// 添加新手引导图片
         }
     }
 
@@ -119,42 +119,12 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void initView() {
-        if (app.session.get(Config.travelList) != null) {
-            travelList = (TravelList) app.session.get(Config.travelList);
-            viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
-            indicator.setViewPager(viewPager);
+        travelList = appPrefs.getTravelList();
+        viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
+        indicator.setViewPager(viewPager);
 
-            adapter = new TourListAdapter(mContext, travelList.contentList);
-            homeList.setAdapter(adapter);
-        } else {
-            NetTask task = new NetTask(Config.travelList);
-            task.execute(new RxAsyncTask.HttpResponseHandler() {
-                @Override
-                public void onSuccess(String s) {
-                    if (s != null && s.startsWith("{")) {
-                        appPrefs.saveJson(Config.travelList, s);
-                        travelList = appPrefs.getTravelList();
-                        app.session.put(Config.travelList, travelList);
-                        viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
-                        indicator.setViewPager(viewPager);
-
-                        adapter = new TourListAdapter(mContext, travelList.contentList);
-                        homeList.setAdapter(adapter);
-                    }
-
-                }
-
-                @Override
-                public void onFail(Throwable throwable) {
-                    travelList = appPrefs.getTravelList();
-                    viewPager.setAdapter(new ImageAdapter(0, travelList.headList));
-                    indicator.setViewPager(viewPager);
-
-                    adapter = new TourListAdapter(mContext, travelList.contentList);
-                    homeList.setAdapter(adapter);
-                }
-            });
-        }
+        adapter = new TourListAdapter(mContext, travelList.contentList);
+        homeList.setAdapter(adapter);
     }
 
     private void initData() {

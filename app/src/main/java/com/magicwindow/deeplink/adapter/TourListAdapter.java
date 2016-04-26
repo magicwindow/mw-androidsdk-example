@@ -67,7 +67,6 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
         final TravelList.TravelContent item = mList.get(position);
         if (item != null) {
 //            holder.indicateView.setImageResource(item.imgRes);
-            ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
             if (Preconditions.isNotBlank(item.title)) {
                 holder.title.setText(item.title);
             }
@@ -80,6 +79,7 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
             final int mwOffset = 4 + position;
 
             if (type == TYPE0) {
+                ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
                 holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,6 +101,7 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
                         }
                     });
                 } else {
+                    ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
                     holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
