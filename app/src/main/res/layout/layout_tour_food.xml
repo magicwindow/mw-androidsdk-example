@@ -45,7 +45,7 @@
         android:layout_height="100dp"
         android:layout_below="@id/food_title"
         android:layout_margin="10dp"
-        android:background="@drawable/tour_detail_food01" />
+        android:background="@drawable/default_300_300" />
 
     <ImageView
         android:id="@+id/food02"
@@ -55,7 +55,7 @@
         android:layout_below="@id/food_title"
         android:layout_margin="10dp"
         android:layout_toRightOf="@id/food01"
-        android:background="@drawable/tour_detail_food01" />
+        android:background="@drawable/default_300_300" />
 
     <ImageView
         android:id="@+id/food03"
@@ -65,7 +65,7 @@
         android:layout_below="@id/food_title"
         android:layout_margin="10dp"
         android:layout_toRightOf="@id/food02"
-        android:background="@drawable/tour_detail_food01" />
+        android:background="@drawable/default_300_300" />
 
     <TextView
         android:id="@+id/tour_detail_food_text"

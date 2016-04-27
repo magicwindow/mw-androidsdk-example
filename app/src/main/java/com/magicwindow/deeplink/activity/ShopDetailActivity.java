@@ -75,7 +75,7 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
         shopDetail = AppPrefs.get(this).getShopDetail();
         ImageLoader.getInstance().displayImage(shopDetail.content, shopDetailImg);
 
-        viewPager.setAdapter(new ImageAdapter(-1, shopDetail.headList, R.drawable.shop_banner));
+        viewPager.setAdapter(new ImageAdapter(-1, shopDetail.headList, R.drawable.default_640_640));
         indicator.setViewPager(viewPager);
     }
 

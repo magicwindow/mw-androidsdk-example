@@ -41,7 +41,7 @@
                 android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/o2o_detail_img" />
+                android:background="@drawable/default_640_640" />
 
             <TextView
                 android:id="@+id/title"

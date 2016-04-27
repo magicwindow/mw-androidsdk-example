@@ -16,7 +16,7 @@
             android:id="@+id/tour_detail_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/banner" />
+            android:background="@drawable/default_720_477" />
 
         <com.zxinsight.MWImageView
             android:id="@+id/tour_detail_uber"
@@ -39,42 +39,5 @@
         android:padding="@dimen/activity_horizontal_margin"
         android:text="@string/tour_detail_name" />
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <com.zxinsight.MWImageView
-            android:id="@+id/tour_detail_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/tour_detail_btn1"
-            android:visibility="gone" />
-
-        <com.zxinsight.MWImageView
-            android:id="@+id/tour_detail_button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/tour_detail_btn2"
-            android:visibility="gone" />
-
-        <com.zxinsight.MWImageView
-            android:id="@+id/tour_detail_button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/tour_detail_btn3"
-            android:visibility="gone" />
-    </LinearLayout>
 
 </LinearLayout>

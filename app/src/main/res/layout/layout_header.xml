@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:src="@drawable/menu_profile" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/user_management"

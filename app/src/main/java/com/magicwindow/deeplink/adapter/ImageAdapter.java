@@ -26,7 +26,7 @@ public class ImageAdapter extends PagerAdapter {
     //    Integer[] images;
     int mWPosition;
 
-    int defaultRes = R.drawable.banner;
+    int defaultRes = R.drawable.default_570_250;
 
     public ImageAdapter(int mWPosition, List res) {
         list = res;

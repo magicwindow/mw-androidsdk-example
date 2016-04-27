@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="290dp"
         android:layout_below="@id/hotel_title"
-        android:background="@drawable/tour_detail_map02"
+        android:background="@drawable/default_720_477"
         android:scaleType="fitCenter" />
 
     <ImageView

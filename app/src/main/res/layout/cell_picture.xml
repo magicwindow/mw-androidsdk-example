@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:scaleType="fitXY"
-        android:src="@drawable/pic_01"/>
+        android:src="@drawable/default_300_300"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

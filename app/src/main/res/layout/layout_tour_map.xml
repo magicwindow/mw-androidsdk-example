@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_below="@id/map_title_bar"
-        android:background="@drawable/tour_detail_map01" />
+        android:background="@drawable/default_720_477" />
 
     <TextView
         android:id="@+id/map_title"

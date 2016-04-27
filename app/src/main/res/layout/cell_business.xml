@@ -6,7 +6,7 @@
     <com.zxinsight.MWImageView
         android:id="@+id/list_img"
         android:scaleType="fitXY"
-        android:background="@drawable/tour_list_01"
+        android:background="@drawable/default_570_250"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

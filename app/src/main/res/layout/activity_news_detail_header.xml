@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/community_img"
+        android:background="@drawable/default_570_250"
         />
     <Button
         android:layout_width="wrap_content"
