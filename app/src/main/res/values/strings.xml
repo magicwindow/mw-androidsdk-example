@@ -170,4 +170,11 @@
     <string name="community_header_content">几天前，Apple 过了它的第 40 个生日。想想 Apple 给我带来了多少好玩有趣的产品和服务，无趣地想象了一番没有 Apple 的世界，或许会有不同，我们会失去 iPod、MacBook、iTunes 甚至是上个月发布的「史上最平价的 iPhone」- iPhone SE。而到今天，我把玩 iPhone SE 已经有几天时间了，也该是时候跟大家分享这几天我的使用感受了。</string>
     <string name="o2o_detail_price"><u>￥138.00</u></string>
 
+    <string name="newUpdateAvailable">发现新版本</string>
+    <string name="dialogPositiveButton">立即下载</string>
+    <string name="dialogNegativeButton">以后再说</string>
+    <string name="app_no_new_update">没有发现新版本</string>
+    <string name="download_progress">正在下载:%1$d%%</string>
+    <string name="download_success">下载完成，点击安装</string>
+
 </resources>
