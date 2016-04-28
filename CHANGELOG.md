@@ -1,6 +1,13 @@
 魔窗android sdk demo
 ===
 魔窗开源的demo app
+Version 1.3
+---
+2016-04-25
+
+* 新增多种mLink的使用场景，包括电商页面、O2O页面等
+* 重构了旅游详情页面
+* 增加联系我们的页面
 
 Version 1.2
 ---
