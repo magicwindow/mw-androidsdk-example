@@ -24,7 +24,7 @@ public class MenuLeftAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return MenuManager.getMenuCount();
+        return MenuManager.getDisplayMenuCount();
     }
 
     @Override

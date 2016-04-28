@@ -39,11 +39,11 @@ public class MenuManager {
     /**
      * 返回菜单的总数
      *
-     * @return
+     * @return menu个数，通过-2 来隐藏menu菜单
      */
-    public static int getMenuCount() {
+    public static int getDisplayMenuCount() {
 
-        return MenuType.values() != null ? MenuType.values().length - 1 : 0;
+        return MenuType.values() != null ? MenuType.values().length - 2 : 0;
     }
 
     public MenuType getCurType() {
@@ -101,11 +101,11 @@ public class MenuManager {
             case NEWS:
                 fragment = new NewsFragment();
                 break;
-            case SETTINGS:
-                fragment = new SettingsFragment();
-                break;
             case CONTACT:
                 fragment = new ContactUsFragment();
+                break;
+            case SETTINGS:
+                fragment = new SettingsFragment();
                 break;
         }
         return fragment;
@@ -149,9 +149,11 @@ public class MenuManager {
         O2O(2, R.string.menu_text_02, R.drawable.menu_icon_02, true),
         GALLERIES(3, R.string.menu_text_03, R.drawable.menu_icon_03, true),
         NEWS(4, R.string.menu_text_05, R.drawable.menu_icon_05, true),
-        SETTINGS(5, R.string.menu_text_06, R.drawable.menu_icon_06, true),
-        CONTACT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
+        CONTACT(5, R.string.menu_text_07, R.drawable.menu_icon_07, true),
+        SETTINGS(6, R.string.menu_text_06, R.drawable.menu_icon_06, true),
         //        SIGNOUT(6, R.string.menu_text_07, R.drawable.menu_icon_07, true),
+
+        //第一次进入还没初始化时的状态
         DUMB(-1, R.string.menu_text_01, R.drawable.menu_icon_01, true);
 
         public final int position;
@@ -180,9 +182,9 @@ public class MenuManager {
                 case 4:
                     return NEWS;
                 case 5:
-                    return SETTINGS;
-                case 6:
                     return CONTACT;
+                case 6:
+                    return SETTINGS;
             }
         }
 
