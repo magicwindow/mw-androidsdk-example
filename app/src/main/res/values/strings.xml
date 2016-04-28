@@ -38,17 +38,15 @@
     <string name="six_more_password">6–32位密码</string>
     <string name="input_password_again">再次确认密码</string>
     <string name="user_management">魔窗</string>
-    <string name="slogan">重构交互 连接商业</string>
+    <string name="slogan">做最好的工具，连接最好的人</string>
     <string name="account_management">帐号</string>
     <string name="my_storybook">我的故事书</string>
     <string name="my_scene">我的场景</string>
     <string name="scene_statistics">场景统计</string>
     <string name="hot_scene">热门场景</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">打开侧边栏</string>
+    <string name="drawer_close">关闭侧边栏</string>
 
     <string name="menu_text_01">旅游</string>
     <string name="menu_text_02">O2O</string>
@@ -128,7 +126,6 @@
 
     <string name="login_username_hint">用户名（可任意填写）</string>
     <string name="login_password_hint">密码（可任意填写）</string>
-    <string name="settings_title">魔窗，运营人的工具箱</string>
 
     <string name="please_enter_username_and_password">请输入用户名和密码</string>
 

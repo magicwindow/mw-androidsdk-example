@@ -5,20 +5,37 @@
     android:background="@drawable/contact_bg"
     android:orientation="vertical">
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/qrcode_layout"
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/qrcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="100dp"
-        android:src="@drawable/qrcode" />
+        android:padding="10dp"
+        android:src="@drawable/qrcode1" />
+
+    <ImageView
+        android:id="@+id/qrcode2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_toRightOf="@id/qrcode"
+        android:layout_alignTop="@id/qrcode"
+        android:layout_marginLeft="20dp"
+        android:padding="10dp"
+        android:src="@drawable/qrcode2" />
+
+</RelativeLayout>
 
     <LinearLayout
         android:id="@+id/contact_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/qrcode"
+        android:layout_below="@id/qrcode_layout"
+
         android:layout_marginTop="30dp"
         android:gravity="center_vertical">
 

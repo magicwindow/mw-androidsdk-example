@@ -25,10 +25,10 @@
 
             <ImageView
                 android:id="@+id/menu_profile_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:padding="10dp"
-                android:src="@drawable/settings_face" />
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:padding="8dp"
+                android:src="@drawable/logo" />
 
             <TextView
                 android:id="@+id/menu_profile_title"
