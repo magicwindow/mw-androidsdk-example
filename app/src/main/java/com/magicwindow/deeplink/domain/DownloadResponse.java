@@ -15,5 +15,6 @@ public class DownloadResponse implements Serializable {
         public boolean upgrade;
         public String newVersionUrl;
         public boolean forceUpgrade;
+        public String desc;
     }
 }

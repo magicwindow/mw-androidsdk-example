@@ -122,7 +122,7 @@ public class SplashActivity extends BaseActivity {
         } else if (response.result.upgrade) {
             if (dialog == null) {
                 dialog = LightDialog.create(mContext, "软件更新",
-                        "描述");
+                        response.result.desc);
                         dialog.setCanceledOnTouchOutside(false);
                         dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
