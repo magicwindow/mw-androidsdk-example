@@ -153,4 +153,10 @@ public final class Config {
     public static float density; // 屏幕密度
     public static int height; // 屏幕高度
     public static int width; // 屏幕宽度
+
+    /** http请求响应 **/
+    public static final int RESULT_SUCCESS = 0;
+    public static final int RESULT_FAILURE = -1;
+    public static final int RESULT_IOERROR = -2;
+    public static final int NETWORK_ERROR = -3;
 }
