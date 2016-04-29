@@ -29,12 +29,12 @@ public class BaseActivity extends SAFActivity {
     protected EventBus eventBus;
     protected Dialog mDialog;
     protected Handler mHandler = new SafeHandler(this);
-
+    protected Context mContext;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        mContext = this;
         app = MWApplication.getInstance();
 
         eventBus = EventBusManager.getInstance();
