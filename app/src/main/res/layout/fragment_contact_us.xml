@@ -5,30 +5,58 @@
     android:background="@drawable/contact_bg"
     android:orientation="vertical">
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:id="@+id/qrcode_layout"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/qrcode"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="100dp"
-        android:padding="10dp"
-        android:src="@drawable/qrcode1" />
+    <RelativeLayout
+        android:id="@+id/qrcode_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
-    <ImageView
-        android:id="@+id/qrcode2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_toRightOf="@id/qrcode"
-        android:layout_alignTop="@id/qrcode"
-        android:layout_marginLeft="20dp"
-        android:padding="10dp"
-        android:src="@drawable/qrcode2" />
+        <ImageView
+            android:id="@+id/qrcode"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="100dp"
+            android:padding="10dp"
+            android:src="@drawable/qrcode1" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qrcode"
+            android:layout_alignLeft="@id/qrcode"
+            android:layout_marginLeft="25dp"
+            android:layout_centerInParent="true"
+            android:text="魔窗公众号"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/qrcode"
+            android:layout_alignTop="@id/qrcode"
+            android:background="@color/dark_gray" />
+
+        <ImageView
+            android:id="@+id/qrcode2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignTop="@id/qrcode"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/qrcode"
+            android:padding="10dp"
+            android:src="@drawable/qrcode2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qrcode2"
+            android:layout_marginLeft="20dp"
+            android:layout_alignLeft="@id/qrcode2"
+            android:text="您的私人助理"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/contact_title"
@@ -68,8 +96,8 @@
         android:layout_marginTop="10dp"
         android:autoLink="web"
         android:text="魔窗官网: www.magicwindow.cn"
-        android:textColorLink="@color/black"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorLink="@color/black" />
 
     <TextView
         android:id="@+id/tel"
@@ -79,9 +107,9 @@
         android:layout_below="@id/web"
         android:layout_marginTop="5dp"
         android:autoLink="phone"
-        android:textColorLink="@color/black"
         android:text="电话: 021-56318531"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorLink="@color/black" />
 
     <TextView
         android:id="@+id/tec"
@@ -90,21 +118,21 @@
         android:layout_alignLeft="@id/web"
         android:layout_below="@id/tel"
         android:layout_marginTop="5dp"
-        android:textColorLink="@color/black"
         android:autoLink="email"
         android:text="技术支持: tech-support@magicwindow.cn"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorLink="@color/black" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/web"
-        android:textColorLink="@color/black"
         android:layout_below="@id/tec"
         android:layout_marginTop="5dp"
         android:autoLink="email"
         android:text="商务合作: BD@magicwindow.cn"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorLink="@color/black" />
 
     <LinearLayout
         android:id="@+id/map_title_bar"
