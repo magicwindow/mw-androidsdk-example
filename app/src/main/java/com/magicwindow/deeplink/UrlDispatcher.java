@@ -2,6 +2,7 @@ package com.magicwindow.deeplink;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
 import android.util.Log;
 
 import com.magicwindow.deeplink.activity.NewsDetailActivity;
@@ -39,15 +40,24 @@ public class UrlDispatcher {
         mLink.register("campaignKey", new MLinkCallback() {
 
             @Override
-            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+            public void execute(final Map<String, String> paramMap, final Uri uri, final Context context) {
 
-                Log.e("aaron", "uri = " + uri);
-                //如果活动关闭则跳转到首页
-                if (!MarketingHelper.currentMarketing(context).isActive(paramMap.get("key"))) {
-                    MLinkIntentBuilder.buildIntent(paramMap, context, MainActivity.class);
-                } else {
-                    MarketingHelper.currentMarketing(context).click(context, paramMap.get("key"));
-                }
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("aaron", "uri = " + uri);
+                        //如果活动关闭则跳转到首页
+                        if (!MarketingHelper.currentMarketing(context).isActive(paramMap.get("key_android"))) {
+                            Log.e("aaron", "key1 = " + paramMap.get("key_android"));
+                            MLinkIntentBuilder.buildIntent(paramMap, context, MainActivity.class);
+                        } else {
+                            Log.e("aaron", "key2 = " + paramMap.get("key"));
+                            MarketingHelper.currentMarketing(context).click(context, paramMap.get("key_android"));
+                        }
+                    }
+                }, 500);
+
             }
         });
 

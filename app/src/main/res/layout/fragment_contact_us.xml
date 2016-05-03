@@ -13,10 +13,10 @@
 
         <ImageView
             android:id="@+id/qrcode"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             android:padding="10dp"
             android:src="@drawable/qrcode1" />
 
@@ -31,7 +31,7 @@
 
         <View
             android:layout_width="1px"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:layout_marginTop="10dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/qrcode"
@@ -40,8 +40,8 @@
 
         <ImageView
             android:id="@+id/qrcode2"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignTop="@id/qrcode"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/qrcode"
