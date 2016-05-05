@@ -280,7 +280,7 @@ public class MainActivity extends BaseAppCompatActivity {
         protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
 
-            if (result == Config.RESULT_SUCCESS) {
+            if (Config.RESULT_SUCCESS == result) {
                 checkUpdate(response);
             }
         }
