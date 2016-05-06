@@ -123,6 +123,24 @@
             android:padding="15dp"
             android:textColor="@color/gray_dark_text_color"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_dark_text_color"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/push"
+            android:drawableLeft="@drawable/settings_icon_05"
+            android:drawablePadding="5dp"
+            android:text="@string/push"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:textColor="@color/gray_dark_text_color"
+            />
     </LinearLayout>
 
     <LinearLayout

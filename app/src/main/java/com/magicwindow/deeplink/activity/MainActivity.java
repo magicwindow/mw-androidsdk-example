@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.igexin.sdk.PushManager;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.MenuLeftAdapter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
@@ -127,10 +128,15 @@ public class MainActivity extends BaseAppCompatActivity {
         }
         initViews();
         initData();
-
+//        initGetui();
         CheckUpdateTask checkUpdateTask = new CheckUpdateTask();
         AsyncTaskExecutor.executeAsyncTask(checkUpdateTask);
     }
+
+    private void initGetui(){
+        PushManager.getInstance().initialize(this.getApplicationContext());
+    }
+
 
     @OnClick(id = R.id.appVersion)
     void clickAppVersion() {

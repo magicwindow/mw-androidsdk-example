@@ -176,5 +176,6 @@
     <string name="app_no_new_update">没有发现新版本</string>
     <string name="download_progress">正在下载:%1$d%%</string>
     <string name="download_success">下载完成，点击安装</string>
+    <string name="push">Push 推送</string>
 
 </resources>

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+import com.igexin.sdk.PushManager;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.UrlDispatcher;
 import com.magicwindow.deeplink.app.BaseActivity;
@@ -27,8 +28,12 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
 
         initData();
+        initGetui();
     }
 
+    private void initGetui(){
+        PushManager.getInstance().initialize(this.getApplicationContext());
+    }
     private void initData() {
         appPrefs = AppPrefs.get(this);
         DisplayMetrics metric = new DisplayMetrics();
