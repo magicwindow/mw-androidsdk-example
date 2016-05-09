@@ -29,6 +29,7 @@ public class AppPrefs extends BasePrefs {
     private static final String LAST_VERSION = "last_version";
     private static final String GUIDE_TOUR = "guide_tour";
     private static final String GUIDE_EBUSINESS = "guide_ebusiness";
+    private static final String CLIENT_ID = "clientid";
 
     private AppPrefs(Context context) {
         super(context, PREFS_NAME);
@@ -40,6 +41,14 @@ public class AppPrefs extends BasePrefs {
         } else {
             return new AppPrefs(context.getApplicationContext());
         }
+    }
+
+    public String getCid() {
+        return getString(CLIENT_ID,null);
+    }
+
+    public void setCid(String v) {
+        putString(CLIENT_ID, v);
     }
 
     public String getLastVersion() {

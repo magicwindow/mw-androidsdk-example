@@ -28,6 +28,7 @@ import com.magicwindow.deeplink.adapter.MenuLeftAdapter;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.app.BaseAsyncTask;
 import com.magicwindow.deeplink.citySelect.CitiesActivity;
+import com.magicwindow.deeplink.config.ApiConstant;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.DownloadResponse;
 import com.magicwindow.deeplink.domain.event.UpdateAppEvent;
@@ -245,7 +246,7 @@ public class MainActivity extends BaseAppCompatActivity {
             String urlString;
 
             try {
-                UrlBuilder builder = new UrlBuilder("http://demoapp.test.magicwindow.cn/v1/demoapp/checkUpdate");
+                UrlBuilder builder = new UrlBuilder(ApiConstant.CHECK_UPDATE);
                 urlString = builder.buildUrl();
 
                 JSONObject json = new JSONObject();

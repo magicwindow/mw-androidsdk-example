@@ -7,6 +7,9 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONObject;
+import com.magicwindow.deeplink.app.MWApplication;
+import com.magicwindow.deeplink.config.ApiConstant;
+import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MWConfiguration;
 
 import java.util.List;
@@ -21,31 +24,21 @@ import cn.salesuite.saf.http.rest.UrlBuilder;
  * Created by aaron on 16/5/6.
  */
 public class GetuiPushTask extends AsyncTask<String, String[], Integer> {
-    private static final String HOST = "http://121.40.195.177/push/";
-
-    private String path;
 
 
     private final String PUSH_APPID = "PUSH_APPID";
-    private final String PUSH_APPKEY = "PUSH_APPID";
-    private final String PUSH_APPSECRET = "PUSH_APPID";
-
-
-    public GetuiPushTask(String path) {
-        this.path = path;
-    }
+    private final String PUSH_APPKEY = "PUSH_APPKEY";
+    private final String PUSH_APPSECRET = "PUSH_APPSECRET";
 
     @Override
     protected Integer doInBackground(String... params) {
-        UrlBuilder builder = new UrlBuilder(HOST + path);
+        UrlBuilder builder = new UrlBuilder(ApiConstant.PUSH);
         String urlString = builder.buildUrl();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("appId", getMetaData(PUSH_APPID));
-        jsonObject.put("appKey", getMetaData(PUSH_APPKEY));
-        jsonObject.put("masterSecret", getMetaData(PUSH_APPSECRET));
-        jsonObject.put("os", "android");
-        jsonObject.put("cid", "7a05d84997e96431ceafc44adbd0afdf");
-        jsonObject.put("message", "wtf");
+        jsonObject.put("os", "0");
+        if (!TextUtils.isEmpty(AppPrefs.get(MWApplication.getInstance()).getCid())) {
+            jsonObject.put("cid", AppPrefs.get(MWApplication.getInstance()).getCid());
+        }
 
         RestClient.post(urlString, jsonObject, new HttpResponseHandler() {
             @Override
@@ -60,7 +53,7 @@ public class GetuiPushTask extends AsyncTask<String, String[], Integer> {
 
             }
         });
-        RestClient.get(urlString).body();
+//        RestClient.post(urlString).body();
         return null;
     }
 

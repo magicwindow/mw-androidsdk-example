@@ -112,7 +112,7 @@ public class SettingsFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 //                MarketingHelper.currGetuiPushTaskentMarketing(mContext).click(mContext, Config.MWS[96]);
-                AsyncTaskExecutor.executeAsyncTask(new GetuiPushTask("/v1/demoapp/pushMessage"));
+                AsyncTaskExecutor.executeAsyncTask(new GetuiPushTask());
             }
         });
         scrollView.getPullRootView().findViewById(R.id.my_achievement).setOnClickListener(new View.OnClickListener() {
