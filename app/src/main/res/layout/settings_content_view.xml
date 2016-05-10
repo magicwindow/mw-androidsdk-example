@@ -134,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/push"
-            android:drawableLeft="@drawable/settings_icon_05"
+            android:drawableLeft="@drawable/settings_icon_push"
             android:drawablePadding="5dp"
             android:text="@string/push"
             android:textSize="18sp"
