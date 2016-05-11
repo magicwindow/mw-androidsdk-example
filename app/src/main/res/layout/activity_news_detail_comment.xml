@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/comment_title"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_toRightOf="@id/comment_title"
-        android:text="210"
+        android:text="3"
         android:textColor="@color/btn_blue" />
 
     <View
@@ -34,10 +34,31 @@
         android:layout_below="@id/comment_title"
         android:background="@color/dark_gray" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
+    <include
+        layout="@layout/cell_community_comment"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/line">
+        android:layout_marginTop="15dp"
+        android:id="@+id/comment1"
+        android:layout_below="@id/line" />
 
-    </android.support.v7.widget.RecyclerView>
+    <include
+        layout="@layout/cell_community_comment1"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/comment2"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment1" />
+    <include
+        layout="@layout/cell_community_comment2"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment2" />
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/line">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
 </RelativeLayout>

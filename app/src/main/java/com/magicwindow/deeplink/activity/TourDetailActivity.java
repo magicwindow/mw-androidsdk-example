@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
@@ -114,6 +115,7 @@ public class TourDetailActivity extends BaseAppCompatActivity {
     private void bindMW(){
 
         //绑定旅游-detail-Uber
+//        MaterialRippleLayout.on(tour_detail_car).create();
         tour_detail_car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

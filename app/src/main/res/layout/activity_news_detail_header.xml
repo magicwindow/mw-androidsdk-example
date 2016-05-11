@@ -19,7 +19,7 @@
         android:textSize="24sp"
         android:gravity="center"
         android:text="小而美的综合体，iPhone SE\n深度体验" />
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/default_570_250"
+        android:id="@+id/news_detail_img"
+        android:background="@drawable/news01"
         />
     <Button
         android:layout_width="wrap_content"

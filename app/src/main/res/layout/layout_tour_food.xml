@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/food"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -98,13 +99,23 @@
         android:layout_marginRight="26dp"
         android:text="文昌鸡" />
 
-    <com.zxinsight.MWImageView
+    <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/more_food"
         android:layout_below="@id/tour_detail_food_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/tour_detail_more_food" />
+        android:layout_marginBottom="5dp"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="false"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
 
+        <com.zxinsight.MWImageView
+            android:id="@+id/more_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tour_detail_more_food" />
+    </com.balysv.materialripple.MaterialRippleLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/hotel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -80,19 +81,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/hotel_text_25"
-        android:layout_toRightOf="@id/hotel_text_25"
         android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/hotel_text_25"
         android:text="的游客选择住这里" />
 
-    <com.zxinsight.MWImageView
+    <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/order"
-        android:layout_alignTop="@id/hotel_icon"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/hotel_icon"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:paddingTop="10dp"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="false"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
 
-        android:src="@drawable/tour_detail_order" />
+        <com.zxinsight.MWImageView
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tour_detail_order" />
+    </com.balysv.materialripple.MaterialRippleLayout>
 </RelativeLayout>

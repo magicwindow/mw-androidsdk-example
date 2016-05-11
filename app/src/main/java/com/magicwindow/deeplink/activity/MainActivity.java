@@ -250,13 +250,11 @@ public class MainActivity extends BaseAppCompatActivity {
         if (bmp != null) {
             int h = bmp.getHeight();
             int w = bmp.getWidth();
-            double scale = 1.00000;
             if (w != 0) {
                 h = THUMB_SIZE * h / w;
             } else {
                 h = THUMB_SIZE;
             }
-            Log.e("MainActivity", "h = " + h + "w = " + w + "s = " + scale);
 
             Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, THUMB_SIZE, h, true);
             bmp.recycle();

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/white_soild_blue_side_light" android:state_pressed="true" >
+
+    </item>
+    <item android:drawable="@drawable/white_soild_blue_side">
+
+    </item>
+</selector>

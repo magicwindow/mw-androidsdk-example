@@ -171,21 +171,27 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/shop_buy" />
+            android:text="@string/buy_now"
+            android:textColor="@color/btn_blue"
+            android:textSize="18sp"
+            android:background="@drawable/btn_white_with_blue_side" />
 
         <Button
             android:id="@+id/click_to_buy"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/shop_cart" />
+            android:textSize="18sp"
+            android:text="@string/add_shop_cart"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_blue" />
     </LinearLayout>
 
 </RelativeLayout>

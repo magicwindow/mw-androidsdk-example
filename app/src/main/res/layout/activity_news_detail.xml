@@ -22,21 +22,36 @@
             app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        layout="@layout/activity_news_detail_header"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
 
-    <include
-        layout="@layout/activity_news_detail_follow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-    <include
-        layout="@layout/activity_news_detail_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin" />
+            android:background="@color/detail_bg"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/activity_news_detail_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/activity_news_detail_follow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+            <include
+                layout="@layout/activity_news_detail_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

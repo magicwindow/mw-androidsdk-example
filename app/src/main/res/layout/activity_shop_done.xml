@@ -57,10 +57,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/pay_done_text"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/btn_green_pressed"
+                android:background="@drawable/btn_green_with_white_side"
                 android:text="@string/go_home"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 

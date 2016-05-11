@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="100dp"
     android:layout_marginBottom="@dimen/activity_vertical_margin"
     android:layout_marginTop="@dimen/activity_vertical_margin"
     android:background="@color/white"
@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/left"
         android:layout_width="5dp"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:background="@drawable/rect_shape_blue" />
 
     <TextView
@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/left"
         android:text="文章作者" />
 
@@ -33,11 +34,11 @@
         android:drawableLeft="@drawable/community_img1"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
-        android:text="Aaron.Liu" />
+        android:text="小宁波" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
@@ -45,6 +46,6 @@
         android:background="@drawable/fillet_shape_blue"
         android:text="关注"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
 </RelativeLayout>

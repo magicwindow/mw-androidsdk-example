@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/city_map"
     android:background="@color/white"
     android:layout_marginLeft="10dp"
@@ -59,28 +60,41 @@
         android:padding="10dp"
         android:text="距离你5KM"
         android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tour_detail_car"
+    <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/map_title"
         android:layout_alignParentRight="true"
-
+        android:id="@+id/tour_detail_car_wrap"
+        android:layout_below="@id/map_img"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:drawableLeft="@drawable/tour_detail_car"
-        android:drawablePadding="5dp"
-        android:gravity="center_vertical"
-        android:padding="5dp"
-        android:text="打车前往"
-        android:textColor="@color/tour_detail_blue"
-        android:textSize="18sp" />
+        android:layout_marginTop="5dp"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="false"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+        <TextView
+            android:id="@+id/tour_detail_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/map_title"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@drawable/tour_detail_car"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="打车前往"
+            android:textColor="@color/tour_detail_blue"
+            android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
 
     <View
         android:layout_width="1px"
         android:layout_height="30dp"
+        android:layout_below="@id/map_img"
+        android:layout_marginTop="5dp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/tour_detail_car"
+        android:layout_toLeftOf="@id/tour_detail_car_wrap"
         android:background="@color/dark_gray" />
 </RelativeLayout>
