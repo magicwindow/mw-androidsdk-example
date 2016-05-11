@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.app.BaseActivity;
+import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
@@ -15,7 +15,7 @@ import cn.salesuite.saf.inject.annotation.InjectView;
 /**
  * Created by Tony Shen on 16/2/19.
  */
-public class LearnActivity extends BaseActivity {
+public class LearnActivity extends BaseAppCompatActivity {
 
     public final static int FROM_SPLASH = 1;
     public final static int FROM_SETTING = 2;

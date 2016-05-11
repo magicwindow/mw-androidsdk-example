@@ -66,7 +66,15 @@ public class BaseActivity extends SAFActivity {
         return mDialog;
     }
 
-
+    /**
+     * 关闭loading
+     */
+    protected void dismissDialog() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
+    }
     @Override
     protected void onPause() {
         TrackAgent.currentEvent().onPause(this);
@@ -79,14 +87,6 @@ public class BaseActivity extends SAFActivity {
         super.onResume();
     }
 
-    /**
-     * 关闭loading
-     */
-    protected void dismissDialog() {
-        if (mDialog != null) {
-            mDialog.dismiss();
-            mDialog = null;
-        }
-    }
+
 
 }

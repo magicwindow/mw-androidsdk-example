@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import com.igexin.sdk.PushManager;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.UrlDispatcher;
-import com.magicwindow.deeplink.app.BaseActivity;
+import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MagicWindowSDK;
@@ -18,7 +18,7 @@ import cn.salesuite.saf.log.L;
 /**
  * Created by Tony Shen on 15/11/23.
  */
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseAppCompatActivity {
 
     AppPrefs appPrefs;
 

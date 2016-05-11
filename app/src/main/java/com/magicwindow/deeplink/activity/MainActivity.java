@@ -3,7 +3,6 @@ package com.magicwindow.deeplink.activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -39,16 +38,14 @@ import com.magicwindow.deeplink.domain.event.UpdateAppEvent;
 import com.magicwindow.deeplink.download.UpdateDownloadTaskListener;
 import com.magicwindow.deeplink.menu.MenuManager;
 import com.magicwindow.deeplink.utils.DoubleClickExitUtils;
+import com.magicwindow.deeplink.utils.Utils;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -95,7 +92,6 @@ public class MainActivity extends BaseAppCompatActivity {
     private ProgressDialog pBar;
     private LightDialog dialog;
     private IWXAPI mIWXAPI;
-    private static final String SDCARD_ROOT = Environment.getExternalStorageDirectory().getPath();
     private int THUMB_SIZE = 150;
     private String path;
 
@@ -105,7 +101,7 @@ public class MainActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mIWXAPI = WXAPIFactory.createWXAPI(this, "wx7c355d10e774cd08");
-        path = copyFile("contact.png");
+        path = Utils.copyAssetsFile(this, "contact.png");
 
         if (getIntent() != null) {
             Intent intent = getIntent();
@@ -256,7 +252,7 @@ public class MainActivity extends BaseAppCompatActivity {
             int w = bmp.getWidth();
             double scale = 1.00000;
             if (w != 0) {
-                h = THUMB_SIZE*h / w;
+                h = THUMB_SIZE * h / w;
             } else {
                 h = THUMB_SIZE;
             }
@@ -283,37 +279,6 @@ public class MainActivity extends BaseAppCompatActivity {
         return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
     }
 
-
-    /**
-     * 执行拷贝任务
-     *
-     * @return 拷贝成功后的目标文件句柄
-     * @throws IOException
-     */
-    private String copyFile(String filename) {
-        AssetManager assetManager = this.getAssets();
-
-        InputStream in;
-        OutputStream out;
-        try {
-            in = assetManager.open(filename);
-            String newFileName = "/data/data/" + this.getPackageName() + "/" + filename;
-            out = new FileOutputStream(newFileName);
-
-            byte[] buffer = new byte[1024];
-            int read;
-            while ((read = in.read(buffer)) != -1) {
-                out.write(buffer, 0, read);
-            }
-            in.close();
-            out.flush();
-            out.close();
-            return newFileName;
-        } catch (Exception e) {
-            Log.e("tag", e.getMessage());
-        }
-        return null;
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

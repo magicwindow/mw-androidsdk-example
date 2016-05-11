@@ -2,6 +2,7 @@ package com.magicwindow.deeplink.app;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.TrackAgent;
@@ -34,6 +36,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected Context mContext;
     public String TAG;
     protected Handler mHandler = new SafeHandler(this);
+    private LoadingDialog mDialog;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         mContext = this;
         app = (MWApplication) this.getApplication();
         TAG = SAFUtils.makeLogTag(this.getClass());
-        addActivityToManager(this);
         mContext = this;
         app = (MWApplication) MWApplication.getInstance();
 
@@ -55,42 +57,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         Injector.injectInto(this);
     }
 
-    protected void addActivityToManager(Activity act) {
-        Log.i(TAG, "addActivityToManager");
-        if (!app.activityManager.contains(act)) {
-            Log.i(TAG, "addActivityToManager, packagename = " + act.getClass().getName());
-            app.activityManager.add(act);
-        }
-    }
-
-    protected void closeAllActivities() {
-        Log.i(TAG, "closeAllActivities");
-        for (final Activity act : app.activityManager) {
-            if (act != null) {
-                act.finish();
-            }
-        }
-    }
-
-    protected void delActivityFromManager(Activity act) {
-        Log.i(TAG, "delActivityFromManager");
-        if (app.activityManager.contains(act)) {
-            app.activityManager.remove(act);
-        }
-    }
-
-    /**
-     * 返回当前运行activity的名称
-     *
-     * @return
-     */
-    protected String getCurrentActivityName() {
-        int size = app.activityManager.size();
-        if (size > 0) {
-            return app.activityManager.get(size - 1).getClass().getName();
-        }
-        return null;
-    }
 
     @Override
     public void onLowMemory() {
@@ -113,7 +79,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        delActivityFromManager(this);
+        dismissDialog();
         eventBus.unregister(this);
 
     }
@@ -163,6 +129,28 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onResume() {
         TrackAgent.currentEvent().onResume(this);
         super.onResume();
+    }
+
+
+    /**
+     * 显示loading
+     */
+    protected Dialog showLoading(Context context) {
+        dismissDialog();
+        mDialog = new LoadingDialog(context);
+        mDialog.show();
+
+        return mDialog;
+    }
+
+    /**
+     * 关闭loading
+     */
+    protected void dismissDialog() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
     }
 }
 

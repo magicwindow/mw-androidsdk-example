@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.magicwindow.deeplink.R;
-import com.magicwindow.deeplink.app.BaseActivity;
+import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.domain.User;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -20,7 +20,7 @@ import cn.salesuite.saf.utils.StringUtils;
 /**
  * Created by Tony Shen on 15/11/29.
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseAppCompatActivity {
 
     @InjectView
     View coverLayout;
