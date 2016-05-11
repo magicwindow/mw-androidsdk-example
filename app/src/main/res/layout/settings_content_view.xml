@@ -1,205 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/detail_bg"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/detail_bg">
 
     <LinearLayout
+        android:id="@+id/login_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
 
         android:background="@color/white"
-        android:id="@+id/login_layout">
-        <TextView
+        android:orientation="vertical">
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_login"
-            android:drawablePadding="5dp"
-            android:text="@string/login"
-            android:id="@+id/login"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_login"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/login"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/user_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="5dp"
         android:layout_below="@id/login_layout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
         android:background="@color/white"
-        android:id="@+id/user_layout">
-        <TextView
+        android:orientation="vertical">
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_01"
-            android:drawablePadding="5dp"
-            android:text="@string/user_message"
-            android:id="@+id/custom_event"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/custom_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_01"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/user_message"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_bc_bg_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_bc_bg_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_02"
-            android:drawablePadding="5dp"
-            android:text="@string/user_tip"
-            android:id="@+id/user_login"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/user_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_02"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/user_tip"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_dark_text_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_dark_text_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_03"
-            android:drawablePadding="5dp"
-            android:text="@string/user_feedback"
-            android:id="@+id/grade"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/grade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_03"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/user_feedback"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/point_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
+        android:layout_alignLeft="@id/user_layout"
         android:layout_below="@+id/user_layout"
         android:layout_marginTop="20dp"
-        android:id="@+id/point_layout"
-        android:layout_alignLeft="@id/user_layout">
-        <TextView
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_04"
-            android:drawablePadding="5dp"
-            android:id="@+id/point"
-            android:text="@string/user_survey"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_04"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/user_survey"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_dark_text_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_dark_text_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/to_share"
-            android:drawableLeft="@drawable/settings_icon_05"
-            android:drawablePadding="5dp"
-            android:text="@string/share_to_friend"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/to_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_05"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/share_to_friend"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_dark_text_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_dark_text_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/push"
-            android:drawableLeft="@drawable/settings_icon_push"
-            android:drawablePadding="5dp"
-            android:text="@string/push"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/push"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_push"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/push"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/my_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:visibility="visible"
+        android:layout_alignLeft="@id/user_layout"
         android:layout_below="@+id/point_layout"
-        android:id="@+id/my_layout"
         android:layout_marginTop="20dp"
-        android:layout_alignLeft="@id/user_layout">
-        <TextView
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_07"
-            android:drawablePadding="5dp"
-            android:text="@string/my_achievement"
-            android:id="@+id/my_achievement"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/my_achievement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_07"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/my_achievement"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_bc_bg_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_bc_bg_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_06"
-            android:drawablePadding="5dp"
-            android:text="@string/my_friend"
-            android:id="@+id/my_friend"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/my_friend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_06"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/my_friend"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray_bc_bg_color"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_bc_bg_color" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/settings_icon_09"
-            android:drawablePadding="5dp"
-            android:text="@string/my_learn"
-            android:id="@+id/learning"
-            android:textSize="18sp"
-            android:padding="15dp"
-            android:textColor="@color/gray_dark_text_color"
-            />
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#585858"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <TextView
+                android:id="@+id/learning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/settings_icon_09"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="@string/my_learn"
+                android:textColor="@color/gray_dark_text_color"
+                android:textSize="18sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
 </RelativeLayout>

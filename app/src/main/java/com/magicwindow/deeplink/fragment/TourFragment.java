@@ -63,9 +63,9 @@ public class TourFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         super.onStart();
         appPrefs = AppPrefs.get(mContext);
         Log.e("aaron", "guide = " + appPrefs.getGuideTour());
-        if (appPrefs != null && !appPrefs.getGuideTour()) {
+//        if (appPrefs != null && !appPrefs.getGuideTour()) {
 //            addGuideImage();// 添加新手引导图片
-        }
+//        }
     }
 
     private void addGuideImage() {

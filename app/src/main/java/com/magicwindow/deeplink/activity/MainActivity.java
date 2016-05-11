@@ -3,6 +3,9 @@ package com.magicwindow.deeplink.activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -34,10 +38,17 @@ import com.magicwindow.deeplink.domain.DownloadResponse;
 import com.magicwindow.deeplink.domain.event.UpdateAppEvent;
 import com.magicwindow.deeplink.download.UpdateDownloadTaskListener;
 import com.magicwindow.deeplink.menu.MenuManager;
-import com.magicwindow.deeplink.ui.dialog.MWDialog;
 import com.magicwindow.deeplink.utils.DoubleClickExitUtils;
+import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.sdk.modelmsg.WXImageObject;
+import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -83,11 +94,18 @@ public class MainActivity extends BaseAppCompatActivity {
 
     private ProgressDialog pBar;
     private LightDialog dialog;
+    private IWXAPI mIWXAPI;
+    private static final String SDCARD_ROOT = Environment.getExternalStorageDirectory().getPath();
+    private int THUMB_SIZE = 150;
+    private String path;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mIWXAPI = WXAPIFactory.createWXAPI(this, "wx7c355d10e774cd08");
+        path = copyFile("contact.png");
 
         if (getIntent() != null) {
             Intent intent = getIntent();
@@ -134,7 +152,7 @@ public class MainActivity extends BaseAppCompatActivity {
         AsyncTaskExecutor.executeAsyncTask(checkUpdateTask);
     }
 
-    private void initGetui(){
+    private void initGetui() {
         PushManager.getInstance().initialize(this.getApplicationContext());
     }
 
@@ -201,7 +219,11 @@ public class MainActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        if (menuManager != null && menuManager.getCurType() == MenuManager.MenuType.CONTACT) {
+            getMenuInflater().inflate(R.menu.menu_main_share, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+        }
         return true;
     }
 
@@ -211,10 +233,86 @@ public class MainActivity extends BaseAppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_city) {
             startActivityForResult(new Intent(this, CitiesActivity.class), 0);
+        } else if (id == R.id.action_share) {
+            share();
         }
 
         return super.onOptionsItemSelected(item);
 
+    }
+
+    private void share() {
+        WXMediaMessage msg = new WXMediaMessage();
+
+//        WXImageObject imageObject = new WXImageObject();
+//        imageObject.imagePath = path;
+        msg.title = "魔窗-联系我们";
+
+        Bitmap bmp = BitmapFactory.decodeFile(path);
+        WXImageObject imageObject = new WXImageObject(bmp);
+        Log.e("MainActivity", "path = " + path);
+        if (bmp != null) {
+            int h = bmp.getHeight();
+            int w = bmp.getWidth();
+            double scale = 1.00000;
+            if (w != 0) {
+                h = THUMB_SIZE*h / w;
+            } else {
+                h = THUMB_SIZE;
+            }
+            Log.e("MainActivity", "h = " + h + "w = " + w + "s = " + scale);
+
+            Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, THUMB_SIZE, h, true);
+            bmp.recycle();
+            msg.setThumbImage(thumbBmp);
+        }
+
+        msg.mediaObject = imageObject;
+        msg.description = "魔窗-联系我们";
+
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = buildTransaction("magic_window");
+        req.message = msg;
+        req.scene = SendMessageToWX.Req.WXSceneSession;
+
+        req.message = msg;
+        mIWXAPI.sendReq(req);
+    }
+
+    private String buildTransaction(final String type) {
+        return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
+    }
+
+
+    /**
+     * 执行拷贝任务
+     *
+     * @return 拷贝成功后的目标文件句柄
+     * @throws IOException
+     */
+    private String copyFile(String filename) {
+        AssetManager assetManager = this.getAssets();
+
+        InputStream in;
+        OutputStream out;
+        try {
+            in = assetManager.open(filename);
+            String newFileName = "/data/data/" + this.getPackageName() + "/" + filename;
+            out = new FileOutputStream(newFileName);
+
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            in.close();
+            out.flush();
+            out.close();
+            return newFileName;
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage());
+        }
+        return null;
     }
 
     @Override
@@ -250,10 +348,10 @@ public class MainActivity extends BaseAppCompatActivity {
                 urlString = builder.buildUrl();
 
                 JSONObject json = new JSONObject();
-                json.put("os","0"); // 0表示android,1表示iOS
-                json.put("currentVersion",app.version);
+                json.put("os", "0"); // 0表示android,1表示iOS
+                json.put("currentVersion", app.version);
 
-                RestClient.post(urlString,json, new HttpResponseHandler() {
+                RestClient.post(urlString, json, new HttpResponseHandler() {
 
                     @Override
                     public void onSuccess(String content, Map<String, List<String>> header) {
@@ -326,6 +424,7 @@ public class MainActivity extends BaseAppCompatActivity {
 
     /**
      * 触发app升级下载监听者事件
+     *
      * @param response
      */
     void doUpdateEvent(DownloadResponse response) {
@@ -346,7 +445,7 @@ public class MainActivity extends BaseAppCompatActivity {
         if (StringUtils.isNotBlank(event.url) && SAFUtils.checkNetworkStatus(mContext)) {
             String url = event.url;
             String path = Environment.getExternalStorageDirectory().getPath() + Config.DIR + "/";
-            String fileName = "mwdemo" + System.currentTimeMillis()+ ".apk";
+            String fileName = "mwdemo" + System.currentTimeMillis() + ".apk";
             final String apkPathUrl = path + fileName;
             DownloadManager.getInstance(app).startDownload(url, path, fileName,
                     new UpdateDownloadTaskListener(pBar, mContext, apkPathUrl));

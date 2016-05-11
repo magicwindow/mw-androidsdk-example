@@ -31,4 +31,5 @@ public class ContactUsFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void onRefresh() {
     }
+
 }

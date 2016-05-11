@@ -122,9 +122,9 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     public void onStart() {
         super.onStart();
         appPrefs = AppPrefs.get(mContext);
-        if (appPrefs != null && !appPrefs.getGuideEbusiness()) {
-            addGuideImage();// 添加新手引导图片
-        }
+//        if (appPrefs != null && !appPrefs.getGuideEbusiness()) {
+//            addGuideImage();// 添加新手引导图片
+//        }
     }
 
     private void addGuideImage() {
