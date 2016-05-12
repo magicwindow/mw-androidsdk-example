@@ -205,28 +205,6 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void initView() {
 
-        /*if (app.session.get(Config.businessList)!=null) {
-            list = appPrefs.getBusiness();
-            setViewPager();
-        } else {
-            NetTask task = new NetTask(Config.businessList);
-            task.execute(new RxAsyncTask.HttpResponseHandler() {
-                @Override
-                public void onSuccess(String s) {
-                    appPrefs.saveJson(Config.businessList, s);
-                    list = appPrefs.getBusiness();
-                    app.session.put(Config.businessList, list);
-                    setViewPager();
-                }
-
-                @Override
-                public void onFail(Throwable throwable) {
-                    list = appPrefs.getBusiness();
-                    setViewPager();
-                }
-            });
-        }*/
-
         list = appPrefs.getBusiness();
         setViewPager();
 
@@ -365,24 +343,45 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
         }
 
 
-        if (marketingHelper.isActive(Config.MWS[27])) {
+        if (marketingHelper.isActive(Config.MWS[35])) {
             //middle第1个魔窗位
             img_1.bindEvent(Config.MWS[35]);
         } else {
-            startActivity(new Intent(mContext, ShopDetailActivity.class));
+            ImageLoader.getInstance().displayImage(list.middleList.get(0), img_1);
+            img_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+
+                }
+            });
         }
-        if (marketingHelper.isActive(Config.MWS[27])) {
+        if (marketingHelper.isActive(Config.MWS[36])) {
             //middle第2个魔窗位
             img_2.bindEvent(Config.MWS[36]);
         } else {
-            startActivity(new Intent(mContext, ShopDetailActivity.class));
+            ImageLoader.getInstance().displayImage(list.middleList.get(1), img_2);
+            img_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+
+                }
+            });
         }
 
-        if (marketingHelper.isActive(Config.MWS[27])) {
+        if (marketingHelper.isActive(Config.MWS[37])) {
             //middle第3个魔窗位
             img_3.bindEvent(Config.MWS[37]);
         } else {
-            startActivity(new Intent(mContext, ShopDetailActivity.class));
+            ImageLoader.getInstance().displayImage(list.middleList.get(2), img_3);
+            img_3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(mContext, ShopDetailActivity.class));
+
+                }
+            });
         }
 
     }
@@ -405,9 +404,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             }
         });
 
-        ImageLoader.getInstance().displayImage(list.middleList.get(0), img_1);
-        ImageLoader.getInstance().displayImage(list.middleList.get(1), img_2);
-        ImageLoader.getInstance().displayImage(list.middleList.get(2), img_3);
+
     }
 
     @Override
