@@ -23,5 +23,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.alibaba:fastjson:1.1.46.android'
     compile 'joda-time:joda-time:2.9'
-    compile files('libs/SAF-all-1.1.18.jar')
+    compile files('libs/SAF-all-1.1.19.jar')
 }
