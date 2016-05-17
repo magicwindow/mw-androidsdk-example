@@ -3,16 +3,11 @@
  */
 package com.magicwindow.deeplink.app;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Build;
 
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.utils.Utils;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -24,7 +19,6 @@ import com.zxinsight.MagicWindowSDK;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import cn.salesuite.saf.app.SAFApp;
@@ -32,13 +26,11 @@ import cn.salesuite.saf.app.SAFApp;
 /**
  * @author Tony Shen
  */
-public class MWApplication extends Application {
+public class MWApplication extends SAFApp {
 
     private static MWApplication mInstance = null;
     private AppPrefs appPrefs;
 
-    public String version;
-    public HashMap session;
     public static MWApplication getInstance() {
         return mInstance;
     }
@@ -48,16 +40,6 @@ public class MWApplication extends Application {
         super.onCreate();
         mInstance = this;
         appPrefs = AppPrefs.get(mInstance);
-//        mInstance.imageLoader.setEnableDiskCache(false);
-        this.session = new HashMap();
-        try {
-            PackageInfo e = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
-            if(e != null) {
-                this.version = e.versionName;
-            }
-        } catch (PackageManager.NameNotFoundException var3) {
-            var3.printStackTrace();
-        }
         initMW();
         initJson();
         initImageLoader(getApplicationContext());
