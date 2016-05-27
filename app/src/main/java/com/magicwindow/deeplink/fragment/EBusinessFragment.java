@@ -24,7 +24,6 @@ import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
@@ -347,7 +346,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             //middle第1个魔窗位
             img_1.bindEvent(Config.MWS[35]);
         } else {
-            ImageLoader.getInstance().displayImage(list.middleList.get(0), img_1);
+            app.imageLoader.displayImage(list.middleList.get(0), img_1);
             img_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -360,7 +359,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             //middle第2个魔窗位
             img_2.bindEvent(Config.MWS[36]);
         } else {
-            ImageLoader.getInstance().displayImage(list.middleList.get(1), img_2);
+            app.imageLoader.displayImage(list.middleList.get(1), img_2);
             img_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -374,7 +373,7 @@ public class EBusinessFragment extends BaseFragment implements SwipeRefreshLayou
             //middle第3个魔窗位
             img_3.bindEvent(Config.MWS[37]);
         } else {
-            ImageLoader.getInstance().displayImage(list.middleList.get(2), img_3);
+            app.imageLoader.displayImage(list.middleList.get(2), img_3);
             img_3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

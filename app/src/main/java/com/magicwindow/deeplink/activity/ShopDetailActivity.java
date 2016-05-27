@@ -15,7 +15,6 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
 
@@ -73,7 +72,7 @@ public class ShopDetailActivity extends BaseAppCompatActivity {
     }
     private void setViewPager() {
         shopDetail = AppPrefs.get(this).getShopDetail();
-        ImageLoader.getInstance().displayImage(shopDetail.content, shopDetailImg);
+        app.imageLoader.displayImage(shopDetail.content,shopDetailImg);
 
         viewPager.setAdapter(new ImageAdapter(-1, shopDetail.headList, R.drawable.default_640_640));
         indicator.setViewPager(viewPager);

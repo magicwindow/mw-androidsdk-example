@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.TrackAgent;
 
 import java.lang.ref.WeakReference;
@@ -23,6 +21,8 @@ import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.log.L;
 import cn.salesuite.saf.utils.SAFUtils;
 import cn.salesuite.saf.utils.ToastUtils;
+
+//import com.nostra13.universalimageloader.core.ImageLoader;
 
 //import android.net.ConnectivityManager;
 
@@ -61,7 +61,8 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        ImageLoader.getInstance().clearMemoryCache();
+//        ImageLoader.getInstance().clearMemoryCache();
+        app.imageLoader.clearMemCache();
     }
 
     @Override
@@ -71,7 +72,8 @@ public class BaseAppCompatActivity extends AppCompatActivity {
             super.onTrimMemory(level);
 
             if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) {
-                ImageLoader.getInstance().clearMemoryCache();
+//                ImageLoader.getInstance().clearMemoryCache();
+                app.imageLoader.clearMemCache();
             }
         }
     }
