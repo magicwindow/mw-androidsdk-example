@@ -147,9 +147,6 @@ public final class Config {
     public static final String CUSTOM_ADD_TO_SHOP_CART = "X1W178NY";    //点击购买
     public static final String CUSTOM_CONFIRM_GOODS = "CZMX4GHW";    //确认商品
     public static final String CUSTOM_CONFIRM_ORDER = "1YWEWJEB";    //去付款
-    public static final String CUSTOM_PAY = "Z379KKJZ";    //购买完成
-    public static final String MW_DIALOG = "45ELEGYU";    //dialog弹窗
-    public static final String MW_DETAIL = "PZ2KP4EK";    //detail页面魔窗位
     public static float density; // 屏幕密度
     public static int height; // 屏幕高度
     public static int width; // 屏幕宽度

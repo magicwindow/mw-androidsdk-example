@@ -5,8 +5,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 
-import com.magicwindow.deeplink.activity.NewsDetailActivity;
 import com.magicwindow.deeplink.activity.MainActivity;
+import com.magicwindow.deeplink.activity.NewsDetailActivity;
 import com.magicwindow.deeplink.activity.O2ODetailActivity;
 import com.magicwindow.deeplink.activity.ShopDetailActivity;
 import com.magicwindow.deeplink.activity.VideoDetailActivity;
@@ -14,7 +14,6 @@ import com.zxinsight.MLink;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.mlink.MLinkCallback;
 import com.zxinsight.mlink.MLinkIntentBuilder;
-import com.zxinsight.mlink.MLinkListener;
 
 import java.util.Map;
 
@@ -24,8 +23,8 @@ import java.util.Map;
  */
 public class UrlDispatcher {
 
-    public static void register(Context context) {
-        MLink mLink = MLink.getInstance(context);
+    public static void register(Context ctx) {
+        MLink mLink = MLink.getInstance(ctx);
 
         //// TODO: @mw  注册默认跳转（必加）
         mLink.registerDefault(new MLinkCallback() {
@@ -73,34 +72,48 @@ public class UrlDispatcher {
             }
         });
 
-        mLink.register("VideoDetail", VideoDetailActivity.class, new MLinkListener() {
+        mLink.register("VideoDetail", new MLinkCallback() {
             @Override
-            public Map<String, String> getExtraParams(Map<String, String> map) {
-                Log.e("aaron", "VideoDetailActivity map = " + map);
-                return map;
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, VideoDetailActivity.class);
+
             }
         });
 
-        mLink.register("NewsDetail", NewsDetailActivity.class, new MLinkListener() {
+        mLink.register("NewsDetail", new MLinkCallback() {
             @Override
-            public Map<String, String> getExtraParams(Map<String, String> map) {
-                Log.e("aaron", "NewsDetailActivity map = " + map);
-                return map;
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, NewsDetailActivity.class);
+
             }
         });
 
-        mLink.register("O2Odetail", O2ODetailActivity.class, new MLinkListener() {
+        mLink.register("O2Odetail", new MLinkCallback() {
             @Override
-            public Map<String, String> getExtraParams(Map<String, String> map) {
-                Log.e("aaron", "O2ODetailActivity map = " + map);
-                return map;
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, O2ODetailActivity.class);
+
             }
         });
-        mLink.register("dianshangDetail", ShopDetailActivity.class, new MLinkListener() {
+        mLink.register("second", new MLinkCallback() {
             @Override
-            public Map<String, String> getExtraParams(Map<String, String> map) {
-                Log.e("aaron", "ShopDetailActivity map = " + map);
-                return map;
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, O2ODetailActivity.class);
+
+            }
+        });
+//        mLink.register("second", new MLinkCallback() {
+//            @Override
+//            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+//                MLinkIntentBuilder.buildIntent(paramMap, context, O2ODetailActivity.class);
+//
+//            }
+//        });
+        mLink.register("dianshangDetail", new MLinkCallback() {
+            @Override
+            public void execute(Map<String, String> paramMap, Uri uri, Context context) {
+                MLinkIntentBuilder.buildIntent(paramMap, context, ShopDetailActivity.class);
+
             }
         });
 

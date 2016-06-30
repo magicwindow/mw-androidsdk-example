@@ -40,21 +40,10 @@ public class MWApplication extends SAFApp {
         super.onCreate();
         mInstance = this;
         appPrefs = AppPrefs.get(mInstance);
-        initMW();
         initJson();
         initImageLoader(getApplicationContext());
     }
 
-    //@mw 初始化魔窗
-    private void initMW() {
-        MWConfiguration config = new MWConfiguration(this);
-        config.setChannel("魔窗")
-                .setDebugModel(true)
-                .setPageTrackWithFragment(true)
-                .setMLinkOpen()
-                .setSharePlatform(MWConfiguration.ORIGINAL);
-        MagicWindowSDK.initSDK(config);
-    }
 
     /**
      * 初始化json,如果网络出现问题,取本地的json

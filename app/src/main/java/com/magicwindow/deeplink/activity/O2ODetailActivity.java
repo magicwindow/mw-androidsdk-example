@@ -1,11 +1,13 @@
 package com.magicwindow.deeplink.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
@@ -14,9 +16,11 @@ import com.magicwindow.deeplink.domain.O2ODetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MarketingHelper;
+import com.zxinsight.mlink.annotation.MLinkRouter;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 
+@MLinkRouter(keys = "second")
 public class O2ODetailActivity extends BaseAppCompatActivity {
 
     @InjectView
@@ -31,6 +35,12 @@ public class O2ODetailActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_o2o_detail);
         initToolBar();
         displayImage();
+        Intent intent = getIntent();
+//        if(intent!=null){
+//            String name = intent.getStringExtra("name");
+//            Toast.makeText(this,"name = "+name,Toast.LENGTH_LONG).show();
+//
+//        }
     }
 
     private void initToolBar() {

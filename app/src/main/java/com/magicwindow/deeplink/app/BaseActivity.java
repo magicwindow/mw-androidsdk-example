@@ -10,6 +10,7 @@ import android.os.Handler;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
+import com.zxinsight.Session;
 import com.zxinsight.TrackAgent;
 
 import cn.salesuite.saf.app.SAFActivity;
@@ -77,13 +78,13 @@ public class BaseActivity extends SAFActivity {
     }
     @Override
     protected void onPause() {
-        TrackAgent.currentEvent().onPause(this);
+        Session.onPause(this);
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        TrackAgent.currentEvent().onResume(this);
+        Session.onResume(this);
         super.onResume();
     }
 

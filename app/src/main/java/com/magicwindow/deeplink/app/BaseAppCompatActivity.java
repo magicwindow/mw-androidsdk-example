@@ -14,6 +14,7 @@ import android.util.Log;
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zxinsight.Session;
 import com.zxinsight.TrackAgent;
 
 import java.lang.ref.WeakReference;
@@ -50,13 +51,13 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         eventBus = EventBusManager.getInstance();
         eventBus.register(this);
         L.init(this.getClass());
+        Log.e(TAG, "onCreate:" + getIntent().getData());
     }
 
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         Injector.injectInto(this);
     }
-
 
     @Override
     public void onLowMemory() {
@@ -121,13 +122,16 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        TrackAgent.currentEvent().onPause(this);
+        Session.onPause(this);
+        Log.e(TAG, "onPause:" + getClass().getName());
+
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        TrackAgent.currentEvent().onResume(this);
+        Session.onResume(this);
+        Log.e(TAG, "onResume:" + getClass().getName());
         super.onResume();
     }
 

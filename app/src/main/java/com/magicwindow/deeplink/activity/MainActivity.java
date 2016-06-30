@@ -40,10 +40,12 @@ import com.magicwindow.deeplink.menu.MenuManager;
 import com.magicwindow.deeplink.utils.DoubleClickExitUtils;
 import com.magicwindow.deeplink.utils.Utils;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.sdk.modelmsg.WXAppExtendObject;
 import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.zxinsight.mlink.annotation.MLinkDefaultRouter;
 
 import java.io.IOException;
 import java.util.List;
@@ -66,6 +68,8 @@ import cn.salesuite.saf.utils.SAFUtils;
 import cn.salesuite.saf.utils.StringUtils;
 import cn.salesuite.saf.view.LightDialog;
 
+
+@MLinkDefaultRouter
 public class MainActivity extends BaseAppCompatActivity {
 
 
@@ -230,11 +234,52 @@ public class MainActivity extends BaseAppCompatActivity {
         if (id == R.id.action_city) {
             startActivityForResult(new Intent(this, CitiesActivity.class), 0);
         } else if (id == R.id.action_share) {
-            share();
+            share1();
         }
 
         return super.onOptionsItemSelected(item);
 
+    }
+
+    private void share1() {
+        WXMediaMessage msg = new WXMediaMessage();
+
+//        WXImageObject imageObject = new WXImageObject();
+//        imageObject.imagePath = path;
+        msg.title = "魔窗-联系我们";
+
+        Bitmap bmp = BitmapFactory.decodeFile(path);
+//        WXImageObject imageObject = new WXImageObject(bmp);
+        final WXAppExtendObject appdata = new WXAppExtendObject();
+//        appdata.fileData = Util.readFromFile(path, 0, -1);
+        appdata.extInfo = "this is ext info";
+        appdata.fileData = "aaa".getBytes();
+
+        Log.e("MainActivity", "path = " + path);
+        if (bmp != null) {
+            int h = bmp.getHeight();
+            int w = bmp.getWidth();
+            if (w != 0) {
+                h = THUMB_SIZE * h / w;
+            } else {
+                h = THUMB_SIZE;
+            }
+
+            Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, THUMB_SIZE, h, true);
+            bmp.recycle();
+            msg.setThumbImage(thumbBmp);
+        }
+
+        msg.mediaObject = appdata;
+        msg.description = "魔窗-联系我们";
+
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = buildTransaction("magic_window");
+        req.message = msg;
+        req.scene = SendMessageToWX.Req.WXSceneSession;
+
+        req.message = msg;
+        mIWXAPI.sendReq(req);
     }
 
     private void share() {
@@ -348,7 +393,7 @@ public class MainActivity extends BaseAppCompatActivity {
         protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
 
-            if (Config.RESULT_SUCCESS == result) {
+            if (result != null && Config.RESULT_SUCCESS == result) {
                 checkUpdate(response);
             }
         }
