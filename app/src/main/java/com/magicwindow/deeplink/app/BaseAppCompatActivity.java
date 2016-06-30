@@ -9,15 +9,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
-<<<<<<< HEAD
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.Session;
-=======
->>>>>>> a8f70a0a4e7bf17f83c6e6710db244c090107663
-import com.zxinsight.TrackAgent;
 
 import java.lang.ref.WeakReference;
 
