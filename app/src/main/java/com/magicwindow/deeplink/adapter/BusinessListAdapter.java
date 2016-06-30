@@ -11,7 +11,6 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
@@ -46,7 +45,7 @@ public class BusinessListAdapter extends SAFAdapter<BusinessList.BusinessContent
         BusinessList.BusinessContent item = mList.get(position);
         if (item != null) {
 //            holder.imageView.setImageResource(item.imgRes);
-            ImageLoader.getInstance().displayImage(item.resource,holder.imageView);
+            MWApplication.getInstance().imageLoader.displayImage(item.resource,holder.imageView);
             holder.title.setText(item.title);
         }
 

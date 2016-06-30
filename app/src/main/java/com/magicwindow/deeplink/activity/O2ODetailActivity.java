@@ -14,7 +14,6 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2ODetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.mlink.annotation.MLinkRouter;
 
@@ -60,7 +59,7 @@ public class O2ODetailActivity extends BaseAppCompatActivity {
 
     private void displayImage() {
         O2ODetail detail = AppPrefs.get(this).getO2ODetail();
-        ImageLoader.getInstance().displayImage(detail.detail, o2oHeader);
+        app.imageLoader.displayImage(detail.detail,o2oHeader);
 
     }
 

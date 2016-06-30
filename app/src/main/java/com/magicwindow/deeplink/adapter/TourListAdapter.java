@@ -14,7 +14,6 @@ import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelList;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
@@ -79,7 +78,7 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
             final int mwOffset = 4 + position;
 
             if (type == TYPE0) {
-                ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
+                MWApplication.getInstance().imageLoader.displayImage(item.resource, holder.indicateView);
                 holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,7 +100,7 @@ public class TourListAdapter extends SAFAdapter<TravelList.TravelContent> {
                         }
                     });
                 } else {
-                    ImageLoader.getInstance().displayImage(item.resource, holder.indicateView);
+                    MWApplication.getInstance().imageLoader.displayImage(item.resource, holder.indicateView);
                     holder.indicateView.getRootView().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

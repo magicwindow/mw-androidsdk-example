@@ -71,5 +71,5 @@ dependencies {
     compile project(':PullZoomView')
     compile(name:'MagicWindowSDK', ext:'aar')
     compile(name:'material-ripple-1.0.2', ext:'aar')
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+//    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }

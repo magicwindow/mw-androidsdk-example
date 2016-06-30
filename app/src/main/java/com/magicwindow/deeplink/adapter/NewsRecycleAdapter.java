@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.activity.NewsDetailActivity;
 import com.magicwindow.deeplink.activity.WebViewActivity;
+import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.NewsList;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
@@ -68,7 +68,7 @@ public class NewsRecycleAdapter extends RecyclerView.Adapter<NewsRecycleAdapter.
         } else {
             if (item != null) {
                 holder.listBg.setImageResource(R.drawable.news01);
-                ImageLoader.getInstance().displayImage(item.resource, holder.listBg);
+                MWApplication.getInstance().imageLoader.displayImage(item.resource, holder.listBg);
                 holder.title.setText(item.title);
                 holder.desc.setText(item.desc);
                 int a = mList.get(0).mwKey + position;

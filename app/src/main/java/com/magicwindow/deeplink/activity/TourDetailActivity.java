@@ -9,13 +9,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.balysv.materialripple.MaterialRippleLayout;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
@@ -100,14 +98,14 @@ public class TourDetailActivity extends BaseAppCompatActivity {
 
     private void displayImage() {
         TravelDetail detail = AppPrefs.get(this).getTravelDetail();
-        ImageLoader.getInstance().displayImage(detail.banner, tour_detail_banner);
-        ImageLoader.getInstance().displayImage(detail.map, map_img);
-        ImageLoader.getInstance().displayImage(detail.stay, hotel_img);
-        ImageLoader.getInstance().displayImage(detail.travel.get(0), travel_img01);
-        ImageLoader.getInstance().displayImage(detail.travel.get(1), travel_img02);
-        ImageLoader.getInstance().displayImage(detail.food.get(0), food01);
-        ImageLoader.getInstance().displayImage(detail.food.get(1), food02);
-        ImageLoader.getInstance().displayImage(detail.food.get(2), food03);
+        app.imageLoader.displayImage(detail.banner, tour_detail_banner);
+        app.imageLoader.displayImage(detail.map, map_img);
+        app.imageLoader.displayImage(detail.stay, hotel_img);
+        app.imageLoader.displayImage(detail.travel.get(0), travel_img01);
+        app.imageLoader.displayImage(detail.travel.get(1), travel_img02);
+        app.imageLoader.displayImage(detail.food.get(0), food01);
+        app.imageLoader.displayImage(detail.food.get(1), food02);
+        app.imageLoader.displayImage(detail.food.get(2), food03);
 
 
     }

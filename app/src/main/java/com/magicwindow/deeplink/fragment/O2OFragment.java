@@ -17,7 +17,6 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2OList;
 import com.magicwindow.deeplink.task.NetTask;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
@@ -169,9 +168,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
             list = (O2OList) app.session.get(Config.o2oList);
             viewPager.setAdapter(new ImageAdapter(64, list.headList));
             indicator.setViewPager(viewPager);
-            ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
-            ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
-            ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
+            app.imageLoader.displayImage(list.contentList.get(0), img_1);
+            app.imageLoader.displayImage(list.contentList.get(1), img_2);
+            app.imageLoader.displayImage(list.contentList.get(2), img_3);
         } else {
             NetTask task = new NetTask(Config.o2oList);
             task.execute(new RxAsyncTask.HttpResponseHandler() {
@@ -183,9 +182,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                         app.session.put(Config.o2oList, list);
                         viewPager.setAdapter(new ImageAdapter(64, list.headList));
                         indicator.setViewPager(viewPager);
-                        ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
-                        ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
-                        ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
+                        app.imageLoader.displayImage(list.contentList.get(0), img_1);
+                        app.imageLoader.displayImage(list.contentList.get(1), img_2);
+                        app.imageLoader.displayImage(list.contentList.get(2), img_3);
                     }
 
 
@@ -196,9 +195,9 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                     list = appPrefs.getO2OList();
                     viewPager.setAdapter(new ImageAdapter(64, list.headList));
                     indicator.setViewPager(viewPager);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(0), img_1);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(1), img_2);
-                    ImageLoader.getInstance().displayImage(list.contentList.get(2), img_3);
+                    app.imageLoader.displayImage(list.contentList.get(0), img_1);
+                    app.imageLoader.displayImage(list.contentList.get(1), img_2);
+                    app.imageLoader.displayImage(list.contentList.get(2), img_3);
                 }
             });
         }

@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 
 import org.json.JSONObject;
@@ -66,7 +66,7 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setImageResource(defaultRes);
 
         if (Preconditions.isNotBlank(list) && Preconditions.isNotBlank(list.get(position))) {
-            ImageLoader.getInstance().displayImage(list.get(position), imageView);
+            MWApplication.getInstance().imageLoader.displayImage(list.get(position), imageView);
         }
         if (mWPosition != -1) {
             imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(), null);

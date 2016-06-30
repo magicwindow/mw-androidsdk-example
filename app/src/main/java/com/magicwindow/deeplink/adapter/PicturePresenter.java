@@ -6,9 +6,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
+import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.Pic;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zxinsight.MWImageView;
 import com.zxinsight.MarketingHelper;
 
@@ -38,7 +38,7 @@ public class PicturePresenter extends Presenter<Pic> {
     public void onBind(int position, final Pic item) {
         if (item != null) {
             listBg.setImageResource(R.drawable.default_300_300);
-            ImageLoader.getInstance().displayImage(item.resource, listBg);
+            MWApplication.getInstance().imageLoader.displayImage(item.resource, listBg);
             title.setText(item.title);
             desc.setText(item.desc);
         }
