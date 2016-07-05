@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.adapter.SAFRecycleAdapter;
+import cn.salesuite.saf.adapter.SAFRecyclerAdapter;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.utils.SAFUtils;
 import rx.functions.Func2;
@@ -36,7 +36,7 @@ public class O2OListActivity extends BaseAppCompatActivity {
     @InjectView
     Toolbar toolbar;
 
-    SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
+    SAFRecyclerAdapter adapter = SAFRecyclerAdapter.create();
     List<O2OItem> mList = null;
 
     @Override

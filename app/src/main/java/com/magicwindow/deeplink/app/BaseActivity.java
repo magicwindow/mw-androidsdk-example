@@ -6,12 +6,10 @@ package com.magicwindow.deeplink.app;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
 import com.zxinsight.Session;
-import com.zxinsight.TrackAgent;
 
 import cn.salesuite.saf.app.SAFActivity;
 import cn.salesuite.saf.eventbus.EventBus;
@@ -29,7 +27,6 @@ public class BaseActivity extends SAFActivity {
     protected MWApplication app;
     protected EventBus eventBus;
     protected Dialog mDialog;
-    protected Handler mHandler = new SafeHandler(this);
     protected Context mContext;
 
     public void onCreate(Bundle savedInstanceState) {

@@ -20,7 +20,7 @@ import com.magicwindow.deeplink.domain.Pic;
 import java.util.List;
 
 import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.adapter.SAFRecycleAdapter;
+import cn.salesuite.saf.adapter.SAFRecyclerAdapter;
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import rx.functions.Func2;
@@ -36,7 +36,7 @@ public class PictureFragment extends BaseFragment implements SwipeRefreshLayout.
     @InjectView(id = R.id.id_grid_picture)
     RecyclerView recyclerView;
 
-    SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
+    SAFRecyclerAdapter adapter = SAFRecyclerAdapter.create();
     List<Pic> mList = null;
 
     @Override

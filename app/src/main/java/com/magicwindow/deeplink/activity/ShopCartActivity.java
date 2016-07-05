@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import cn.salesuite.saf.adapter.Presenter;
-import cn.salesuite.saf.adapter.SAFRecycleAdapter;
+import cn.salesuite.saf.adapter.SAFRecyclerAdapter;
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;
 import rx.functions.Func2;
@@ -35,7 +35,7 @@ public class ShopCartActivity extends BaseAppCompatActivity {
     @InjectView
     Toolbar toolbar;
 
-    SAFRecycleAdapter adapter = SAFRecycleAdapter.create();
+    SAFRecyclerAdapter adapter = SAFRecyclerAdapter.create();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

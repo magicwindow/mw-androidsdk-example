@@ -5,7 +5,6 @@ package com.magicwindow.deeplink.app;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.magicwindow.deeplink.utils.EventBusManager;
 import com.zxinsight.TrackAgent;
@@ -26,12 +25,8 @@ public class BaseFragmentActivity extends SAFFragmentActivity {
     protected EventBus eventBus;
     protected Context mContext;
 
-    protected Handler mHandler = new SafeHandler(this);
-    protected boolean firstResume = true;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         mContext = this;
         app = (MWApplication) MWApplication.getInstance();
