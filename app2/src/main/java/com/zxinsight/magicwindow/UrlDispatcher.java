@@ -12,7 +12,6 @@ import com.zxinsight.magicwindow.activity.HomeActivity;
 import com.zxinsight.magicwindow.config.Config;
 import com.zxinsight.mlink.MLinkCallback;
 import com.zxinsight.mlink.MLinkIntentBuilder;
-import com.zxinsight.mlink.MLinkListener;
 
 import java.util.Map;
 
@@ -23,13 +22,6 @@ public class UrlDispatcher {
 
     public static void register(Context context) {
         MLink mLink = MLink.getInstance(context);
-//
-        mLink.register("user", DetailActivity.class, new MLinkListener() {
-            public Map<String, String> getExtraParams(Map<String, String> paramMap) {
-                paramMap.put("key1", "value");
-                return paramMap;
-            }
-        });
 
         mLink.register("mw", new MLinkCallback() {
 

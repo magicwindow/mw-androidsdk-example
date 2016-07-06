@@ -57,12 +57,7 @@ public class SplashActivity extends BaseAppCompatActivity {
 //        MagicWindowSDK.getMLink().registerWithAnnotation(this);
         //@mw mLink跳转 start
         Uri mLink = getIntent().getData();
-        Log.e("aaron", "Splash mLink = " + mLink);
-//        if (mLink == null) {
-//            Toast.makeText(this, "未接收到 scheme uri", Toast.LENGTH_LONG).show();
-//        } else {
-//            Toast.makeText(this, "scheme uri = " + mLink, Toast.LENGTH_LONG).show();
-//        }
+        Log.e(TAG, "Splash mLink = " + mLink);
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
         } else {

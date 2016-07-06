@@ -50,7 +50,7 @@ public class ImageAdapter extends PagerAdapter {
         MWImageView imageView = new MWImageView(view.getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setImageResource(list.get(position));
-        imageView.bindEventWithMLink(Config.MWS[mWPosition+position],new JSONObject());
+        imageView.bindEventWithMLink(Config.MWS[mWPosition+position],new JSONObject(),new JSONObject());
         view.addView(imageView,ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         return imageView;
