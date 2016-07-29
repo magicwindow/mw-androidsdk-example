@@ -116,6 +116,15 @@ public class SplashActivity extends BaseAppCompatActivity {
     @Override
     public void onNewIntent(Intent intent) {
         this.setIntent(intent);
+        Uri mLink = intent.getData();
+        Log.e(TAG, "intent uri = " + mLink);
+
+        if (mLink != null) {
+            MagicWindowSDK.getMLink().router(mLink);
+        } else {
+            MLink.getInstance(this).checkYYB();
+        }
+//        finish();
     }
 
 
