@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentCallbacks2;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,8 @@ import android.util.Log;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
+import com.zxinsight.MLink;
+import com.zxinsight.MagicWindowSDK;
 import com.zxinsight.Session;
 
 import java.lang.ref.WeakReference;
@@ -64,6 +67,18 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         super.onLowMemory();
 //        ImageLoader.getInstance().clearMemoryCache();
         app.imageLoader.clearMemCache();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Uri mLink = getIntent().getData();
+        Log.e(TAG, "mLink = " + mLink);
+        if (mLink != null) {
+            MagicWindowSDK.getMLink().router(mLink);
+        } else {
+            MLink.getInstance(this).checkYYB();
+        }
     }
 
     @Override

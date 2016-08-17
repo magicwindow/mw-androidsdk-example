@@ -58,11 +58,11 @@ public class SplashActivity extends BaseAppCompatActivity {
         //@mw mLink跳转 start
         Uri mLink = getIntent().getData();
         Log.e(TAG, "Splash mLink = " + mLink);
+        goHomeActivity();
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
         } else {
             MLink.getInstance(this).checkYYB();
-            goHomeActivity();
         }
         finish();
         //mLink跳转 end
@@ -115,16 +115,15 @@ public class SplashActivity extends BaseAppCompatActivity {
 
     @Override
     public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
         this.setIntent(intent);
-        Uri mLink = intent.getData();
-        Log.e(TAG, "intent uri = " + mLink);
 
+        Uri mLink = intent.getData();
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
         } else {
             MLink.getInstance(this).checkYYB();
         }
-//        finish();
     }
 
 

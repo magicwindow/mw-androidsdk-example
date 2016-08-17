@@ -60,15 +60,12 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="mwopen" />
             </intent-filter>
         </activity>
@@ -88,20 +85,9 @@
             android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/menu_text_01"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="magicwindow.main"
-                    android:scheme="mw" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.WebViewActivity"
@@ -153,7 +139,6 @@
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- 日志显示页面 logcat start -->
@@ -161,7 +146,6 @@
             android:name="cn.salesuite.mlogcat.activity.LogcatActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:launchMode="singleTop"
             android:theme="@android:style/Theme.Black"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
