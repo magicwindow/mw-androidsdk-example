@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
+import com.zxinsight.MLink;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
 import cn.salesuite.saf.inject.annotation.InjectView;
@@ -84,6 +85,7 @@ public class LearnActivity extends BaseAppCompatActivity {
     private void loadingNext() {
         Intent i = new Intent(LearnActivity.this, MainActivity.class);
         startActivity(i);
+        MLink.getInstance(this).deferredRouter();
         finish();
     }
 }

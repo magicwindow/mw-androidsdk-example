@@ -19,7 +19,7 @@ import com.zxinsight.mlink.annotation.MLinkRouter;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 
-@MLinkRouter(keys = "second")
+@MLinkRouter(keys = {"second","O2Odetail"})
 public class O2ODetailActivity extends BaseAppCompatActivity {
 
     @InjectView

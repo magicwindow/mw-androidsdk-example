@@ -13,9 +13,11 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.zxinsight.MarketingHelper;
+import com.zxinsight.mlink.annotation.MLinkRouter;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 
+@MLinkRouter(keys = "VideoDetail")
 public class VideoDetailActivity extends BaseAppCompatActivity {
 
 

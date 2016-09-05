@@ -17,6 +17,7 @@ import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MarketingHelper;
 import com.zxinsight.TrackAgent;
+import com.zxinsight.mlink.annotation.MLinkRouter;
 
 import java.util.HashMap;
 
@@ -25,6 +26,7 @@ import cn.salesuite.saf.inject.annotation.OnClick;
 import cn.salesuite.saf.utils.ToastUtils;
 import me.relex.circleindicator.CircleIndicator;
 
+@MLinkRouter(keys = "dianshangDetail")
 public class ShopDetailActivity extends BaseAppCompatActivity {
 
     @InjectView

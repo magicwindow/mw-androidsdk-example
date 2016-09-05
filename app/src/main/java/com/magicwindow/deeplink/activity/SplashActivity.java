@@ -1,5 +1,6 @@
 package com.magicwindow.deeplink.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.zxinsight.MLink;
 import com.zxinsight.MWConfiguration;
 import com.zxinsight.MagicWindowSDK;
+import com.zxinsight.mlink.YYBCallback;
 
 import cn.salesuite.saf.log.L;
 
@@ -58,13 +60,18 @@ public class SplashActivity extends BaseAppCompatActivity {
         //@mw mLink跳转 start
         Uri mLink = getIntent().getData();
         Log.e(TAG, "Splash mLink = " + mLink);
-        goHomeActivity();
         if (mLink != null) {
             MagicWindowSDK.getMLink().router(mLink);
+            finish();
         } else {
-            MLink.getInstance(this).checkYYB();
+            MLink.getInstance(this).checkYYB(SplashActivity.this, new YYBCallback() {
+                @Override
+                public void onFailed(Context context) {
+                    goHomeActivity();
+                    finish();
+                }
+            });
         }
-        finish();
         //mLink跳转 end
     }
 
