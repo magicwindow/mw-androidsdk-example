@@ -49,7 +49,7 @@ public class DoubleClickExitUtils {
 		} else {
 			isOnKeyBacking = true;
 			if(mBackToast == null) {
-				mBackToast = Toast.makeText(mActivity, com.magicwindow.deeplink.R.string.finish_by_back_again, 2000);
+				mBackToast = Toast.makeText(mActivity, com.magicwindow.deeplink.R.string.finish_by_back_again, Toast.LENGTH_LONG);
 			}
 			mBackToast.show();
 			mHandler.postDelayed(onBackTimeRunnable, 2000);
