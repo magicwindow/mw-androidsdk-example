@@ -68,9 +68,9 @@ public class SplashActivity extends BaseAppCompatActivity {
                 @Override
                 public void onFailed(Context context) {
                     goHomeActivity();
-                    finish();
                 }
             });
+            finish();
         }
         //mLink跳转 end
     }
