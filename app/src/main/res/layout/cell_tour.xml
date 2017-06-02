@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/drawer_list">
 
-    <com.zxinsight.MWImageView
+    <cn.magicwindow.MWImageView
         android:id="@+id/list_img"
         android:layout_width="match_parent"
         android:scaleType="fitXY"

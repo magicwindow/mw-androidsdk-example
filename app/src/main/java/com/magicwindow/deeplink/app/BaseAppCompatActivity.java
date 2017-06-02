@@ -14,9 +14,10 @@ import android.util.Log;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
-import com.zxinsight.MLink;
-import com.zxinsight.MagicWindowSDK;
-import com.zxinsight.Session;
+import cn.magicwindow.MLink;
+import cn.magicwindow.MLinkAPIFactory;
+import cn.magicwindow.MagicWindowSDK;
+import cn.magicwindow.Session;
 
 import java.lang.ref.WeakReference;
 
@@ -75,7 +76,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         Uri mLink = getIntent().getData();
         Log.e(TAG, "mLink = " + mLink);
         if (mLink != null) {
-            MagicWindowSDK.getMLink().router(mLink);
+            MLinkAPIFactory.createAPI(this).router(mLink);
         } else {
             MLink.getInstance(this).checkYYB();
         }

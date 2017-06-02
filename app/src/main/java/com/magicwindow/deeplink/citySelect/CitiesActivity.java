@@ -28,8 +28,8 @@ import android.widget.Toast;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.TrackAgent;
 
 import java.io.IOException;
 import java.util.ArrayList;

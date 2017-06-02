@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon01"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon02"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon03"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon04"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon05"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon06"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -218,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon07"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -246,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/business_icon08"
                 android:layout_width="45dp"
                 android:layout_height="45dp"

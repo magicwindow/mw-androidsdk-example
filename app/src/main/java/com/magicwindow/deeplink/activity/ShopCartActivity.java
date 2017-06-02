@@ -15,7 +15,7 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.ShoppingCartItem;
 import com.magicwindow.deeplink.ui.DividerItemDecoration;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import java.util.ArrayList;
 import java.util.HashMap;

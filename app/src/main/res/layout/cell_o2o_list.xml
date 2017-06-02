@@ -10,7 +10,7 @@
         android:layout_height="100dp"
         android:background="@color/white">
 
-        <com.zxinsight.MWImageView
+        <cn.magicwindow.MWImageView
             android:id="@+id/id_o2o_list_img"
             android:layout_width="70dp"
             android:layout_height="70dp"

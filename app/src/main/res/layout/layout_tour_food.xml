@@ -112,7 +112,7 @@
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true">
 
-        <com.zxinsight.MWImageView
+        <cn.magicwindow.MWImageView
             android:id="@+id/more_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

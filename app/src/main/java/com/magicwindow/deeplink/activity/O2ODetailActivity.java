@@ -14,8 +14,8 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2ODetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.mlink.annotation.MLinkRouter;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.mlink.annotation.MLinkRouter;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 

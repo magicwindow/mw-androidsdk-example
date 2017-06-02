@@ -4,7 +4,7 @@
     android:layout_height="175dp"
     android:background="@color/white">
 
-    <com.zxinsight.MWImageView
+    <cn.magicwindow.MWImageView
         android:id="@+id/id_picture_list_bg"
         android:layout_width="match_parent"
         android:layout_height="175dp"

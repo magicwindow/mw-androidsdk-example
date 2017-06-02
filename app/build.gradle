@@ -10,15 +10,15 @@ allprojects {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     //兼容API 23干掉了httpClient，手动加入httpClient库,或者将org.apache.http.legacy.jar放到lib文件中
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.magicwindow.deeplink"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 3
         versionName "1.5"
     }
@@ -47,8 +47,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-//            shrinkResources true
+            debuggable true
+            minifyEnabled true //是否混淆
+            //shrinkResources true //删除无效的Resource
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -69,8 +70,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
     compile project(':MLogCat')
     compile project(':PullZoomView')
-    compile(name:'MagicWindowSDK', ext:'aar')
-    compile(name:'material-ripple-1.0.2', ext:'aar')
+    compile(name: 'material-ripple-1.0.2', ext: 'aar')
 //    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 
 }

@@ -9,8 +9,8 @@ import android.view.View;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.mlink.annotation.MLinkRouter;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.mlink.annotation.MLinkRouter;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 @MLinkRouter(keys = "NewsDetail")

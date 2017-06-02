@@ -15,8 +15,8 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.User;
 import com.magicwindow.deeplink.task.GetuiPushTask;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;

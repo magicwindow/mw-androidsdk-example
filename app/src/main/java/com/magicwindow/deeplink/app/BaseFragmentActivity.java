@@ -7,7 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.magicwindow.deeplink.utils.EventBusManager;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.app.SAFFragmentActivity;
 import cn.salesuite.saf.eventbus.EventBus;

@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/white">
 
-            <com.zxinsight.MWImageView
+            <cn.magicwindow.MWImageView
                 android:id="@+id/id_list_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

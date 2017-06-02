@@ -17,9 +17,11 @@ import com.magicwindow.deeplink.app.BaseFragment;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.O2OList;
 import com.magicwindow.deeplink.task.NetTask;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
+
+import cn.magicwindow.ClickParamsBuilder;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.TrackAgent;
 
 import java.util.HashMap;
 
@@ -260,14 +262,15 @@ public class O2OFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         dt.put("name1", "青岛啤酒");
         dt.put("name2", "雪花啤酒");
         dt.put("name3", "五粮液");
-        img_2.bindEventWithMLink(Config.MWS[73], dt, dt);
+//        img_2.bindEventWithMLink(Config.MWS[73], dt, dt);
+        img_2.bindEventWithParams(new ClickParamsBuilder(getContext(),Config.MWS[73]).mLinkParam(dt).landingPageParam(dt).build());
         //middle第3个魔窗位
         //middle第2个魔窗位
         HashMap<String, String> dt1 = new HashMap<String, String>();
         dt1.put("name1", "剑南春");
         dt1.put("name2", "茅台酒");
         dt1.put("name3", "梦之蓝");
-        img_3.bindEventWithMLink(Config.MWS[74], dt1, dt1);
+        img_3.bindEventWithParams(new ClickParamsBuilder(getContext(),Config.MWS[74]).mLinkParam(dt1).landingPageParam(dt1).build());
 
     }
 

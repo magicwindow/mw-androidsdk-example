@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.domain.ShoppingCartItem;
-import com.zxinsight.MWImageView;
+import cn.magicwindow.MWImageView;
 
 import cn.salesuite.saf.adapter.Presenter;
 import cn.salesuite.saf.inject.annotation.InjectView;

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.zxinsight.MWImageView;
+import cn.magicwindow.MWImageView;
 
 /**
  * @author aaron

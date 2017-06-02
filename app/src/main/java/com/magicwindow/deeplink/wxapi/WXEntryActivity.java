@@ -2,7 +2,8 @@ package com.magicwindow.deeplink.wxapi;
 
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-import com.zxinsight.share.activity.MWWXHandlerActivity;
+
+import cn.magicwindow.marketing.share.activity.MWWXHandlerActivity;
 
 /**
  * 微信分享activity

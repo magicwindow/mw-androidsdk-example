@@ -15,9 +15,9 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.ShopDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
-import com.zxinsight.mlink.annotation.MLinkRouter;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.TrackAgent;
+import cn.magicwindow.mlink.annotation.MLinkRouter;
 
 import java.util.HashMap;
 

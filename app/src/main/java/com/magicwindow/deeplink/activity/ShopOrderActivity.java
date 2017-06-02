@@ -8,7 +8,7 @@ import android.view.View;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 import cn.salesuite.saf.inject.annotation.OnClick;

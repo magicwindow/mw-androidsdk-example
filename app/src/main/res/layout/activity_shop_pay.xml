@@ -80,7 +80,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical">
 
-                <com.zxinsight.MWImageView
+                <cn.magicwindow.MWImageView
                     android:id="@+id/id_list_weixin_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical">
 
-                <com.zxinsight.MWImageView
+                <cn.magicwindow.MWImageView
                     android:id="@+id/id_list_zhifubao_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

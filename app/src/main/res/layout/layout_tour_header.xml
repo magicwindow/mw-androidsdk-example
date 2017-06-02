@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         >
 
-        <com.zxinsight.MWImageView
+        <cn.magicwindow.MWImageView
             android:id="@+id/tour_detail_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/default_720_477" />
 
-        <com.zxinsight.MWImageView
+        <cn.magicwindow.MWImageView
             android:id="@+id/tour_detail_uber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

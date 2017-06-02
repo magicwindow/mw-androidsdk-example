@@ -5,8 +5,6 @@ package com.magicwindow.deeplink.app;
 
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MWConfiguration;
-import com.zxinsight.MagicWindowSDK;
 
 import java.io.InputStream;
 import java.util.ArrayList;

@@ -9,8 +9,8 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.Pic;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
 
 import cn.salesuite.saf.adapter.Presenter;
 import cn.salesuite.saf.inject.annotation.InjectView;

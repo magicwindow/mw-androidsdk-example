@@ -45,8 +45,8 @@ import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.zxinsight.MLink;
-import com.zxinsight.mlink.annotation.MLinkDefaultRouter;
+import cn.magicwindow.MLink;
+import cn.magicwindow.mlink.annotation.MLinkDefaultRouter;
 
 import java.io.IOException;
 import java.util.List;

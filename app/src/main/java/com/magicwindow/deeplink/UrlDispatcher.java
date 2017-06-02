@@ -10,10 +10,10 @@ import com.magicwindow.deeplink.activity.NewsDetailActivity;
 import com.magicwindow.deeplink.activity.O2ODetailActivity;
 import com.magicwindow.deeplink.activity.ShopDetailActivity;
 import com.magicwindow.deeplink.activity.VideoDetailActivity;
-import com.zxinsight.MLink;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.mlink.MLinkCallback;
-import com.zxinsight.mlink.MLinkIntentBuilder;
+import cn.magicwindow.MLink;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.mlink.MLinkCallback;
+import cn.magicwindow.mlink.MLinkIntentBuilder;
 
 import java.util.Map;
 

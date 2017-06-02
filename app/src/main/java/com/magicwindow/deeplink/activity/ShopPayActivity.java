@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import java.util.HashMap;
 

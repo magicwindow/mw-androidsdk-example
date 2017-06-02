@@ -14,8 +14,8 @@ import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelDetail;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 

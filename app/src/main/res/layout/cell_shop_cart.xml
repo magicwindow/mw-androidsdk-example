@@ -4,7 +4,7 @@
     android:layout_height="110dp"
     android:background="@color/white">
 
-    <com.zxinsight.MWImageView
+    <cn.magicwindow.MWImageView
         android:id="@+id/id_list_img"
         android:padding="@dimen/img_margin"
         android:layout_centerVertical="true"

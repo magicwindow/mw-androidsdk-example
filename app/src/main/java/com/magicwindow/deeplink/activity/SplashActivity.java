@@ -13,10 +13,11 @@ import com.magicwindow.deeplink.UrlDispatcher;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MLink;
-import com.zxinsight.MWConfiguration;
-import com.zxinsight.MagicWindowSDK;
-import com.zxinsight.mlink.YYBCallback;
+import cn.magicwindow.MLink;
+import cn.magicwindow.MLinkAPIFactory;
+import cn.magicwindow.MWConfiguration;
+import cn.magicwindow.MagicWindowSDK;
+import cn.magicwindow.mlink.YYBCallback;
 
 import cn.salesuite.saf.log.L;
 
@@ -61,7 +62,7 @@ public class SplashActivity extends BaseAppCompatActivity {
         Uri mLink = getIntent().getData();
         Log.e(TAG, "Splash mLink = " + mLink);
         if (mLink != null) {
-            MagicWindowSDK.getMLink().router(mLink);
+            MLink.getInstance(this).router(mLink);
             finish();
         } else {
             MLink.getInstance(this).checkYYB(SplashActivity.this, new YYBCallback() {
@@ -127,7 +128,7 @@ public class SplashActivity extends BaseAppCompatActivity {
 
         Uri mLink = intent.getData();
         if (mLink != null) {
-            MagicWindowSDK.getMLink().router(mLink);
+            MLinkAPIFactory.createAPI(this).router(mLink);
         } else {
             MLink.getInstance(this).checkYYB();
         }

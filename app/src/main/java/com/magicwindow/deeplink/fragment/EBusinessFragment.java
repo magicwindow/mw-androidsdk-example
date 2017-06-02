@@ -24,9 +24,9 @@ import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.BusinessList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;

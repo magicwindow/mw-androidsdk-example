@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
 import com.magicwindow.deeplink.ui.ImageIndicatorView;
-import com.zxinsight.MLink;
+import cn.magicwindow.MLink;
 
 import cn.salesuite.saf.inject.annotation.InjectExtra;
 import cn.salesuite.saf.inject.annotation.InjectView;

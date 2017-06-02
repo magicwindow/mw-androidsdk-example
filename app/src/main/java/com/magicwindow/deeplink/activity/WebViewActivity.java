@@ -13,7 +13,7 @@ import android.webkit.WebViewClient;
 
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.BaseAppCompatActivity;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.inject.annotation.InjectView;
 

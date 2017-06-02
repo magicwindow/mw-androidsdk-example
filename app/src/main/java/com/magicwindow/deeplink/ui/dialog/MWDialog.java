@@ -12,8 +12,8 @@ import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
 
 import cn.salesuite.saf.utils.SAFUtils;
 

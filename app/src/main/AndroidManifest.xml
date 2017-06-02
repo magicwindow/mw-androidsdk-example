@@ -201,7 +201,7 @@
 
         <!-- 主activity，必加 -->
         <activity
-            android:name="com.zxinsight.common.base.MWActivity"
+            android:name="cn.magicwindow.common.base.MWActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|navigation"
             android:exported="true">
             <intent-filter>

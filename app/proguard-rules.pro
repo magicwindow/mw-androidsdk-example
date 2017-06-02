@@ -20,13 +20,6 @@
 -verbose
 -dontnote com.android.vending.licensing.ILicensingService
 
-
-
--keep class com.zxinsight.common.gson.stream.** {
-    <fields>;
-    <methods>;
-}
-
 -keep class * extends android.os.Parcelable {
     public static final android.os.Parcelable$Creator *;
 }
@@ -38,10 +31,10 @@
 }
 
 -keep class com.tencent.mm.sdk.**{*;}
--keep class com.zxinsight.**{*;}
+-keep class cn.magicwindow.**{*;}
 -keep class com.magicwindow.deeplink.**{*;}
 -keep class cn.salesuite.saf.**{*;}
--dontwarn com.zxinsight.**
+-dontwarn cn.magicwindow.**
 -dontwarn com.tencent.mm.sdk.**
 -dontwarn cn.salesuite.saf.**
 
@@ -122,7 +115,7 @@
 
 # -keep class com.google.gson.stream.** { *; }
 # #---------------End: proguard configuration for Gson  ----------
--keep,allowshrinking class com.zxinsight.share.activity.*
+-keep,allowshrinking class cn.magicwindow.share.activity.*
 
 # Keep - Applications. Keep all application classes, along with their 'main'
 # methods.

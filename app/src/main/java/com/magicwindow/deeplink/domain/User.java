@@ -4,8 +4,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.magicwindow.deeplink.app.MWApplication;
-import com.zxinsight.TrackAgent;
-import com.zxinsight.analytics.domain.UserProfile;
+import cn.magicwindow.TrackAgent;
+import cn.magicwindow.analytics.domain.UserProfile;
 
 import java.io.Serializable;
 

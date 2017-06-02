@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
-import com.zxinsight.MWImageView;
+
+import cn.magicwindow.ClickParamsBuilder;
+import cn.magicwindow.MWImageView;
 
 import org.json.JSONObject;
 
@@ -69,7 +71,8 @@ public class ImageAdapter extends PagerAdapter {
             MWApplication.getInstance().imageLoader.displayImage(list.get(position), imageView);
         }
         if (mWPosition != -1) {
-            imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(), null);
+//            imageView.bindEventWithMLink(Config.MWS[mWPosition + position], new JSONObject(), null);
+            imageView.bindEventWithParams(new ClickParamsBuilder(view.getContext(),Config.MWS[mWPosition+position]).mLinkParam(new JSONObject()).build());
         }
         view.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);

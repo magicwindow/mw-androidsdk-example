@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.ApiConstant;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.zxinsight.MWConfiguration;
+import cn.magicwindow.MWConfiguration;
 
 import java.util.List;
 import java.util.Map;

@@ -15,7 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.zxinsight.MWConfiguration;
+import cn.magicwindow.MWConfiguration;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;

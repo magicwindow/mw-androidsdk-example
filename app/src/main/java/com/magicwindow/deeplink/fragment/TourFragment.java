@@ -19,16 +19,13 @@ import com.magicwindow.deeplink.R;
 import com.magicwindow.deeplink.adapter.ImageAdapter;
 import com.magicwindow.deeplink.adapter.TourListAdapter;
 import com.magicwindow.deeplink.app.BaseFragment;
-import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.TravelList;
 import com.magicwindow.deeplink.prefs.AppPrefs;
-import com.magicwindow.deeplink.task.NetTask;
 import com.magicwindow.deeplink.ui.ListViewForScrollView;
-import com.zxinsight.TrackAgent;
+import cn.magicwindow.TrackAgent;
 
 import cn.salesuite.saf.inject.Injector;
 import cn.salesuite.saf.inject.annotation.InjectView;
-import cn.salesuite.saf.rxjava.RxAsyncTask;
 import me.relex.circleindicator.CircleIndicator;
 
 /**

@@ -13,8 +13,8 @@ import com.magicwindow.deeplink.activity.WebViewActivity;
 import com.magicwindow.deeplink.app.MWApplication;
 import com.magicwindow.deeplink.config.Config;
 import com.magicwindow.deeplink.domain.NewsList;
-import com.zxinsight.MWImageView;
-import com.zxinsight.MarketingHelper;
+import cn.magicwindow.MWImageView;
+import cn.magicwindow.MarketingHelper;
 
 import java.util.List;
 

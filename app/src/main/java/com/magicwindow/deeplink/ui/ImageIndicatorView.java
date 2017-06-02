@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.zxinsight.MWImageView;
+import cn.magicwindow.MWImageView;
 import com.magicwindow.deeplink.R;
 
 import java.lang.ref.WeakReference;

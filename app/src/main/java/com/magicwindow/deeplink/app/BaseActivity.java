@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.magicwindow.deeplink.ui.dialog.LoadingDialog;
 import com.magicwindow.deeplink.utils.EventBusManager;
-import com.zxinsight.Session;
+import cn.magicwindow.Session;
 
 import cn.salesuite.saf.app.SAFActivity;
 import cn.salesuite.saf.eventbus.EventBus;
